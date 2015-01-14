@@ -1,6 +1,6 @@
 /*
  * This file is auto-generated.  DO NOT MODIFY.
- * Original file: C:\\Users\\Roberto\\Desktop\\Programar\\Android SDK - Java\\ProjectX\\android\\src\\com\\android\\vending\\billing\\IInAppBillingService.aidl
+ * Original file: C:\\Users\\pol\\Documents\\GitHub\\Tiny-God\\android\\src\\com\\android\\vending\\billing\\IInAppBillingService.aidl
  */
 package com.android.vending.billing;
 /**
