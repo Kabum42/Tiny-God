@@ -1,13 +1,8 @@
 package net.piropanda.tinygod;
 
 import net.piropanda.tinygod.managers.GameStateManager;
-import net.piropanda.tinygod.GameInfo;
 
 import com.badlogic.gdx.ApplicationAdapter;
-import java.util.Locale;
-
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 
 public class TinyGod extends ApplicationAdapter {
@@ -34,46 +29,39 @@ public class TinyGod extends ApplicationAdapter {
 	public void create() {
 		loadLanguage();
 		GameInfo.loadFromJson("");
-		
-		GameStateManager.init();
+
+		GameStateManager.load();
 	}
 	
 	private void loadLanguage() {
-		// load and save the current language from json if possible
-		String lang = Locale.getDefault().getLanguage() + Locale.getDefault().getCountry();
-		/*
-		if(lang.equals("ca_ES")) Lang.loadCatalan();
-		else if(lang.equals("es_ES")) Lang.loadSpanish();
-		else Lang.loadEnglish();
-		*/
+		// load and save the current language from Json if possible
+//		String lang = Locale.getDefault().getLanguage() + Locale.getDefault().getCountry();
+		
+//		if(lang.equals("ca_ES")) Lang.loadCatalan();
+//		else if(lang.equals("es_ES")) Lang.loadSpanish();
+//		else Lang.loadEnglish();
 	}
 
 	@Override
 	public void render() {
-		float dt = Gdx.graphics.getDeltaTime();
-		
-		GameStateManager.update(dt);
+		GameStateManager.update();
 		GameStateManager.render();
 	}
 	
 	@Override
 	public void resize(int width, int height) {
-		GameStateManager.resize(width, height);
 	}
 	
 	@Override
 	public void pause() {
-//		GameStateManager.pause();
 	}
 	
 	@Override
 	public void resume() {
-//		GameStateManager.resume();
 	}
 	
 	@Override
 	public void dispose() {
-//		GameStateManager.dispose();
 	}
 	
 	public boolean onBackPressed(){
