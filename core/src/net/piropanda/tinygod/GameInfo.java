@@ -6,64 +6,108 @@ import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.badlogic.gdx.Gdx;
+
 public class GameInfo {
    private static final String SERIAL_VERSION = "1.1";
    
    
    // producers
-   public static final String BUILDING_SERVANT = "servant";
-   public static final String BUILDING_HUMAN = "human";
-   public static final String BUILDING_PROPHET = "prophet";
-   public static final String BUILDING_TEMPLE = "temple";
-   public static final String BUILDING_SHIP = "ship";
-   public static final String BUILDING_FACTORY = "factory";
-   public static final String BUILDING_LABORATORY = "laboratory";
-   public static final String BUILDING_HIPPIE_VAN = "hippievan";
-   public static final String BUILDING_SHOP = "shop";
-   public static final String BUILDING_SPACESHIP = "spaceship";
+   public static final String ID_PROD_SERVANT = "servant";
+   public static final double PROD_PRICE_SERVANT = 15.0;
+   public static final double PROD_LPS_SERVANT = 0.1;
    
-   public static final double PRICE_SERVANT = 15.0;
-   public static final double PRICE_HUMAN = 100.0;
-   public static final double PRICE_PROPHET = 500.0;
-   public static final double PRICE_TEMPLE = 3000.0; // 3 K
-   public static final double PRICE_SHIP = 10000.0; // 10 K
-   public static final double PRICE_FACTORY = 40000.0; // 40 K
-   public static final double PRICE_LABORATORY = 200000.0; // 200 K
-   public static final double PRICE_HIPPIE_VAN = 1700000.0; // 1.7 M
-   public static final double PRICE_SHOP = 125000000.0; // 125 M
-   public static final double PRICE_SPACESHIP = 4000000000.0; // 4 B
+   public static final String ID_PROD_HUMAN = "human";
+   public static final double PROD_PRICE_HUMAN = 100.0;
+   public static final double PROD_LPS_HUMAN = 0.5;
    
-   public static final double LPSBASE_SERVANT = 0.1;
-   public static final double LPSBASE_HUMAN = 0.5;
-   public static final double LPSBASE_PROPHET = 4.0;
-   public static final double LPSBASE_TEMPLE = 10.0;
-   public static final double LPSBASE_SHIP = 40.0;
-   public static final double LPSBASE_FACTORY = 100.0;
-   public static final double LPSBASE_LABORATORY = 400.0;
-   public static final double LPSBASE_HIPPIE_VAN = 7000.0; // 7K
-   public static final double LPSBASE_SHOP = 100000.0; // 100 K
-   public static final double LPSBASE_SPACESHIP = 1000000.0; // 1 M
+   public static final String ID_PROD_PROPHET = "prophet";
+   public static final double PROD_PRICE_PROPHET = 500.0;
+   public static final double PROD_LPS_PROPHET = 4.0;
+   
+   public static final String ID_PROD_TEMPLE = "temple";
+   public static final double PROD_PRICE_TEMPLE = 3000.0; // 3 K
+   public static final double PROD_LPS_TEMPLE = 10.0;
+   
+   public static final String ID_PROD_SHIP = "ship";
+   public static final double PROD_PRICE_SHIP = 10000.0; // 10 K
+   public static final double PROD_LPS_SHIP = 40.0;
+   
+   public static final String ID_PROD_FACTORY = "factory";
+   public static final double PROD_PRICE_FACTORY = 40000.0; // 40 K
+   public static final double PROD_LPS_FACTORY = 100.0;
+   
+   public static final String ID_PROD_LABORATORY = "laboratory";
+   public static final double PROD_PRICE_LABORATORY = 200000.0; // 200 K
+   public static final double PROD_LPS_LABORATORY = 400.0;
+
+   public static final String ID_PROD_HIPPIEVAN = "hippievan";
+   public static final double PROD_PRICE_HIPPIEVAN = 1700000.0; // 1.7 M
+   public static final double PROD_LPS_HIPPIEVAN = 7000.0; // 7K
+   
+   public static final String ID_PROD_SHOP = "shop";
+   public static final double PROD_PRICE_SHOP = 125000000.0; // 125 M
+   public static final double PROD_LPS_SHOP = 100000.0; // 100 K
+   
+   public static final String ID_PROD_SPACESHIP = "spaceship";
+   public static final double PROD_PRICE_SPACESHIP = 4000000000.0; // 4 B
+   public static final double PROD_LPS_SPACESHIP = 1000000.0; // 1 M
    
    // achievements
+   public static final String ID_ACH_SERVANT_1_NAME = "ID_ACH_SERVANT_1";
+   public static final String ID_ACH_SERVANT_1_QUOTE = "ID_ACH_SERVANT_1_QUOTE";
+   public static final String ID_ACH_SERVANT_25_NAME = "ID_ACH_SERVANT_25";
+   public static final String ID_ACH_SERVANT_25_QUOTE = "ID_ACH_SERVANT_25_QUOTE";
+   public static final String ID_ACH_SERVANT_50_NAME = "ID_ACH_SERVANT_50";
+   public static final String ID_ACH_SERVANT_50_QUOTE = "ID_ACH_SERVANT_50_QUOTE";
+   public static final String ID_ACH_SERVANT_100_NAME = "ID_ACH_SERVANT_100";
+   public static final String ID_ACH_SERVANT_100_QUOTE = "ID_ACH_SERVANT_100_QUOTE";
+   public static final String ID_ACH_SERVANT_200_NAME = "ID_ACH_SERVANT_200";
+   public static final String ID_ACH_SERVANT_200_QUOTE = "ID_ACH_SERVANT_200_QUOTE";
+
+   public static final String ID_ACH_HUMAN_1_NAME = "ID_ACH_HUMAN_1";
+   public static final String ID_ACH_HUMAN_1_QUOTE = "ID_ACH_HUMAN_1_QUOTE";
+   public static final String ID_ACH_HUMAN_25_NAME = "ID_ACH_HUMAN_25";
+   public static final String ID_ACH_HUMAN_25_QUOTE = "ID_ACH_HUMAN_25_QUOTE";
+   public static final String ID_ACH_HUMAN_50_NAME = "ID_ACH_HUMAN_50";
+   public static final String ID_ACH_HUMAN_50_QUOTE = "ID_ACH_HUMAN_50_QUOTE";
+   public static final String ID_ACH_HUMAN_100_NAME = "ID_ACH_HUMAN_100";
+   public static final String ID_ACH_HUMAN_100_QUOTE = "ID_ACH_HUMAN_100_QUOTE";
+   public static final String ID_ACH_HUMAN_200_NAME = "ID_ACH_HUMAN_200";
+   public static final String ID_ACH_HUMAN_200_QUOTE = "ID_ACH_HUMAN_200_QUOTE";
    
    // upgrades
+   public static final String ID_UPG_SERVANT_1_NAME = "ID_UPG_SERVANT_1";
+   public static final String ID_UPG_SERVANT_1_QUOTE = "UPG_SERVANT_QUOTE_1";
    
    
    // needs to be saved/loaded
-   public static double love, totalLove; 
-   public static int clicks;
-   public static HashMap<String,Integer> buildings = new HashMap<String, Integer>();
-   public static HashMap<String,Boolean> upgrades = new HashMap<String, Boolean>();
-   public static HashMap<String,Boolean> achievements = new HashMap<String, Boolean>();
+   public static double love, totalLove;
+   public static int clicks; // number of clicks since the beginning
+   public static HashMap<String, Integer> producers = new HashMap<String, Integer>(); // producers owned
+   public static HashMap<String, Boolean> upgrades = new HashMap<String, Boolean>(); // upgrades acquired
+   public static HashMap<String, Boolean> achievements = new HashMap<String, Boolean>(); // achievements unlocked
    // auto-updates every frame
-   public static double lps, loveClick; 
+   public static double lps; 
+   public static double lovePerClick, criticalClickMultiplier, criticalClickChance;
 
    
    public GameInfo() {
 	   reset();
    }
    
-   public static void addBuilding(String name) { buildings.put(name, buildings.get(name) + 1); }
+   public static void addLove(double amount) {
+	   love += amount;
+	   totalLove += amount;
+   }
+   
+   public static void addBuilding(String name) { producers.put(name, producers.get(name) + 1); }
+   
+   public static boolean isAchievementUnlocked(String name) { return achievements.get(name); }
+   public static void unlockAchievement(String name) { achievements.put(name, true); }
+   
+   public static boolean isUpgradeUnlocked(String name) { return upgrades.get(name); }
+   public static void unlockUpgrade(String name) { upgrades.put(name, true); }
    
    public static void loadFromSnapshot (byte[] data) {
        if (data != null) {
@@ -103,12 +147,12 @@ public class GameInfo {
            
            while (iterTotalLove.hasNext()) {
                String totalLoveName = (String)iterTotalLove.next();
-               totalLove = jsonLove.getDouble(totalLoveName);
+               totalLove = jsonTotalLove.getDouble(totalLoveName);
            }
            
            while (iterBuildings.hasNext()) {
                String buildingName = (String)iterBuildings.next();
-               buildings.put(buildingName, jsonBuildings.getInt(buildingName));
+               producers.put(buildingName, jsonBuildings.getInt(buildingName));
            }
            
            while (iterUpgrades.hasNext()) {
@@ -145,14 +189,14 @@ public class GameInfo {
     	   
     	   jsonLove.put("love", love);
     	   jsonTotalLove.put("totalLove", totalLove);
-           for(String buildingName : buildings.keySet()) { jsonBuildings.put(buildingName, buildings.get(buildingName)); }
-           for(String upgradeName : upgrades.keySet()) { jsonUpgrades.put(upgradeName, buildings.get(upgradeName)); }
-           for(String achievementName : achievements.keySet()) { jsonAchievements.put(achievementName, buildings.get(achievementName)); }
+           for(String buildingName : producers.keySet()) { jsonBuildings.put(buildingName, producers.get(buildingName)); }
+           for(String upgradeName : upgrades.keySet()) { jsonUpgrades.put(upgradeName, producers.get(upgradeName)); }
+           for(String achievementName : achievements.keySet()) { jsonAchievements.put(achievementName, producers.get(achievementName)); }
 
            JSONObject obj = new JSONObject();
            obj.put("version", SERIAL_VERSION);
            obj.put("love", jsonLove);
-           obj.put("totalLove", jsonLove);
+           obj.put("totalLove", jsonTotalLove);
            obj.put("buildings", jsonBuildings);
            obj.put("upgrades", jsonUpgrades);
            obj.put("achievements", jsonAchievements);
@@ -168,52 +212,74 @@ public class GameInfo {
    public static void reset() {
        love = 0.0;
        totalLove = love;
-       loveClick = 1.0;
+
+       lovePerClick = 1.0;
+       criticalClickMultiplier = 5.0; // 5x
+       criticalClickChance = 1; // 1%
+       
        clicks = 0;
 	   
 	   resetBuildings();
 	   resetUpgrades();
-	   resetAchievements();	   
+	   resetAchievements();
    }
    
    private static void resetBuildings() {
-	   buildings.clear();
+	   producers.clear();
 	   
-	   buildings.put(BUILDING_SERVANT, 0);
-	   buildings.put(BUILDING_HUMAN, 0);
-	   buildings.put(BUILDING_PROPHET, 0);
-	   buildings.put(BUILDING_TEMPLE, 0);
-	   buildings.put(BUILDING_SHIP, 0);
-	   buildings.put(BUILDING_FACTORY, 0);
-	   buildings.put(BUILDING_LABORATORY, 0);
-	   buildings.put(BUILDING_HIPPIE_VAN, 0);
-	   buildings.put(BUILDING_SHOP, 0);
-	   buildings.put(BUILDING_SPACESHIP, 0);
+	   producers.put(ID_PROD_SERVANT, 0);
+	   producers.put(ID_PROD_HUMAN, 0);
+	   producers.put(ID_PROD_PROPHET, 0);
+	   producers.put(ID_PROD_TEMPLE, 0);
+	   producers.put(ID_PROD_SHIP, 0);
+	   producers.put(ID_PROD_FACTORY, 0);
+	   producers.put(ID_PROD_LABORATORY, 0);
+	   producers.put(ID_PROD_HIPPIEVAN, 0);
+	   producers.put(ID_PROD_SHOP, 0);
+	   producers.put(ID_PROD_SPACESHIP, 0);
    }
    
    private static void resetUpgrades() {
 	   upgrades.clear();
+	   
+	   upgrades.put(ID_UPG_SERVANT_1_NAME, false);
    }
    
    private static void resetAchievements() {
 	   achievements.clear();
+
+	   achievements.put(ID_ACH_SERVANT_1_NAME, false);
+	   achievements.put(ID_ACH_SERVANT_25_NAME, false);
+	   achievements.put(ID_ACH_SERVANT_50_NAME, false);
+	   achievements.put(ID_ACH_SERVANT_100_NAME, false);
+	   achievements.put(ID_ACH_SERVANT_200_NAME, false);
+	   
+	   achievements.put(ID_ACH_HUMAN_1_NAME, false);
+	   achievements.put(ID_ACH_HUMAN_25_NAME, false);
+	   achievements.put(ID_ACH_HUMAN_50_NAME, false);
+	   achievements.put(ID_ACH_HUMAN_100_NAME, false);
+	   achievements.put(ID_ACH_HUMAN_200_NAME, false);
    }
    
-   public static void update(float dt) {
+   public static void update() {
+	   float dt = Gdx.graphics.getDeltaTime();
+	   
 	  lps = 0.0;
+	  criticalClickChance = 0.1;
+	  criticalClickMultiplier = 10.0;
 	  
-	  lps += buildings.get(BUILDING_SERVANT) 	* LPSBASE_SERVANT;
-	  lps += buildings.get(BUILDING_HUMAN) 		* LPSBASE_HUMAN;
-	  lps += buildings.get(BUILDING_PROPHET) 	* LPSBASE_PROPHET;
-	  lps += buildings.get(BUILDING_TEMPLE) 	* LPSBASE_TEMPLE;
-	  lps += buildings.get(BUILDING_SHIP) 		* LPSBASE_SHIP;
-	  lps += buildings.get(BUILDING_FACTORY) 	* LPSBASE_FACTORY;
-	  lps += buildings.get(BUILDING_LABORATORY) * LPSBASE_LABORATORY;
-	  lps += buildings.get(BUILDING_HIPPIE_VAN) * LPSBASE_HIPPIE_VAN;
-	  lps += buildings.get(BUILDING_SHOP) 		* LPSBASE_SHOP;
-	  lps += buildings.get(BUILDING_SPACESHIP) 	* LPSBASE_SPACESHIP;
+	  lps += producers.get(ID_PROD_SERVANT) 	* PROD_LPS_SERVANT;
+	  lps += producers.get(ID_PROD_HUMAN) 		* PROD_LPS_HUMAN;
+	  lps += producers.get(ID_PROD_PROPHET) 	* PROD_LPS_PROPHET;
+	  lps += producers.get(ID_PROD_TEMPLE) 		* PROD_LPS_TEMPLE;
+	  lps += producers.get(ID_PROD_SHIP) 		* PROD_LPS_SHIP;
+	  lps += producers.get(ID_PROD_FACTORY) 	* PROD_LPS_FACTORY;
+	  lps += producers.get(ID_PROD_LABORATORY) 	* PROD_LPS_LABORATORY;
+	  lps += producers.get(ID_PROD_HIPPIEVAN) 	* PROD_LPS_HIPPIEVAN;
+	  lps += producers.get(ID_PROD_SHOP) 		* PROD_LPS_SHOP;
+	  lps += producers.get(ID_PROD_SPACESHIP) 	* PROD_LPS_SPACESHIP;
 	  
-	  loveClick = 1.0;
+	  lovePerClick = 1.0;
 	  
 	  double gain = lps * dt;
 	  totalLove += gain;

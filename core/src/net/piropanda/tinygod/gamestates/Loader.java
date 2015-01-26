@@ -26,9 +26,17 @@ public class Loader extends GameState {
 		font = new BitmapFont();
 
 		TG.Graphics.assets.load("piropanda-logo.png", Texture.class);
+		TG.Graphics.assets.load("status-bar.png", Texture.class);
+		TG.Graphics.assets.load("lord-god.png", Texture.class);
+		TG.Graphics.assets.load("bg.png", Texture.class);
+		TG.Graphics.assets.load("tab-bg.png", Texture.class);
+		TG.Graphics.assets.load("tab-btn.png", Texture.class);
+		// achievements
+		TG.Graphics.assets.load("achievements/achievement-selector.png", Texture.class);
+		TG.Graphics.assets.load("achievements/locked-achievement.png", Texture.class);
+		TG.Graphics.assets.load("achievements/test.png", Texture.class);
 		// producers
-		TG.Graphics.assets.load("producers/bg.png", Texture.class);
-		TG.Graphics.assets.load("producers/black.png", Texture.class);
+		TG.Graphics.assets.load("producers/locked-producer.png", Texture.class);
 		TG.Graphics.assets.load("producers/factory.png", Texture.class);
 		TG.Graphics.assets.load("producers/hippievan.png", Texture.class);
 		TG.Graphics.assets.load("producers/human.png", Texture.class);
@@ -40,8 +48,6 @@ public class Loader extends GameState {
 		TG.Graphics.assets.load("producers/shop.png", Texture.class);
 		TG.Graphics.assets.load("producers/spaceship.png", Texture.class);
 		TG.Graphics.assets.load("producers/temple.png", Texture.class);
-		// the eye
-		TG.Graphics.assets.load("eye/bg.png", Texture.class);
 	}
 	
 	@Override
