@@ -42,7 +42,6 @@ public class Loader extends GameState {
 		TG.Graphics.assets.load("producers/human.png", Texture.class);
 		TG.Graphics.assets.load("producers/laboratory.png", Texture.class);
 		TG.Graphics.assets.load("producers/prophet.png", Texture.class);
-		TG.Graphics.assets.load("producers/seen.png", Texture.class);
 		TG.Graphics.assets.load("producers/servant.png", Texture.class);
 		TG.Graphics.assets.load("producers/ship.png", Texture.class);
 		TG.Graphics.assets.load("producers/shop.png", Texture.class);
