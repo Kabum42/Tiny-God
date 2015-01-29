@@ -5,6 +5,7 @@ import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.codex.Codex;
 import net.piropanda.tinygod.screens.creation.Creation;
+import net.piropanda.tinygod.screens.earth.Earth;
 import net.piropanda.tinygod.screens.god.God;
 import net.piropanda.tinygod.screens.providence.Providence;
 import net.piropanda.tinygod.screens.social.Social;
@@ -48,7 +49,7 @@ public class Ingame extends GameState {
 			new Providence(),
 			new God(),
 			new Creation(),
-			new Social()
+			new Earth()
 		};
 		currentscreen = 2;
 		
@@ -69,6 +70,7 @@ public class Ingame extends GameState {
 		}
 		
 		camera.update();
+		screens[4].update();
 	}
 
 	@Override
