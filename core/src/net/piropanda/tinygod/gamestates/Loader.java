@@ -29,6 +29,7 @@ public class Loader extends GameState {
 		TG.Graphics.assets.load("status-bar.png", Texture.class);
 		TG.Graphics.assets.load("lord-god.png", Texture.class);
 		TG.Graphics.assets.load("earth.png", Texture.class);
+		TG.Graphics.assets.load("human.png", Texture.class);
 		TG.Graphics.assets.load("bg.png", Texture.class);
 		TG.Graphics.assets.load("tab-bg.png", Texture.class);
 		TG.Graphics.assets.load("tab-btn.png", Texture.class);

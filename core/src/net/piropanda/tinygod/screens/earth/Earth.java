@@ -21,6 +21,10 @@ public class Earth extends Screen {
 	
 	
 	private Sprite earth;
+	private Sprite human;
+	
+	private float human_x;
+	private float human_y;
 	
 	
 	public Earth() {
@@ -39,6 +43,18 @@ public class Earth extends Screen {
 		earth.setX(x + TG.Display.WIDTH/2 - earth.getWidth()/2);
 		earth.setY(TG.Display.HEIGHT/2 - earth.getHeight()/2);
 		earth.setOriginCenter();
+		
+		earth.setScale(0.5f, 0.5f);
+		
+		human = new Sprite(TG.Graphics.assets.get("human.png", Texture.class));
+		human.setOriginCenter();
+		
+		human_x = x + TG.Display.WIDTH/2 - human.getWidth()/2;
+		human_y = TG.Display.HEIGHT/2 - human.getHeight()/2;
+		
+		human.setScale(0.25f, 0.25f);
+		
+		
 	}
 	
 	@Override
@@ -62,15 +78,25 @@ public class Earth extends Screen {
 	
 	@Override
 	public void update() {
-		//earth.setRotation(earth.getRotation() + 1);
-		earth.rotate(2f);
-		//earth.setX(earth.getX()+1);
+		earth.setRotation(earth.getRotation() + 1);
+		if (earth.getRotation() > 360) {
+			earth.setRotation(earth.getRotation() -360);
+		}
+		if (earth.getRotation() < 0) {
+			earth.setRotation(earth.getRotation() +360);
+		}
+		
+		human.setRotation(earth.getRotation() -90);
+		human.setX((float) (human_x + Math.cos(Math.toRadians(earth.getRotation()))*((earth.getWidth()/2)*earth.getScaleX()+human.getWidth()/2*human.getScaleX()) ));
+		human.setY((float) (human_y + Math.sin(Math.toRadians(earth.getRotation()))*((earth.getWidth()/2)*earth.getScaleX()+human.getWidth()/2*human.getScaleX()) ));
+		System.out.println(Math.cos(Math.toRadians(earth.getRotation())));
 	}
 	
 	@Override
 	public void render(SpriteBatch batch, BitmapFont font) {
 		batch.draw(bg, x, 0);
 		earth.draw(batch);
+		human.draw(batch);
 		//batch.draw(god, x + centerX - radius, centerY - radius, radius*2, radius*2);
 		//font.draw(batch, "GOD", x + 20, TG.Display.HEIGHT - 60);
 	}
