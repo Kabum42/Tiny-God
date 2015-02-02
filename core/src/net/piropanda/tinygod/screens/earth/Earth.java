@@ -1,9 +1,12 @@
 package net.piropanda.tinygod.screens.earth;
 
+import java.util.ArrayList;
+
 import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Pixmap.Format;
@@ -11,48 +14,75 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.List;
 
 /**
  * Earth
  */
 public class Earth extends Screen {
 	
-	private Texture bg;
-	
-	
+	private Sprite bg;
 	private Sprite earth;
-	private Sprite human;
 	
-	private float human_x;
-	private float human_y;
+	private ArrayList<Physical> physicals = new ArrayList<Physical>();
+	private ArrayList<Physical> physicals_to_render = new ArrayList<Physical>();
+	
+	private float accumulatedX, accumulatedY;
+	private boolean movingX, movingY;
+	private static final int MINIMUM_MOVEMENT_THRESHOLD = 30;
+	private static final int SWAPING_MOVEMENT_THRESHOLD = 120;
 	
 	
 	public Earth() {
-		Pixmap pix = new Pixmap(TG.Display.WIDTH, TG.Display.HEIGHT, Format.RGBA8888);
-		pix.setColor(new Color(0xFF6370ff));
-		pix.fill();
-		pix.setColor(Color.BLACK);
-		pix.drawRectangle(0, 0, TG.Display.WIDTH, TG.Display.HEIGHT);
-		bg = new Texture(pix);
-		pix.dispose();
 		
-		x = TG.Display.WIDTH * 4;
+		canPan = false;
+
+		x = TG.Display.WIDTH * 2;
 		
-	
 		earth = new Sprite(TG.Graphics.assets.get("earth.png", Texture.class));
+		earth.setScale(1.0f, 1.0f);
 		earth.setX(x + TG.Display.WIDTH/2 - earth.getWidth()/2);
-		earth.setY(TG.Display.HEIGHT/2 - earth.getHeight()/2);
-		earth.setOriginCenter();
+		float percent_earth_showing = 20;
+		earth.setY(-earth.getHeight()/2 -earth.getHeight()*earth.getScaleY()*((50f - percent_earth_showing)/100f));
+		//earth.setOriginCenter();
 		
-		earth.setScale(0.5f, 0.5f);
+		int num_humans = 200;
+		int num_capas = 5;
 		
-		human = new Sprite(TG.Graphics.assets.get("human.png", Texture.class));
-		human.setOriginCenter();
+		/*
+		for (int i = 0; i < num_capas; i++) {
+			// i es cada una de las capas
+			
+			int aux_humans = num_humans/2;
+			num_humans -= aux_humans;
+			
+			for (int j = 0; j < aux_humans; j++) {
+				humans.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*((float)i/(float)num_capas)), (float) (Math.random()*360)));
+			}
+			
+		}
+		*/
 		
-		human_x = x + TG.Display.WIDTH/2 - human.getWidth()/2;
-		human_y = TG.Display.HEIGHT/2 - human.getHeight()/2;
 		
-		human.setScale(0.25f, 0.25f);
+		for (int i = 0; i < num_humans; i++) {
+			float radius_distance = 1;
+			while (radius_distance >= 0.8) {
+				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
+			}
+			physicals.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360)));
+			//humans.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*0), (float) ((360/20)*i)));
+		}
+		
+		
+		for (int i = 0; i < 50; i++) {
+			float radius_distance = 1;
+			while (radius_distance >= 0.8) {
+				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
+			}
+			physicals.add(new Atrezzo(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360), "tree"));
+			//humans.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*0), (float) ((360/20)*i)));
+		}
+		
 		
 		
 	}
@@ -64,6 +94,10 @@ public class Earth extends Screen {
 
 	@Override
 	public void pan(float x, float y, float deltaX, float deltaY) {
+		
+
+		earth.setRotation(earth.getRotation() -deltaX*(0.25f));
+		
 	}
 
 	@Override
@@ -78,7 +112,9 @@ public class Earth extends Screen {
 	
 	@Override
 	public void update() {
-		earth.setRotation(earth.getRotation() + 1);
+		
+		earth.setRotation((float) (earth.getRotation() + Gdx.graphics.getDeltaTime()*(2.0f)));
+		
 		if (earth.getRotation() > 360) {
 			earth.setRotation(earth.getRotation() -360);
 		}
@@ -86,19 +122,47 @@ public class Earth extends Screen {
 			earth.setRotation(earth.getRotation() +360);
 		}
 		
-		human.setRotation(earth.getRotation() -90);
-		human.setX((float) (human_x + Math.cos(Math.toRadians(earth.getRotation()))*((earth.getWidth()/2)*earth.getScaleX()+human.getWidth()/2*human.getScaleX()) ));
-		human.setY((float) (human_y + Math.sin(Math.toRadians(earth.getRotation()))*((earth.getWidth()/2)*earth.getScaleX()+human.getWidth()/2*human.getScaleX()) ));
-		System.out.println(Math.cos(Math.toRadians(earth.getRotation())));
+		for (int i = 0; i < physicals.size(); i++) {
+			physicals.get(i).update();
+		}
+		
 	}
 	
 	@Override
 	public void render(SpriteBatch batch, BitmapFont font) {
-		batch.draw(bg, x, 0);
+
 		earth.draw(batch);
-		human.draw(batch);
-		//batch.draw(god, x + centerX - radius, centerY - radius, radius*2, radius*2);
-		//font.draw(batch, "GOD", x + 20, TG.Display.HEIGHT - 60);
+		sortedHumansRendering(batch);
+		
+		/*
+		for (int i = 0; i < humans.size(); i++) {
+			humans.get(i).draw(batch);
+		}
+		*/
+		
+	}
+	
+	public void sortedHumansRendering(SpriteBatch batch) {
+		
+		physicals_to_render = (ArrayList<Physical>) physicals.clone();
+		
+		while(physicals_to_render.size() > 0) {
+
+			Physical next_physical = null;
+			for (int i = 0; i < physicals_to_render.size(); i++) {
+				if (next_physical == null) {
+					next_physical = physicals_to_render.get(i);
+				}
+				else {
+					if (physicals_to_render.get(i).radius > next_physical.radius) {
+						next_physical = physicals_to_render.get(i);
+					}
+				}
+			}
+			next_physical.draw(batch);
+			physicals_to_render.remove(next_physical);
+		}
+		
 	}
 	
 }

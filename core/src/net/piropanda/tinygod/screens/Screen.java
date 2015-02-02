@@ -20,6 +20,8 @@ public class Screen {
 	// screen tabs
 	protected ScreenTab currentTab, tab1, tab2;
 	
+	public boolean canPan = true;
+	
 	
 	public Screen() {
 		bg = TG.Graphics.assets.get("bg.png", Texture.class);

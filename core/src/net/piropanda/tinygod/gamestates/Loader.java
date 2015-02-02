@@ -28,8 +28,6 @@ public class Loader extends GameState {
 		TG.Graphics.assets.load("piropanda-logo.png", Texture.class);
 		TG.Graphics.assets.load("status-bar.png", Texture.class);
 		TG.Graphics.assets.load("lord-god.png", Texture.class);
-		TG.Graphics.assets.load("earth.png", Texture.class);
-		TG.Graphics.assets.load("human.png", Texture.class);
 		TG.Graphics.assets.load("bg.png", Texture.class);
 		TG.Graphics.assets.load("tab-bg.png", Texture.class);
 		TG.Graphics.assets.load("tab-btn.png", Texture.class);
@@ -49,6 +47,10 @@ public class Loader extends GameState {
 		TG.Graphics.assets.load("producers/shop.png", Texture.class);
 		TG.Graphics.assets.load("producers/spaceship.png", Texture.class);
 		TG.Graphics.assets.load("producers/temple.png", Texture.class);
+		
+		TG.Graphics.assets.load("earth.png", Texture.class);
+		TG.Graphics.assets.load("human.png", Texture.class);
+		TG.Graphics.assets.load("tree.png", Texture.class);
 	}
 	
 	@Override

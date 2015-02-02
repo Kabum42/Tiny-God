@@ -47,9 +47,9 @@ public class Ingame extends GameState {
 		screens = new Screen[] {
 			new Codex(),
 			new Providence(),
-			new God(),
+			new Earth(),
 			new Creation(),
-			new Earth()
+			new Social()
 		};
 		currentscreen = 2;
 		
@@ -100,29 +100,39 @@ public class Ingame extends GameState {
 	
 	@Override
 	public boolean pan(float x, float y, float deltaX, float deltaY) {
-		accumulatedX += deltaX; // the delta on the x-axis goes negative->positive from left to right
-		accumulatedY -= deltaY; // the delta on the y-axis goes negative->positive from top to bottom
 		
-		if(Math.abs(accumulatedX) > Math.abs(accumulatedY) && Math.abs(accumulatedX) > MINIMUM_MOVEMENT_THRESHOLD) movingX = true;
-		if(Math.abs(accumulatedX) < Math.abs(accumulatedY) && Math.abs(accumulatedY) > MINIMUM_MOVEMENT_THRESHOLD) movingY = true;
+		if (screens[currentscreen].canPan) {
+			accumulatedX += deltaX; // the delta on the x-axis goes negative->positive from left to right
+			accumulatedY -= deltaY; // the delta on the y-axis goes negative->positive from top to bottom
+			
+			if(Math.abs(accumulatedX) > Math.abs(accumulatedY) && Math.abs(accumulatedX) > MINIMUM_MOVEMENT_THRESHOLD) movingX = true;
+			if(Math.abs(accumulatedX) < Math.abs(accumulatedY) && Math.abs(accumulatedY) > MINIMUM_MOVEMENT_THRESHOLD) movingY = true;
+			
+			if(movingX) camera.position.x -= deltaX;
+			else if(movingY) screens[currentscreen].pan(x, y, deltaX, deltaY);
+		}
+		else {
+			screens[currentscreen].pan(x, y, deltaX, deltaY);
+		}
 		
-		if(movingX) camera.position.x -= deltaX;
-		else if(movingY) screens[currentscreen].pan(x, y, deltaX, deltaY);
 		
 		return true;
 	}
 	
 	@Override
 	public boolean panStop(float x, float y, int pointer, int button) {
-		if(accumulatedX > SWAPING_MOVEMENT_THRESHOLD) currentscreen--;
-		if(accumulatedX < -SWAPING_MOVEMENT_THRESHOLD) currentscreen++;
-		currentscreen = MathUtils.clamp(currentscreen, 0, 4);
 		
-		accumulatedX = 0;
-		accumulatedY = 0;
-		
-		movingX = false;
-		movingY = false;
+		if (screens[currentscreen].canPan) {
+			if(accumulatedX > SWAPING_MOVEMENT_THRESHOLD) currentscreen--;
+			if(accumulatedX < -SWAPING_MOVEMENT_THRESHOLD) currentscreen++;
+			currentscreen = MathUtils.clamp(currentscreen, 0, 4);
+			
+			accumulatedX = 0;
+			accumulatedY = 0;
+			
+			movingX = false;
+			movingY = false;
+		}
 		
 		return true;
 	}
