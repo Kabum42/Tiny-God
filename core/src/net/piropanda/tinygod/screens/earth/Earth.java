@@ -41,7 +41,7 @@ public class Earth extends Screen {
 	private static final int SWAPING_MOVEMENT_THRESHOLD = 120;
 	
 	
-	Texture tex1, mask;
+	Texture tex1, mask, mask2;
 	ShaderProgram maskShader;
 	
 	public Earth() {
@@ -50,7 +50,8 @@ public class Earth extends Screen {
 		
 		tex1 = new Texture(Gdx.files.internal("shaders/aux_mask.png")); // ESTO ESTA POR SI QUEREMOS PINTAR ALGO EN EL HUECO
 		mask = new Texture(Gdx.files.internal("shaders/mask.png")); // ESTA ES LA MASCARA QUE HACE EL HUECO
-
+		mask2 = new Texture(Gdx.files.internal("shaders/mask2.png"));
+		
 		maskShader = new ShaderProgram(Gdx.files.internal("shaders/mask.vsh").readString(), Gdx.files.internal("shaders/mask.fsh").readString());
 
 		maskShader.begin();
@@ -60,14 +61,13 @@ public class Earth extends Screen {
 		
 		//bind mask to glActiveTexture(GL_TEXTURE2)
 		mask.bind(2);
+		//mask2.bind(2);
 		
 		//bind dirt to glActiveTexture(GL_TEXTURE1)
 		tex1.bind(1);
 		
 		//now we need to reset glActiveTexture to zero!!!! since sprite batch does not do this for us
 		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-		
-
 		
 		hueShader = new ShaderProgram(Gdx.files.internal("shaders/hue.vsh"), Gdx.files.internal("shaders/hue.fsh"));
 		System.out.println(hueShader.isCompiled());
@@ -189,8 +189,18 @@ public class Earth extends Screen {
 		batch.setShader(hueShader);
 		*/
 		
-		batch.setShader(maskShader);
 		
+		if (Math.random() > 0.5) {
+			mask.bind(2);
+		}
+		else {
+			mask2.bind(2);
+		}
+		
+		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+		
+		
+		batch.setShader(maskShader);
 		
 		
 		
