@@ -24,6 +24,8 @@ public class Earth extends Screen {
 	private Sprite bg;
 	private Sprite earth;
 	
+	private ArrayList<Physical> astrals = new ArrayList<Physical>();
+	
 	private ArrayList<Physical> physicals = new ArrayList<Physical>();
 	private ArrayList<Physical> physicals_to_render = new ArrayList<Physical>();
 	
@@ -44,7 +46,15 @@ public class Earth extends Screen {
 		earth.setX(x + TG.Display.WIDTH/2 - earth.getWidth()/2);
 		float percent_earth_showing = 20;
 		earth.setY(-earth.getHeight()/2 -earth.getHeight()*earth.getScaleY()*((50f - percent_earth_showing)/100f));
-		//earth.setOriginCenter();
+		
+		
+		
+		astrals.add(new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90));
+		astrals.add(new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 90));
+		
+		astrals.add(new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 180));
+		astrals.add(new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 270));
+		
 		
 		int num_humans = 200;
 		int num_capas = 5;
@@ -64,24 +74,24 @@ public class Earth extends Screen {
 		*/
 		
 		
-		for (int i = 0; i < num_humans; i++) {
-			float radius_distance = 1;
-			while (radius_distance >= 0.8) {
-				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
-			}
-			physicals.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360)));
-			//humans.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*0), (float) ((360/20)*i)));
-		}
-		
-		
 		for (int i = 0; i < 50; i++) {
 			float radius_distance = 1;
 			while (radius_distance >= 0.8) {
 				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
 			}
 			physicals.add(new Atrezzo(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360), "tree"));
-			//humans.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*0), (float) ((360/20)*i)));
 		}
+		
+		for (int i = 0; i < num_humans; i++) {
+			float radius_distance = 1;
+			while (radius_distance >= 0.8) {
+				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
+			}
+			physicals.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360)));
+		}
+		
+		
+		
 		
 		
 		
@@ -122,6 +132,10 @@ public class Earth extends Screen {
 			earth.setRotation(earth.getRotation() +360);
 		}
 		
+		for (int i = 0; i < astrals.size(); i++) {
+			astrals.get(i).update();
+		}
+		
 		for (int i = 0; i < physicals.size(); i++) {
 			physicals.get(i).update();
 		}
@@ -131,6 +145,9 @@ public class Earth extends Screen {
 	@Override
 	public void render(SpriteBatch batch, BitmapFont font) {
 
+		for (int i = 0; i < astrals.size(); i++) {
+			astrals.get(i).draw(batch);
+		}
 		earth.draw(batch);
 		sortedHumansRendering(batch);
 		

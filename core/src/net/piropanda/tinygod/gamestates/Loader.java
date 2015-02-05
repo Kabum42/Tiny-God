@@ -48,8 +48,10 @@ public class Loader extends GameState {
 		TG.Graphics.assets.load("producers/spaceship.png", Texture.class);
 		TG.Graphics.assets.load("producers/temple.png", Texture.class);
 		
+		TG.Graphics.assets.load("sun.png", Texture.class);
 		TG.Graphics.assets.load("earth.png", Texture.class);
-		TG.Graphics.assets.load("human.png", Texture.class);
+		TG.Graphics.assets.load("earth/AdamMini.png", Texture.class);
+		TG.Graphics.assets.load("earth/EveMini.png", Texture.class);
 		TG.Graphics.assets.load("tree.png", Texture.class);
 	}
 	

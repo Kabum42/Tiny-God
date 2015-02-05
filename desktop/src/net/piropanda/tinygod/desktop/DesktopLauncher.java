@@ -11,7 +11,7 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 
-		config.resizable = false; // probably remove on the phone
+		config.resizable = true; // probably remove on the phone
 		config.width = TG.Display.WIDTH;
 		config.height = TG.Display.HEIGHT;
 		config.title = TG.Display.TITLE;

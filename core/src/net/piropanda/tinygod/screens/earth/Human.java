@@ -28,28 +28,41 @@ public class Human extends Physical {
 		
 		jumping = (float) (-jumping_time + Math.random()*jumping_time*2);
 		
-		speed = (float) (0.5 + Math.random()*0.2);
+		speed = (float) (0.25 + Math.random()*0.1);
 		if (Math.random() > 0.5) {
 			speed = -speed;
 		}
 		
-		sprite = new Sprite(TG.Graphics.assets.get("human.png", Texture.class));
-		sprite.setScale(0.25f, 0.25f);
+		if (Math.random() > 0.5f) {
+			sprite = new Sprite(TG.Graphics.assets.get("earth/AdamMini.png", Texture.class));
+		}
+		else {
+			sprite = new Sprite(TG.Graphics.assets.get("earth/EveMini.png", Texture.class));
+		}
+		sprite.setScale((1f/4f), (1f/4f));
 		sprite.setOriginCenter();
 		
-		origin_x = planet.getWidth() -planet.getX();
+		origin_x = planet.getX() + planet.getWidth()/2 -sprite.getWidth()/2;
 		origin_y = planet.getY() +planet.getHeight()/2 -sprite.getHeight()/2;
 		
 		
 		sprite.setX(origin_x);
 		sprite.setY(origin_y);
 		
-		sprite.setColor(new Color((float) Math.random(), (float) Math.random(), (float) Math.random(), 1));
+		//sprite.setColor(new Color((float) Math.random(), (float) Math.random(), (float) Math.random(), 1));
 		
 		
 	}
 	
 	public void update() {
+		
+		
+		if (speed < 0) {
+			sprite.setScale(-Math.abs(sprite.getScaleX()), sprite.getScaleY());
+		}
+		else if (speed > 0) {
+			sprite.setScale(Math.abs(sprite.getScaleX()), sprite.getScaleY());
+		}
 		
 		
 		jumping -= Gdx.graphics.getDeltaTime();
