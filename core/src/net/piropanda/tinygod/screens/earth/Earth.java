@@ -2,24 +2,30 @@ package net.piropanda.tinygod.screens.earth;
 
 import java.util.ArrayList;
 
+
 import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.ui.List;
 
 /**
  * Earth
  */
 public class Earth extends Screen {
+	
+	private ShaderProgram hueShader;
 	
 	private Sprite bg;
 	private Sprite earth;
@@ -35,7 +41,37 @@ public class Earth extends Screen {
 	private static final int SWAPING_MOVEMENT_THRESHOLD = 120;
 	
 	
+	Texture tex1, mask;
+	ShaderProgram maskShader;
+	
 	public Earth() {
+		
+		ShaderProgram.pedantic = false;
+		
+		tex1 = new Texture(Gdx.files.internal("shaders/aux_mask.png")); // ESTO ESTA POR SI QUEREMOS PINTAR ALGO EN EL HUECO
+		mask = new Texture(Gdx.files.internal("shaders/mask.png")); // ESTA ES LA MASCARA QUE HACE EL HUECO
+
+		maskShader = new ShaderProgram(Gdx.files.internal("shaders/mask.vsh").readString(), Gdx.files.internal("shaders/mask.fsh").readString());
+
+		maskShader.begin();
+		maskShader.setUniformi("u_texture1", 1);
+		maskShader.setUniformi("u_mask", 2);
+		maskShader.end();
+		
+		//bind mask to glActiveTexture(GL_TEXTURE2)
+		mask.bind(2);
+		
+		//bind dirt to glActiveTexture(GL_TEXTURE1)
+		tex1.bind(1);
+		
+		//now we need to reset glActiveTexture to zero!!!! since sprite batch does not do this for us
+		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+		
+
+		
+		hueShader = new ShaderProgram(Gdx.files.internal("shaders/hue.vsh"), Gdx.files.internal("shaders/hue.fsh"));
+		System.out.println(hueShader.isCompiled());
+		
 		
 		canPan = false;
 
@@ -145,10 +181,25 @@ public class Earth extends Screen {
 	@Override
 	public void render(SpriteBatch batch, BitmapFont font) {
 
+		
+		/*
+		hueShader.begin();
+		hueShader.setUniformf("hue", (float)(-1 + earth.getRotation()/180));
+		hueShader.end();
+		batch.setShader(hueShader);
+		*/
+		
+		batch.setShader(maskShader);
+		
+		
+		
+		
 		for (int i = 0; i < astrals.size(); i++) {
 			astrals.get(i).draw(batch);
 		}
+		
 		earth.draw(batch);
+		
 		sortedHumansRendering(batch);
 		
 		/*
@@ -160,6 +211,7 @@ public class Earth extends Screen {
 	}
 	
 	public void sortedHumansRendering(SpriteBatch batch) {
+		
 		
 		physicals_to_render = (ArrayList<Physical>) physicals.clone();
 		

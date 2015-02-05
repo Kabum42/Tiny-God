@@ -3,6 +3,8 @@ package net.piropanda.tinygod;
 import net.piropanda.tinygod.managers.GameStateManager;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 
 public class TinyGod extends ApplicationAdapter {
 

@@ -15,6 +15,7 @@ public class DesktopLauncher {
 		config.width = TG.Display.WIDTH;
 		config.height = TG.Display.HEIGHT;
 		config.title = TG.Display.TITLE;
+		//config.useGL30 = true;
 		
 		new LwjglApplication(new TinyGod(new DesktopInterface()), config);
 	}

@@ -17,11 +17,13 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.MathUtils;
 
 public class Ingame extends GameState {
 
+	private ShaderProgram shader;
 	private SpriteBatch batch;
 	private BitmapFont font;
 	private OrthographicCamera camera;
@@ -38,7 +40,11 @@ public class Ingame extends GameState {
 	
 	
 	public Ingame() {
+		
+
 		batch = new SpriteBatch();
+		//batch.setShader(shader);
+		
 		font = new BitmapFont();
 		font.setColor(Color.BLACK);
 		camera = new OrthographicCamera(TG.Display.WIDTH, TG.Display.HEIGHT);
