@@ -177,11 +177,6 @@ public class AndroidLauncher extends AndroidApplication implements GoogleInterfa
         }
     }
 
-	@Override
-	public void onConnected(Bundle connectionHint) {
-        // Connected to Google Play services!
-        // The good stuff goes here.
-    }
 
 	@Override
 	public void onConnectionSuspended(int cause) {
@@ -296,6 +291,12 @@ public class AndroidLauncher extends AndroidApplication implements GoogleInterfa
 		if (game.onBackPressed()) {
 			moveTaskToBack(true);
 		}
+	}
+
+	@Override
+	public void onConnected(Bundle arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

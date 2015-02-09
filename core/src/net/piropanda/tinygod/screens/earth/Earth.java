@@ -46,6 +46,8 @@ public class Earth extends Screen {
 	ShaderProgram maskShader;
 	
 	public Earth() {
+
+		/*
 		
 		ShaderProgram.pedantic = false;
 		
@@ -74,6 +76,9 @@ public class Earth extends Screen {
 		System.out.println(hueShader.isCompiled());
 		
 		
+
+		
+
 		canPan = false;
 
 		x = TG.Display.WIDTH * 2;
@@ -95,20 +100,9 @@ public class Earth extends Screen {
 		
 		int num_humans = 200;
 		int num_capas = 5;
+
 		
-		/*
-		for (int i = 0; i < num_capas; i++) {
-			// i es cada una de las capas
-			
-			int aux_humans = num_humans/2;
-			num_humans -= aux_humans;
-			
-			for (int j = 0; j < aux_humans; j++) {
-				humans.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*((float)i/(float)num_capas)), (float) (Math.random()*360)));
-			}
-			
-		}
-		*/
+
 		
 		
 		for (int i = 0; i < 50; i++) {
@@ -127,13 +121,14 @@ public class Earth extends Screen {
 			physicals.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360)));
 		}
 		
-		
+		*/
 		
 		
 		
 		
 	}
 	
+	/*
 	@Override
 	public void tap(float tapx, float tapy) {
 		GameInfo.addLove(GameInfo.lovePerClick);
@@ -183,12 +178,12 @@ public class Earth extends Screen {
 	public void render(SpriteBatch batch, BitmapFont font) {
 
 		
-		/*
+		
 		hueShader.begin();
 		hueShader.setUniformf("hue", (float)(-1 + earth.getRotation()/180));
 		hueShader.end();
 		batch.setShader(hueShader);
-		*/
+		
 		
 		
 		if (Math.random() > 0.5) {
@@ -213,13 +208,10 @@ public class Earth extends Screen {
 		
 		sortedHumansRendering(batch);
 		
-		/*
-		for (int i = 0; i < humans.size(); i++) {
-			humans.get(i).draw(batch);
-		}
-		*/
+
 		
 	}
+	*/
 	
 	public void sortedHumansRendering(SpriteBatch batch) {
 		

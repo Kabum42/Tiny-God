@@ -1,7 +1,6 @@
 package net.piropanda.tinygod;
 
 import java.util.HashMap;
-import java.util.Iterator;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,7 +53,7 @@ public class GameInfo {
    public static final double PROD_LPS_SPACESHIP = 1000000.0; // 1 M
    
    // achievements
-   public static final String ID_ACH_SERVANT_1_NAME = "ID_ACH_SERVANT_1";
+   public static final String ID_ACH_SERVANT_1_NAME = "test";
    public static final String ID_ACH_SERVANT_1_QUOTE = "ID_ACH_SERVANT_1_QUOTE";
    public static final String ID_ACH_SERVANT_25_NAME = "ID_ACH_SERVANT_25";
    public static final String ID_ACH_SERVANT_25_QUOTE = "ID_ACH_SERVANT_25_QUOTE";
@@ -79,11 +78,19 @@ public class GameInfo {
    // upgrades
    public static final String ID_UPG_SERVANT_1_NAME = "ID_UPG_SERVANT_1";
    public static final String ID_UPG_SERVANT_1_QUOTE = "UPG_SERVANT_QUOTE_1";
+   public static final String ID_UPG_SERVANT_25_NAME = "ID_UPG_SERVANT_25";
+   public static final String ID_UPG_SERVANT_25_QUOTE = "UPG_SERVANT_QUOTE_25";
+   public static final String ID_UPG_SERVANT_50_NAME = "ID_UPG_SERVANT_50";
+   public static final String ID_UPG_SERVANT_50_QUOTE = "UPG_SERVANT_QUOTE_50";
+   public static final String ID_UPG_SERVANT_100_NAME = "ID_UPG_SERVANT_100";
+   public static final String ID_UPG_SERVANT_100_QUOTE = "UPG_SERVANT_QUOTE_100";
+   public static final String ID_UPG_SERVANT_200_NAME = "ID_UPG_SERVANT_200";
+   public static final String ID_UPG_SERVANT_200_QUOTE = "UPG_SERVANT_QUOTE_200";
    
    
    // needs to be saved/loaded
    public static double love, totalLove;
-   public static int clicks; // number of clicks since the beginning
+   public static long clicks; // number of clicks since the beginning
    public static HashMap<String, Integer> producers = new HashMap<String, Integer>(); // producers owned
    public static HashMap<String, Boolean> upgrades = new HashMap<String, Boolean>(); // upgrades acquired
    public static HashMap<String, Boolean> achievements = new HashMap<String, Boolean>(); // achievements unlocked
@@ -110,69 +117,69 @@ public class GameInfo {
    public static void unlockUpgrade(String name) { upgrades.put(name, true); }
    
    public static void loadFromSnapshot (byte[] data) {
-       if (data != null) {
-    	   loadFromJson(new String(data));
-       }
+//       if (data != null) {
+//    	   loadFromJson(new String(data));
+//       }
    }
    
    public static void loadFromJson(String json) {
-       reset();
-       
-       if (json == null || json.trim().equals("")) return;
-
-       try {
-           JSONObject obj = new JSONObject(json);
-           String format = obj.getString("version");
-           
-           if (!format.equals(SERIAL_VERSION)) {
-               throw new RuntimeException("Unexpected loot format " + format);
-           }
-
-           JSONObject jsonLove = obj.getJSONObject("love");
-           JSONObject jsonTotalLove = obj.getJSONObject("totalLove");
-           JSONObject jsonBuildings = obj.getJSONObject("buildings");
-           JSONObject jsonUpgrades = obj.getJSONObject("upgrades");
-           JSONObject jsonAchievements = obj.getJSONObject("achievements");
-           
-           Iterator<?> iterLove = jsonLove.keys();
-           Iterator<?> iterTotalLove = jsonTotalLove.keys();
-           Iterator<?> iterBuildings = jsonBuildings.keys();
-           Iterator<?> iterUpgrades = jsonUpgrades.keys();
-           Iterator<?> iterAchievements = jsonAchievements.keys();
-           
-           while (iterLove.hasNext()) {
-               String loveName = (String)iterLove.next();
-               love = jsonLove.getDouble(loveName);
-           }
-           
-           while (iterTotalLove.hasNext()) {
-               String totalLoveName = (String)iterTotalLove.next();
-               totalLove = jsonTotalLove.getDouble(totalLoveName);
-           }
-           
-           while (iterBuildings.hasNext()) {
-               String buildingName = (String)iterBuildings.next();
-               producers.put(buildingName, jsonBuildings.getInt(buildingName));
-           }
-           
-           while (iterUpgrades.hasNext()) {
-               String upgradeName = (String)iterUpgrades.next();
-               upgrades.put(upgradeName, jsonUpgrades.getBoolean(upgradeName));
-           }
-           
-           while (iterAchievements.hasNext()) {
-               String achievementName = (String)iterAchievements.next();
-               achievements.put(achievementName, jsonAchievements.getBoolean(achievementName));
-           }
-           
-       }
-       catch (JSONException ex) {
-           ex.printStackTrace();
-       }
-       catch (NumberFormatException ex) {
-           ex.printStackTrace();
-           throw new RuntimeException("Save data has an invalid number in it: " + json, ex);
-       }
+//       reset();
+//       
+//       if (json == null || json.trim().equals("")) return;
+//
+//       try {
+//           JSONObject obj = new JSONObject(json);
+//           String format = obj.getString("version");
+//           
+//           if (!format.equals(SERIAL_VERSION)) {
+//               throw new RuntimeException("Unexpected loot format " + format);
+//           }
+//
+//           JSONObject jsonLove = obj.getJSONObject("love");
+//           JSONObject jsonTotalLove = obj.getJSONObject("totalLove");
+//           JSONObject jsonBuildings = obj.getJSONObject("buildings");
+//           JSONObject jsonUpgrades = obj.getJSONObject("upgrades");
+//           JSONObject jsonAchievements = obj.getJSONObject("achievements");
+//           
+//           Iterator<?> iterLove = jsonLove.keys();
+//           Iterator<?> iterTotalLove = jsonTotalLove.keys();
+//           Iterator<?> iterBuildings = jsonBuildings.keys();
+//           Iterator<?> iterUpgrades = jsonUpgrades.keys();
+//           Iterator<?> iterAchievements = jsonAchievements.keys();
+//           
+//           while (iterLove.hasNext()) {
+//               String loveName = (String)iterLove.next();
+//               love = jsonLove.getfloat(loveName);
+//           }
+//           
+//           while (iterTotalLove.hasNext()) {
+//               String totalLoveName = (String)iterTotalLove.next();
+//               totalLove = jsonTotalLove.getfloat(totalLoveName);
+//           }
+//           
+//           while (iterBuildings.hasNext()) {
+//               String buildingName = (String)iterBuildings.next();
+//               producers.put(buildingName, jsonBuildings.getInt(buildingName));
+//           }
+//           
+//           while (iterUpgrades.hasNext()) {
+//               String upgradeName = (String)iterUpgrades.next();
+//               upgrades.put(upgradeName, jsonUpgrades.getBoolean(upgradeName));
+//           }
+//           
+//           while (iterAchievements.hasNext()) {
+//               String achievementName = (String)iterAchievements.next();
+//               achievements.put(achievementName, jsonAchievements.getBoolean(achievementName));
+//           }
+//           
+//       }
+//       catch (JSONException ex) {
+//           ex.printStackTrace();
+//       }
+//       catch (NumberFormatException ex) {
+//           ex.printStackTrace();
+//           throw new RuntimeException("Save data has an invalid number in it: " + json, ex);
+//       }
    }
 
    public static byte[] toBytes() {
@@ -215,7 +222,7 @@ public class GameInfo {
 
        lovePerClick = 1.0;
        criticalClickMultiplier = 5.0; // 5x
-       criticalClickChance = 1; // 1%
+       criticalClickChance = 1.0; // 1%
        
        clicks = 0;
 	   
@@ -227,44 +234,48 @@ public class GameInfo {
    private static void resetBuildings() {
 	   producers.clear();
 	   
-	   producers.put(ID_PROD_SERVANT, 0);
-	   producers.put(ID_PROD_HUMAN, 0);
-	   producers.put(ID_PROD_PROPHET, 0);
-	   producers.put(ID_PROD_TEMPLE, 0);
-	   producers.put(ID_PROD_SHIP, 0);
-	   producers.put(ID_PROD_FACTORY, 0);
-	   producers.put(ID_PROD_LABORATORY, 0);
-	   producers.put(ID_PROD_HIPPIEVAN, 0);
-	   producers.put(ID_PROD_SHOP, 0);
-	   producers.put(ID_PROD_SPACESHIP, 0);
+	   producers.put(ID_PROD_SERVANT, 		0);
+	   producers.put(ID_PROD_HUMAN, 		0);
+	   producers.put(ID_PROD_PROPHET, 		0);
+	   producers.put(ID_PROD_TEMPLE, 		0);
+	   producers.put(ID_PROD_SHIP, 			0);
+	   producers.put(ID_PROD_FACTORY, 		0);
+	   producers.put(ID_PROD_LABORATORY,	0);
+	   producers.put(ID_PROD_HIPPIEVAN, 	0);
+	   producers.put(ID_PROD_SHOP, 			0);
+	   producers.put(ID_PROD_SPACESHIP,	 	0);
    }
    
    private static void resetUpgrades() {
 	   upgrades.clear();
-	   
-	   upgrades.put(ID_UPG_SERVANT_1_NAME, false);
+
+	   upgrades.put(ID_UPG_SERVANT_1_NAME, 		false);
+	   upgrades.put(ID_UPG_SERVANT_25_NAME, 	false);
+	   upgrades.put(ID_UPG_SERVANT_50_NAME, 	false);
+	   upgrades.put(ID_UPG_SERVANT_100_NAME,	false);
+	   upgrades.put(ID_UPG_SERVANT_200_NAME,	false);
    }
    
    private static void resetAchievements() {
 	   achievements.clear();
 
-	   achievements.put(ID_ACH_SERVANT_1_NAME, false);
-	   achievements.put(ID_ACH_SERVANT_25_NAME, false);
-	   achievements.put(ID_ACH_SERVANT_50_NAME, false);
-	   achievements.put(ID_ACH_SERVANT_100_NAME, false);
-	   achievements.put(ID_ACH_SERVANT_200_NAME, false);
+	   achievements.put(ID_ACH_SERVANT_1_NAME, 		false);
+	   achievements.put(ID_ACH_SERVANT_25_NAME, 	false);
+	   achievements.put(ID_ACH_SERVANT_50_NAME, 	false);
+	   achievements.put(ID_ACH_SERVANT_100_NAME, 	false);
+	   achievements.put(ID_ACH_SERVANT_200_NAME, 	false);
 	   
-	   achievements.put(ID_ACH_HUMAN_1_NAME, false);
-	   achievements.put(ID_ACH_HUMAN_25_NAME, false);
-	   achievements.put(ID_ACH_HUMAN_50_NAME, false);
-	   achievements.put(ID_ACH_HUMAN_100_NAME, false);
-	   achievements.put(ID_ACH_HUMAN_200_NAME, false);
+	   achievements.put(ID_ACH_HUMAN_1_NAME, 		false);
+	   achievements.put(ID_ACH_HUMAN_25_NAME, 		false);
+	   achievements.put(ID_ACH_HUMAN_50_NAME, 		false);
+	   achievements.put(ID_ACH_HUMAN_100_NAME, 		false);
+	   achievements.put(ID_ACH_HUMAN_200_NAME, 		false);
    }
    
    public static void update() {
 	   float dt = Gdx.graphics.getDeltaTime();
 	   
-	  lps = 0.0;
+	  lps = 0.0f;
 	  criticalClickChance = 0.1;
 	  criticalClickMultiplier = 10.0;
 	  
@@ -279,7 +290,7 @@ public class GameInfo {
 	  lps += producers.get(ID_PROD_SHOP) 		* PROD_LPS_SHOP;
 	  lps += producers.get(ID_PROD_SPACESHIP) 	* PROD_LPS_SPACESHIP;
 	  
-	  lovePerClick = 1.0;
+	  lovePerClick = 1f;
 	  
 	  double gain = lps * dt;
 	  totalLove += gain;
