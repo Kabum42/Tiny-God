@@ -1,38 +1,26 @@
 package net.piropanda.tinygod.screens.codex;
 
 import net.piropanda.tinygod.TG;
+import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.ScreenTab;
 
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.scenes.scene2d.ui.Container;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 public class Credits extends ScreenTab {
-	
-	public Credits(float x) {
-		super(x);
-	}
-	
-	@Override
-	public void tap(float tapx, float tapy) {
-	}
 
-	@Override
-	public void pan(float x, float y, float deltaX, float deltaY) {
-	}
-
-	@Override
-	public void update() {
-	}
-
-	@Override
-	public void render(SpriteBatch batch, BitmapFont font) {
-		super.render(batch, font);
+	public Credits(Screen screen) {
+		super(screen);
 		
-		float xx = 30;
-		float yy = TG.Display.HEIGHT - 50 - 10 - 50 - 10 - 10; // status bar height - margin - tab space - margin - text margin
-		
-		font.draw(batch, "ALL THIS LOVE BROUGTH TO YOU BY", xx, yy);
-		font.draw(batch, "the sons of Tiny God", xx, yy - 20);
+		String text = "The standard Lorem Ipsum passage, used since the 1500s\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		Label label = new Label(text, TG.Graphics.skin);
+		label.setFontScale(TG.Display.WIDTH / Gdx.graphics.getWidth()); // scale the font to a readable size
+		label.setWrap(true);
+		Container<Label> container = new Container<Label>(label);
+		container.prefWidth(350);
+		container.padBottom(25);
+		content.add(container);
 	}
 	
 }
