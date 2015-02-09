@@ -41,6 +41,7 @@ public class Earth extends Screen {
 	private static final int SWAPING_MOVEMENT_THRESHOLD = 120;
 	
 	
+	
 	Texture tex1, mask, mask2;
 	ShaderProgram maskShader;
 	
