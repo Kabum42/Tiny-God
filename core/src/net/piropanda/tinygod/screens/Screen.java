@@ -16,6 +16,8 @@ public abstract class Screen extends Group {
 	protected Table table;
 	protected ScrollPane scroll;
 	
+	public boolean canPan = true;
+	
 	
 	public Screen() {
 		// tab background (sub-screen)
