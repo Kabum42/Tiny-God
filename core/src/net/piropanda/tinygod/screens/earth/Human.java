@@ -6,13 +6,14 @@ import net.piropanda.tinygod.screens.Screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 
 public class Human extends Physical {
 	
-	private Sprite sprite;
+	private Sprite planet;
 	
 	private float radius_jump = 0;
 	
@@ -95,10 +96,10 @@ public class Human extends Physical {
 		
 	}
 
-	public void draw(SpriteBatch batch) {
-		
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
 		sprite.draw(batch);
-		
 	}
 
 }

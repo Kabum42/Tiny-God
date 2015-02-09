@@ -6,13 +6,14 @@ import net.piropanda.tinygod.screens.Screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 
 public class Atrezzo extends Physical {
 	
-	private Sprite sprite;
+	private Sprite planet;
 	
 	
 	public Atrezzo(Sprite planet2, float radius2, float angle2, String type) {
@@ -23,7 +24,7 @@ public class Atrezzo extends Physical {
 		
 		
 		if (type == "tree") {
-			sprite = new Sprite(TG.Graphics.assets.get("tree.png", Texture.class));
+			sprite = new Sprite(TG.Graphics.assets.get("earth/tree.png", Texture.class));
 			sprite.setScale(0.40f, 0.40f);
 		}
 		
@@ -49,10 +50,10 @@ public class Atrezzo extends Physical {
 		
 	}
 
-	public void draw(SpriteBatch batch) {
-		
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
 		sprite.draw(batch);
-		
 	}
 
 }

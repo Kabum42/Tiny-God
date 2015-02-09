@@ -1,11 +1,12 @@
 package net.piropanda.tinygod.screens.earth;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class Physical {
 	
-	public Sprite planet;
+	public Sprite sprite;
 	public float radius;
 	public float angle;
 	
@@ -19,9 +20,10 @@ public class Physical {
 		
 	}
 
-	public void draw(SpriteBatch batch) {
+	public void draw(Batch batch, float parentAlpha) {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

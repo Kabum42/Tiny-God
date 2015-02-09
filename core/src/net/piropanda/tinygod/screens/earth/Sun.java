@@ -6,13 +6,14 @@ import net.piropanda.tinygod.screens.Screen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 
 public class Sun extends Physical {
 	
-	private Sprite sprite;
+	private Sprite planet;
 	
 	public Sun(Sprite planet2, float radius2, float angle2) {
 		
@@ -22,7 +23,7 @@ public class Sun extends Physical {
 		
 		speed = (float) (-0.2f);
 		
-		sprite = new Sprite(TG.Graphics.assets.get("sun.png", Texture.class));
+		sprite = new Sprite(TG.Graphics.assets.get("earth/sun.png", Texture.class));
 		sprite.setScale((1.5f/10f), (1.5f/10f));
 		sprite.setOriginCenter();
 		
@@ -52,10 +53,10 @@ public class Sun extends Physical {
 		
 	}
 
-	public void draw(SpriteBatch batch) {
-		
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
 		sprite.draw(batch);
-		
 	}
 
 }

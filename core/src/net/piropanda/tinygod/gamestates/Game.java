@@ -3,6 +3,7 @@ package net.piropanda.tinygod.gamestates;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.codex.Codex;
 import net.piropanda.tinygod.screens.creation.Creation;
+import net.piropanda.tinygod.screens.earth.Earth;
 import net.piropanda.tinygod.screens.god.God;
 import net.piropanda.tinygod.screens.providence.Providence;
 import net.piropanda.tinygod.screens.store.Store;
@@ -28,6 +29,8 @@ public class Game extends Group implements GestureListener {
 	public Group god;
 	public Creation creation;
 	public Store store;
+	
+	//public Earth earth;
 	
 	private float easingPosition;
 	
