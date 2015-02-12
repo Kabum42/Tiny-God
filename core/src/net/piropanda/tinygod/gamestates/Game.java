@@ -1,6 +1,7 @@
 package net.piropanda.tinygod.gamestates;
 
 import net.piropanda.tinygod.TG;
+import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.codex.Codex;
 import net.piropanda.tinygod.screens.creation.Creation;
 import net.piropanda.tinygod.screens.god.God;
@@ -23,9 +24,10 @@ public class Game extends Group implements GestureListener {
 	
 	public static Game instance = new Game();
 	
+	private Screen[] screens;
 	public Codex codex;
 	public Providence providence;
-	public Group god;
+	public God god;
 	public Creation creation;
 	public Store store;
 	
@@ -48,11 +50,13 @@ public class Game extends Group implements GestureListener {
 		bg.setTouchable(Touchable.disabled);
 		
 		// screens
-		codex = new Codex();
-		providence = new Providence();
-		god = new God();
-		creation = new Creation();
-		store = new Store();
+		screens = new Screen[5];
+		
+		screens[0] = codex = new Codex();
+		screens[1] = providence = new Providence();
+		screens[2] = god = new God();
+		screens[3] = creation = new Creation();
+		screens[4] = store = new Store();
 		
 		codex.setX(TG.Display.WIDTH * Codex.POSITION);
 		providence.setX(TG.Display.WIDTH * Providence.POSITION);
@@ -62,10 +66,11 @@ public class Game extends Group implements GestureListener {
 		
 		this.addActor(codex);
 		this.addActor(providence);
+		this.addActor(god);
 		this.addActor(creation);
 		this.addActor(store);
+		
 		this.addActor(bg); // add the background image after the 4 Screen 
-		this.addActor(god); // add the main "Screen" (it's a group) afterwards
 		
 		// 
 		currentScreen = God.POSITION;
@@ -120,7 +125,7 @@ public class Game extends Group implements GestureListener {
 
 	@Override
 	public boolean pan(float x, float y, float deltaX, float deltaY) {
-		if(Math.abs(deltaX) > Math.abs(deltaY)) {
+		if(screens[currentScreen].canPan && Math.abs(deltaX) > Math.abs(deltaY)) {
 			accumulatedX += deltaX;
 			movingX = true;
 			

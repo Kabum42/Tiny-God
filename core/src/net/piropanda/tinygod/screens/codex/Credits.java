@@ -13,7 +13,7 @@ public class Credits extends ScreenTab {
 	public Credits(Screen screen) {
 		super(screen);
 		
-		String text = "The standard Lorem Ipsum passage, used since the 1500s\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+		String text = "Game brought to you by bla, bla and bla.\n\nThanks for all the translations made by:\nbli (blibli)\nblu (blublu)\n...\n\nA special mention to Kiba, we will never forget you.";
 		Label label = new Label(text, TG.Graphics.skin);
 		label.setFontScale(TG.Display.WIDTH / Gdx.graphics.getWidth()); // scale the font to a readable size
 		label.setWrap(true);

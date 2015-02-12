@@ -29,6 +29,7 @@ public class Codex extends Screen {
 		credits = new Credits(this);
 		stats = new Stats(this);
 		
+		// set initial visibility
 		this.addActor(settings);
 		settings.setVisible(false);
 		this.addActor(credits);

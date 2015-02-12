@@ -17,7 +17,7 @@ public class GameLoader extends Group {
 	
 	private Label label;
 	
-	
+
 	public GameLoader() {
 		this.setName(NAME);
 	}

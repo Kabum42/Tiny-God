@@ -16,6 +16,8 @@ public abstract class Screen extends Group {
 	protected Table table;
 	protected ScrollPane scroll;
 	
+	public boolean canPan = true;
+	
 	
 	public Screen() {
 		// tab background (sub-screen)
@@ -35,7 +37,7 @@ public abstract class Screen extends Group {
 		scroll.setScrollingDisabled(true, false);
 		this.addActor(scroll);
 	}
-
+	
 	public void open(ScreenTab tab) {
 		close();
 		scroll.setVisible(false);
