@@ -1,21 +1,20 @@
 package net.piropanda.tinygod.screens.earth;
 
 import net.piropanda.tinygod.TG;
-import net.piropanda.tinygod.screens.Screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 
 public class Sun extends Physical {
 	
-	private Sprite planet;
+	private Image planet;
 	
-	public Sun(Sprite planet2, float radius2, float angle2) {
+	public Sun(Image planet2, float radius2, float angle2) {
 		
 		planet = planet2;
 		radius = radius2;
@@ -23,9 +22,9 @@ public class Sun extends Physical {
 		
 		speed = (float) (-0.2f);
 		
-		sprite = new Sprite(TG.Graphics.assets.get("earth/sun.png", Texture.class));
+		sprite = new Image(TG.Graphics.assets.get("earth/sun.png", Texture.class));
 		sprite.setScale((1.5f/10f), (1.5f/10f));
-		sprite.setOriginCenter();
+		sprite.setOrigin(Align.center);
 		
 		origin_x = planet.getX() + planet.getWidth()/2 -sprite.getWidth()/2;
 		origin_y = planet.getY() + planet.getHeight()/2 -sprite.getHeight()/2;
@@ -35,12 +34,12 @@ public class Sun extends Physical {
 		sprite.setY(origin_y);
 		
 		sprite.setColor(new Color((float) 1, 1, 0, 1));
-		
-		
+
+		this.addActor(sprite);
 	}
 	
-	public void update() {
-		
+	public void act(float dt) {
+		super.act(dt);
 		
 		
 		angle += speed*Gdx.graphics.getDeltaTime()*(20.0f);
@@ -56,7 +55,6 @@ public class Sun extends Physical {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		sprite.draw(batch);
 	}
 
 }

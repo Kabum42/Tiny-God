@@ -46,5 +46,8 @@ public abstract class Screen extends Group {
 	public void close() {
 		scroll.setVisible(true);
 	}
+
+	public void pan(float x, float y, float deltaX, float deltaY) {
+	}
 	
 }

@@ -1,12 +1,12 @@
 package net.piropanda.tinygod.screens.earth;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
-public class Physical {
+public class Physical extends Group {
 	
-	public Sprite sprite;
+	public Image sprite;
 	public float radius;
 	public float angle;
 	
@@ -15,14 +15,13 @@ public class Physical {
 	
 	public float speed;
 
-	public void update() {
-		// TODO Auto-generated method stub
-		
+
+	public void act(float dt) {
+		super.act(dt);
 	}
 
 	public void draw(Batch batch, float parentAlpha) {
-		// TODO Auto-generated method stub
-		
+		super.draw(batch, parentAlpha);
 	}
 
 

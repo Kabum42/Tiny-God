@@ -2,54 +2,35 @@ package net.piropanda.tinygod.screens.earth;
 
 import java.util.ArrayList;
 
-
-import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
-import net.piropanda.tinygod.screens.Screen;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.files.FileHandle;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.scenes.scene2d.ui.List;
+import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 /**
  * Earth
  */
-public class Earth extends Screen {
+public class Earth extends Group {
 	
 	private ShaderProgram hueShader;
 	
-	private Sprite bg;
-	private Sprite earth;
+	private Image earth;
 	
 	private ArrayList<Physical> astrals = new ArrayList<Physical>();
-	
 	private ArrayList<Physical> physicals = new ArrayList<Physical>();
 	private ArrayList<Physical> physicals_to_render = new ArrayList<Physical>();
-	
-	private float accumulatedX, accumulatedY;
-	private boolean movingX, movingY;
-	private static final int MINIMUM_MOVEMENT_THRESHOLD = 30;
-	private static final int SWAPING_MOVEMENT_THRESHOLD = 120;
-	
-	
 	
 	Texture tex1, mask, mask2;
 	ShaderProgram maskShader;
 	
+	
 	public Earth() {
-
-		
-		
 		ShaderProgram.pedantic = false;
 		
 		tex1 = new Texture(Gdx.files.internal("shaders/aux_mask.png")); // ESTO ESTA POR SI QUEREMOS PINTAR ALGO EN EL HUECO
@@ -75,84 +56,62 @@ public class Earth extends Screen {
 		
 		hueShader = new ShaderProgram(Gdx.files.internal("shaders/hue.vsh"), Gdx.files.internal("shaders/hue.fsh"));
 		System.out.println(hueShader.isCompiled());
-		
-		
 
-		
-
-		canPan = false;
-
-		this.setX(TG.Display.WIDTH * 2);
-		
-		earth = new Sprite(TG.Graphics.assets.get("earth/earth.png", Texture.class));
+		// earth
+		earth = new Image(TG.Graphics.assets.get("earth/earth.png", Texture.class));
 		earth.setScale(1.0f, 1.0f);
 		earth.setX(this.getX() + TG.Display.WIDTH/2 - earth.getWidth()/2);
 		float percent_earth_showing = 20;
 		earth.setY(-earth.getHeight()/2 -earth.getHeight()*earth.getScaleY()*((50f - percent_earth_showing)/100f));
+		earth.setOrigin(Align.center);
 		
+		// astrals
+		Sun sun;
+		Moon moon;
 		
+		sun = new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90);
+		astrals.add(sun);
+		this.addActor(sun);
+		moon = new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 90);
+		astrals.add(moon);
+		this.addActor(moon);
 		
-		astrals.add(new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90));
-		astrals.add(new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 90));
+		sun = new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 180);
+		moon = new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 270);
+		astrals.add(sun);
+		this.addActor(sun);
+		astrals.add(moon);
+		this.addActor(moon);
 		
-		astrals.add(new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 180));
-		astrals.add(new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 270));
+		// add the earth image
+		this.addActor(earth);
 		
-		
-		int num_humans = 200;
-		int num_capas = 5;
-
-		
-
-		
-		
+		// atrezzo
+		Atrezzo atrezzo;
 		for (int i = 0; i < 50; i++) {
 			float radius_distance = 1;
 			while (radius_distance >= 0.8) {
 				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
 			}
-			physicals.add(new Atrezzo(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360), "tree"));
+			atrezzo = new Atrezzo(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360), "tree");
+			physicals.add(atrezzo);
+			this.addActor(atrezzo);
 		}
 		
+		// humans
+		int num_humans = 200;
+		
+		Human human;
 		for (int i = 0; i < num_humans; i++) {
 			float radius_distance = 1;
 			while (radius_distance >= 0.8) {
 				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
 			}
-			physicals.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360)));
+			human = new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360));
+			physicals.add(human);
+			this.addActor(human);
 		}
-		
-		
-		
-		
-		
-		
 	}
-	
-	/*
-	@Override
-	public void tap(float tapx, float tapy) {
-		GameInfo.addLove(GameInfo.lovePerClick);
-	}
-
-	@Override
-	public void pan(float x, float y, float deltaX, float deltaY) {
-		
-
-		earth.setRotation(earth.getRotation() -deltaX*(0.25f));
-		
-	}
-
-	@Override
-	public boolean tab1BtnClicked(float tapx, float tapy) {
-		return false;
-	}
-
-	@Override
-	public boolean tab2BtnClicked(float tapx, float tapy) {
-		return false;
-	}
-	*/
 	
 	public void act(float dt) {
 	    super.act(dt);
@@ -167,25 +126,20 @@ public class Earth extends Screen {
 		}
 		
 		for (int i = 0; i < astrals.size(); i++) {
-			astrals.get(i).update();
+			astrals.get(i).act(Gdx.graphics.getDeltaTime());
 		}
 		
 		for (int i = 0; i < physicals.size(); i++) {
-			physicals.get(i).update();
+			physicals.get(i).act(Gdx.graphics.getDeltaTime());
 		}
-		
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
-	    
-		super.draw(batch, parentAlpha);
-
-	    
-	    hueShader.begin();
-		hueShader.setUniformf("hue", (float)(-1 + earth.getRotation()/180));
-		hueShader.end();
 		batch.setShader(hueShader);
-		
+	    hueShader.begin();
+			hueShader.setUniformf("hue", (float)(-1 + earth.getRotation()/180));
+			super.draw(batch, parentAlpha);
+		hueShader.end();
 		
 		/*
 		if (Math.random() > 0.5) {
@@ -199,47 +153,17 @@ public class Earth extends Screen {
 		batch.setShader(maskShader);
 		*/
 		
-
-		for (int i = 0; i < astrals.size(); i++) {
-			astrals.get(i).draw(batch, parentAlpha);
-		}
+//		sortedPhysicalsRendering(batch, parentAlpha);
 		
-		earth.draw(batch);
-		
-		sortedPhysicalsRendering(batch, parentAlpha);
-		
+		batch.setShader(null);
 	}
-	
-	/*
-	@Override
-	public void update() {
-		
-		
-	}
-	*/
-	
-	/*
-	@Override
-	public void render(SpriteBatch batch, BitmapFont font) {
-
-		
-		
-		
-		
-
-		
-	}
-	*/
-	
 	
 	public void sortedPhysicalsRendering(Batch batch, float parentAlpha) {
-		
-		
 		physicals_to_render = (ArrayList<Physical>) physicals.clone();
 		
 		while(physicals_to_render.size() > 0) {
-
 			Physical next_physical = null;
+			
 			for (int i = 0; i < physicals_to_render.size(); i++) {
 				if (next_physical == null) {
 					next_physical = physicals_to_render.get(i);
@@ -253,7 +177,9 @@ public class Earth extends Screen {
 			next_physical.draw(batch, parentAlpha);
 			physicals_to_render.remove(next_physical);
 		}
-		
 	}
-	
+
+	public void pan(float x, float y, float deltaX, float deltaY) {
+		earth.setRotation(earth.getRotation() - deltaX * 0.085f);
+	}
 }

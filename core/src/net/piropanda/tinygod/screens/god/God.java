@@ -2,6 +2,7 @@ package net.piropanda.tinygod.screens.god;
 
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
+import net.piropanda.tinygod.screens.earth.Earth;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -14,6 +15,7 @@ public class God extends Screen {
 
 	public static final int POSITION = 2;
 	
+	private Earth earth;
 	
 	public God() {
 		super();
@@ -45,21 +47,27 @@ public class God extends Screen {
 		table.add().padBottom(1000);
 		table.row();
 		
-		// Earth image
-		
 		// "To Yahvy" button
 		button = new TextButton("To Yahvy", TG.Graphics.skin);
 		button.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				scroll.scrollTo(0, 1500, 480, 480);
+				scroll.scrollTo(0, 9999, 480, 480);
 				canPan = true;
 			}
 		});
 		table.add(button);
-		
 		table.row();
-		table.add().pad(2);
+		
+		// Earth image
+		earth = new Earth();
+		table.add(earth).size(480);
 	}
+	
+	@Override
+	public void pan(float x, float y, float deltaX, float deltaY) {
+		earth.pan(x, y, deltaX, deltaY);
+	}
+	
 	
 }

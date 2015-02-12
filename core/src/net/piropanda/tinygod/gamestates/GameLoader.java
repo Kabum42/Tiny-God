@@ -44,6 +44,12 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("codex/button-settings.png", Texture.class);
 		TG.Graphics.assets.load("codex/button-credits.png", Texture.class);
 		TG.Graphics.assets.load("codex/button-stats.png", Texture.class);
+		// god
+		TG.Graphics.assets.load("earth/AdamMini.png", Texture.class);
+		TG.Graphics.assets.load("earth/earth.png", Texture.class);
+		TG.Graphics.assets.load("earth/EveMini.png", Texture.class);
+		TG.Graphics.assets.load("earth/sun.png", Texture.class);
+		TG.Graphics.assets.load("earth/tree.png", Texture.class);
 		// producers
 		TG.Graphics.assets.load("producers/locked.png", Texture.class);
 		TG.Graphics.assets.load("producers/servant.png", Texture.class);
