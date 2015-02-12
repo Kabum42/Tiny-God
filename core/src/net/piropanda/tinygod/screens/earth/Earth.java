@@ -72,45 +72,58 @@ public class Earth extends Group {
 		sun = new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90);
 		astrals.add(sun);
 		this.addActor(sun);
+		sun.setZIndex(0);
 		moon = new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 90);
 		astrals.add(moon);
 		this.addActor(moon);
+		moon.setZIndex(1);
 		
 		sun = new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 180);
 		moon = new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 270);
 		astrals.add(sun);
 		this.addActor(sun);
+		sun.setZIndex(2);
 		astrals.add(moon);
 		this.addActor(moon);
+		moon.setZIndex(3);
 		
 		// add the earth image
 		this.addActor(earth);
+		earth.setZIndex(4);
 		
 		// atrezzo
+
 		Atrezzo atrezzo;
-		for (int i = 0; i < 50; i++) {
-			float radius_distance = 1;
-			while (radius_distance >= 0.8) {
-				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
-			}
+		for (int i = 0; i < 200; i++) {
+			
+			float max_angle = (float) Math.toDegrees(Math.asin(0.4f));
+			float angle = (float) (Math.random()*(max_angle));
+			float radius_distance = (float) Math.sin(Math.toRadians(angle));
+			
 			atrezzo = new Atrezzo(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360), "tree");
 			physicals.add(atrezzo);
 			this.addActor(atrezzo);
 		}
+
+		
 		
 		// humans
+
 		int num_humans = 200;
 		
 		Human human;
 		for (int i = 0; i < num_humans; i++) {
-			float radius_distance = 1;
-			while (radius_distance >= 0.8) {
-				radius_distance = (float) (((float) Math.pow(Math.random()*1, 5))/Math.pow(1, 5));
-			}
+			
+			float max_angle = (float) Math.toDegrees(Math.asin(0.4f));
+			float angle = (float) (Math.random()*(max_angle));
+			float radius_distance = (float) Math.sin(Math.toRadians(angle));
+			
 			human = new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360));
 			physicals.add(human);
 			this.addActor(human);
 		}
+
+		
 	}
 	
 	public void act(float dt) {
@@ -153,12 +166,14 @@ public class Earth extends Group {
 		batch.setShader(maskShader);
 		*/
 		
-//		sortedPhysicalsRendering(batch, parentAlpha);
+		sortedPhysicalsRendering(batch, parentAlpha);
 		
 		batch.setShader(null);
 	}
 	
 	public void sortedPhysicalsRendering(Batch batch, float parentAlpha) {
+		
+		int z_current = 5;
 		physicals_to_render = (ArrayList<Physical>) physicals.clone();
 		
 		while(physicals_to_render.size() > 0) {
@@ -174,8 +189,10 @@ public class Earth extends Group {
 					}
 				}
 			}
-			next_physical.draw(batch, parentAlpha);
+			next_physical.setZIndex(z_current);
 			physicals_to_render.remove(next_physical);
+			z_current++;
+			next_physical = null;
 		}
 	}
 

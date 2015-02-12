@@ -38,8 +38,8 @@ public class Atrezzo extends Physical {
 		super.act(dt);
 		
 		sprite.setRotation(planet.getRotation() +angle -90);
-		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX()) ));
-		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX()) ));
+		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
 	}
 
 	@Override

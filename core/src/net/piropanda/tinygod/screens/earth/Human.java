@@ -13,19 +13,11 @@ public class Human extends Physical {
 	
 	private Image planet;
 	
-	private float radius_jump = 0;
-	
-	private float jumping_time = 0.15f;
-	private float jumping;
-	private boolean bool_jumping = false;
-	
-	
+
 	public Human(Image planet, float radius, float angle) {
 		this.planet = planet;
 		this.radius = radius;
 		this.angle = angle;
-		
-		jumping = (float) (-jumping_time + Math.random()*jumping_time*2);
 		
 		speed = (float) (0.25 + Math.random()*0.1);
 		if (Math.random() > 0.5) {
@@ -53,6 +45,7 @@ public class Human extends Physical {
 	public void act(float dt) {
 		super.act(dt);
 		
+		
 		if (speed < 0) {
 			sprite.setScale(-Math.abs(sprite.getScaleX()), sprite.getScaleY());
 		}
@@ -60,16 +53,6 @@ public class Human extends Physical {
 			sprite.setScale(Math.abs(sprite.getScaleX()), sprite.getScaleY());
 		}
 		
-		jumping -= Gdx.graphics.getDeltaTime();
-		if (jumping < -jumping_time && !bool_jumping) {
-			jumping = jumping_time;
-			radius_jump = 3;
-			bool_jumping = true;
-		}
-		else if (jumping < 0 && bool_jumping) {
-			radius_jump = 0;
-			bool_jumping = false;
-		}
 		
 		angle += speed*Gdx.graphics.getDeltaTime()*(20.0f);
 		
@@ -82,8 +65,11 @@ public class Human extends Physical {
 		}
 		
 		sprite.setRotation(planet.getRotation() +angle -90);
-		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.getRotation()+angle))*(radius + radius_jump + sprite.getWidth()/2*sprite.getScaleX()) ));
-		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.getRotation()+angle))*(radius + radius_jump + sprite.getWidth()/2*sprite.getScaleX()) ));
+		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+
+		
+		
 	}
 
 	@Override
