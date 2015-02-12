@@ -34,7 +34,7 @@ public class Earth extends Screen {
 	
 	
 	public Earth() {
-		
+		/*
 		canPan = false;
 
 		x = TG.Display.WIDTH * 2;
@@ -48,20 +48,9 @@ public class Earth extends Screen {
 		
 		int num_humans = 200;
 		int num_capas = 5;
+
 		
-		/*
-		for (int i = 0; i < num_capas; i++) {
-			// i es cada una de las capas
-			
-			int aux_humans = num_humans/2;
-			num_humans -= aux_humans;
-			
-			for (int j = 0; j < aux_humans; j++) {
-				humans.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*((float)i/(float)num_capas)), (float) (Math.random()*360)));
-			}
-			
-		}
-		*/
+
 		
 		
 		for (int i = 0; i < num_humans; i++) {
@@ -83,10 +72,11 @@ public class Earth extends Screen {
 			//humans.add(new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*0), (float) ((360/20)*i)));
 		}
 		
-		
+		*/
 		
 	}
 	
+	/*
 	@Override
 	public void tap(float tapx, float tapy) {
 		GameInfo.addLove(GameInfo.lovePerClick);
@@ -131,16 +121,13 @@ public class Earth extends Screen {
 	@Override
 	public void render(SpriteBatch batch, BitmapFont font) {
 
-		earth.draw(batch);
-		sortedHumansRendering(batch);
+		//earth.draw(batch);
+		//sortedHumansRendering(batch);
 		
-		/*
-		for (int i = 0; i < humans.size(); i++) {
-			humans.get(i).draw(batch);
-		}
-		*/
+
 		
 	}
+	*/
 	
 	public void sortedHumansRendering(SpriteBatch batch) {
 		
