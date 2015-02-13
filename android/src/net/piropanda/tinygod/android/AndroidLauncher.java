@@ -1,8 +1,5 @@
 package net.piropanda.tinygod.android;
 
-import net.piropanda.tinygod.GameInfo;
-import net.piropanda.tinygod.GoogleInterface;
-import net.piropanda.tinygod.TinyGod;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.ComponentName;
@@ -11,24 +8,34 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender.SendIntentException;
 import android.content.ServiceConnection;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 
 import com.android.vending.billing.IInAppBillingService;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.google.android.gms.appstate.AppStateManager;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.ErrorDialogFragment;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.drive.Drive;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesStatusCodes;
 import com.google.android.gms.games.snapshot.Snapshot;
 import com.google.android.gms.games.snapshot.SnapshotMetadataChange;
 import com.google.android.gms.games.snapshot.Snapshots;
+import com.google.android.gms.games.snapshot.Snapshots.LoadSnapshotsResult;
 import com.google.android.gms.plus.Plus;
+
+import net.piropanda.tinygod.GameInfo;
+import net.piropanda.tinygod.TinyGod;
+import net.piropanda.tinygod.GoogleInterface;
 
 public class AndroidLauncher extends AndroidApplication implements GoogleInterface, ConnectionCallbacks, OnConnectionFailedListener {
 	

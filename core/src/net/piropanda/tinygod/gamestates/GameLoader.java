@@ -66,12 +66,6 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("achievements/locked.png", Texture.class);
 		TG.Graphics.assets.load("achievements/selector.png", Texture.class);
 		TG.Graphics.assets.load("achievements/test.png", Texture.class); // test
-		
-		TG.Graphics.assets.load("earth/earth.png", Texture.class);
-		TG.Graphics.assets.load("earth/sun.png", Texture.class);
-		TG.Graphics.assets.load("earth/tree.png", Texture.class);
-		TG.Graphics.assets.load("earth/AdamMini.png", Texture.class);
-		TG.Graphics.assets.load("earth/EveMini.png", Texture.class);
 	}
 	
 	@Override

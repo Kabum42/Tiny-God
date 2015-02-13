@@ -36,6 +36,9 @@ public abstract class Screen extends Group {
 		scroll.setBounds(30, 30, 420, 510);
 		scroll.setScrollingDisabled(true, false);
 		this.addActor(scroll);
+		
+		this.setWidth(TG.Display.WIDTH);
+		this.setHeight(TG.Display.HEIGHT);
 	}
 	
 	public void open(ScreenTab tab) {
