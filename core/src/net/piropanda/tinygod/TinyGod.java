@@ -25,7 +25,6 @@ public class TinyGod extends ApplicationAdapter {
 	@Override
 	public void create() {
         stage = new Stage(new FitViewport(TG.Display.WIDTH, TG.Display.HEIGHT));
-        stage.setDebugAll(true);
         
         GameLoader.instance.init();
         GameLoader.instance.setVisible(true);

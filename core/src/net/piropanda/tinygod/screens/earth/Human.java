@@ -11,10 +11,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 public class Human extends Physical {
 	
-	private Image planet;
+	private Earth planet;
 	
 
-	public Human(Image planet, float radius, float angle) {
+	public Human(Earth planet, float radius, float angle) {
 		this.planet = planet;
 		this.radius = radius;
 		this.angle = angle;
@@ -33,8 +33,8 @@ public class Human extends Physical {
 		sprite.setScale((1f/4f), (1f/4f));
 		sprite.setOrigin(Align.center);
 		
-		origin_x = planet.getX() + planet.getWidth()/2 -sprite.getWidth()/2;
-		origin_y = planet.getY() +planet.getHeight()/2 -sprite.getHeight()/2;
+		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_y = planet.earth_y +planet.earth_width/2 -sprite.getHeight()/2;
 		
 		sprite.setX(origin_x);
 		sprite.setY(origin_y);
@@ -57,16 +57,16 @@ public class Human extends Physical {
 		angle += speed*Gdx.graphics.getDeltaTime()*(20.0f);
 		
 		radius += -0.75 + Math.random()*1.5;
-		if (radius > (planet.getWidth()/2)*planet.getScaleX()) {
-			radius = (planet.getWidth()/2)*planet.getScaleX();
+		if (radius > (planet.earth_width/2)*planet.earth_scale) {
+			radius = (planet.earth_width/2)*planet.earth_scale;
 		}
-		if (radius < (planet.getWidth()/2)*planet.getScaleX()*(7f/10f)) {
-			radius = (planet.getWidth()/2)*planet.getScaleX()*(7f/10f);
+		if (radius < (planet.earth_width/2)*planet.earth_scale*(7f/10f)) {
+			radius = (planet.earth_width/2)*planet.earth_scale*(7f/10f);
 		}
 		
-		sprite.setRotation(planet.getRotation() +angle -90);
-		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
-		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		sprite.setRotation(planet.earth_rotation +angle -90);
+		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
 
 		
 		

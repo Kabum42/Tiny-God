@@ -12,9 +12,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 public class Moon extends Physical {
 	
-	private Image planet;
+	private Earth planet;
 	
-	public Moon(Image planet2, float radius2, float angle2) {
+	public Moon(Earth planet2, float radius2, float angle2) {
 		
 		planet = planet2;
 		radius = radius2;
@@ -26,8 +26,8 @@ public class Moon extends Physical {
 		sprite.setScale((1.5f/10f), (1.5f/10f));
 		sprite.setOrigin(Align.center);
 		
-		origin_x = planet.getX() + planet.getWidth()/2 -sprite.getWidth()/2;
-		origin_y = planet.getY() + planet.getHeight()/2 -sprite.getHeight()/2;
+		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;
 		
 		
 		sprite.setX(origin_x);
@@ -43,10 +43,10 @@ public class Moon extends Physical {
 		
 		angle += speed*Gdx.graphics.getDeltaTime()*(20.0f);
 
-		sprite.setRotation(planet.getRotation() +angle -90);
+		sprite.setRotation(planet.earth_rotation +angle -90);
 		sprite.setX(origin_x);
-		sprite.setX((float) (origin_x + 0.5f*(Math.cos(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX())) ));
-		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX()) ));
+		sprite.setX((float) (origin_x + 0.5f*(Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX())) ));
+		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX()) ));
 	}
 
 	@Override

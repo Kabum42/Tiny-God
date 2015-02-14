@@ -10,10 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 public class Atrezzo extends Physical {
 	
-	private Image planet;
+	private Earth planet;
 	
 	
-	public Atrezzo(Image planet, float radius, float angle, String type) {
+	public Atrezzo(Earth planet, float radius, float angle, String type) {
 		this.planet = planet;
 		this.radius = radius;
 		this.angle = angle;
@@ -25,8 +25,8 @@ public class Atrezzo extends Physical {
 		
 		sprite.setOrigin(Align.center);
 		
-		origin_x = planet.getX() + planet.getWidth()/2 -sprite.getWidth()/2;
-		origin_y = planet.getY() +planet.getHeight()/2 -sprite.getHeight()/2;
+		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_y = planet.earth_y +planet.earth_width/2 -sprite.getHeight()/2;
 		
 		sprite.setX(origin_x);
 		sprite.setY(origin_y);
@@ -37,9 +37,9 @@ public class Atrezzo extends Physical {
 	public void act(float dt) {
 		super.act(dt);
 		
-		sprite.setRotation(planet.getRotation() +angle -90);
-		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
-		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		sprite.setRotation(planet.earth_rotation +angle -90);
+		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
 	}
 
 	@Override

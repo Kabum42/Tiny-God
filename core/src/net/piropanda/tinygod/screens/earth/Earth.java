@@ -20,7 +20,13 @@ public class Earth extends Group {
 	
 	private ShaderProgram hueShader;
 	
-	private Image earth;
+	//private Image earth;
+	
+	public float earth_x;
+	public float earth_y;
+	public float earth_width = 1024;
+	public float earth_scale = 1.0f;
+	public float earth_rotation = 0;
 	
 	private ArrayList<Physical> astrals = new ArrayList<Physical>();
 	private ArrayList<Physical> physicals = new ArrayList<Physical>();
@@ -58,28 +64,33 @@ public class Earth extends Group {
 		System.out.println(hueShader.isCompiled());
 
 		// earth
-		earth = new Image(TG.Graphics.assets.get("earth/earth.png", Texture.class));
-		earth.setScale(1.0f, 1.0f);
-		earth.setX(this.getX() + TG.Display.WIDTH/2 - earth.getWidth()/2);
+		earth_x = (this.getX() + TG.Display.WIDTH/2 - earth_width/2);
 		float percent_earth_showing = 20;
-		earth.setY(-earth.getHeight()/2 -earth.getHeight()*earth.getScaleY()*((50f - percent_earth_showing)/100f));
-		earth.setOrigin(Align.center);
+		earth_y = (-earth_width/2 -earth_width*earth_scale*((50f - percent_earth_showing)/100f));
+		
+		
+//		earth = new Image(TG.Graphics.assets.get("earth/earth.png", Texture.class));
+//		earth.setScale(1.0f, 1.0f);
+//		earth.setX(this.getX() + TG.Display.WIDTH/2 - earth.getWidth()/2);
+//		float percent_earth_showing = 20;
+//		earth.setY(-earth.getHeight()/2 -earth.getHeight()*earth.getScaleY()*((50f - percent_earth_showing)/100f));
+//		earth.setOrigin(Align.center);
 		
 		// astrals
 		Sun sun;
 		Moon moon;
 		
-		sun = new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90);
+		sun = new Sun(this, (earth_width/2)*earth_scale*(1.1f), 90);
 		astrals.add(sun);
 		this.addActor(sun);
 		sun.setZIndex(0);
-		moon = new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 90);
+		moon = new Moon(this, (earth_width/2)*earth_scale*(1.1f), 90 + 90);
 		astrals.add(moon);
 		this.addActor(moon);
 		moon.setZIndex(1);
 		
-		sun = new Sun(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 180);
-		moon = new Moon(earth, (earth.getWidth()/2)*earth.getScaleX()*(1.1f), 90 + 270);
+		sun = new Sun(this, (earth_width/2)*earth_scale*(1.1f), 90 + 180);
+		moon = new Moon(this, (earth_width/2)*earth_scale*(1.1f), 90 + 270);
 		astrals.add(sun);
 		this.addActor(sun);
 		sun.setZIndex(2);
@@ -88,8 +99,8 @@ public class Earth extends Group {
 		moon.setZIndex(3);
 		
 		// add the earth image
-		this.addActor(earth);
-		earth.setZIndex(4);
+//		this.addActor(earth);
+//		earth.setZIndex(4);
 		
 		// atrezzo
 
@@ -100,7 +111,7 @@ public class Earth extends Group {
 			float angle = (float) (Math.random()*(max_angle));
 			float radius_distance = (float) Math.sin(Math.toRadians(angle));
 			
-			atrezzo = new Atrezzo(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360), "tree");
+			atrezzo = new Atrezzo(this, (earth_width/2)*earth_scale - ((earth_width/2)*earth_scale*radius_distance), (float) (Math.random()*360), "tree");
 			physicals.add(atrezzo);
 			this.addActor(atrezzo);
 		}
@@ -118,7 +129,7 @@ public class Earth extends Group {
 			float angle = (float) (Math.random()*(max_angle));
 			float radius_distance = (float) Math.sin(Math.toRadians(angle));
 			
-			human = new Human(earth, (earth.getWidth()/2)*earth.getScaleX() - ((earth.getWidth()/2)*earth.getScaleX()*radius_distance), (float) (Math.random()*360));
+			human = new Human(this, (earth_width/2)*earth_scale - ((earth_width/2)*earth_scale*radius_distance), (float) (Math.random()*360));
 			physicals.add(human);
 			this.addActor(human);
 		}
@@ -129,13 +140,14 @@ public class Earth extends Group {
 	public void act(float dt) {
 	    super.act(dt);
 	    
-	    earth.setRotation((float) (earth.getRotation() + Gdx.graphics.getDeltaTime()*(2.0f)));
+	    earth_rotation = (float) (earth_rotation + Gdx.graphics.getDeltaTime()*(2.0f));
+	    
 		
-		if (earth.getRotation() > 360) {
-			earth.setRotation(earth.getRotation() -360);
+		if (earth_rotation > 360) {
+			earth_rotation -= 360;
 		}
-		if (earth.getRotation() < 0) {
-			earth.setRotation(earth.getRotation() +360);
+		if (earth_rotation < 0) {
+			earth_rotation += 360;
 		}
 		
 		for (int i = 0; i < astrals.size(); i++) {
@@ -148,11 +160,12 @@ public class Earth extends Group {
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
-		batch.setShader(hueShader);
-	    hueShader.begin();
-			hueShader.setUniformf("hue", (float)(-1 + earth.getRotation()/180));
-			super.draw(batch, parentAlpha);
-		hueShader.end();
+		
+//		batch.setShader(hueShader);
+//	    hueShader.begin();
+//		hueShader.setUniformf("hue", (float)(-1 + earth_rotation/180));
+		super.draw(batch, parentAlpha);
+//		hueShader.end();
 		
 		/*
 		if (Math.random() > 0.5) {
@@ -197,6 +210,6 @@ public class Earth extends Group {
 	}
 
 	public void pan(float x, float y, float deltaX, float deltaY) {
-		earth.setRotation(earth.getRotation() - deltaX * 0.085f);
+		earth_rotation = earth_rotation - deltaX * 0.085f;
 	}
 }
