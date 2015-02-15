@@ -221,7 +221,7 @@ public class Earth extends Group {
 
 	public void pan(float x, float y, float deltaX, float deltaY) {
 		
-		inertia += deltaX;
+		inertia += deltaX*(40f/480f);
 		if (inertia > 60) { inertia = 60; }
 		else if (inertia < -60) { inertia = -60; }
 		
