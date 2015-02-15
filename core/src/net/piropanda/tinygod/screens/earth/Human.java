@@ -34,7 +34,7 @@ public class Human extends Physical {
 		else {
 			sprite = new Image(TG.Graphics.assets.get("earth/EveMini.png", Texture.class));
 		}
-		sprite.setScale((1f/4f), (1f/4f));
+
 		sprite.setOrigin(Align.center);
 		
 		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;

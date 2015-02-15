@@ -23,7 +23,6 @@ public class Moon extends Physical {
 		speed = (float) (-0.2f);
 		
 		sprite = new Image(TG.Graphics.assets.get("earth/sun.png", Texture.class));
-		sprite.setScale((1.5f/10f), (1.5f/10f));
 		sprite.setOrigin(Align.center);
 		
 		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;

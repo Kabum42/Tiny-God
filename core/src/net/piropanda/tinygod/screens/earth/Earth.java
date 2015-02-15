@@ -38,6 +38,8 @@ public class Earth extends Group {
 	
 	private Label label;
 	
+	private float inertia = 0;
+	
 	
 	public Earth() {
 		ShaderProgram.pedantic = false;
@@ -70,10 +72,6 @@ public class Earth extends Group {
 		
 		
 		earth = new Image(TG.Graphics.assets.get("earth/earth.png", Texture.class));
-		earth.setScale(1.0f, 1.0f);
-		earth.setX(0);
-		earth.setY(0);
-		earth.setOrigin(Align.center);
 		
 		// astrals
 		Sun sun;
@@ -147,6 +145,9 @@ public class Earth extends Group {
 	    
 	    earth_rotation = (float) (earth_rotation + Gdx.graphics.getDeltaTime()*(2.0f));
 	    
+	    inertia = inertia/1.02f;
+	    earth_rotation = earth_rotation - inertia * 0.15f;
+	    
 		
 		if (earth_rotation > 360) {
 			earth_rotation -= 360;
@@ -219,6 +220,10 @@ public class Earth extends Group {
 	}
 
 	public void pan(float x, float y, float deltaX, float deltaY) {
-		earth_rotation = earth_rotation - deltaX * 0.085f;
+		
+		inertia += deltaX;
+		if (inertia > 60) { inertia = 60; }
+		else if (inertia < -60) { inertia = -60; }
+		
 	}
 }

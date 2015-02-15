@@ -20,7 +20,6 @@ public class Atrezzo extends Physical {
 		
 		if (type == "tree") {
 			sprite = new Image(TG.Graphics.assets.get("earth/tree.png", Texture.class));
-			sprite.setScale(0.40f, 0.40f);
 		}
 		
 		sprite.setOrigin(Align.center);
