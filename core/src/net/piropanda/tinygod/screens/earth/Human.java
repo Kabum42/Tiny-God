@@ -1,5 +1,6 @@
 package net.piropanda.tinygod.screens.earth;
 
+import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 
 import com.badlogic.gdx.Gdx;
@@ -12,12 +13,15 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 public class Human extends Physical {
 	
 	private Earth planet;
+	private float variation_color;
 	
 
 	public Human(Earth planet, float radius, float angle) {
 		this.planet = planet;
 		this.radius = radius;
 		this.angle = angle;
+		
+		variation_color = (float) (-1 +Math.random()*2);
 		
 		speed = (float) (0.25 + Math.random()*0.1);
 		if (Math.random() > 0.5) {
@@ -74,7 +78,14 @@ public class Human extends Physical {
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
+		//super.draw(batch, parentAlpha);
+		
+		batch.setShader(Shaders.instance.hueShader);
+		Shaders.instance.hueShader.begin();
+		Shaders.instance.hueShader.setUniformf("hue", variation_color);
 		super.draw(batch, parentAlpha);
+		Shaders.instance.hueShader.end();
+		batch.setShader(null);
 	}
 
 }

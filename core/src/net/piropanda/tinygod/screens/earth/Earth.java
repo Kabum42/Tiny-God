@@ -2,15 +2,18 @@ package net.piropanda.tinygod.screens.earth;
 
 import java.util.ArrayList;
 
+import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 /**
@@ -18,9 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
  */
 public class Earth extends Group {
 	
-	private ShaderProgram hueShader;
-	
-	//private Image earth;
+	private Image earth;
 	
 	public float earth_x;
 	public float earth_y;
@@ -34,6 +35,8 @@ public class Earth extends Group {
 	
 	Texture tex1, mask, mask2;
 	ShaderProgram maskShader;
+	
+	private Label label;
 	
 	
 	public Earth() {
@@ -59,9 +62,6 @@ public class Earth extends Group {
 		
 		//now we need to reset glActiveTexture to zero!!!! since sprite batch does not do this for us
 		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-		
-		hueShader = new ShaderProgram(Gdx.files.internal("shaders/hue.vsh"), Gdx.files.internal("shaders/hue.fsh"));
-		System.out.println(hueShader.isCompiled());
 
 		// earth
 		earth_x = (this.getX() + TG.Display.WIDTH/2 - earth_width/2);
@@ -69,12 +69,11 @@ public class Earth extends Group {
 		earth_y = (-earth_width/2 -earth_width*earth_scale*((50f - percent_earth_showing)/100f));
 		
 		
-//		earth = new Image(TG.Graphics.assets.get("earth/earth.png", Texture.class));
-//		earth.setScale(1.0f, 1.0f);
-//		earth.setX(this.getX() + TG.Display.WIDTH/2 - earth.getWidth()/2);
-//		float percent_earth_showing = 20;
-//		earth.setY(-earth.getHeight()/2 -earth.getHeight()*earth.getScaleY()*((50f - percent_earth_showing)/100f));
-//		earth.setOrigin(Align.center);
+		earth = new Image(TG.Graphics.assets.get("earth/earth.png", Texture.class));
+		earth.setScale(1.0f, 1.0f);
+		earth.setX(0);
+		earth.setY(0);
+		earth.setOrigin(Align.center);
 		
 		// astrals
 		Sun sun;
@@ -99,8 +98,8 @@ public class Earth extends Group {
 		moon.setZIndex(3);
 		
 		// add the earth image
-//		this.addActor(earth);
-//		earth.setZIndex(4);
+		this.addActor(earth);
+		earth.setZIndex(4);
 		
 		// atrezzo
 
@@ -133,6 +132,12 @@ public class Earth extends Group {
 			physicals.add(human);
 			this.addActor(human);
 		}
+		
+		label = new Label("Loading...", TG.Graphics.skin);
+		label.setColor(Color.WHITE);
+		label.setX(100);
+		label.setY(300);
+		this.addActor(label);
 
 		
 	}
@@ -157,15 +162,19 @@ public class Earth extends Group {
 		for (int i = 0; i < physicals.size(); i++) {
 			physicals.get(i).act(Gdx.graphics.getDeltaTime());
 		}
+		
+		label.setText("FPS: "+Gdx.graphics.getFramesPerSecond());
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
 		
-//		batch.setShader(hueShader);
-//	    hueShader.begin();
-//		hueShader.setUniformf("hue", (float)(-1 + earth_rotation/180));
 		super.draw(batch, parentAlpha);
-//		hueShader.end();
+		
+//		batch.setShader(Shaders.instance.hueShader);
+//		Shaders.instance.hueShader.begin();
+//		Shaders.instance.hueShader.setUniformf("hue", (float)(-1 + earth_rotation/180));
+//		super.draw(batch, parentAlpha);
+//		Shaders.instance.hueShader.end();
 		
 		/*
 		if (Math.random() > 0.5) {
