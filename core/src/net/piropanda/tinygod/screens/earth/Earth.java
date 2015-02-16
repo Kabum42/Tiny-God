@@ -83,32 +83,28 @@ public class Earth extends Group {
 		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 
 		// earth
-		earth_x = (this.getX() + TG.Display.WIDTH/2 - earth_width/2);
+		earth_x = (this.getX() + screen.getScrollPane().getWidth()/2 - earth_width/2);
 		float percent_earth_showing = 20;
 		earth_original_y = (-earth_width/2 -earth_width*earth_scale*((50f - percent_earth_showing)/100f));
 		earth_y = earth_original_y;
 		
 		
 		earth = new Sprite(TG.Graphics.assets.get("earth/earth.png", Texture.class));
+		earth.setX(earth_x + earth_width/2 -earth.getWidth()/2);
 		
 		// astrals
 		Sun sun;
 		Moon moon;
 		
 		sun = new Sun(this, (earth_width/2)*earth_scale*(1.1f), 90);
-		astrals.add(sun);
 		moon = new Moon(this, (earth_width/2)*earth_scale*(1.1f), 90 + 90);
+		astrals.add(sun);
 		astrals.add(moon);
 
-		
 		sun = new Sun(this, (earth_width/2)*earth_scale*(1.1f), 90 + 180);
 		moon = new Moon(this, (earth_width/2)*earth_scale*(1.1f), 90 + 270);
 		astrals.add(sun);
 		astrals.add(moon);
-
-
-		
-		// add the earth image
 
 		
 		// atrezzo
@@ -217,7 +213,7 @@ public class Earth extends Group {
 		*/
 		
 		for (int i = 0; i < astrals.size(); i++) {
-			astrals.get(i).draw(batch);
+			checkDraw(astrals.get(i), batch);
 		}
 		
 		earth.draw(batch);
@@ -230,15 +226,9 @@ public class Earth extends Group {
 	
 		int num_physicals = physicals.size();
 		for (int i = 0; i < num_physicals; i++) {
-			if (physicals.get(i).x < (earth_x +earth_width/2 - TG.Display.WIDTH/2)
-					|| physicals.get(i).x > (earth_x +earth_width/2 + TG.Display.WIDTH/2 -100) 
-					|| physicals.get(i).y < (0)) {
-				// NO SE DIBUJA
-			}
-			else {
-				physicals.get(i).draw(batch);
-			}
+			checkDraw(physicals.get(i), batch);
 		}
+		
 		
 //		physicals_to_render = (ArrayList<Physical>) physicals.clone();
 //		
@@ -259,6 +249,19 @@ public class Earth extends Group {
 //			next_physical.draw(batch);
 //			next_physical = null;
 //		}
+	}
+	
+	public void checkDraw(Physical p, Batch batch) {
+		
+		if (p.sprite.getX() < (-p.sprite.getWidth())
+				|| p.sprite.getX() > (earth_x +earth_width/2 + screen.getScrollPane().getWidth()/2) 
+				|| p.sprite.getY() < (-p.sprite.getHeight())) {
+			// NO SE DIBUJA
+		}
+		else {
+			p.draw(batch);
+		}
+		
 	}
 
 	public void pan(float x, float y, float deltaX, float deltaY) {

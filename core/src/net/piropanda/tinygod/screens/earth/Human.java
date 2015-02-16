@@ -35,19 +35,15 @@ public class Human extends Physical {
 		else {
 			sprite = new Sprite(TG.Graphics.assets.get("earth/EveMini.png", Texture.class));
 		}
-
-		//sprite.setOrigin(Align.center);
+		
+		sprite.setScale(1f/4f);
 		
 		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
 		origin_y = planet.earth_y +planet.earth_width/2 -sprite.getHeight()/2;
 		
-		x = origin_x;
-		y = origin_y;
-		
-		sprite.setX(x);
-		sprite.setY(y);
+		sprite.setX(origin_x);
+		sprite.setY(origin_y);
 
-		//this.addActor(sprite);
 	}
 	
 	public void act(float dt) {
@@ -77,11 +73,10 @@ public class Human extends Physical {
 		
 		sprite.setRotation(planet.earth_rotation +angle -90);
 		
-		x = (float) (origin_x + Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) );
-		y = (float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) );
+
 		
-		sprite.setX(x);
-		sprite.setY(y);
+		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
 
 		
 		

@@ -12,11 +12,6 @@ public class Physical {
 	public float origin_x;
 	public float origin_y;
 	
-	public float x;
-	public float y;
-	public float width;
-	public float height;
-	
 	public float speed;
 
 
