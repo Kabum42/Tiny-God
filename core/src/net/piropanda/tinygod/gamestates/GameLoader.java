@@ -36,7 +36,8 @@ public class GameLoader extends Group {
 	private void loadAssets() {
 		// common
 		TG.Graphics.assets.load("lord-god.png", Texture.class);
-		TG.Graphics.assets.load("screen-background.png", Texture.class);
+		TG.Graphics.assets.load("screen-background_01.png", Texture.class);
+		TG.Graphics.assets.load("screen-background_02.png", Texture.class);
 		TG.Graphics.assets.load("tab-bg.png", Texture.class);
 		TG.Graphics.assets.load("button-default-up.png", Texture.class);
 		TG.Graphics.assets.load("button-default-down.png", Texture.class);
@@ -66,12 +67,6 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("achievements/locked.png", Texture.class);
 		TG.Graphics.assets.load("achievements/selector.png", Texture.class);
 		TG.Graphics.assets.load("achievements/test.png", Texture.class); // test
-		
-		TG.Graphics.assets.load("earth/earth.png", Texture.class);
-		TG.Graphics.assets.load("earth/sun.png", Texture.class);
-		TG.Graphics.assets.load("earth/tree.png", Texture.class);
-		TG.Graphics.assets.load("earth/AdamMini.png", Texture.class);
-		TG.Graphics.assets.load("earth/EveMini.png", Texture.class);
 	}
 	
 	@Override

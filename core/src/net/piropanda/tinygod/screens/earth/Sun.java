@@ -6,15 +6,16 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 
 public class Sun extends Physical {
 	
-	private Image planet;
+	private Earth planet;
 	
-	public Sun(Image planet2, float radius2, float angle2) {
+	public Sun(Earth planet2, float radius2, float angle2) {
 		
 		planet = planet2;
 		radius = radius2;
@@ -22,12 +23,11 @@ public class Sun extends Physical {
 		
 		speed = (float) (-0.2f);
 		
-		sprite = new Image(TG.Graphics.assets.get("earth/sun.png", Texture.class));
-		sprite.setScale((1.5f/10f), (1.5f/10f));
-		sprite.setOrigin(Align.center);
+		sprite = new Sprite(TG.Graphics.assets.get("earth/sun.png", Texture.class));
+		sprite.setScale(3f/10f);
 		
-		origin_x = planet.getX() + planet.getWidth()/2 -sprite.getWidth()/2;
-		origin_y = planet.getY() + planet.getHeight()/2 -sprite.getHeight()/2;
+		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;
 		
 		
 		sprite.setX(origin_x);
@@ -35,26 +35,23 @@ public class Sun extends Physical {
 		
 		sprite.setColor(new Color((float) 1, 1, 0, 1));
 
-		this.addActor(sprite);
 	}
 	
 	public void act(float dt) {
 		super.act(dt);
 		
+		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;
 		
 		angle += speed*Gdx.graphics.getDeltaTime()*(20.0f);
 		
 
-		sprite.setRotation(planet.getRotation() +angle -90);
+		sprite.setRotation(planet.earth_rotation +angle -90);
 		sprite.setX(origin_x);
-		sprite.setX((float) (origin_x + 0.5f*(Math.cos(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX())) ));
-		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.getRotation()+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX()) ));
+		sprite.setX((float) (origin_x + 0.5f*(Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX())) ));
+		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*sprite.getScaleX()) ));
 		
 	}
 
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
-	}
 
 }

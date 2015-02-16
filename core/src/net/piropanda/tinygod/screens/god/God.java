@@ -59,8 +59,13 @@ public class God extends Screen {
 		table.add(button);
 		table.row();
 		
+//<<<<<<< HEAD
 		// Earth
-		earth = new Earth();
+//		earth = new Earth();
+//=======
+		// Earth image
+		earth = new Earth(this);
+//>>>>>>> origin/master
 		table.add(earth).size(480);
 	}
 	
