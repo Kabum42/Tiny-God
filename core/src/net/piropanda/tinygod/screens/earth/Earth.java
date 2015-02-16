@@ -55,7 +55,6 @@ public class Earth extends Group {
 		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 		
 		hueShader = new ShaderProgram(Gdx.files.internal("shaders/hue.vsh"), Gdx.files.internal("shaders/hue.fsh"));
-		System.out.println(hueShader.isCompiled());
 
 		// earth
 		earth = new Image(TG.Graphics.assets.get("earth/earth.png", Texture.class));
