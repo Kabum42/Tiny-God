@@ -6,6 +6,7 @@ import net.piropanda.tinygod.TG;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
@@ -29,25 +30,31 @@ public class Human extends Physical {
 		}
 		
 		if (Math.random() > 0.5f) {
-			sprite = new Image(TG.Graphics.assets.get("earth/AdamMini.png", Texture.class));
+			sprite = new Sprite(TG.Graphics.assets.get("earth/AdamMini.png", Texture.class));
 		}
 		else {
-			sprite = new Image(TG.Graphics.assets.get("earth/EveMini.png", Texture.class));
+			sprite = new Sprite(TG.Graphics.assets.get("earth/EveMini.png", Texture.class));
 		}
 
-		sprite.setOrigin(Align.center);
+		//sprite.setOrigin(Align.center);
 		
 		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
 		origin_y = planet.earth_y +planet.earth_width/2 -sprite.getHeight()/2;
 		
-		sprite.setX(origin_x);
-		sprite.setY(origin_y);
+		x = origin_x;
+		y = origin_y;
+		
+		sprite.setX(x);
+		sprite.setY(y);
 
-		this.addActor(sprite);
+		//this.addActor(sprite);
 	}
 	
 	public void act(float dt) {
 		super.act(dt);
+		
+		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;
 		
 		
 		if (speed < 0) {
@@ -69,23 +76,25 @@ public class Human extends Physical {
 		}
 		
 		sprite.setRotation(planet.earth_rotation +angle -90);
-		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
-		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		
+		x = (float) (origin_x + Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) );
+		y = (float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) );
+		
+		sprite.setX(x);
+		sprite.setY(y);
 
 		
 		
 	}
 
 	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		//super.draw(batch, parentAlpha);
-		
+	public void draw(Batch batch) {
+
 		batch.setShader(Shaders.instance.hueShader);
-		Shaders.instance.hueShader.begin();
 		Shaders.instance.hueShader.setUniformf("hue", variation_color);
-		super.draw(batch, parentAlpha);
-		Shaders.instance.hueShader.end();
+		sprite.draw(batch);
 		batch.setShader(null);
+		
 	}
 
 }

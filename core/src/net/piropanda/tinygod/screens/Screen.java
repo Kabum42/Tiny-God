@@ -52,5 +52,10 @@ public abstract class Screen extends Group {
 
 	public void pan(float x, float y, float deltaX, float deltaY) {
 	}
+
+	public ScrollPane getScrollPane() {
+		// TODO Auto-generated method stub
+		return scroll;
+	}
 	
 }

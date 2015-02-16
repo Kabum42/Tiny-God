@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
@@ -22,8 +23,7 @@ public class Sun extends Physical {
 		
 		speed = (float) (-0.2f);
 		
-		sprite = new Image(TG.Graphics.assets.get("earth/sun.png", Texture.class));
-		sprite.setOrigin(Align.center);
+		sprite = new Sprite(TG.Graphics.assets.get("earth/sun.png", Texture.class));
 		
 		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
 		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;
@@ -34,12 +34,13 @@ public class Sun extends Physical {
 		
 		sprite.setColor(new Color((float) 1, 1, 0, 1));
 
-		this.addActor(sprite);
 	}
 	
 	public void act(float dt) {
 		super.act(dt);
 		
+		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;
 		
 		angle += speed*Gdx.graphics.getDeltaTime()*(20.0f);
 		
@@ -51,9 +52,5 @@ public class Sun extends Physical {
 		
 	}
 
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
-	}
 
 }

@@ -4,6 +4,7 @@ import net.piropanda.tinygod.TG;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
@@ -19,10 +20,8 @@ public class Atrezzo extends Physical {
 		this.angle = angle;
 		
 		if (type == "tree") {
-			sprite = new Image(TG.Graphics.assets.get("earth/tree.png", Texture.class));
+			sprite = new Sprite(TG.Graphics.assets.get("earth/tree.png", Texture.class));
 		}
-		
-		sprite.setOrigin(Align.center);
 		
 		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
 		origin_y = planet.earth_y +planet.earth_width/2 -sprite.getHeight()/2;
@@ -30,20 +29,22 @@ public class Atrezzo extends Physical {
 		sprite.setX(origin_x);
 		sprite.setY(origin_y);
 
-		this.addActor(sprite);
 	}
 	
 	public void act(float dt) {
 		super.act(dt);
 		
+		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;
+		
 		sprite.setRotation(planet.earth_rotation +angle -90);
-		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
-		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) ));
+		
+		x = (float) (origin_x + Math.cos(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) );
+		y = (float) (origin_y + Math.sin(Math.toRadians(planet.earth_rotation+angle))*(radius + sprite.getWidth()/2*Math.abs(sprite.getScaleX())) );
+		
+		sprite.setX(x);
+		sprite.setY(y);
 	}
 
-	@Override
-	public void draw(Batch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
-	}
 
 }
