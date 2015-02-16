@@ -24,6 +24,7 @@ public class Sun extends Physical {
 		speed = (float) (-0.2f);
 		
 		sprite = new Sprite(TG.Graphics.assets.get("earth/sun.png", Texture.class));
+		sprite.setScale(3f/10f);
 		
 		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
 		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;

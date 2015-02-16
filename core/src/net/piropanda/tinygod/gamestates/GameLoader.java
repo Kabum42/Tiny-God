@@ -36,7 +36,8 @@ public class GameLoader extends Group {
 	private void loadAssets() {
 		// common
 		TG.Graphics.assets.load("lord-god.png", Texture.class);
-		TG.Graphics.assets.load("screen-background.png", Texture.class);
+		TG.Graphics.assets.load("screen-background_01.png", Texture.class);
+		TG.Graphics.assets.load("screen-background_02.png", Texture.class);
 		TG.Graphics.assets.load("tab-bg.png", Texture.class);
 		TG.Graphics.assets.load("button-default-up.png", Texture.class);
 		TG.Graphics.assets.load("button-default-down.png", Texture.class);

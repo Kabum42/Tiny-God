@@ -45,8 +45,12 @@ public class Game extends Group implements GestureListener {
 	
 	public void init() {
 		// background
-//		Image bg = new Image(TG.Graphics.assets.get("screen-background.png", Texture.class));
-//		bg.setTouchable(Touchable.disabled);
+		Image bg = new Image(TG.Graphics.assets.get("screen-background_01.png", Texture.class));
+		bg.setTouchable(Touchable.disabled);
+		
+		Image bg2 = new Image(TG.Graphics.assets.get("screen-background_02.png", Texture.class));
+		bg2.setX(bg.getWidth());
+		bg.setTouchable(Touchable.disabled);
 		
 		// screens
 		screens = new Screen[5];
@@ -69,7 +73,8 @@ public class Game extends Group implements GestureListener {
 		this.addActor(creation);
 		this.addActor(store);
 		
-//		this.addActor(bg); // add the background image after the 4 Screen 
+		this.addActor(bg); // add the background image after the 4 Screen 
+		this.addActor(bg2);
 		
 		// 
 		currentScreen = God.POSITION;

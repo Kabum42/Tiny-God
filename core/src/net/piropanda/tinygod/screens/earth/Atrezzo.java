@@ -21,6 +21,7 @@ public class Atrezzo extends Physical {
 		
 		if (type == "tree") {
 			sprite = new Sprite(TG.Graphics.assets.get("earth/tree.png", Texture.class));
+			sprite.setScale(4f/10f);
 		}
 		
 		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;

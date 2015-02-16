@@ -168,7 +168,17 @@ public class Earth extends Group {
 	    earth_rotation = (float) (earth_rotation + Gdx.graphics.getDeltaTime()*(2.0f));
 	    
 	    inertia = inertia/1.02f;
-	    earth_rotation = earth_rotation - inertia * 0.15f;
+	    earth_rotation -= inertia * 0.15f;
+	    
+	    for (int i = 0; i < astrals.size(); i++) {
+	    	astrals.get(i).angle += inertia * 0.15f;
+	    	if (astrals.get(i).angle > 360) {
+	    		astrals.get(i).angle -= 360;
+	    	}
+	    	else if (astrals.get(i).angle < 0) {
+	    		astrals.get(i).angle += 360;
+	    	}
+	    }
 	    
 		
 		if (earth_rotation > 360) {
@@ -216,6 +226,7 @@ public class Earth extends Group {
 			checkDraw(astrals.get(i), batch);
 		}
 		
+		light(earth);
 		earth.draw(batch);
 		
 		sortedPhysicalsRendering(batch);
@@ -225,6 +236,9 @@ public class Earth extends Group {
 	public void sortedPhysicalsRendering(Batch batch) {
 	
 		int num_physicals = physicals.size();
+		
+		
+		
 		for (int i = 0; i < num_physicals; i++) {
 			checkDraw(physicals.get(i), batch);
 		}
@@ -246,9 +260,54 @@ public class Earth extends Group {
 //				}
 //			}
 //			physicals_to_render.remove(next_physical);
-//			next_physical.draw(batch);
+//			checkDraw(next_physical, batch);
 //			next_physical = null;
 //		}
+	}
+	
+	public void light(Sprite s) {
+		
+		Physical current = null;
+		for (int i = 0; i < astrals.size(); i++) {
+			if (current == null) {
+				current = astrals.get(i);
+			}
+			else if (astrals.get(i).sprite.getY() > current.sprite.getY()) {
+				current = astrals.get(i);
+			}
+		}
+		
+		float red = 0;
+		float green = 0;
+		float blue = 0;
+		
+		
+		if (current.getClass() == Sun.class) {
+			
+			float position = (current.sprite.getX() +current.sprite.getWidth()/2  -210)/(213f);
+			
+			if (Math.abs(position) < 0.7f) {
+				// COLOR NORMAL
+			}
+			else if (Math.abs(position) < 1f) {
+				float culmen = 0.7f + (1f - 0.7f)/2;
+				red = ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*0.4f;
+
+				if (Math.abs(position) > (1f -(1f - 0.7f)/2)) {
+					blue = (Math.abs(position) - (1f -(1f - 0.7f)/2))/((1f - 0.7f)/2)*0.5f;
+				}
+				
+				
+			}
+			
+			
+		}
+		else {
+			// DE NOCHE
+			blue = 0.5f;
+		}
+		
+		s.setColor(1f -green -blue, 1f -red -blue, 1f -red -green, 1f);
 	}
 	
 	public void checkDraw(Physical p, Batch batch) {
@@ -259,6 +318,11 @@ public class Earth extends Group {
 			// NO SE DIBUJA
 		}
 		else {
+			if (p.getClass() != Moon.class && p.getClass() != Sun.class) {
+				// SE TINTAN
+				light(p.sprite);
+			}
+			
 			p.draw(batch);
 		}
 		
