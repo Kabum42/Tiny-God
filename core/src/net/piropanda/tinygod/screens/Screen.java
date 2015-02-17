@@ -54,7 +54,6 @@ public abstract class Screen extends Group {
 	}
 
 	public ScrollPane getScrollPane() {
-		// TODO Auto-generated method stub
 		return scroll;
 	}
 	

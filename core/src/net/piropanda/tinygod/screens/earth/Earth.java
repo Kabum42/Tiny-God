@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
-import net.piropanda.tinygod.Shaders;
+//import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 
@@ -21,9 +21,9 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
-import com.brashmonkey.spriter.Data;
-import com.brashmonkey.spriter.Player;
-import com.brashmonkey.spriter.SCMLReader;
+//import com.brashmonkey.spriter.Data;
+//import com.brashmonkey.spriter.Player;
+//import com.brashmonkey.spriter.SCMLReader;
 
 /**
  * Earth
@@ -48,7 +48,7 @@ public class Earth extends Group {
 	Texture tex1, mask, mask2;
 	ShaderProgram maskShader;
 	
-	private Player player;
+//	private Player player;
 	
 	private Label label;
 	
