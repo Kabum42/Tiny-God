@@ -2,6 +2,7 @@ package net.piropanda.tinygod;
 
 import net.piropanda.tinygod.gamestates.Game;
 import net.piropanda.tinygod.gamestates.GameLoader;
+import net.piropanda.tinygod.gamestates.MiniGames;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -29,9 +30,11 @@ public class TinyGod extends ApplicationAdapter {
         GameLoader.instance.init();
         GameLoader.instance.setVisible(true);
         Game.instance.setVisible(false);
+        MiniGames.instance.setVisible(false);
         
         stage.addActor(GameLoader.instance);
         stage.addActor(Game.instance);
+        stage.addActor(MiniGames.instance);
         
         Gdx.input.setInputProcessor(new InputMultiplexer(new GestureDetector(Game.instance), stage));
 	}

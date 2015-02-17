@@ -142,6 +142,7 @@ public class Game extends Group implements GestureListener {
 		}
 		else if(!screens[currentScreen].canPan) {
 			screens[currentScreen].pan(x, y, deltaX, deltaY);
+			return true;
 		}
 		
 		return false;

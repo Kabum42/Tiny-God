@@ -1,11 +1,30 @@
 package net.piropanda.tinygod.minigames;
 
-public class MiniGame {
+import net.piropanda.tinygod.gamestates.MiniGames;
 
-	public void update() {
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.scenes.scene2d.Group;
+
+
+public class MiniGame extends Group {
+
+	public void load() {
 	}
 	
-	public void render() {
+	public void act(float dt) {
+	}
+	
+	public void pan() {
+	}
+	
+	public void tap() {
+	}
+	
+	public void draw(Batch batch, float parentAlpha) {
+	}
+	
+	public void unload() {
+		MiniGames.instance.unload();
 	}
 	
 }

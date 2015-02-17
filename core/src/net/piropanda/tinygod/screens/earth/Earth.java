@@ -81,11 +81,6 @@ public class Earth extends Group {
 		
 		//now we need to reset glActiveTexture to zero!!!! since sprite batch does not do this for us
 		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-//<<<<<<< HEAD
-//		
-//		hueShader = new ShaderProgram(Gdx.files.internal("shaders/hue.vsh"), Gdx.files.internal("shaders/hue.fsh"));
-//=======
-//>>>>>>> origin/master
 
 		// earth
 		earth_x = (this.getX() + screen.getScrollPane().getWidth()/2 - earth_width/2);
