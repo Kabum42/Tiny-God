@@ -299,6 +299,10 @@ public class Earth extends Group {
 				
 				
 			}
+			else {
+				// DE NOCHE
+				blue = 0.5f;
+			}
 			
 			
 		}
