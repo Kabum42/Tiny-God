@@ -146,20 +146,21 @@ public class Earth extends Group {
 			physicals.add(human);
 		}
 		
-		System.out.println("Working Directory = " + System.getProperty("user.dir"));
+		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
 			
  		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
 		Data data = new SCMLReader(handle.read()).getData();
+		//System.out.println(data);
 		
-		loader = new LibGdxLoader(data);
-		loader.load(handle.file());
+//		loader = new LibGdxLoader(data);
+//		loader.load(handle.file());
 		
-		renderer = new ShapeRenderer();
+//		renderer = new ShapeRenderer();
 		
 		//drawer = new LibGdxDrawer(loader, batch, renderer);
 		
-		player = new Player(data.getEntity(0));
-		player.setPosition(200, 0);
+//		player = new Player(data.getEntity(0));
+//		player.setPosition(200, 0);
  		
 		
 		label = new Label("Loading...", TG.Graphics.skin);
@@ -213,7 +214,7 @@ public class Earth extends Group {
 			
 		
 		
-		player.update();
+//		player.update();
 		
 		
 		label.setText("FPS: "+Gdx.graphics.getFramesPerSecond());
@@ -221,7 +222,7 @@ public class Earth extends Group {
 	
 	public void draw(Batch batch, float parentAlpha) {
 		
-		drawer = new LibGdxDrawer(loader, batch, renderer);
+//		drawer = new LibGdxDrawer(loader, batch, renderer);
 		
 		super.draw(batch, parentAlpha);
 		
@@ -246,7 +247,7 @@ public class Earth extends Group {
 		
 		sortedPhysicalsRendering(batch);
 		
-		drawer.draw(player);
+//		drawer.draw(player);
 		
 	}
 	
