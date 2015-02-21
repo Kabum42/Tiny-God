@@ -14,6 +14,7 @@ public class Credits extends ScreenTab {
 		super(screen);
 		
 		String text = "Game brought to you by bla, bla and bla.\n\nThanks for all the translations made by:\nbli (blibli)\nblu (blublu)\n...\n\nA special mention to Kiba, we will never forget you.";
+		
 		Label label = new Label(text, TG.Graphics.skin);
 		label.setFontScale(TG.Display.WIDTH / Gdx.graphics.getWidth()); // scale the font to a readable size
 		label.setWrap(true);

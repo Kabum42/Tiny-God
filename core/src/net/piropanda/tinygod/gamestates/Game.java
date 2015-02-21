@@ -1,5 +1,6 @@
 package net.piropanda.tinygod.gamestates;
 
+import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.codex.Codex;
@@ -44,13 +45,15 @@ public class Game extends Group implements GestureListener {
 	}
 	
 	public void init() {
+		GameInfo.reset();
+		
 		// background
 		Image bg = new Image(TG.Graphics.assets.get("screen-background_01.png", Texture.class));
 		bg.setTouchable(Touchable.disabled);
 		
 		Image bg2 = new Image(TG.Graphics.assets.get("screen-background_02.png", Texture.class));
 		bg2.setX(bg.getWidth());
-		bg.setTouchable(Touchable.disabled);
+		bg2.setTouchable(Touchable.disabled);
 		
 		// screens
 		screens = new Screen[5];
@@ -73,7 +76,7 @@ public class Game extends Group implements GestureListener {
 		this.addActor(creation);
 		this.addActor(store);
 		
-		this.addActor(bg); // add the background image after the 4 Screen 
+		this.addActor(bg);
 		this.addActor(bg2);
 		
 		// 
@@ -114,6 +117,9 @@ public class Game extends Group implements GestureListener {
 
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
+		if(!this.isVisible()) return false;
+		
+		screens[currentScreen].tap(x, y, count, button);
 		return false;
 	}
 
@@ -129,7 +135,7 @@ public class Game extends Group implements GestureListener {
 
 	@Override
 	public boolean pan(float x, float y, float deltaX, float deltaY) {
-		if(screens[currentScreen].canPan && Math.abs(deltaX) > Math.abs(deltaY)) {
+		if(screens[currentScreen].canPan() && Math.abs(deltaX) > Math.abs(deltaY)) {
 			accumulatedX += deltaX;
 			movingX = true;
 			
@@ -140,7 +146,7 @@ public class Game extends Group implements GestureListener {
 			
 			return true;
 		}
-		else if(!screens[currentScreen].canPan) {
+		else if(!screens[currentScreen].canPan()) {
 			screens[currentScreen].pan(x, y, deltaX, deltaY);
 			return true;
 		}

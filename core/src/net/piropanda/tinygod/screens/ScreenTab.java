@@ -41,7 +41,7 @@ public class ScreenTab extends Group {
 				screen.close();
 			}
 		});
-		table.add(backButton);
+		table.add(backButton).padTop(10);
 		
 		// scroll pane where the main table is going to go
 		scroll = new ScrollPane(table);

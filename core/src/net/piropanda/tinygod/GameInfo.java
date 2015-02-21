@@ -2,6 +2,8 @@ package net.piropanda.tinygod;
 
 import java.util.HashMap;
 
+import net.piropanda.tinygod.helpers.ProducerInfo;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -10,47 +12,6 @@ import com.badlogic.gdx.Gdx;
 public class GameInfo {
    private static final String SERIAL_VERSION = "1.1";
    
-   
-   // producers
-   public static final String ID_PROD_SERVANT = "servant";
-   public static final double PROD_PRICE_SERVANT = 15.0;
-   public static final double PROD_LPS_SERVANT = 0.1;
-   
-   public static final String ID_PROD_HUMAN = "human";
-   public static final double PROD_PRICE_HUMAN = 100.0;
-   public static final double PROD_LPS_HUMAN = 0.5;
-   
-   public static final String ID_PROD_PROPHET = "prophet";
-   public static final double PROD_PRICE_PROPHET = 500.0;
-   public static final double PROD_LPS_PROPHET = 4.0;
-   
-   public static final String ID_PROD_TEMPLE = "temple";
-   public static final double PROD_PRICE_TEMPLE = 3000.0; // 3 K
-   public static final double PROD_LPS_TEMPLE = 10.0;
-   
-   public static final String ID_PROD_SHIP = "ship";
-   public static final double PROD_PRICE_SHIP = 10000.0; // 10 K
-   public static final double PROD_LPS_SHIP = 40.0;
-   
-   public static final String ID_PROD_FACTORY = "factory";
-   public static final double PROD_PRICE_FACTORY = 40000.0; // 40 K
-   public static final double PROD_LPS_FACTORY = 100.0;
-   
-   public static final String ID_PROD_LABORATORY = "laboratory";
-   public static final double PROD_PRICE_LABORATORY = 200000.0; // 200 K
-   public static final double PROD_LPS_LABORATORY = 400.0;
-
-   public static final String ID_PROD_HIPPIEVAN = "hippievan";
-   public static final double PROD_PRICE_HIPPIEVAN = 1700000.0; // 1.7 M
-   public static final double PROD_LPS_HIPPIEVAN = 7000.0; // 7K
-   
-   public static final String ID_PROD_SHOP = "shop";
-   public static final double PROD_PRICE_SHOP = 125000000.0; // 125 M
-   public static final double PROD_LPS_SHOP = 100000.0; // 100 K
-   
-   public static final String ID_PROD_SPACESHIP = "spaceship";
-   public static final double PROD_PRICE_SPACESHIP = 4000000000.0; // 4 B
-   public static final double PROD_LPS_SPACESHIP = 1000000.0; // 1 M
    
    // achievements
    public static final String ID_ACH_SERVANT_1_NAME = "test";
@@ -98,10 +59,6 @@ public class GameInfo {
    public static double lps; 
    public static double lovePerClick, criticalClickMultiplier, criticalClickChance;
 
-   
-   public GameInfo() {
-	   reset();
-   }
    
    public static void addLove(double amount) {
 	   love += amount;
@@ -234,16 +191,16 @@ public class GameInfo {
    private static void resetBuildings() {
 	   producers.clear();
 	   
-	   producers.put(ID_PROD_SERVANT, 		0);
-	   producers.put(ID_PROD_HUMAN, 		0);
-	   producers.put(ID_PROD_PROPHET, 		0);
-	   producers.put(ID_PROD_TEMPLE, 		0);
-	   producers.put(ID_PROD_SHIP, 			0);
-	   producers.put(ID_PROD_FACTORY, 		0);
-	   producers.put(ID_PROD_LABORATORY,	0);
-	   producers.put(ID_PROD_HIPPIEVAN, 	0);
-	   producers.put(ID_PROD_SHOP, 			0);
-	   producers.put(ID_PROD_SPACESHIP,	 	0);
+	   producers.put(ProducerInfo.SERVANT_ID, 	0);
+	   producers.put(ProducerInfo.HUMAN_ID, 	0);
+	   producers.put(ProducerInfo.PROPHET_ID, 	0);
+	   producers.put(ProducerInfo.TEMPLE_ID, 	0);
+	   producers.put(ProducerInfo.SHIP_ID, 		0);
+	   producers.put(ProducerInfo.FACTORY_ID, 	0);
+	   producers.put(ProducerInfo.LABORATORY_ID,0);
+	   producers.put(ProducerInfo.HIPPIEVAN_ID, 0);
+	   producers.put(ProducerInfo.SHOP_ID, 		0);
+	   producers.put(ProducerInfo.SPACESHIP_ID,	0);
    }
    
    private static void resetUpgrades() {
@@ -279,16 +236,16 @@ public class GameInfo {
 	  criticalClickChance = 0.1;
 	  criticalClickMultiplier = 10.0;
 	  
-	  lps += producers.get(ID_PROD_SERVANT) 	* PROD_LPS_SERVANT;
-	  lps += producers.get(ID_PROD_HUMAN) 		* PROD_LPS_HUMAN;
-	  lps += producers.get(ID_PROD_PROPHET) 	* PROD_LPS_PROPHET;
-	  lps += producers.get(ID_PROD_TEMPLE) 		* PROD_LPS_TEMPLE;
-	  lps += producers.get(ID_PROD_SHIP) 		* PROD_LPS_SHIP;
-	  lps += producers.get(ID_PROD_FACTORY) 	* PROD_LPS_FACTORY;
-	  lps += producers.get(ID_PROD_LABORATORY) 	* PROD_LPS_LABORATORY;
-	  lps += producers.get(ID_PROD_HIPPIEVAN) 	* PROD_LPS_HIPPIEVAN;
-	  lps += producers.get(ID_PROD_SHOP) 		* PROD_LPS_SHOP;
-	  lps += producers.get(ID_PROD_SPACESHIP) 	* PROD_LPS_SPACESHIP;
+	  lps += producers.get(ProducerInfo.SERVANT_ID) 	* ProducerInfo.SERVANT_BASE_LPS;
+	  lps += producers.get(ProducerInfo.HUMAN_ID) 		* ProducerInfo.HUMAN_BASE_LPS;
+	  lps += producers.get(ProducerInfo.PROPHET_ID) 	* ProducerInfo.PROPHET_BASE_LPS;
+	  lps += producers.get(ProducerInfo.TEMPLE_ID) 		* ProducerInfo.TEMPLE_BASE_LPS;
+	  lps += producers.get(ProducerInfo.SHIP_ID) 		* ProducerInfo.SHIP_BASE_LPS;
+	  lps += producers.get(ProducerInfo.FACTORY_ID) 	* ProducerInfo.FACTORY_BASE_LPS;
+	  lps += producers.get(ProducerInfo.LABORATORY_ID) 	* ProducerInfo.LABORATORY_BASE_LPS;
+	  lps += producers.get(ProducerInfo.HIPPIEVAN_ID) 	* ProducerInfo.HIPPIEVAN_BASE_LPS;
+	  lps += producers.get(ProducerInfo.SHOP_ID) 		* ProducerInfo.SHOP_BASE_LPS;
+	  lps += producers.get(ProducerInfo.SPACESHIP_ID) 	* ProducerInfo.SPACESHIP_BASE_LPS;
 	  
 	  lovePerClick = 1f;
 	  
