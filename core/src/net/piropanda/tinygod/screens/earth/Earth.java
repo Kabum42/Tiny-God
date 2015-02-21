@@ -9,21 +9,28 @@ import java.util.logging.Logger;
 //import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
+import net.piropanda.tinygod.spriter.LibGdxDrawer;
+import net.piropanda.tinygod.spriter.LibGdxLoader;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.Align;
-//import com.brashmonkey.spriter.Data;
-//import com.brashmonkey.spriter.Player;
-//import com.brashmonkey.spriter.SCMLReader;
+import com.brashmonkey.spriter.Data;
+import com.brashmonkey.spriter.Drawer;
+import com.brashmonkey.spriter.FileReference;
+import com.brashmonkey.spriter.Loader;
+import com.brashmonkey.spriter.Player;
+import com.brashmonkey.spriter.SCMLReader;
 
 /**
  * Earth
@@ -48,11 +55,15 @@ public class Earth extends Group {
 	Texture tex1, mask, mask2;
 	ShaderProgram maskShader;
 	
-//	private Player player;
+	private Player player;
 	
 	private Label label;
 	
 	private float inertia = 0;
+	
+	private Drawer<Sprite> drawer;
+	private LibGdxLoader loader;
+	private ShapeRenderer renderer;
 	
 	
 	public Earth(Screen screen2) {
@@ -135,19 +146,22 @@ public class Earth extends Group {
 			physicals.add(human);
 		}
 		
-//		System.out.println("Working Directory = " +
-//	              System.getProperty("user.dir"));
-//		
-//		String xmlSCML = null;
-//		try {
-//			xmlSCML = new String(Files.readAllBytes(Paths.get("bin/spriter/prueba.scml")));
-//		} catch (IOException ex) {
-//			System.out.println("A LA SHIT");
-//		}
-//		
-//		Data data = new SCMLReader(xmlSCML).getData();
+		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
+			
+ 		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
+		Data data = new SCMLReader(handle.read()).getData();
+		//System.out.println(data);
+		
+//		loader = new LibGdxLoader(data);
+//		loader.load(handle.file());
+		
+//		renderer = new ShapeRenderer();
+		
+		//drawer = new LibGdxDrawer(loader, batch, renderer);
+		
 //		player = new Player(data.getEntity(0));
-// 		player.setPosition(0, 0);
+//		player.setPosition(200, 0);
+ 		
 		
 		label = new Label("Loading...", TG.Graphics.skin);
 		label.setColor(Color.WHITE);
@@ -208,6 +222,8 @@ public class Earth extends Group {
 	
 	public void draw(Batch batch, float parentAlpha) {
 		
+//		drawer = new LibGdxDrawer(loader, batch, renderer);
+		
 		super.draw(batch, parentAlpha);
 		
 		/*
@@ -230,6 +246,8 @@ public class Earth extends Group {
 		earth.draw(batch);
 		
 		sortedPhysicalsRendering(batch);
+		
+//		drawer.draw(player);
 		
 	}
 	
@@ -298,6 +316,10 @@ public class Earth extends Group {
 				}
 				
 				
+			}
+			else {
+				// DE NOCHE
+				blue = 0.5f;
 			}
 			
 			

@@ -9,6 +9,7 @@ public class TG {
 	public static class Display {
 		public static final int WIDTH = 480;
 		public static final int HEIGHT = 720;
+		//public static final int HEIGHT = 800;
 		public static final String TITLE = "Tiny God";
 	}
 	
