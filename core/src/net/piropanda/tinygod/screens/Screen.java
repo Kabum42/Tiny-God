@@ -12,11 +12,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 public abstract class Screen extends Group {
 
-	protected Image bgScreen, bgTab;
+	protected Image bgTab;
 	protected Table table;
 	protected ScrollPane scroll;
-	
-	public boolean canPan = true;
+	protected ScreenTab currentScreenTab;
 	
 	
 	public Screen() {
@@ -41,15 +40,25 @@ public abstract class Screen extends Group {
 		this.setHeight(TG.Display.HEIGHT);
 	}
 	
+	public boolean canPan() {
+		return true;
+	}
+	
 	public void open(ScreenTab tab) {
-		close();
 		scroll.setVisible(false);
+		currentScreenTab = tab;
+		this.addActor(currentScreenTab);
 	}
 	
 	public void close() {
+		this.removeActor(currentScreenTab);
 		scroll.setVisible(true);
 	}
 
+	public boolean tap(float x, float y, int count, int button) {
+		return false;
+	}
+	
 	public void pan(float x, float y, float deltaX, float deltaY) {
 	}
 

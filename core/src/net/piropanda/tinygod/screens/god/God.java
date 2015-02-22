@@ -1,10 +1,12 @@
 package net.piropanda.tinygod.screens.god;
 
+import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.earth.Earth;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -16,10 +18,11 @@ public class God extends Screen {
 	public static final int POSITION = 2;
 	
 	private Earth earth;
+	private boolean onYahvy = true;
 	
 	public God() {
 		super();
-		
+
 		table.pad(0);
 		scroll.removeListener(scroll.getListeners().get(0)); // removes the CaptureListener that enables it to scroll manually
 		
@@ -37,7 +40,7 @@ public class God extends Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				scroll.scrollTo(0, 0, 480, 480);
-				canPan = false;
+				onYahvy = false;
 			}
 		});
 		table.add(button);
@@ -53,7 +56,7 @@ public class God extends Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				scroll.scrollTo(0, 9999, 480, 480);
-				canPan = true;
+				onYahvy = true;
 			}
 		});
 		table.add(button);
@@ -69,10 +72,27 @@ public class God extends Screen {
 		table.add(earth).size(480);
 	}
 	
+	public boolean canPan() {
+		return onYahvy;
+	}
+	
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
+	}
+	
 	@Override
 	public void pan(float x, float y, float deltaX, float deltaY) {
 		earth.pan(x, y, deltaX, deltaY);
 	}
 	
+	@Override
+	public boolean tap(float x, float y, int count, int button) {
+		if(onYahvy) {
+			GameInfo.love += GameInfo.lovePerClick;
+		}
+		
+		return false;
+	}
 	
 }

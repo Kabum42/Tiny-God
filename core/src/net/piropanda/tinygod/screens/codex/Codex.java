@@ -15,10 +15,6 @@ public class Codex extends Screen {
 	
 	public static final int POSITION = 0;
 	
-	public static final int ID_SETTINGS = 0;
-	public static final int ID_CREDITS = 1;
-	public static final int ID_STATS = 2;
-	
 	public static ScreenTab settings, credits, stats;
 	
 	public Codex() {
@@ -29,14 +25,7 @@ public class Codex extends Screen {
 		credits = new Credits(this);
 		stats = new Stats(this);
 		
-		// set initial visibility
-		this.addActor(settings);
-		settings.setVisible(false);
-		this.addActor(credits);
-		credits.setVisible(false);
-		this.addActor(stats);
-		stats.setVisible(false);
-		
+		// common button variables
 		ImageButton button;
 		TextureRegionDrawable trd;
 
@@ -72,22 +61,6 @@ public class Codex extends Screen {
 			}
 		});
 		table.add(button).pad(10);
-	}
-
-	@Override
-	public void open(ScreenTab tab) {
-		super.open(tab);
-		
-		tab.setVisible(true);
-	}
-	
-	@Override
-	public void close() {
-		super.close();
-		
-		Codex.settings.setVisible(false);
-		Codex.credits.setVisible(false);
-		Codex.stats.setVisible(false);
 	}
 	
 }

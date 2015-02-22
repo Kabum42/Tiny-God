@@ -23,6 +23,8 @@ public class MiniGames extends Group {
 	}
 	
 	public void act(float dt) {
+		if(!this.isVisible()) return;
+		
 		super.act(dt);
 	}
 	
