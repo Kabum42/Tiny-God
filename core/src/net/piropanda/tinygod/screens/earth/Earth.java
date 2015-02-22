@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.logging.Logger;
 
 //import net.piropanda.tinygod.Shaders;
@@ -33,6 +34,9 @@ import com.brashmonkey.spriter.FileReference;
 import com.brashmonkey.spriter.Loader;
 import com.brashmonkey.spriter.Player;
 import com.brashmonkey.spriter.SCMLReader;
+import com.brashmonkey.spriter.Timeline;
+import com.brashmonkey.spriter.Entity.CharacterMap;
+import com.brashmonkey.spriter.Timeline.Key.Object;
 
 /**
  * Earth
@@ -61,13 +65,9 @@ public class Earth extends Group {
 	private Label label;
 	
 	private float inertia = 0;
-	private boolean batch_set = false;
 	
 	Player player;
-	ShapeRenderer renderer;
-	Drawer<Sprite> drawer;
 	LibGdxLoader loader;
-	OrthographicCamera cam;
 	
 	
 	public Earth(Screen screen2) {
@@ -152,31 +152,14 @@ public class Earth extends Group {
 		
 		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
 			
-// 		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
-//		Data data = new SCMLReader(handle.read()).getData();
-		//System.out.println(data);
 		
-//		loader = new LibGdxLoader(data);
-//		loader.load(handle.file());
-		
-//		renderer = new ShapeRenderer();
-		
-		//drawer = new LibGdxDrawer(loader, batch, renderer);
-		
-//		player = new Player(data.getEntity(0));
-//		player.setPosition(200, 0);
-		
-		cam = new OrthographicCamera();
-		cam.zoom = 1f;
-		renderer = new ShapeRenderer();
 		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
 		SCMLReader scml = new SCMLReader(handle.read());
-		System.out.println(scml);
 		Data data = scml.getData();
 		loader = new LibGdxLoader(data);
 		loader.load(handle.file());
 		player = new Player(data.getEntity(0));
-		player.setPosition(200, 100);
+		player.setPosition(210, 0);
  		
 		
 		label = new Label("Loading...", TG.Graphics.skin);
@@ -230,7 +213,7 @@ public class Earth extends Group {
 			
 		
 		
-//		player.update();
+		player.update();
 		
 		
 		label.setText("FPS: "+Gdx.graphics.getFramesPerSecond());
@@ -238,26 +221,21 @@ public class Earth extends Group {
 	
 	public void draw(Batch batch, float parentAlpha) {
 		
-		if (!batch_set) {
-			drawer = new LibGdxDrawer(loader, batch, renderer);
-			batch_set = true;
-		}
 		
-//		drawer = new LibGdxDrawer(loader, batch, renderer);
 		
 		super.draw(batch, parentAlpha);
 		
-		/*
-		if (Math.random() > 0.5) {
-			mask.bind(2);
-		}
-		else {
-			mask2.bind(2);
-		}
-
-		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-		batch.setShader(maskShader);
-		*/
+		
+//		if (Math.random() > 0.5) {
+//			mask.bind(2);
+//		}
+//		else {
+//			mask2.bind(2);
+//		}
+//
+//		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+//		batch.setShader(maskShader);
+		
 		
 		for (int i = 0; i < astrals.size(); i++) {
 			checkDraw(astrals.get(i), batch);
@@ -268,10 +246,45 @@ public class Earth extends Group {
 		
 		sortedPhysicalsRendering(batch);
 		
-		player.update();
-		drawer.draw(player);
+		drawSpriter(player, batch);
+		
 		
 	}
+	
+	public void drawSpriter(Player player2, Batch batch) {
+		
+		CharacterMap[] maps = player2.characterMaps;
+		Iterator<Timeline.Key.Object> it = player2.objectIterator();
+		
+		while(it.hasNext()){
+			Timeline.Key.Object object = it.next();
+			if(object.ref.hasFile()){
+				if(maps != null){
+					for(CharacterMap map: maps)
+						if(map != null)
+							object.ref.set(map.get(object.ref));
+				}
+				
+				Sprite sprite = loader.get(object.ref);
+				float newPivotX = (sprite.getWidth() * object.pivot.x);
+				float newX = object.position.x - newPivotX;
+				float newPivotY = (sprite.getHeight() * object.pivot.y);
+				float newY = object.position.y - newPivotY;
+				
+				sprite.setX(newX);
+				sprite.setY(newY);
+				
+				sprite.setOrigin(newPivotX, newPivotY);
+				sprite.setRotation(object.angle);
+				
+				sprite.setScale(object.scale.x, object.scale.y);
+				sprite.draw(batch);
+				
+			}
+		}
+		
+	}
+
 	
 	public void sortedPhysicalsRendering(Batch batch) {
 	
