@@ -27,6 +27,9 @@ public class TinyGod extends ApplicationAdapter {
 	public void create() {
         stage = new Stage(new FitViewport(TG.Display.WIDTH, TG.Display.HEIGHT));
         
+        GameInfo.loadFromJson("");
+        this.googleInterface.login();
+        
         GameLoader.instance.init();
         GameLoader.instance.setVisible(true);
         Game.instance.setVisible(false);

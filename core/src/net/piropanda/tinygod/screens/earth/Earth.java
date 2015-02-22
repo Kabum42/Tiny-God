@@ -16,9 +16,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -55,15 +57,17 @@ public class Earth extends Group {
 	Texture tex1, mask, mask2;
 	ShaderProgram maskShader;
 	
-	private Player player;
 	
 	private Label label;
 	
 	private float inertia = 0;
+	private boolean batch_set = false;
 	
-	private Drawer<Sprite> drawer;
-	private LibGdxLoader loader;
-	private ShapeRenderer renderer;
+	Player player;
+	ShapeRenderer renderer;
+	Drawer<Sprite> drawer;
+	LibGdxLoader loader;
+	OrthographicCamera cam;
 	
 	
 	public Earth(Screen screen2) {
@@ -148,8 +152,8 @@ public class Earth extends Group {
 		
 		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
 			
- 		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
-		Data data = new SCMLReader(handle.read()).getData();
+// 		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
+//		Data data = new SCMLReader(handle.read()).getData();
 		//System.out.println(data);
 		
 //		loader = new LibGdxLoader(data);
@@ -161,6 +165,18 @@ public class Earth extends Group {
 		
 //		player = new Player(data.getEntity(0));
 //		player.setPosition(200, 0);
+		
+		cam = new OrthographicCamera();
+		cam.zoom = 1f;
+		renderer = new ShapeRenderer();
+		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
+		SCMLReader scml = new SCMLReader(handle.read());
+		System.out.println(scml);
+		Data data = scml.getData();
+		loader = new LibGdxLoader(data);
+		loader.load(handle.file());
+		player = new Player(data.getEntity(0));
+		player.setPosition(200, 100);
  		
 		
 		label = new Label("Loading...", TG.Graphics.skin);
@@ -222,6 +238,11 @@ public class Earth extends Group {
 	
 	public void draw(Batch batch, float parentAlpha) {
 		
+		if (!batch_set) {
+			drawer = new LibGdxDrawer(loader, batch, renderer);
+			batch_set = true;
+		}
+		
 //		drawer = new LibGdxDrawer(loader, batch, renderer);
 		
 		super.draw(batch, parentAlpha);
@@ -247,7 +268,8 @@ public class Earth extends Group {
 		
 		sortedPhysicalsRendering(batch);
 		
-//		drawer.draw(player);
+		player.update();
+		drawer.draw(player);
 		
 	}
 	

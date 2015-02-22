@@ -2,7 +2,6 @@ package net.piropanda.tinygod.spriter;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.brashmonkey.spriter.Drawer;
 import com.brashmonkey.spriter.Loader;
@@ -13,9 +12,9 @@ public class LibGdxDrawer extends Drawer<Sprite>{
 	Batch batch;
 	ShapeRenderer renderer;
 	
-	public LibGdxDrawer(Loader<Sprite> loader, Batch batch2, ShapeRenderer renderer){
+	public LibGdxDrawer(Loader<Sprite> loader, Batch batch, ShapeRenderer renderer){
 		super(loader);
-		this.batch = batch2;
+		this.batch = batch;
 		this.renderer = renderer;
 	}
 	
