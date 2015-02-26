@@ -12,6 +12,7 @@ public class MiniGame extends Group {
 	}
 	
 	public void act(float dt) {
+		super.act(dt);
 	}
 	
 	public void pan() {
@@ -21,6 +22,7 @@ public class MiniGame extends Group {
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
 	}
 	
 	public void unload() {

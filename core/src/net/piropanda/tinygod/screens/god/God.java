@@ -2,6 +2,7 @@ package net.piropanda.tinygod.screens.god;
 
 import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
+import net.piropanda.tinygod.gamestates.MiniGames;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.earth.Earth;
 
@@ -62,14 +63,9 @@ public class God extends Screen {
 		table.add(button);
 		table.row();
 		
-//<<<<<<< HEAD
-		// Earth
-//		earth = new Earth();
-//=======
-		// Earth image
 		earth = new Earth(this);
-//>>>>>>> origin/master
 		table.add(earth).size(480);
+		
 	}
 	
 	public boolean canPan() {

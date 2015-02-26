@@ -1,6 +1,7 @@
 package net.piropanda.tinygod.gamestates;
 
 import net.piropanda.tinygod.minigames.MiniGame;
+import net.piropanda.tinygod.minigames.TRexAdam;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -11,6 +12,8 @@ public class MiniGames extends Group {
 
 	public static MiniGame test = new MiniGame();
 	private MiniGame current;
+	
+	public TRexAdam trexadam;
 	
 	
 	public void load(MiniGame miniGame) {
@@ -26,10 +29,12 @@ public class MiniGames extends Group {
 		if(!this.isVisible()) return;
 		
 		super.act(dt);
+		current.act(dt);
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
+		current.draw(batch, parentAlpha);
 	}
 	
 	public void unload() {
