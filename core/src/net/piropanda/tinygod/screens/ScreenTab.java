@@ -16,7 +16,7 @@ public class ScreenTab extends Group {
 	
 	
 	public ScreenTab(final Screen screen) {
-		this.setBounds(30, 30, 420, 510);
+		this.setBounds(30, 30, Screen.SCROLL_WIDTH, Screen.SCROLL_HEIGHT);
 		
 		// main table
 		table = new Table();

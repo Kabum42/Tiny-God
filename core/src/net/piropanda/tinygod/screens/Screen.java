@@ -12,6 +12,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.Align;
 
 public abstract class Screen extends Group {
 
+	public static int SCROLL_WIDTH = 372;
+	public static int SCROLL_HEIGHT = 510;
+	
 	protected Image bgTab;
 	protected Table table;
 	protected ScrollPane scroll;
@@ -32,7 +35,7 @@ public abstract class Screen extends Group {
 		table.padBottom(50);
 		
 		scroll = new ScrollPane(table);
-		scroll.setBounds(30, 30, 420, 510);
+		scroll.setBounds(30, 30, SCROLL_WIDTH, SCROLL_HEIGHT);
 		scroll.setScrollingDisabled(true, false);
 		this.addActor(scroll);
 		

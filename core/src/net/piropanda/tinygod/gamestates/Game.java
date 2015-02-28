@@ -2,6 +2,7 @@ package net.piropanda.tinygod.gamestates;
 
 import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
+import net.piropanda.tinygod.helpers.ProducerInfo;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.codex.Codex;
 import net.piropanda.tinygod.screens.creation.Creation;
@@ -32,6 +33,8 @@ public class Game extends Group implements GestureListener {
 	public Creation creation;
 	public Store store;
 	
+	private boolean init;
+	
 	private float easingPosition;
 	
 	// screen swap
@@ -46,6 +49,7 @@ public class Game extends Group implements GestureListener {
 	
 	public void init() {
 		GameInfo.reset();
+		ProducerInfo.init();
 		
 		// background
 		Image bg = new Image(TG.Graphics.assets.get("screen-background_01.png", Texture.class));
@@ -64,11 +68,11 @@ public class Game extends Group implements GestureListener {
 		screens[3] = creation = new Creation();
 		screens[4] = store = new Store();
 		
-		codex.setX(TG.Display.WIDTH * Codex.POSITION);
-		providence.setX(TG.Display.WIDTH * Providence.POSITION);
-		god.setX(TG.Display.WIDTH * God.POSITION);
-		creation.setX(TG.Display.WIDTH * Creation.POSITION);
-		store.setX(TG.Display.WIDTH * Store.POSITION);
+		codex.setX(TG.Display.WIDTH 		* Codex.POSITION);
+		providence.setX(TG.Display.WIDTH 	* Providence.POSITION);
+		god.setX(TG.Display.WIDTH 			* God.POSITION);
+		creation.setX(TG.Display.WIDTH 		* Creation.POSITION);
+		store.setX(TG.Display.WIDTH 		* Store.POSITION);
 		
 		this.addActor(codex);
 		this.addActor(providence);
@@ -84,12 +88,16 @@ public class Game extends Group implements GestureListener {
 		
 		// easing position
 		teleportTo(currentScreen);
+		
+		init = true;
 	}
 	
 	public void act(float dt) {
-		if(!this.isVisible()) return;
-
+		if(!init) return;
+		
 		super.act(dt);
+		
+		GameInfo.update();
 		
 		// ease camera to current screen position
 		if(!movingX) {

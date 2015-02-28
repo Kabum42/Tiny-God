@@ -150,7 +150,6 @@ public class Earth extends Group {
 			
  		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
 		Data data = new SCMLReader(handle.read()).getData();
-		//System.out.println(data);
 		
 //		loader = new LibGdxLoader(data);
 //		loader.load(handle.file());

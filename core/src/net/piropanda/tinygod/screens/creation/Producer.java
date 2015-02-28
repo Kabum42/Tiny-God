@@ -3,6 +3,7 @@ package net.piropanda.tinygod.screens.creation;
 import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.gamestates.Game;
+import net.piropanda.tinygod.helpers.ProducerInfo;
 import net.piropanda.tinygod.screens.Screen;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -13,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 public class Producer extends Group {
 	
 	private String id;
-	private float totalLoveRequirement;
 	private ProducerScreenTab tab;
 	private TextButton button;
 	
@@ -35,14 +35,15 @@ public class Producer extends Group {
 		addActor(button);
 		
 		this.setSize(button.getWidth(), button.getHeight());
-		
-		totalLoveRequirement = 0; // TODO: find the total love requirement for the given id
 	}
 	
 	public String getId() { return id; }
 	
-	public float getCost() { return 0f; }
+	public float getCost() { return (float) (ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(id))); }
 	
+	public float getLps() { return ProducerInfo.getLps(id); }
+	
+	@Override
 	public void act(float dt) {
 		super.act(dt);
 	}
@@ -51,7 +52,7 @@ public class Producer extends Group {
 	 * @return true if the user's total love gained is bigger than this producer's love requirement
 	 */
 	public boolean isUnlockable() {
-		return GameInfo.totalLove >= totalLoveRequirement; 
+		return GameInfo.totalLove >= ProducerInfo.getBaseCost(id);
 	}
 	
 	/**

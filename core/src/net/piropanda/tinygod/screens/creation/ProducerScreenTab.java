@@ -20,8 +20,8 @@ public class ProducerScreenTab extends ScreenTab {
 	public ProducerScreenTab(Screen screen, final Producer producer) {
 		super(screen);
 		
-		String text = producer.getId() + "\n\nLOREM IPSUM SHIT";
-		description = new Label(text, TG.Graphics.skin);
+		description = new Label("", TG.Graphics.skin);
+		updateDescriptionText(producer);
 		description.setFontScale(TG.Display.WIDTH / Gdx.graphics.getWidth()); // scale the font to a readable size
 		description.setWrap(true);
 		Container<Label> container = new Container<Label>(description);
@@ -41,12 +41,28 @@ public class ProducerScreenTab extends ScreenTab {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				if(GameInfo.love >= producer.getCost()) {
-					GameInfo.addBuilding(producer.getId());
-					// change text description
+					GameInfo.love -= producer.getCost();
+					GameInfo.addProducer(producer.getId());
+					
+					updateDescriptionText(producer);
 				}
 			}
 		});
 		content.add(purchase);
 	}
-
+	
+	/**
+	 * updates the description label with the right amount of producers and it's current cost
+	 * @param producer
+	 */
+	private void updateDescriptionText(Producer producer) {
+		description.setText(
+			producer.getId() + "\n\n"
+			+ "<producer description here>\n\n"
+			+ "Amount: " + GameInfo.producers.get(producer.getId()) + "\n"
+			+ "Cost: " + producer.getCost() + "\n"
+			+ "LPS: " + producer.getLps() + " (" + producer.getLps()*GameInfo.producers.get(producer.getId()) + ")"
+		);
+	}
+	
 }

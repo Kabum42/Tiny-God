@@ -78,9 +78,9 @@ public class GameLoader extends Group {
 		if(TG.Graphics.assets.update()) {
 			label.setText("Done!");
 			
-			if(Gdx.input.justTouched()) {
-				Game.instance.setVisible(true);
+			if(Gdx.input.justTouched()) { // TODO: try to get a touch up event
 				Game.instance.init();
+				Game.instance.setVisible(true);
 				this.setVisible(false);
 			}
 		}

@@ -2,6 +2,7 @@ package net.piropanda.tinygod.screens.creation;
 
 import java.util.ArrayList;
 
+import net.piropanda.tinygod.helpers.ProducerInfo;
 import net.piropanda.tinygod.screens.Screen;
 
 public class Creation extends Screen {
@@ -16,16 +17,16 @@ public class Creation extends Screen {
 		super();
 		
 		producers = new ArrayList<Producer>();
-		producers.add(new Producer(this, "servant"));
-		producers.add(new Producer(this, "human"));
-		producers.add(new Producer(this, "prophet"));
-		producers.add(new Producer(this, "temple"));
-		producers.add(new Producer(this, "ship"));
-		producers.add(new Producer(this, "factory"));
-		producers.add(new Producer(this, "laboratory"));
-		producers.add(new Producer(this, "hippievan"));
-		producers.add(new Producer(this, "shop"));
-		producers.add(new Producer(this, "spaceship"));
+		producers.add(new Producer(this, ProducerInfo.SERVANT_ID));
+		producers.add(new Producer(this, ProducerInfo.HUMAN_ID));
+		producers.add(new Producer(this, ProducerInfo.PROPHET_ID));
+		producers.add(new Producer(this, ProducerInfo.TEMPLE_ID));
+		producers.add(new Producer(this, ProducerInfo.SHIP_ID));
+		producers.add(new Producer(this, ProducerInfo.FACTORY_ID));
+		producers.add(new Producer(this, ProducerInfo.LABORATORY_ID));
+		producers.add(new Producer(this, ProducerInfo.HIPPIEVAN_ID));
+		producers.add(new Producer(this, ProducerInfo.SHOP_ID));
+		producers.add(new Producer(this, ProducerInfo.SPACESHIP_ID));
 		
 		addProducer(producers.remove(0));
 	}

@@ -21,13 +21,13 @@ public class MiniGames extends Group {
 		current.load();
 		this.addActor(current);
 	}
-	
+
+	@Override
 	public void act(float dt) {
-		if(!this.isVisible()) return;
-		
 		super.act(dt);
 	}
 	
+	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 	}

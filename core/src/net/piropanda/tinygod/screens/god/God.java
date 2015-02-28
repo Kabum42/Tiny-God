@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 
@@ -17,6 +18,7 @@ public class God extends Screen {
 
 	public static final int POSITION = 2;
 	
+	private Label label;
 	private Earth earth;
 	private boolean onYahvy = true;
 	
@@ -33,6 +35,10 @@ public class God extends Screen {
 		
 		// new row
 		table.row();
+
+		
+		label = new Label("Love: ", TG.Graphics.skin); 
+		table.add(label).row();
 		
 		// "To Earth" button
 		TextButton button = new TextButton("To Earth", TG.Graphics.skin);
@@ -44,6 +50,7 @@ public class God extends Screen {
 			}
 		});
 		table.add(button);
+		table.row();
 
 		// space between Yahvy and the Earth
 		table.row();
@@ -77,6 +84,13 @@ public class God extends Screen {
 	}
 	
 	@Override
+	public void act(float dt) {
+		super.act(dt);
+		
+		label.setText("Love: " + GameInfo.love);
+	}
+	
+	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 	}
@@ -89,7 +103,7 @@ public class God extends Screen {
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
 		if(onYahvy) {
-			GameInfo.love += GameInfo.lovePerClick;
+			GameInfo.addLove(GameInfo.lovePerClick);
 		}
 		
 		return false;
