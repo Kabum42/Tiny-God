@@ -39,7 +39,7 @@ public class TinyGod extends ApplicationAdapter {
         stage.addActor(Game.instance);
         stage.addActor(MiniGames.instance);
         
-        Gdx.input.setInputProcessor(new InputMultiplexer(new GestureDetector(Game.instance), stage));
+        Gdx.input.setInputProcessor(new InputMultiplexer(new GestureDetector(Game.instance), new GestureDetector(MiniGames.instance), stage));
 	}
 
 	@Override

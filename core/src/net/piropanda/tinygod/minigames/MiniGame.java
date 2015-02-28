@@ -22,10 +22,11 @@ public class MiniGame extends Group {
 		super.act(dt);
 	}
 	
-	public void pan() {
+	public void pan(float x, float y, float deltaX, float deltaY) {
 	}
 	
-	public void tap() {
+	public void tap(float x, float y) {
+		System.out.println("tapin");
 	}
 
 	@Override
