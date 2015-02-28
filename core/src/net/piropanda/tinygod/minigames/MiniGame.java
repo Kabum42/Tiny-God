@@ -26,7 +26,6 @@ public class MiniGame extends Group {
 	}
 	
 	public void tap(float x, float y) {
-		System.out.println("tapin");
 	}
 
 	@Override
