@@ -1,7 +1,6 @@
 package net.piropanda.tinygod.gamestates;
 
 import net.piropanda.tinygod.TG;
-import net.piropanda.tinygod.minigames.TRexAdam;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -83,8 +82,6 @@ public class GameLoader extends Group {
 				Game.instance.init();
 				Game.instance.setVisible(true);
 				this.setVisible(false);
-				MiniGames.instance.trexadam = new TRexAdam();
-				MiniGames.instance.load(MiniGames.instance.trexadam);
 			}
 		}
 	}

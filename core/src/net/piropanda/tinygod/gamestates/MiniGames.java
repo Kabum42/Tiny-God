@@ -11,6 +11,7 @@ public class MiniGames extends Group {
 	public static MiniGames instance = new MiniGames();
 
 	public static MiniGame test = new MiniGame();
+	public static MiniGame tRexAdam = new TRexAdam();
 	private MiniGame current;
 	
 	public TRexAdam trexadam;
@@ -28,13 +29,11 @@ public class MiniGames extends Group {
 	@Override
 	public void act(float dt) {
 		super.act(dt);
-		current.act(dt);
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
-		current.draw(batch, parentAlpha);
 	}
 	
 	public void unload() {

@@ -20,7 +20,7 @@ public class Store extends Screen {
 		button.addListener(new ChangeListener() {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				MiniGames.instance.load(MiniGames.test);
+				MiniGames.instance.load(MiniGames.tRexAdam);
 			}
 		});
 		table.add(button);

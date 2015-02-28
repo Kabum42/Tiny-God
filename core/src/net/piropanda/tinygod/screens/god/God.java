@@ -2,7 +2,6 @@ package net.piropanda.tinygod.screens.god;
 
 import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
-import net.piropanda.tinygod.gamestates.MiniGames;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.earth.Earth;
 
