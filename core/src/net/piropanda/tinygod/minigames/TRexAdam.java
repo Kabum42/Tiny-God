@@ -13,8 +13,11 @@ public class TRexAdam extends MiniGame {
 	
 	private Sprite limit_up;
 	private Sprite limit_bottom;
-	private Sprite test;
-
+	private Sprite land;
+	private Sprite adam;
+	
+	private boolean jumping = false;
+	private float acceleration = 0f;
 	
 	@Override
 	public void load() {
@@ -32,17 +35,22 @@ public class TRexAdam extends MiniGame {
 		limit_bottom.setX(-TG.Display.HEIGHT/2 +limit_bottom.getHeight()*limit_bottom.getScaleX()/2);
 		limit_bottom.setY(-TG.Display.WIDTH/2  -limit_bottom.getWidth()*limit_bottom.getScaleY()/2);
 		
-		test = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
-		test.setScale(TG.Display.HEIGHT *5, TG.Display.WIDTH/3);
-		test.setColor(0, 0.8f, 0.2f, 1);
-		test.setX(-TG.Display.HEIGHT/2 +test.getHeight()*test.getScaleX()/2);
-	    test.setY(-test.getWidth()*test.getScaleY());
+		land = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		land.setScale(TG.Display.HEIGHT *5, TG.Display.WIDTH/3);
+		land.setColor(0, 0.8f, 0.2f, 1);
+		land.setX(-TG.Display.HEIGHT/2 +land.getHeight()*land.getScaleX()/2);
+	    land.setY(-land.getWidth()*land.getScaleY());
+	    
+	    adam = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		adam.setScale(50, 100);
+		adam.setColor(0.7f, 0, 0, 1);
+		adam.setX(0);
+		adam.setY(-50);
 		
-	    System.out.println(test.getWidth()*test.getScaleY());
 	    
 	    Label label;
 	    
-	    for (int i = 0; i < (test.getWidth()*test.getScaleX())/100; i++) {
+	    for (int i = 0; i < (land.getWidth()*land.getScaleX())/100; i++) {
 	    	label = new Label(""+i, TG.Graphics.skin);
 			label.setColor(Color.BLACK);
 			label.setX(-TG.Display.HEIGHT/2 +100*i);
@@ -62,19 +70,39 @@ public class TRexAdam extends MiniGame {
 	    super.act(dt);
 	    camera.position.x += Gdx.graphics.getDeltaTime()*100;
 	    camera.update();
+	    
+	    adam.setX(adam.getX() + Gdx.graphics.getDeltaTime()*100);
+	    
+	    if (jumping) {
+	    	
+	    	acceleration -= 500 * Gdx.graphics.getDeltaTime();
+	    	adam.setY(adam.getY() +acceleration*Gdx.graphics.getDeltaTime());
+	    	
+	    	if (adam.getY() <= -70) {
+	    		adam.setY(-70);
+		    	jumping = false;
+	    	}
+	    }
+	    
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
-		test.draw(batch);
+		land.draw(batch);
+		adam.draw(batch);
+		
+		
 		limit_up.draw(batch);
 		limit_bottom.draw(batch);
 	}
 	
 	@Override
 	public void tap(float x, float y) {
-		System.out.println("tapin");
+		if (!jumping) {
+			acceleration = 300f;
+			jumping = true;
+		}
 	}
 }
