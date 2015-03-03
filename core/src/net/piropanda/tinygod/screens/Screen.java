@@ -15,7 +15,8 @@ public abstract class Screen extends Group {
 	public static int SCROLL_WIDTH = 372;
 	public static int SCROLL_HEIGHT = 510;
 	
-	protected Image bgTab;
+	public Image bgTab;
+	public Image bgTab2;
 	protected Table table;
 	protected ScrollPane scroll;
 	protected ScreenTab currentScreenTab;
@@ -23,10 +24,21 @@ public abstract class Screen extends Group {
 	
 	public Screen() {
 		// tab background (sub-screen)
-		bgTab = new Image(TG.Graphics.assets.get("tab-bg.png", Texture.class));
+		bgTab = new Image(TG.Graphics.assets.get("pixel.png", Texture.class));
+		bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
+		bgTab.setColor(100f/255f, 1f, 1f, 1f);
 		bgTab.setBounds(0, 0, TG.Display.WIDTH, TG.Display.HEIGHT);
 		bgTab.setTouchable(Touchable.disabled);
 		this.addActor(bgTab);
+		
+		bgTab2 = new Image(TG.Graphics.assets.get("pixel.png", Texture.class));
+		//bgTab2.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
+		//bgTab2.setColor(100f/255f, 1f, 1f, 1f);
+		bgTab2.setBounds(0, 0, TG.Display.WIDTH, TG.Display.HEIGHT);
+		bgTab2.setTouchable(Touchable.disabled);
+		bgTab2.setVisible(false);
+		this.addActor(bgTab2);
+		
 		
 		// initialize table and scroll pane
 		table = new Table();

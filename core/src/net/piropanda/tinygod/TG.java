@@ -9,7 +9,8 @@ public class TG {
 	public static class Display {
 		public static final int WIDTH = 432;
 		public static final int HEIGHT = 720;
-		//public static final int HEIGHT = 800;
+		// EL ARTE TIENE PROPORCIONES DE 1188 x 1980	
+		// ESO SON LAS ESTÁNDAR MULTIPLICADAS * 2.75
 		public static final String TITLE = "Tiny God";
 	}
 	

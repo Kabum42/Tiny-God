@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 //import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
+import net.piropanda.tinygod.screens.god.God;
 import net.piropanda.tinygod.spriter.LibGdxDrawer;
 import net.piropanda.tinygod.spriter.LibGdxLoader;
 
@@ -45,7 +46,7 @@ public class Earth extends Group {
 	
 	private Screen screen;
 	
-	private Sprite earth;
+	public Sprite earth;
 	
 	public float earth_x;
 	public float earth_original_y;
@@ -173,9 +174,9 @@ public class Earth extends Group {
 	public void act(float dt) {
 	    super.act(dt);
 	    
-	    earth.setY(0 -1504 +screen.getScrollPane().getVisualScrollY());
+	    earth.setY(0 -504 -((God)screen).earth_distant +screen.getScrollPane().getVisualScrollY());
 	    
-	    earth_y = earth_original_y -1504 +screen.getScrollPane().getVisualScrollY();
+	    earth_y = earth_original_y -504 -((God)screen).earth_distant +screen.getScrollPane().getVisualScrollY();
 	    
 	    earth_rotation = (float) (earth_rotation + Gdx.graphics.getDeltaTime()*(2.0f));
 	    
@@ -245,7 +246,7 @@ public class Earth extends Group {
 		
 		sortedPhysicalsRendering(batch);
 		
-		drawSpriter(player, batch);
+		//drawSpriter(player, batch);
 		
 		
 	}
@@ -333,10 +334,14 @@ public class Earth extends Group {
 		float green = 0;
 		float blue = 0;
 		
+		float red2 = 100f/255f;
+		float green2 = 200f/255f;
+		float blue2 = 255f/255f;
+		
 		
 		if (current.getClass() == Sun.class) {
 			
-			float position = (current.sprite.getX() +current.sprite.getWidth()/2  -210)/(213f);
+			float position = (current.sprite.getX() +current.sprite.getWidth()/2  -197)/(197f);
 			
 			if (Math.abs(position) < 0.7f) {
 				// COLOR NORMAL
@@ -344,9 +349,19 @@ public class Earth extends Group {
 			else if (Math.abs(position) < 1f) {
 				float culmen = 0.7f + (1f - 0.7f)/2;
 				red = ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*0.4f;
+				
+				red2 = (100f + ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*155f)/255f;
+				green2 = (200f - ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*100f)/255f;
+				blue2 = (255f - ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*200f)/255f;
+				
+				screen.bgTab2.setColor(200f/255f, 100f/255f, 100f/255f, 1f);
 
 				if (Math.abs(position) > (1f -(1f - 0.7f)/2)) {
 					blue = (Math.abs(position) - (1f -(1f - 0.7f)/2))/((1f - 0.7f)/2)*0.5f;
+					
+					red2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*255f)/255f;
+					green2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*100f)/255f;
+					blue2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*55f)/255f;
 				}
 				
 				
@@ -354,6 +369,10 @@ public class Earth extends Group {
 			else {
 				// DE NOCHE
 				blue = 0.5f;
+				
+				red2 = 0f;
+				green2 = 0f;
+				blue2 = 0f;
 			}
 			
 			
@@ -361,9 +380,15 @@ public class Earth extends Group {
 		else {
 			// DE NOCHE
 			blue = 0.5f;
+
+			red2 = 0f;
+			green2 = 0f;
+			blue2 = 0f;
 		}
 		
 		s.setColor(1f -green -blue, 1f -red -blue, 1f -red -green, 1f);
+		screen.bgTab2.setColor(red2, green2, blue2, 1f);
+		
 	}
 	
 	public void checkDraw(Physical p, Batch batch) {

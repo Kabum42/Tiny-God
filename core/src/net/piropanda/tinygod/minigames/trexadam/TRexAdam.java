@@ -1,6 +1,9 @@
-package net.piropanda.tinygod.minigames;
+package net.piropanda.tinygod.minigames.trexadam;
+
+import java.util.ArrayList;
 
 import net.piropanda.tinygod.TG;
+import net.piropanda.tinygod.minigames.MiniGame;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -11,13 +14,18 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 public class TRexAdam extends MiniGame {
 	
+	public float game_speed = 200f;
+	
 	private Sprite limit_up;
 	private Sprite limit_bottom;
 	private Sprite land;
 	private Sprite adam;
+	private Sprite trex;
 	
 	private boolean jumping = false;
 	private float acceleration = 0f;
+	
+	private ArrayList<Obstacle> obstacles = new ArrayList<Obstacle>();
 	
 	@Override
 	public void load() {
@@ -43,19 +51,28 @@ public class TRexAdam extends MiniGame {
 	    
 	    adam = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
 		adam.setScale(50, 100);
-		adam.setColor(0.7f, 0, 0, 1);
+		adam.setColor(0, 0, 0.7f, 1);
 		adam.setX(0);
 		adam.setY(-50);
+		
+		trex = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		trex.setScale(100, 200);
+		trex.setColor(0.7f, 0, 0, 1);
+		trex.setX(-250);
+		trex.setY(-50);
 		
 	    
 	    Label label;
 	    
-	    for (int i = 0; i < (land.getWidth()*land.getScaleX())/100; i++) {
+	    for (int i = 0; i < (land.getWidth()*land.getScaleX())/200; i++) {
 	    	label = new Label(""+i, TG.Graphics.skin);
 			label.setColor(Color.BLACK);
-			label.setX(-TG.Display.HEIGHT/2 +100*i);
+			label.setX(-TG.Display.HEIGHT/2 +200*i);
 			label.setY(-20);
 			this.addActor(label);
+			
+			Obstacle o = new Obstacle(-TG.Display.HEIGHT/2 +200*i, -100);
+			obstacles.add(o);
 	    }
 	    
 	    
@@ -68,20 +85,25 @@ public class TRexAdam extends MiniGame {
 	@Override
 	public void act(float dt) {
 	    super.act(dt);
-	    camera.position.x += Gdx.graphics.getDeltaTime()*100;
+	    camera.position.x += Gdx.graphics.getDeltaTime()*game_speed;
 	    camera.update();
 	    
-	    adam.setX(adam.getX() + Gdx.graphics.getDeltaTime()*100);
+	    trex.setX(trex.getX() + Gdx.graphics.getDeltaTime()*game_speed);
+	    adam.setX(adam.getX() + Gdx.graphics.getDeltaTime()*game_speed);
 	    
 	    if (jumping) {
 	    	
-	    	acceleration -= 500 * Gdx.graphics.getDeltaTime();
+	    	acceleration -= 2000 * Gdx.graphics.getDeltaTime();
 	    	adam.setY(adam.getY() +acceleration*Gdx.graphics.getDeltaTime());
 	    	
 	    	if (adam.getY() <= -70) {
 	    		adam.setY(-70);
 		    	jumping = false;
 	    	}
+	    }
+	    
+	    for (int i = 0; i < obstacles.size(); i++) {
+	    	obstacles.get(i).update();
 	    }
 	    
 	}
@@ -91,6 +113,12 @@ public class TRexAdam extends MiniGame {
 		super.draw(batch, parentAlpha);
 		
 		land.draw(batch);
+		
+		for (int i = 0; i < obstacles.size(); i++) {
+	    	obstacles.get(i).sprite.draw(batch);
+	    }
+		
+		trex.draw(batch);
 		adam.draw(batch);
 		
 		
@@ -101,7 +129,7 @@ public class TRexAdam extends MiniGame {
 	@Override
 	public void tap(float x, float y) {
 		if (!jumping) {
-			acceleration = 300f;
+			acceleration = 550f;
 			jumping = true;
 		}
 	}

@@ -1,7 +1,7 @@
 package net.piropanda.tinygod.gamestates;
 
 import net.piropanda.tinygod.minigames.MiniGame;
-import net.piropanda.tinygod.minigames.TRexAdam;
+import net.piropanda.tinygod.minigames.trexadam.*;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
