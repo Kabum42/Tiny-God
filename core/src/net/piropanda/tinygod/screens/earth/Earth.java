@@ -15,6 +15,7 @@ import net.piropanda.tinygod.spriter.LibGdxDrawer;
 import net.piropanda.tinygod.spriter.LibGdxLoader;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -69,6 +70,12 @@ public class Earth extends Group {
 	
 	Player player;
 	LibGdxLoader loader;
+	
+	private boolean screenVisible = false;
+	private boolean day = true;
+	
+	public Sound soundCrickets;
+	public float soundCricketsPlaying = 0f;
 	
 	
 	public Earth(Screen screen2) {
@@ -167,6 +174,8 @@ public class Earth extends Group {
 		label.setX(350);
 		label.setY(300);
 		this.addActor(label);
+		
+		soundCrickets = Gdx.audio.newSound(Gdx.files.internal("audio/crickets.mp3"));
 
 		
 	}
@@ -217,12 +226,20 @@ public class Earth extends Group {
 		
 		
 		label.setText("FPS: "+Gdx.graphics.getFramesPerSecond());
+		
+		if (soundCricketsPlaying > 0) {
+			soundCricketsPlaying -= Gdx.graphics.getDeltaTime();
+			if (soundCricketsPlaying < 0) {
+				soundCricketsPlaying = 0;
+			}
+		}
+		
+		
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
 		
-		
-		
+	
 		super.draw(batch, parentAlpha);
 		
 		
@@ -236,6 +253,7 @@ public class Earth extends Group {
 //		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 //		batch.setShader(maskShader);
 		
+		screenVisible = false;
 		
 		for (int i = 0; i < astrals.size(); i++) {
 			checkDraw(astrals.get(i), batch);
@@ -247,6 +265,11 @@ public class Earth extends Group {
 		sortedPhysicalsRendering(batch);
 		
 		//drawSpriter(player, batch);
+		
+		if (screenVisible && day == false && soundCricketsPlaying <= 0) {
+			soundCricketsPlaying = 4.0f;
+			soundCrickets.play(0.05f);
+		}
 		
 		
 	}
@@ -341,6 +364,8 @@ public class Earth extends Group {
 		
 		if (current.getClass() == Sun.class) {
 			
+			day = true;
+			
 			float position = (current.sprite.getX() +current.sprite.getWidth()/2  -197)/(197f);
 			
 			if (Math.abs(position) < 0.7f) {
@@ -368,6 +393,9 @@ public class Earth extends Group {
 			}
 			else {
 				// DE NOCHE
+				
+				day = false;
+				
 				blue = 0.5f;
 				
 				red2 = 0f;
@@ -379,6 +407,9 @@ public class Earth extends Group {
 		}
 		else {
 			// DE NOCHE
+			
+			day = false;
+			
 			blue = 0.5f;
 
 			red2 = 0f;
@@ -393,6 +424,7 @@ public class Earth extends Group {
 	
 	public void checkDraw(Physical p, Batch batch) {
 		
+		
 		if (p.sprite.getX() < (-p.sprite.getWidth())
 				|| p.sprite.getX() > (earth_x +earth_width/2 + screen.getScrollPane().getWidth()/2) 
 				|| p.sprite.getY() < (-p.sprite.getHeight())) {
@@ -405,6 +437,8 @@ public class Earth extends Group {
 			}
 			
 			p.draw(batch);
+			
+			screenVisible = true;
 		}
 		
 	}

@@ -128,6 +128,11 @@ public class TRexAdam extends MiniGame {
 	
 	@Override
 	public void tap(float x, float y) {
+		
+	}
+	
+	@Override
+	public void touchDown(float x, float y) {	
 		if (!jumping) {
 			acceleration = 550f;
 			jumping = true;

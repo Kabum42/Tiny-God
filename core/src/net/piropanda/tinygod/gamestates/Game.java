@@ -10,6 +10,8 @@ import net.piropanda.tinygod.screens.god.God;
 import net.piropanda.tinygod.screens.providence.Providence;
 import net.piropanda.tinygod.screens.store.Store;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.MathUtils;
@@ -17,6 +19,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
 public class Game extends Group implements GestureListener {
 
@@ -42,6 +45,11 @@ public class Game extends Group implements GestureListener {
 	private float accumulatedX;
 	private int currentScreen;
 	
+	public Sound soundSlide;
+	
+	private Label label;
+	private Image top;
+	
 	
 	public Game() {
 		this.setName(NAME);
@@ -51,13 +59,25 @@ public class Game extends Group implements GestureListener {
 		GameInfo.reset();
 		ProducerInfo.init();
 		
+		soundSlide = Gdx.audio.newSound(Gdx.files.internal("audio/slide-network.mp3"));
+		
 		// background
 		Image bg = new Image(TG.Graphics.assets.get("screen-background_01.png", Texture.class));
 		bg.setTouchable(Touchable.disabled);
 		
+		Image godBackground = new Image(TG.Graphics.assets.get("god-bg.png", Texture.class));
+		godBackground.setScale(1f/2.75f);
+		godBackground.setX(TG.Display.WIDTH*2);
+		godBackground.setTouchable(Touchable.disabled);
+		
 		Image bg2 = new Image(TG.Graphics.assets.get("screen-background_02.png", Texture.class));
-		bg2.setX(bg.getWidth());
+		bg2.setX(TG.Display.WIDTH*3);
 		bg2.setTouchable(Touchable.disabled);
+		
+		top = new Image(TG.Graphics.assets.get("top.png", Texture.class));
+		top.setScale(1f/2.75f);
+		top.setY(TG.Display.HEIGHT - top.getHeight()*top.getScaleY());
+		top.setTouchable(Touchable.disabled);
 		
 		// screens
 		screens = new Screen[5];
@@ -81,7 +101,15 @@ public class Game extends Group implements GestureListener {
 		this.addActor(store);
 		
 		this.addActor(bg);
+		this.addActor(godBackground);
 		this.addActor(bg2);
+		this.addActor(top);
+		
+		label = new Label("Love: ", TG.Graphics.skin); 
+		//label.setFontScale(2f);
+		label.setColor(90f/255f, 251f/255f, 163f/255f, 1f);
+		label.setY(620);
+		this.addActor(label);
 		
 		// 
 		currentScreen = God.POSITION;
@@ -99,11 +127,16 @@ public class Game extends Group implements GestureListener {
 		
 		GameInfo.update();
 		
+		label.setText("Love: " + GameInfo.love);
+		
 		// ease camera to current screen position
 		if(!movingX) {
 			float easeTo = easingPosition - this.getStage().getCamera().position.x;
 			this.getStage().getCamera().position.x += easeTo * 0.1f;
 		}
+		
+		top.setX(this.getStage().getCamera().position.x -TG.Display.WIDTH/2);
+		label.setX(top.getX() + 150);
 	}
 	
 	public void easeTo(int screen) {
@@ -171,6 +204,7 @@ public class Game extends Group implements GestureListener {
 			
 //			easingPosition = currentScreen*TG.Display.WIDTH + TG.Display.WIDTH/2;
 			easeTo(currentScreen);
+			soundSlide.play(0.5f);
 		}
 		
 		accumulatedX = 0;

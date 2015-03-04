@@ -5,6 +5,8 @@ import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.earth.Earth;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -20,13 +22,18 @@ public class God extends Screen {
 
 	public static final int POSITION = 2;
 	
-	private Label label;
+	
 	private Earth earth;
 	private boolean onYahvy = true;
 	public float earth_distant = 8000f;
 	
+	public Sound soundTap;
+	private Image yahvy;
+	
 	public God() {
 		super();
+		
+		soundTap = Gdx.audio.newSound(Gdx.files.internal("audio/tap-mellow.mp3"));
 		
 		this.bgTab.setDrawable(new SpriteDrawable(new Sprite(TG.Graphics.assets.get("transition.png", Texture.class))));
 		this.bgTab.setScale(TG.Display.WIDTH, (earth_distant +TG.Display.WIDTH*2)*(1f/this.bgTab.getHeight()));
@@ -39,16 +46,28 @@ public class God extends Screen {
 		scroll.removeListener(scroll.getListeners().get(0)); // removes the CaptureListener that enables it to scroll manually
 		
 		// Yahvy image
-		Image image = new Image(TG.Graphics.assets.get("lord-god.png", Texture.class));
-		image.setTouchable(Touchable.enabled);
-		table.add(image).size(TG.Display.WIDTH);
+		yahvy = new Image(TG.Graphics.assets.get("yahvy.png", Texture.class));
+		yahvy.setScale(1f/2.75f);
+		yahvy.setTouchable(Touchable.enabled);
+		yahvy.setX(TG.Display.WIDTH/2 - (yahvy.getWidth()/2)*yahvy.getScaleX());
+		yahvy.setY(140);
+		this.addActor(yahvy);
+		//table.add(image).size(480);
+		table.add().padTop(480);
+		
+		Image mouth = new Image(TG.Graphics.assets.get("mouth.png", Texture.class));
+		mouth.setScale(1f/2.75f);
+		mouth.setTouchable(Touchable.enabled);
+		mouth.setX(TG.Display.WIDTH/2 - (mouth.getWidth()/2)*mouth.getScaleX());
+		mouth.setY(150);
+		this.addActor(mouth);
 		
 		// new row
 		table.row();
 
 		
-		label = new Label("Love: ", TG.Graphics.skin); 
-		table.add(label).row();
+		
+		//table.add(label).row();
 		
 		// "To Earth" button
 		TextButton button = new TextButton("To Earth", TG.Graphics.skin);
@@ -57,6 +76,8 @@ public class God extends Screen {
 			public void changed(ChangeEvent event, Actor actor) {
 				scroll.scrollTo(0, 0, TG.Display.WIDTH, TG.Display.WIDTH);
 				onYahvy = false;
+				
+				soundTap.play(1f);
 			}
 		});
 		table.add(button);
@@ -74,6 +95,10 @@ public class God extends Screen {
 			public void changed(ChangeEvent event, Actor actor) {
 				scroll.scrollTo(0, 9999, 480, 480);
 				onYahvy = true;
+				
+				earth.soundCrickets.stop();
+				earth.soundCricketsPlaying = 0f;
+				soundTap.play(1f);
 			}
 		});
 		table.add(button);
@@ -81,6 +106,7 @@ public class God extends Screen {
 		
 		earth = new Earth(this);
 		table.add(earth).size(TG.Display.WIDTH);
+		//table.add().padBottom(TG.Display.WIDTH);
 		
 	}
 	
@@ -92,18 +118,33 @@ public class God extends Screen {
 	public void act(float dt) {
 		super.act(dt);
 		
-		label.setText("Love: " + GameInfo.love);
-		
 		this.bgTab.setY(-180 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
 		this.bgTab2.setY(-180 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
+		this.yahvy.setY(140 +this.getScrollPane().getVisualScrollY());
 		
-		earth.light(earth.earth);
+		if (onYahvy) {
+			
+		}
+		else {
+			//earth.act(dt);
+			earth.light(earth.earth);
+		}
+		
+		
 		
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
+		
+//		if (onYahvy) {
+//			
+//		}
+//		else {
+//			earth.draw(batch, parentAlpha);
+//		}
+		
 	}
 	
 	@Override

@@ -50,6 +50,11 @@ public class MiniGames extends Group implements GestureListener {
 	
 	@Override
 	public boolean touchDown(float x, float y, int pointer, int button) {
+		
+		if(current == null) return false;
+		
+		current.touchDown(x, y);
+		
 		return false;
 	}
 

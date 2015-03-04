@@ -27,6 +27,9 @@ public class MiniGame extends Group {
 	
 	public void tap(float x, float y) {
 	}
+	
+	public void touchDown(float x, float y) {	
+	}
 
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
