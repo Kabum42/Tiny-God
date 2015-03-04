@@ -7,6 +7,7 @@ import net.piropanda.tinygod.screens.earth.Earth;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -21,7 +22,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 public class God extends Screen {
 
 	public static final int POSITION = 2;
-	
 	
 	private Earth earth;
 	private boolean onYahvy = true;
@@ -49,18 +49,19 @@ public class God extends Screen {
 		yahvy = new Image(TG.Graphics.assets.get("yahvy.png", Texture.class));
 		yahvy.setScale(1f/2.75f);
 		yahvy.setTouchable(Touchable.enabled);
-		yahvy.setX(TG.Display.WIDTH/2 - (yahvy.getWidth()/2)*yahvy.getScaleX());
+		yahvy.setX(TG.Display.WIDTH/2 +TG.Display.WIDTH*2 - (yahvy.getWidth()/2)*yahvy.getScaleX());
 		yahvy.setY(140);
-		this.addActor(yahvy);
 		//table.add(image).size(480);
 		table.add().padTop(480);
 		
+		/*
 		Image mouth = new Image(TG.Graphics.assets.get("mouth.png", Texture.class));
 		mouth.setScale(1f/2.75f);
 		mouth.setTouchable(Touchable.enabled);
 		mouth.setX(TG.Display.WIDTH/2 - (mouth.getWidth()/2)*mouth.getScaleX());
 		mouth.setY(150);
 		this.addActor(mouth);
+		*/
 		
 		// new row
 		table.row();
@@ -105,8 +106,8 @@ public class God extends Screen {
 		table.row();
 		
 		earth = new Earth(this);
-		table.add(earth).size(TG.Display.WIDTH);
-		//table.add().padBottom(TG.Display.WIDTH);
+//		table.add(earth).size(TG.Display.WIDTH);
+		table.add().padBottom(TG.Display.WIDTH);
 		
 	}
 	
@@ -119,14 +120,14 @@ public class God extends Screen {
 		super.act(dt);
 		
 		this.bgTab.setY(-180 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
-		this.bgTab2.setY(-180 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
+		this.bgTab2.setY(-280 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
 		this.yahvy.setY(140 +this.getScrollPane().getVisualScrollY());
 		
 		if (onYahvy) {
 			
 		}
 		else {
-			//earth.act(dt);
+			earth.act(dt);
 			earth.light(earth.earth);
 		}
 		
@@ -138,12 +139,13 @@ public class God extends Screen {
 	public void draw(Batch batch, float parentAlpha) {
 		super.draw(batch, parentAlpha);
 		
-//		if (onYahvy) {
-//			
-//		}
-//		else {
-//			earth.draw(batch, parentAlpha);
-//		}
+		if (onYahvy) {
+			//batch.setProjectionMatrix(camera.combined);
+			yahvy.draw(batch, parentAlpha);
+		}
+		else {
+			earth.draw(batch, parentAlpha);
+		}
 		
 	}
 	

@@ -49,7 +49,6 @@ public class Earth extends Group {
 	
 	public Sprite earth;
 	
-	public float earth_x;
 	public float earth_original_y;
 	public float earth_y;
 	public float earth_width = 1024;
@@ -106,14 +105,13 @@ public class Earth extends Group {
 		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 
 		// earth
-		earth_x = (this.getX() + screen.getScrollPane().getWidth()/2 - earth_width/2);
 		float percent_earth_showing = 20;
 		earth_original_y = (-earth_width/2 -earth_width*earth_scale*((50f - percent_earth_showing)/100f));
 		earth_y = earth_original_y;
 		
 		
 		earth = new Sprite(TG.Graphics.assets.get("earth/earth.png", Texture.class));
-		earth.setX(earth_x + earth_width/2 -earth.getWidth()/2);
+		earth.setX(TG.Display.WIDTH*2.5f - earth.getWidth()/2*earth.getScaleX());
 		
 		// astrals
 		Sun sun;
@@ -171,7 +169,7 @@ public class Earth extends Group {
 		
 		label = new Label("Loading...", TG.Graphics.skin);
 		label.setColor(Color.WHITE);
-		label.setX(350);
+		label.setX(TG.Display.WIDTH*2.5f);
 		label.setY(300);
 		this.addActor(label);
 		
@@ -366,7 +364,7 @@ public class Earth extends Group {
 			
 			day = true;
 			
-			float position = (current.sprite.getX() +current.sprite.getWidth()/2  -197)/(197f);
+			float position = (current.sprite.getX() +current.sprite.getWidth()/2  -TG.Display.WIDTH*2.5f)/(200f);
 			
 			if (Math.abs(position) < 0.7f) {
 				// COLOR NORMAL
@@ -426,7 +424,7 @@ public class Earth extends Group {
 		
 		
 		if (p.sprite.getX() < (-p.sprite.getWidth())
-				|| p.sprite.getX() > (earth_x +earth_width/2 + screen.getScrollPane().getWidth()/2) 
+				|| p.sprite.getX() > (earth.getX() +earth_width/2 + screen.getScrollPane().getWidth()/2) 
 				|| p.sprite.getY() < (-p.sprite.getHeight())) {
 			// NO SE DIBUJA
 		}

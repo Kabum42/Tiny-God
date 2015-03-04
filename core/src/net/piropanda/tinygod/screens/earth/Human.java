@@ -38,9 +38,6 @@ public class Human extends Physical {
 		
 		sprite.setScale(1f/4f);
 		
-		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
-		origin_y = planet.earth_y +planet.earth_width/2 -sprite.getHeight()/2;
-		
 		sprite.setX(origin_x);
 		sprite.setY(origin_y);
 
@@ -49,7 +46,7 @@ public class Human extends Physical {
 	public void act(float dt) {
 		super.act(dt);
 		
-		origin_x = planet.earth_x + planet.earth_width/2 -sprite.getWidth()/2;
+		origin_x = planet.earth.getX() +planet.earth.getWidth()/2*planet.earth.getScaleX() -sprite.getWidth()/2;
 		origin_y = planet.earth_y + planet.earth_width/2 -sprite.getHeight()/2;
 		
 		
