@@ -1,9 +1,12 @@
 package net.piropanda.tinygod.screens.god;
 
+import java.util.ArrayList;
+
 import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.earth.Earth;
+import net.piropanda.tinygod.screens.earth.Physical;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
@@ -29,6 +32,8 @@ public class God extends Screen {
 	
 	public Sound soundTap;
 	private Image yahvy;
+	public ArrayList<Mouth> mouths = new ArrayList<Mouth>();
+	public float mouth_rotation = 0f;
 	
 	public God() {
 		super();
@@ -54,14 +59,7 @@ public class God extends Screen {
 		//table.add(image).size(480);
 		table.add().padTop(480);
 		
-		/*
-		Image mouth = new Image(TG.Graphics.assets.get("mouth.png", Texture.class));
-		mouth.setScale(1f/2.75f);
-		mouth.setTouchable(Touchable.enabled);
-		mouth.setX(TG.Display.WIDTH/2 - (mouth.getWidth()/2)*mouth.getScaleX());
-		mouth.setY(150);
-		this.addActor(mouth);
-		*/
+		addMouth();
 		
 		// new row
 		table.row();
@@ -122,12 +120,16 @@ public class God extends Screen {
 		this.bgTab.setY(-180 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
 		this.bgTab2.setY(-280 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
 		this.yahvy.setY(140 +this.getScrollPane().getVisualScrollY());
+		earth.act(dt);
 		
 		if (onYahvy) {
-			
+			mouth_rotation += Gdx.graphics.getDeltaTime()*100f;
+			if (mouth_rotation >= 360) { mouth_rotation -= 360; }
+			for (int i = 0; i < mouths.size(); i++) {
+				mouths.get(i).act(dt);
+			}
 		}
 		else {
-			earth.act(dt);
 			earth.light(earth.earth);
 		}
 		
@@ -140,8 +142,10 @@ public class God extends Screen {
 		super.draw(batch, parentAlpha);
 		
 		if (onYahvy) {
-			//batch.setProjectionMatrix(camera.combined);
 			yahvy.draw(batch, parentAlpha);
+			for (int i = 0; i < mouths.size(); i++) {
+				mouths.get(i).sprite.draw(batch, parentAlpha);
+			}
 		}
 		else {
 			earth.draw(batch, parentAlpha);
@@ -158,9 +162,14 @@ public class God extends Screen {
 	public boolean tap(float x, float y, int count, int button) {
 		if(onYahvy) {
 			GameInfo.addLove(GameInfo.lovePerClick);
+			addMouth();
 		}
 		
 		return false;
+	}
+	
+	public void addMouth() {
+		mouths.add(new Mouth(this, mouths.size(), TG.Display.WIDTH*2.5f, 250));
 	}
 	
 }
