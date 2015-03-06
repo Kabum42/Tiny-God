@@ -26,6 +26,8 @@ public class Mouth {
 		origin_x = aux_origin_x;
 		origin_y = aux_origin_y;
 		
+		//radius = 130 + (float)Math.random()*50;
+		
 		variation_color = (float) (-0.15f + Math.random()*0.3f);
 		
 		sprite = new Sprite(TG.Graphics.assets.get("mouth.png", Texture.class));
@@ -36,7 +38,45 @@ public class Mouth {
 	
 	public void act(float dt) {
 		
-		float angle = ((float)(position+1f)/(float)screen.mouths.size())*360f;
+		float angle = 0;
+		
+		if (position <= 17) {
+			
+			radius = 180;
+			
+			if (screen.mouths.size() > 17) {
+				angle = ((float)(position+1f)/(float)17)*360f;
+			}
+			else {
+				angle = ((float)(position+1f)/(float)screen.mouths.size())*360f;
+			}
+		}
+		else if (position <= 30) {
+			
+			radius = 140;
+			
+			if (screen.mouths.size() > 30) {
+				angle = ((float)(position+1f)/(float)(30-17))*360f;
+			}
+			else {
+				angle = ((float)(position+1f)/(float)(screen.mouths.size()-18))*360f;
+			}
+		}
+		else if (position <= 40) {
+			
+			radius = 100;
+			
+			if (screen.mouths.size() > 40) {
+				angle = ((float)(position+1f)/(float)(40-30))*360f;
+			}
+			else {
+				angle = ((float)(position+1f)/(float)(screen.mouths.size()-31))*360f;
+			}
+			
+			
+		}
+		
+		
 		
 		sprite.setRotation(screen.mouth_rotation +angle -90);
 		
@@ -51,11 +91,14 @@ public class Mouth {
 	
 	public void draw(Batch batch, float parentAlpha) {
 		
-		batch.setShader(Shaders.instance.hueShader);
-		Shaders.instance.hueShader.setUniformf("hue", variation_color);
-		//Shaders.instance.hueShader.setUniformf("saturation", variation_color);
-		sprite.draw(batch);
-		batch.setShader(null);
+		if (position <= 40) {
+			batch.setShader(Shaders.instance.hueShader);
+			Shaders.instance.hueShader.setUniformf("hue", variation_color);
+			//Shaders.instance.hueShader.setUniformf("saturation", variation_color);
+			sprite.draw(batch);
+			batch.setShader(null);
+		}
+		
 	}
 
 }

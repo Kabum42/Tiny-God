@@ -36,6 +36,7 @@ public class GameLoader extends Group {
 	private void loadAssets() {
 		// common
 		TG.Graphics.assets.load("pixel.png", Texture.class);
+		TG.Graphics.assets.load("aura.png", Texture.class);
 		TG.Graphics.assets.load("yahvy.png", Texture.class);
 		TG.Graphics.assets.load("mouth.png", Texture.class);
 		TG.Graphics.assets.load("toEarth.png", Texture.class);

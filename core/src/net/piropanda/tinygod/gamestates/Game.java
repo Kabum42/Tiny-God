@@ -14,6 +14,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -50,9 +51,9 @@ public class Game extends Group implements GestureListener {
 	
 	private Label label;
 	private Image bg;
-	private Image godBackground;
+	private Sprite godBackground;
 	private Image bg2;
-	private Image top;
+	private Sprite top;
 	
 	
 	public Game() {
@@ -69,19 +70,18 @@ public class Game extends Group implements GestureListener {
 		bg = new Image(TG.Graphics.assets.get("screen-background_01.png", Texture.class));
 		bg.setTouchable(Touchable.disabled);
 		
-		godBackground = new Image(TG.Graphics.assets.get("god-bg.png", Texture.class));
+		godBackground = new Sprite(TG.Graphics.assets.get("god-bg.png", Texture.class));
 		godBackground.setScale(1f/2.75f);
-		godBackground.setX(TG.Display.WIDTH*2);
-		godBackground.setTouchable(Touchable.disabled);
+		godBackground.setX((TG.Display.WIDTH*2f -godBackground.getWidth()/2 +godBackground.getWidth()/2*godBackground.getScaleX()));
+		godBackground.setY(0 -godBackground.getHeight()/2 +godBackground.getHeight()/2*godBackground.getScaleY());
 		
 		bg2 = new Image(TG.Graphics.assets.get("screen-background_02.png", Texture.class));
 		bg2.setX(TG.Display.WIDTH*3);
 		bg2.setTouchable(Touchable.disabled);
 		
-		top = new Image(TG.Graphics.assets.get("top.png", Texture.class));
+		top = new Sprite(TG.Graphics.assets.get("top.png", Texture.class));
 		top.setScale(1f/2.75f);
-		top.setY(TG.Display.HEIGHT - top.getHeight()*top.getScaleY());
-		top.setTouchable(Touchable.disabled);
+		top.setY(TG.Display.HEIGHT -top.getHeight()/2 -top.getHeight()/2*top.getScaleY());
 		
 		// screens
 		screens = new Screen[5];
@@ -105,9 +105,7 @@ public class Game extends Group implements GestureListener {
 		this.addActor(store);
 		
 		this.addActor(bg);
-		this.addActor(godBackground);
 		this.addActor(bg2);
-		this.addActor(top);
 		
 		label = new Label("Love: ", TG.Graphics.skin); 
 		//label.setFontScale(2f);
@@ -139,14 +137,14 @@ public class Game extends Group implements GestureListener {
 			this.getStage().getCamera().position.x += easeTo * 0.1f;
 		}
 		
-		top.setX(this.getStage().getCamera().position.x -TG.Display.WIDTH/2);
-		label.setX(top.getX() + 150);
+		top.setX(this.getStage().getCamera().position.x -top.getWidth()/2);
+		label.setX(top.getX() +top.getWidth()/2 -50);
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		
-		if (movingX) {
+		if (Math.abs(this.getStage().getCamera().position.x - (currentScreen*TG.Display.WIDTH + TG.Display.WIDTH/2)) > 5) {
 			for (int i = 0; i < screens.length; i++) {
 				float min_x_camera = this.getStage().getCamera().position.x - TG.Display.WIDTH/2;
 				float max_x_camera = this.getStage().getCamera().position.x + TG.Display.WIDTH/2;

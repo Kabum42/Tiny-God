@@ -26,7 +26,7 @@ public abstract class Screen extends Group {
 		// tab background (sub-screen)
 		bgTab = new Image(TG.Graphics.assets.get("pixel.png", Texture.class));
 		bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
-		bgTab.setColor(100f/255f, 1f, 1f, 1f);
+		bgTab.setColor(100f/255f, 130f/255f, 210f/255f, 1f);
 		bgTab.setBounds(0, 0, TG.Display.WIDTH, TG.Display.HEIGHT);
 		bgTab.setTouchable(Touchable.disabled);
 		this.addActor(bgTab);

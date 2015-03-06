@@ -31,7 +31,9 @@ public class God extends Screen {
 	public float earth_distant = 8000f;
 	
 	public Sound soundTap;
-	private Image yahvy;
+	private Sprite aura;
+	private Sprite aura2;
+	private Sprite yahvy;
 	public ArrayList<Mouth> mouths = new ArrayList<Mouth>();
 	public float mouth_rotation = 0f;
 	
@@ -50,16 +52,26 @@ public class God extends Screen {
 		table.pad(0);
 		scroll.removeListener(scroll.getListeners().get(0)); // removes the CaptureListener that enables it to scroll manually
 		
+		
+//		aura = new Sprite(TG.Graphics.assets.get("yahvy.png", Texture.class));
+//		aura.setScale(1f/2.75f);
+//		aura.setX(TG.Display.WIDTH*2.5f);
+//		aura.setY(0);
+		
 		// Yahvy image
-		yahvy = new Image(TG.Graphics.assets.get("yahvy.png", Texture.class));
+		yahvy = new Sprite(TG.Graphics.assets.get("yahvy.png", Texture.class));
 		yahvy.setScale(1f/2.75f);
-		yahvy.setTouchable(Touchable.enabled);
-		yahvy.setX(TG.Display.WIDTH/2 +TG.Display.WIDTH*2 - (yahvy.getWidth()/2)*yahvy.getScaleX());
-		yahvy.setY(140);
+		yahvy.setX(TG.Display.WIDTH*2.5f -yahvy.getWidth()/2 );
 		//table.add(image).size(480);
 		table.add().padTop(480);
 		
-		addMouth();
+		
+		
+//		for (int i = 0; i < 30; i++) {
+//			addMouth();
+//		}
+		
+		
 		
 		// new row
 		table.row();
@@ -119,7 +131,7 @@ public class God extends Screen {
 		
 		this.bgTab.setY(-180 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
 		this.bgTab2.setY(-280 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
-		this.yahvy.setY(140 +this.getScrollPane().getVisualScrollY());
+		this.yahvy.setY(140 -yahvy.getHeight()/2 +yahvy.getHeight()/2*yahvy.getScaleY() +this.getScrollPane().getVisualScrollY());
 		earth.act(dt);
 		
 		if (onYahvy) {
@@ -142,10 +154,12 @@ public class God extends Screen {
 		super.draw(batch, parentAlpha);
 		
 		if (onYahvy) {
-			yahvy.draw(batch, parentAlpha);
+			
+//			aura.draw(batch);
 			for (int i = 0; i < mouths.size(); i++) {
 				mouths.get(i).draw(batch, parentAlpha);
 			}
+			yahvy.draw(batch, parentAlpha);
 		}
 		else {
 			earth.draw(batch, parentAlpha);

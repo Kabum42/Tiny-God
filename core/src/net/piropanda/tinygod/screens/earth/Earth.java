@@ -55,6 +55,7 @@ public class Earth extends Group {
 	public float earth_scale = 1.0f;
 	public float earth_rotation = 0;
 	
+	private ArrayList<Sprite> stars = new ArrayList<Sprite>();
 	private ArrayList<Physical> astrals = new ArrayList<Physical>();
 	private ArrayList<Physical> physicals = new ArrayList<Physical>();
 	private ArrayList<Physical> physicals_to_render = new ArrayList<Physical>();
@@ -112,6 +113,14 @@ public class Earth extends Group {
 		
 		earth = new Sprite(TG.Graphics.assets.get("earth/earth.png", Texture.class));
 		earth.setX(TG.Display.WIDTH*2.5f - earth.getWidth()/2*earth.getScaleX());
+		
+		for (int i = 0; i < 200; i++) {
+			Sprite s = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+			s.setScale(2f);
+			s.setX((float) (TG.Display.WIDTH*2f + Math.random()*TG.Display.WIDTH));
+			s.setY((float) (Math.random()*TG.Display.HEIGHT));
+			stars.add(s);
+		}
 		
 		// astrals
 		Sun sun;
@@ -253,11 +262,19 @@ public class Earth extends Group {
 		
 		screenVisible = false;
 		
+		light(earth);
+		
+		if (day == false || true) {
+			for (int i = 0; i < stars.size(); i++) {
+				stars.get(i).draw(batch, (float) (Math.random()*1f));
+			}
+		}
+		
 		for (int i = 0; i < astrals.size(); i++) {
 			checkDraw(astrals.get(i), batch);
 		}
 		
-		light(earth);
+		
 		earth.draw(batch);
 		
 		sortedPhysicalsRendering(batch);
@@ -268,6 +285,8 @@ public class Earth extends Group {
 			soundCricketsPlaying = 4.0f;
 			soundCrickets.play(0.05f);
 		}
+		
+		
 		
 		
 	}
