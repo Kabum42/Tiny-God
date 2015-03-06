@@ -85,6 +85,7 @@ public class TRexAdam extends MiniGame {
 	@Override
 	public void act(float dt) {
 	    super.act(dt);
+	    
 	    camera.position.x += Gdx.graphics.getDeltaTime()*game_speed;
 	    camera.update();
 	    

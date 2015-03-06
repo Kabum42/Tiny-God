@@ -38,6 +38,8 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("pixel.png", Texture.class);
 		TG.Graphics.assets.load("yahvy.png", Texture.class);
 		TG.Graphics.assets.load("mouth.png", Texture.class);
+		TG.Graphics.assets.load("toEarth.png", Texture.class);
+		TG.Graphics.assets.load("toYahvy.png", Texture.class);
 		TG.Graphics.assets.load("transition.png", Texture.class);
 		TG.Graphics.assets.load("transition2.png", Texture.class);
 		TG.Graphics.assets.load("screen-background_01.png", Texture.class);

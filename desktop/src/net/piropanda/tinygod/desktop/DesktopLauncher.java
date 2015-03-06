@@ -17,6 +17,9 @@ public class DesktopLauncher {
 		config.height = TG.Display.HEIGHT;
 		config.title = TG.Display.TITLE;
 		//config.useGL30 = true;
+		config.vSyncEnabled = false;
+		config.foregroundFPS = 0;
+		config.backgroundFPS = 0;
 		
 		new LwjglApplication(new TinyGod(new DesktopInterface()), config);
 	}
