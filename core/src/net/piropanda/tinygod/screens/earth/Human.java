@@ -83,7 +83,7 @@ public class Human extends Physical {
 	public void draw(Batch batch) {
 
 		batch.setShader(Shaders.instance.hueShader);
-		Shaders.instance.hueShader.setUniformf("hue", variation_color);
+		//Shaders.instance.hueShader.setUniformf("hue", variation_color);
 		//Shaders.instance.hueShader.setUniformf("saturation", variation_color);
 		sprite.draw(batch);
 		batch.setShader(null);

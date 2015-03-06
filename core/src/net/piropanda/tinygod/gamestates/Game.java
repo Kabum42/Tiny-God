@@ -145,11 +145,24 @@ public class Game extends Group implements GestureListener {
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		screens[0].draw(batch, parentAlpha);
-		screens[1].draw(batch, parentAlpha);
-		screens[2].draw(batch, parentAlpha);
-		screens[3].draw(batch, parentAlpha);
-		screens[4].draw(batch, parentAlpha);
+		
+		if (movingX) {
+			for (int i = 0; i < screens.length; i++) {
+				float min_x_camera = this.getStage().getCamera().position.x - TG.Display.WIDTH/2;
+				float max_x_camera = this.getStage().getCamera().position.x + TG.Display.WIDTH/2;
+				
+				float min_x = i*TG.Display.WIDTH;
+				float max_x = (i+1)*TG.Display.WIDTH;
+				
+				if (max_x > min_x_camera && min_x < max_x_camera) {
+					screens[i].draw(batch, parentAlpha);
+				}
+			}
+		}
+		else {
+			screens[currentScreen].draw(batch, parentAlpha);
+		}
+		
 		
 		bg.draw(batch, parentAlpha);
 		godBackground.draw(batch, parentAlpha);
