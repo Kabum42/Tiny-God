@@ -144,7 +144,7 @@ public class God extends Screen {
 		if (onYahvy) {
 			yahvy.draw(batch, parentAlpha);
 			for (int i = 0; i < mouths.size(); i++) {
-				mouths.get(i).sprite.draw(batch, parentAlpha);
+				mouths.get(i).draw(batch, parentAlpha);
 			}
 		}
 		else {

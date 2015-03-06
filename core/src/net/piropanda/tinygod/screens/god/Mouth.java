@@ -50,9 +50,11 @@ public class Mouth {
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
+		
 		batch.setShader(Shaders.instance.hueShader);
 		Shaders.instance.hueShader.setUniformf("hue", variation_color);
-		sprite.draw(batch, parentAlpha);
+		//Shaders.instance.hueShader.setUniformf("saturation", variation_color);
+		sprite.draw(batch);
 		batch.setShader(null);
 	}
 

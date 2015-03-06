@@ -13,6 +13,7 @@ import net.piropanda.tinygod.screens.store.Store;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -48,6 +49,9 @@ public class Game extends Group implements GestureListener {
 	public Sound soundSlide;
 	
 	private Label label;
+	private Image bg;
+	private Image godBackground;
+	private Image bg2;
 	private Image top;
 	
 	
@@ -62,15 +66,15 @@ public class Game extends Group implements GestureListener {
 		soundSlide = Gdx.audio.newSound(Gdx.files.internal("audio/slide-network.mp3"));
 		
 		// background
-		Image bg = new Image(TG.Graphics.assets.get("screen-background_01.png", Texture.class));
+		bg = new Image(TG.Graphics.assets.get("screen-background_01.png", Texture.class));
 		bg.setTouchable(Touchable.disabled);
 		
-		Image godBackground = new Image(TG.Graphics.assets.get("god-bg.png", Texture.class));
+		godBackground = new Image(TG.Graphics.assets.get("god-bg.png", Texture.class));
 		godBackground.setScale(1f/2.75f);
 		godBackground.setX(TG.Display.WIDTH*2);
 		godBackground.setTouchable(Touchable.disabled);
 		
-		Image bg2 = new Image(TG.Graphics.assets.get("screen-background_02.png", Texture.class));
+		bg2 = new Image(TG.Graphics.assets.get("screen-background_02.png", Texture.class));
 		bg2.setX(TG.Display.WIDTH*3);
 		bg2.setTouchable(Touchable.disabled);
 		
@@ -137,6 +141,21 @@ public class Game extends Group implements GestureListener {
 		
 		top.setX(this.getStage().getCamera().position.x -TG.Display.WIDTH/2);
 		label.setX(top.getX() + 150);
+	}
+	
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		screens[0].draw(batch, parentAlpha);
+		screens[1].draw(batch, parentAlpha);
+		screens[2].draw(batch, parentAlpha);
+		screens[3].draw(batch, parentAlpha);
+		screens[4].draw(batch, parentAlpha);
+		
+		bg.draw(batch, parentAlpha);
+		godBackground.draw(batch, parentAlpha);
+		bg2.draw(batch, parentAlpha);
+		top.draw(batch, parentAlpha);
+		label.draw(batch, parentAlpha);
 	}
 	
 	public void easeTo(int screen) {
