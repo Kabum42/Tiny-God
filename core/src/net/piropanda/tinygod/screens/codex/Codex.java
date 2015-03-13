@@ -5,6 +5,7 @@ import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.ScreenTab;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -19,6 +20,8 @@ public class Codex extends Screen {
 	
 	public Codex() {
 		super();
+		
+		this.bgTab.setX(TG.Display.WIDTH*POSITION);
 		
 		// screen tabs
 		settings = new Settings(this);
@@ -61,6 +64,12 @@ public class Codex extends Screen {
 			}
 		});
 		table.add(button).pad(10);
+	}
+	
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		bgTab.draw(batch);
+		super.draw(batch, parentAlpha);
 	}
 	
 }

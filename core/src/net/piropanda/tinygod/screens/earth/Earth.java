@@ -77,6 +77,8 @@ public class Earth extends Group {
 	public Sound soundCrickets;
 	public float soundCricketsPlaying = 0f;
 	
+	private float astral_position;
+	
 	
 	public Earth(Screen screen2) {
 		
@@ -264,11 +266,22 @@ public class Earth extends Group {
 		
 		light(earth);
 		
-		if (day == false || true) {
+		// STARS
+		if (day) {
+			if (Math.abs(astral_position) > 0.85f) {
+				float max_value = (Math.abs(astral_position) -0.85f)/0.2f;
+				for (int i = 0; i < stars.size(); i++) {
+					stars.get(i).draw(batch, (float) (Math.random()*max_value));
+				}
+			}
+		}
+		else {
 			for (int i = 0; i < stars.size(); i++) {
 				stars.get(i).draw(batch, (float) (Math.random()*1f));
 			}
 		}
+		// END OF STARS
+		
 		
 		for (int i = 0; i < astrals.size(); i++) {
 			checkDraw(astrals.get(i), batch);
@@ -383,27 +396,27 @@ public class Earth extends Group {
 			
 			day = true;
 			
-			float position = (current.sprite.getX() +current.sprite.getWidth()/2  -TG.Display.WIDTH*2.5f)/(200f);
+			astral_position = (current.sprite.getX() +current.sprite.getWidth()/2  -TG.Display.WIDTH*2.5f)/(200f);
 			
-			if (Math.abs(position) < 0.7f) {
+			if (Math.abs(astral_position) < 0.7f) {
 				// COLOR NORMAL
 			}
-			else if (Math.abs(position) < 1f) {
+			else if (Math.abs(astral_position) < 1f) {
 				float culmen = 0.7f + (1f - 0.7f)/2;
-				red = ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*0.4f;
+				red = ((1f - 0.7f)/2 - Math.abs(Math.abs(astral_position)-culmen))/((1f - 0.7f)/2)*0.4f;
 				
-				red2 = (100f + ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*155f)/255f;
-				green2 = (200f - ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*100f)/255f;
-				blue2 = (255f - ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*200f)/255f;
+				red2 = (100f + ((1f - 0.7f)/2 - Math.abs(Math.abs(astral_position)-culmen))/((1f - 0.7f)/2)*155f)/255f;
+				green2 = (200f - ((1f - 0.7f)/2 - Math.abs(Math.abs(astral_position)-culmen))/((1f - 0.7f)/2)*100f)/255f;
+				blue2 = (255f - ((1f - 0.7f)/2 - Math.abs(Math.abs(astral_position)-culmen))/((1f - 0.7f)/2)*200f)/255f;
 				
 				screen.bgTab2.setColor(200f/255f, 100f/255f, 100f/255f, 1f);
 
-				if (Math.abs(position) > (1f -(1f - 0.7f)/2)) {
-					blue = (Math.abs(position) - (1f -(1f - 0.7f)/2))/((1f - 0.7f)/2)*0.5f;
+				if (Math.abs(astral_position) > (1f -(1f - 0.7f)/2)) {
+					blue = (Math.abs(astral_position) - (1f -(1f - 0.7f)/2))/((1f - 0.7f)/2)*0.5f;
 					
-					red2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*255f)/255f;
-					green2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*100f)/255f;
-					blue2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(position)-culmen))/((1f - 0.7f)/2)*55f)/255f;
+					red2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(astral_position)-culmen))/((1f - 0.7f)/2)*255f)/255f;
+					green2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(astral_position)-culmen))/((1f - 0.7f)/2)*100f)/255f;
+					blue2 = (0f + ((1f - 0.7f)/2 - Math.abs(Math.abs(astral_position)-culmen))/((1f - 0.7f)/2)*55f)/255f;
 				}
 				
 				
@@ -442,8 +455,8 @@ public class Earth extends Group {
 	public void checkDraw(Physical p, Batch batch) {
 		
 		
-		if (p.sprite.getX() < (-p.sprite.getWidth())
-				|| p.sprite.getX() > (earth.getX() +earth_width/2 + screen.getScrollPane().getWidth()/2) 
+		if ((p.sprite.getX() +p.sprite.getWidth()/2 -p.sprite.getWidth()/2*Math.abs(p.sprite.getScaleX()) +p.sprite.getHeight()/2 -p.sprite.getHeight()/2*Math.abs(p.sprite.getScaleY())) < (TG.Display.WIDTH*2.0f)
+				|| p.sprite.getX() +p.sprite.getWidth()/2 -p.sprite.getWidth()/2*Math.abs(p.sprite.getScaleX()) +p.sprite.getHeight()/2 -p.sprite.getHeight()/2*Math.abs(p.sprite.getScaleY()) > (TG.Display.WIDTH*3.1f) 
 				|| p.sprite.getY() < (-p.sprite.getHeight())) {
 			// NO SE DIBUJA
 		}

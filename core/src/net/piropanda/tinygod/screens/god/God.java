@@ -42,13 +42,22 @@ public class God extends Screen {
 		
 		soundTap = Gdx.audio.newSound(Gdx.files.internal("audio/tap-mellow.mp3"));
 		
-		this.bgTab.setDrawable(new SpriteDrawable(new Sprite(TG.Graphics.assets.get("transition.png", Texture.class))));
-		this.bgTab.setScale(TG.Display.WIDTH, (earth_distant +TG.Display.WIDTH*2)*(1f/this.bgTab.getHeight()));
+		this.bgTab = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		//this.bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
+		this.bgTab.setScale(1025f/2.75f +2f, 1405f/2.75f +2f);
+		this.bgTab.setX(TG.Display.WIDTH*2.5f - this.bgTab.getWidth()/2);
+		//this.bgTab.setY(0 - this.bgTab.getHeight()/2 +this.bgTab.getHeight()/2*this.bgTab.getScaleY());
+		this.bgTab.setY(81f/2.75f - this.bgTab.getHeight()/2 +this.bgTab.getHeight()/2*this.bgTab.getScaleY());
+		this.bgTab.setColor(100f/255f, 130f/255f, 210f/255f, 1f);
 		
-		this.bgTab2.setDrawable(new SpriteDrawable(new Sprite(TG.Graphics.assets.get("transition2.png", Texture.class))));
-		this.bgTab2.setScale(TG.Display.WIDTH, (earth_distant +TG.Display.WIDTH*2)*(1f/this.bgTab.getHeight()));
-		this.bgTab2.setVisible(true);
-
+		this.bgTab2 = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		//this.bgTab2.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
+		this.bgTab2.setScale(1025f/2.75f +2f, 1405f/2.75f +2f);
+		this.bgTab2.setX(TG.Display.WIDTH*2.5f - this.bgTab.getWidth()/2);
+		//this.bgTab2.setY(0 - this.bgTab2.getHeight()/2 +this.bgTab2.getHeight()/2*this.bgTab2.getScaleY());
+		this.bgTab2.setY(81f/2.75f - this.bgTab2.getHeight()/2 +this.bgTab2.getHeight()/2*this.bgTab2.getScaleY());
+		this.bgTab2.setColor(255f/255f, 0f/255f, 0f/255f, 1f);
+		
 		table.pad(0);
 		scroll.removeListener(scroll.getListeners().get(0)); // removes the CaptureListener that enables it to scroll manually
 		
@@ -129,8 +138,14 @@ public class God extends Screen {
 	public void act(float dt) {
 		super.act(dt);
 		
-		this.bgTab.setY(-180 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
-		this.bgTab2.setY(-280 +this.bgTab.getHeight() -this.bgTab.getHeight()*this.bgTab.getScaleY() +this.getScrollPane().getVisualScrollY());
+		float max_scroll = 8456f;
+		
+		float alpha_1 = 1f -((float)this.getScrollPane().getVisualScrollY()/max_scroll);
+		float alpha_2 = (float)this.getScrollPane().getVisualScrollY()/max_scroll;
+		
+		bgTab.setAlpha(alpha_1);
+		bgTab2.setAlpha(alpha_2);
+
 		this.yahvy.setY(140 -yahvy.getHeight()/2 +yahvy.getHeight()/2*yahvy.getScaleY() +this.getScrollPane().getVisualScrollY());
 		earth.act(dt);
 		
@@ -151,7 +166,16 @@ public class God extends Screen {
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
+		
+		
+		if (bgTab2.getColor().a > 0) {
+			bgTab2.draw(batch);
+		}
+		if (bgTab.getColor().a > 0) {
+			bgTab.draw(batch);
+		}
+		
+
 		
 		if (onYahvy) {
 			
@@ -164,6 +188,9 @@ public class God extends Screen {
 		else {
 			earth.draw(batch, parentAlpha);
 		}
+		
+		
+		super.draw(batch, parentAlpha);
 		
 	}
 	

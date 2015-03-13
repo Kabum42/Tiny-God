@@ -5,6 +5,7 @@ import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.providence.achievements.Achievement;
 import net.piropanda.tinygod.screens.providence.upgrades.Upgrade;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
@@ -16,6 +17,8 @@ public class Providence extends Screen {
 	
 	public Providence() {
 		super();
+		
+		this.bgTab.setX(TG.Display.WIDTH*POSITION);
 		
 		achievements = new Table();
 		
@@ -44,6 +47,12 @@ public class Providence extends Screen {
 	public void addUpgrade(String id) {
 		upgrades.add(new Upgrade(this, id)).pad(10);
 		upgrades.row();
+	}
+	
+	@Override
+	public void draw(Batch batch, float parentAlpha) {
+		bgTab.draw(batch);
+		super.draw(batch, parentAlpha);
 	}
 	
 }

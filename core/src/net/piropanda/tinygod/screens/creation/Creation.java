@@ -2,6 +2,9 @@ package net.piropanda.tinygod.screens.creation;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.graphics.g2d.Batch;
+
+import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.helpers.ProducerInfo;
 import net.piropanda.tinygod.screens.Screen;
 
@@ -15,6 +18,8 @@ public class Creation extends Screen {
 	
 	public Creation() {
 		super();
+		
+		this.bgTab.setX(TG.Display.WIDTH*POSITION);
 		
 		producers = new ArrayList<Producer>();
 		producers.add(new Producer(this, ProducerInfo.SERVANT_ID));
@@ -48,6 +53,11 @@ public class Creation extends Screen {
 		if(producers.size() > 0) { // if there's still producers to unlock
 			if(producers.get(0).isUnlockable()) addProducer(producers.remove(0));
 		}
+	}
+	
+	public void draw(Batch batch, float parentAlpha) {
+		bgTab.draw(batch);
+		super.draw(batch, parentAlpha);
 	}
 	
 }

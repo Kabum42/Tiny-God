@@ -3,6 +3,8 @@ package net.piropanda.tinygod.screens;
 import net.piropanda.tinygod.TG;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -15,8 +17,8 @@ public abstract class Screen extends Group {
 	public static int SCROLL_WIDTH = 372;
 	public static int SCROLL_HEIGHT = 510;
 	
-	public Image bgTab;
-	public Image bgTab2;
+	public Sprite bgTab;
+	public Sprite bgTab2;
 	protected Table table;
 	protected ScrollPane scroll;
 	protected ScreenTab currentScreenTab;
@@ -24,20 +26,16 @@ public abstract class Screen extends Group {
 	
 	public Screen() {
 		// tab background (sub-screen)
-		bgTab = new Image(TG.Graphics.assets.get("pixel.png", Texture.class));
-		bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
+		bgTab = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		bgTab.setScale(1, 1);
 		bgTab.setColor(100f/255f, 130f/255f, 210f/255f, 1f);
 		bgTab.setBounds(0, 0, TG.Display.WIDTH, TG.Display.HEIGHT);
-		bgTab.setTouchable(Touchable.disabled);
-		this.addActor(bgTab);
+
 		
-		bgTab2 = new Image(TG.Graphics.assets.get("pixel.png", Texture.class));
+		bgTab2 = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
 		//bgTab2.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
 		//bgTab2.setColor(100f/255f, 1f, 1f, 1f);
 		bgTab2.setBounds(0, 0, TG.Display.WIDTH, TG.Display.HEIGHT);
-		bgTab2.setTouchable(Touchable.disabled);
-		bgTab2.setVisible(false);
-		this.addActor(bgTab2);
 		
 		
 		// initialize table and scroll pane
@@ -80,5 +78,10 @@ public abstract class Screen extends Group {
 	public ScrollPane getScrollPane() {
 		return scroll;
 	}
+	
+//	@Override
+//	public void draw(Batch batch, float parentAlpha) {
+//		
+//	}
 	
 }

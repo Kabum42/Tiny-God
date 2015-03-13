@@ -234,7 +234,7 @@ public class Game extends Group implements GestureListener {
 			
 //			easingPosition = currentScreen*TG.Display.WIDTH + TG.Display.WIDTH/2;
 			easeTo(currentScreen);
-			soundSlide.play(0.5f);
+			soundSlide.play(1f);
 		}
 		
 		accumulatedX = 0;
