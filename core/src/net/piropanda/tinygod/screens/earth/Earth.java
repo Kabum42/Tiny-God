@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Logger;
 
+import net.piropanda.tinygod.Shaders;
 //import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
@@ -61,7 +62,6 @@ public class Earth extends Group {
 	private ArrayList<Physical> physicals_to_render = new ArrayList<Physical>();
 	
 	Texture tex1, mask, mask2;
-	ShaderProgram maskShader;
 	
 	
 	private Label label;
@@ -90,12 +90,12 @@ public class Earth extends Group {
 		mask = new Texture(Gdx.files.internal("shaders/mask.png")); // ESTA ES LA MASCARA QUE HACE EL HUECO
 		mask2 = new Texture(Gdx.files.internal("shaders/mask2.png"));
 		
-		maskShader = new ShaderProgram(Gdx.files.internal("shaders/mask.vsh").readString(), Gdx.files.internal("shaders/mask.fsh").readString());
+		//maskShader = new ShaderProgram(Gdx.files.internal("shaders/mask.vsh").readString(), Gdx.files.internal("shaders/mask.fsh").readString());
 
-		maskShader.begin();
-		maskShader.setUniformi("u_texture1", 1);
-		maskShader.setUniformi("u_mask", 2);
-		maskShader.end();
+//		maskShader.begin();
+//		maskShader.setUniformi("u_texture1", 1);
+//		maskShader.setUniformi("u_mask", 2);
+//		maskShader.end();
 		
 		//bind mask to glActiveTexture(GL_TEXTURE2)
 		mask.bind(2);
@@ -169,13 +169,16 @@ public class Earth extends Group {
 		
 		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
 			
-		FileHandle handle = Gdx.files.internal("spriter/prueba.scml");
+		FileHandle handle = Gdx.files.internal("spriter/Yahvy/YahvyAnimation.scml");
 		SCMLReader scml = new SCMLReader(handle.read());
 		Data data = scml.getData();
 		loader = new LibGdxLoader(data);
 		loader.load(handle.file());
 		player = new Player(data.getEntity(0));
-		player.setPosition(210, 0);
+		player.setScale(1f/2.75f);
+		player.setPosition(TG.Display.WIDTH*2.5f, 300);
+		
+		
  		
 		
 		label = new Label("Loading...", TG.Graphics.skin);
@@ -292,7 +295,7 @@ public class Earth extends Group {
 		
 		sortedPhysicalsRendering(batch);
 		
-		//drawSpriter(player, batch);
+		drawSpriter(player, batch);
 		
 		if (screenVisible && day == false && soundCricketsPlaying <= 0) {
 			soundCricketsPlaying = 4.0f;
@@ -331,7 +334,33 @@ public class Earth extends Group {
 				sprite.setRotation(object.angle);
 				
 				sprite.setScale(object.scale.x, object.scale.y);
-				sprite.draw(batch);
+				
+				System.out.println(object.ref.file);
+				
+				if (object.ref.file == 0) {
+					
+					if (Math.random() > 0.5) {
+						mask2.bind(2);
+					}
+					else {
+						mask2.bind(2);
+						//mask2.bind(2);
+					}
+					
+					
+					mask.bind(2);
+			
+					Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+					batch.setShader(Shaders.instance.maskShader);
+					//batch.draw(sprite.getTexture(), 800, 0, sprite.getTexture().getWidth()/2.75f, sprite.getTexture().getHeight()/2.75f);
+					sprite.draw(batch);
+					batch.setShader(null);
+				}
+				else {
+					sprite.draw(batch);
+				}
+				
+				
 				
 			}
 		}
