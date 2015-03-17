@@ -22,9 +22,11 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -61,7 +63,9 @@ public class Earth extends Group {
 	private ArrayList<Physical> physicals = new ArrayList<Physical>();
 	private ArrayList<Physical> physicals_to_render = new ArrayList<Physical>();
 	
-	Texture tex1, mask, mask2;
+	private Texture tex1, mask, mask2;
+	private Animation maskAnimation;
+	private float maskAnimationTime = 0; 
 	
 	
 	private Label label;
@@ -89,6 +93,26 @@ public class Earth extends Group {
 		tex1 = new Texture(Gdx.files.internal("shaders/aux_mask.png")); // ESTO ESTA POR SI QUEREMOS PINTAR ALGO EN EL HUECO
 		mask = new Texture(Gdx.files.internal("shaders/mask.png")); // ESTA ES LA MASCARA QUE HACE EL HUECO
 		mask2 = new Texture(Gdx.files.internal("shaders/mask2.png"));
+		
+		TextureRegion[] frames = new TextureRegion[16];
+		frames[0] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
+		frames[1] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask2.png")));
+		frames[2] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask3.png")));
+		frames[3] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask4.png")));
+		frames[4] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask5.png")));
+		frames[5] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask6.png")));
+		frames[6] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask7.png")));
+		frames[7] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask6.png")));
+		frames[8] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask5.png")));
+		frames[9] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask4.png")));
+		frames[10] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask3.png")));
+		frames[11] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask2.png")));
+		frames[12] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
+		frames[13] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
+		frames[14] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
+		frames[15] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
+		
+		maskAnimation = new Animation(1/24f, frames);
 		
 		//maskShader = new ShaderProgram(Gdx.files.internal("shaders/mask.vsh").readString(), Gdx.files.internal("shaders/mask.fsh").readString());
 
@@ -194,6 +218,11 @@ public class Earth extends Group {
 	
 	public void act(float dt) {
 	    super.act(dt);
+	    
+	    maskAnimationTime += Gdx.graphics.getDeltaTime();
+	    if (maskAnimationTime > maskAnimation.getAnimationDuration()) {
+	    	maskAnimationTime -= maskAnimation.getAnimationDuration();
+	    }
 	    
 	    earth.setY(0 -504 -((God)screen).earth_distant +screen.getScrollPane().getVisualScrollY());
 	    
@@ -335,20 +364,12 @@ public class Earth extends Group {
 				
 				sprite.setScale(object.scale.x, object.scale.y);
 				
-				System.out.println(object.ref.file);
+				
 				
 				if (object.ref.file == 0) {
 					
-					if (Math.random() > 0.5) {
-						mask2.bind(2);
-					}
-					else {
-						mask2.bind(2);
-						//mask2.bind(2);
-					}
-					
-					
-					mask.bind(2);
+					TextureRegion current = maskAnimation.getKeyFrame(maskAnimationTime);
+					current.getTexture().bind(2);
 			
 					Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 					batch.setShader(Shaders.instance.maskShader);
