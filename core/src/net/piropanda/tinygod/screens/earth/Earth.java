@@ -21,11 +21,15 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Pixmap.Format;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -65,6 +69,10 @@ public class Earth extends Group {
 	
 	private Texture tex1, mask, mask2;
 	private Animation maskAnimation;
+	private AtlasRegion[] trAni;
+	private Sprite[] trAni2;
+	private Sprite body;
+	
 	private float maskAnimationTime = 0; 
 	
 	
@@ -91,43 +99,33 @@ public class Earth extends Group {
 		ShaderProgram.pedantic = false;
 		
 		tex1 = new Texture(Gdx.files.internal("shaders/aux_mask.png")); // ESTO ESTA POR SI QUEREMOS PINTAR ALGO EN EL HUECO
-		mask = new Texture(Gdx.files.internal("shaders/mask.png")); // ESTA ES LA MASCARA QUE HACE EL HUECO
-		mask2 = new Texture(Gdx.files.internal("shaders/mask2.png"));
+		//mask = new Texture(Gdx.files.internal("shaders/mask.png")); // ESTA ES LA MASCARA QUE HACE EL HUECO
+		//mask2 = new Texture(Gdx.files.internal("shaders/mask2.png"));
 		
 		TextureRegion[] frames = new TextureRegion[16];
-		frames[0] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
-		frames[1] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask2.png")));
-		frames[2] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask3.png")));
-		frames[3] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask4.png")));
-		frames[4] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask5.png")));
-		frames[5] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask6.png")));
-		frames[6] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask7.png")));
-		frames[7] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask6.png")));
-		frames[8] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask5.png")));
-		frames[9] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask4.png")));
-		frames[10] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask3.png")));
-		frames[11] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask2.png")));
-		frames[12] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
-		frames[13] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
-		frames[14] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
-		frames[15] = new TextureRegion(new Texture(Gdx.files.internal("shaders/mask.png")));
+		frames[0] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
+		frames[1] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask002.png")));
+		frames[2] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask003.png")));
+		frames[3] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask004.png")));
+		frames[4] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask005.png")));
+		frames[5] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask006.png")));
+		frames[6] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask007.png")));
+		frames[7] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask006.png")));
+		frames[8] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask005.png")));
+		frames[9] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask004.png")));
+		frames[10] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask003.png")));
+		frames[11] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask002.png")));
+		frames[12] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
+		frames[13] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
+		frames[14] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
+		frames[15] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
 		
-		maskAnimation = new Animation(1/24f, frames);
+		maskAnimation = new Animation(1f, frames);
 		
-		//maskShader = new ShaderProgram(Gdx.files.internal("shaders/mask.vsh").readString(), Gdx.files.internal("shaders/mask.fsh").readString());
+		body = new Sprite(new Texture(Gdx.files.internal("spriter/Yahvy/Yahvy_Body.png")));
 
-//		maskShader.begin();
-//		maskShader.setUniformi("u_texture1", 1);
-//		maskShader.setUniformi("u_mask", 2);
-//		maskShader.end();
-		
-		//bind mask to glActiveTexture(GL_TEXTURE2)
-		mask.bind(2);
-		//mask2.bind(2);
-		
-		//bind dirt to glActiveTexture(GL_TEXTURE1)
+
 		tex1.bind(1);
-		
 		//now we need to reset glActiveTexture to zero!!!! since sprite batch does not do this for us
 		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 
@@ -203,12 +201,13 @@ public class Earth extends Group {
 		player.setPosition(TG.Display.WIDTH*2.5f, 300);
 		
 		
+		
  		
 		
 		label = new Label("Loading...", TG.Graphics.skin);
 		label.setColor(Color.WHITE);
-		label.setX(TG.Display.WIDTH*2.5f);
-		label.setY(300);
+		label.setX(TG.Display.WIDTH*2.1f);
+		label.setY(500);
 		this.addActor(label);
 		
 		soundCrickets = Gdx.audio.newSound(Gdx.files.internal("audio/crickets.mp3"));
@@ -218,11 +217,6 @@ public class Earth extends Group {
 	
 	public void act(float dt) {
 	    super.act(dt);
-	    
-	    maskAnimationTime += Gdx.graphics.getDeltaTime();
-	    if (maskAnimationTime > maskAnimation.getAnimationDuration()) {
-	    	maskAnimationTime -= maskAnimation.getAnimationDuration();
-	    }
 	    
 	    earth.setY(0 -504 -((God)screen).earth_distant +screen.getScrollPane().getVisualScrollY());
 	    
@@ -261,12 +255,15 @@ public class Earth extends Group {
 			physicals.get(i).act(Gdx.graphics.getDeltaTime());
 		}
 			
-		
-		
+		//System.out.println(player.getTime());
+		player.setTime((int) (player.getTime() + Gdx.graphics.getDeltaTime()*1000));
 		player.update();
+		
+		maskAnimationTime = (player.getTime()/800f)*maskAnimation.getAnimationDuration();
 		
 		
 		label.setText("FPS: "+Gdx.graphics.getFramesPerSecond());
+		
 		
 		if (soundCricketsPlaying > 0) {
 			soundCricketsPlaying -= Gdx.graphics.getDeltaTime();
@@ -370,11 +367,15 @@ public class Earth extends Group {
 					
 					TextureRegion current = maskAnimation.getKeyFrame(maskAnimationTime);
 					current.getTexture().bind(2);
-			
+
 					Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+					
 					batch.setShader(Shaders.instance.maskShader);
-					//batch.draw(sprite.getTexture(), 800, 0, sprite.getTexture().getWidth()/2.75f, sprite.getTexture().getHeight()/2.75f);
-					sprite.draw(batch);
+					body.setScale(player.getScale());
+					body.setX(sprite.getX());
+					body.setY(sprite.getY());
+					body.draw(batch);
+					//sprite.draw(batch);
 					batch.setShader(null);
 				}
 				else {

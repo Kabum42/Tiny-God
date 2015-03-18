@@ -59,6 +59,8 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("earth/EveMini.png", Texture.class);
 		TG.Graphics.assets.load("earth/sun.png", Texture.class);
 		TG.Graphics.assets.load("earth/tree.png", Texture.class);
+		
+		TG.Graphics.assets.load("spriter/Yahvy/Yahvy_Body.png", Texture.class);
 		// producers
 		TG.Graphics.assets.load("producers/locked.png", Texture.class);
 		TG.Graphics.assets.load("producers/servant.png", Texture.class);

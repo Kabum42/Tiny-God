@@ -105,7 +105,7 @@ public class Player {
 	}
 	
 	private void increaseTime(){
-		time += speed;
+		//time += speed;
 		if(time > animation.length){
 			time = time-animation.length;
 			for(PlayerListener listener: listeners)

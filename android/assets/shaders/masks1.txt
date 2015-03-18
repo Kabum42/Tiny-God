@@ -1,0 +1,53 @@
+masks1.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+mask001
+  rotate: false
+  xy: 64, 78
+  size: 115, 115
+  orig: 625, 625
+  offset: 70, 422
+  index: -1
+mask002
+  rotate: false
+  xy: 2, 2
+  size: 136, 74
+  orig: 742, 742
+  offset: 84, 530
+  index: -1
+mask003
+  rotate: true
+  xy: 2, 78
+  size: 136, 38
+  orig: 742, 742
+  offset: 84, 548
+  index: -1
+mask004
+  rotate: false
+  xy: 2, 216
+  size: 136, 20
+  orig: 742, 742
+  offset: 84, 556
+  index: -1
+mask005
+  rotate: true
+  xy: 42, 78
+  size: 134, 10
+  orig: 742, 742
+  offset: 85, 561
+  index: -1
+mask006
+  rotate: true
+  xy: 54, 78
+  size: 134, 4
+  orig: 742, 742
+  offset: 85, 563
+  index: -1
+mask007
+  rotate: true
+  xy: 60, 78
+  size: 132, 2
+  orig: 742, 742
+  offset: 86, 564
+  index: -1

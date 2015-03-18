@@ -1,0 +1,2 @@
+1. Pasar la imagen de 834x834 a 304x304
+2. Pasar el modo de color de RGB a indexado 8 bits
