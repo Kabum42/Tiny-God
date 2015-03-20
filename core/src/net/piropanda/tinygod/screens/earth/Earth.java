@@ -80,8 +80,8 @@ public class Earth extends Group {
 	
 	private float inertia = 0;
 	
-	Player player;
-	LibGdxLoader loader;
+//	private Player player;
+//	private LibGdxLoader loader;
 	
 	private boolean screenVisible = false;
 	private boolean day = true;
@@ -95,39 +95,6 @@ public class Earth extends Group {
 	public Earth(Screen screen2) {
 		
 		screen = screen2;
-		
-		ShaderProgram.pedantic = false;
-		
-		tex1 = new Texture(Gdx.files.internal("shaders/aux_mask.png")); // ESTO ESTA POR SI QUEREMOS PINTAR ALGO EN EL HUECO
-		//mask = new Texture(Gdx.files.internal("shaders/mask.png")); // ESTA ES LA MASCARA QUE HACE EL HUECO
-		//mask2 = new Texture(Gdx.files.internal("shaders/mask2.png"));
-		
-		TextureRegion[] frames = new TextureRegion[16];
-		frames[0] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
-		frames[1] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask002.png")));
-		frames[2] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask003.png")));
-		frames[3] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask004.png")));
-		frames[4] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask005.png")));
-		frames[5] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask006.png")));
-		frames[6] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask007.png")));
-		frames[7] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask006.png")));
-		frames[8] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask005.png")));
-		frames[9] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask004.png")));
-		frames[10] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask003.png")));
-		frames[11] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask002.png")));
-		frames[12] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
-		frames[13] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
-		frames[14] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
-		frames[15] = new TextureRegion(new Texture(Gdx.files.internal("shaders/processed/mask001.png")));
-		
-		maskAnimation = new Animation(1f, frames);
-		
-		body = new Sprite(new Texture(Gdx.files.internal("spriter/Yahvy/Yahvy_Body.png")));
-
-
-		tex1.bind(1);
-		//now we need to reset glActiveTexture to zero!!!! since sprite batch does not do this for us
-		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 
 		// earth
 		float percent_earth_showing = 20;
@@ -191,14 +158,14 @@ public class Earth extends Group {
 		
 		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
 			
-		FileHandle handle = Gdx.files.internal("spriter/Yahvy/YahvyAnimation.scml");
-		SCMLReader scml = new SCMLReader(handle.read());
-		Data data = scml.getData();
-		loader = new LibGdxLoader(data);
-		loader.load(handle.file());
-		player = new Player(data.getEntity(0));
-		player.setScale(1f/2.75f);
-		player.setPosition(TG.Display.WIDTH*2.5f, 300);
+//		FileHandle handle = Gdx.files.internal("spriter/Yahvy/YahvyAnimation.scml");
+//		SCMLReader scml = new SCMLReader(handle.read());
+//		Data data = scml.getData();
+//		loader = new LibGdxLoader(data);
+//		loader.load(handle.file());
+//		player = new Player(data.getEntity(0));
+//		player.setScale(1f/2.75f);
+//		player.setPosition(TG.Display.WIDTH*2.5f, 300);
 		
 		
 		
@@ -256,10 +223,10 @@ public class Earth extends Group {
 		}
 			
 		//System.out.println(player.getTime());
-		player.setTime((int) (player.getTime() + Gdx.graphics.getDeltaTime()*1000));
-		player.update();
+//		player.setTime((int) (player.getTime() + Gdx.graphics.getDeltaTime()*1000));
+//		player.update();
 		
-		maskAnimationTime = (player.getTime()/800f)*maskAnimation.getAnimationDuration();
+//		maskAnimationTime = (player.getTime()/800f)*maskAnimation.getAnimationDuration();
 		
 		
 		label.setText("FPS: "+Gdx.graphics.getFramesPerSecond());
@@ -321,7 +288,7 @@ public class Earth extends Group {
 		
 		sortedPhysicalsRendering(batch);
 		
-		drawSpriter(player, batch);
+//		drawSpriter(player, batch);
 		
 		if (screenVisible && day == false && soundCricketsPlaying <= 0) {
 			soundCricketsPlaying = 4.0f;
@@ -333,61 +300,61 @@ public class Earth extends Group {
 		
 	}
 	
-	public void drawSpriter(Player player2, Batch batch) {
-		
-		CharacterMap[] maps = player2.characterMaps;
-		Iterator<Timeline.Key.Object> it = player2.objectIterator();
-		
-		while(it.hasNext()){
-			Timeline.Key.Object object = it.next();
-			if(object.ref.hasFile()){
-				if(maps != null){
-					for(CharacterMap map: maps)
-						if(map != null)
-							object.ref.set(map.get(object.ref));
-				}
-				
-				Sprite sprite = loader.get(object.ref);
-				float newPivotX = (sprite.getWidth() * object.pivot.x);
-				float newX = object.position.x - newPivotX;
-				float newPivotY = (sprite.getHeight() * object.pivot.y);
-				float newY = object.position.y - newPivotY;
-				
-				sprite.setX(newX);
-				sprite.setY(newY);
-				
-				sprite.setOrigin(newPivotX, newPivotY);
-				sprite.setRotation(object.angle);
-				
-				sprite.setScale(object.scale.x, object.scale.y);
-				
-				
-				
-				if (object.ref.file == 0) {
-					
-					TextureRegion current = maskAnimation.getKeyFrame(maskAnimationTime);
-					current.getTexture().bind(2);
-
-					Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-					
-					batch.setShader(Shaders.instance.maskShader);
-					body.setScale(player.getScale());
-					body.setX(sprite.getX());
-					body.setY(sprite.getY());
-					body.draw(batch);
-					//sprite.draw(batch);
-					batch.setShader(null);
-				}
-				else {
-					sprite.draw(batch);
-				}
-				
-				
-				
-			}
-		}
-		
-	}
+//	public void drawSpriter(Player player2, Batch batch) {
+//		
+//		CharacterMap[] maps = player2.characterMaps;
+//		Iterator<Timeline.Key.Object> it = player2.objectIterator();
+//		
+//		while(it.hasNext()){
+//			Timeline.Key.Object object = it.next();
+//			if(object.ref.hasFile()){
+//				if(maps != null){
+//					for(CharacterMap map: maps)
+//						if(map != null)
+//							object.ref.set(map.get(object.ref));
+//				}
+//				
+//				Sprite sprite = loader.get(object.ref);
+//				float newPivotX = (sprite.getWidth() * object.pivot.x);
+//				float newX = object.position.x - newPivotX;
+//				float newPivotY = (sprite.getHeight() * object.pivot.y);
+//				float newY = object.position.y - newPivotY;
+//				
+//				sprite.setX(newX);
+//				sprite.setY(newY);
+//				
+//				sprite.setOrigin(newPivotX, newPivotY);
+//				sprite.setRotation(object.angle);
+//				
+//				sprite.setScale(object.scale.x, object.scale.y);
+//				
+//				
+//				
+//				if (object.ref.file == 0) {
+//					
+//					TextureRegion current = maskAnimation.getKeyFrame(maskAnimationTime);
+//					current.getTexture().bind(2);
+//
+//					Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
+//					
+//					batch.setShader(Shaders.instance.maskShader);
+//					body.setScale(player.getScale());
+//					body.setX(sprite.getX());
+//					body.setY(sprite.getY());
+//					body.draw(batch);
+//					//sprite.draw(batch);
+//					batch.setShader(null);
+//				}
+//				else {
+//					sprite.draw(batch);
+//				}
+//				
+//				
+//				
+//			}
+//		}
+//		
+//	}
 
 	
 	public void sortedPhysicalsRendering(Batch batch) {

@@ -33,7 +33,7 @@ public class God extends Screen {
 	public Sound soundTap;
 	private Sprite aura;
 	private Sprite aura2;
-	private Sprite yahvy;
+	private Yahvy yahvy;
 	public ArrayList<Mouth> mouths = new ArrayList<Mouth>();
 	public float mouth_rotation = 0f;
 	
@@ -68,10 +68,7 @@ public class God extends Screen {
 //		aura.setY(0);
 		
 		// Yahvy image
-		yahvy = new Sprite(TG.Graphics.assets.get("yahvy.png", Texture.class));
-		yahvy.setScale(1f/2.75f);
-		yahvy.setX(TG.Display.WIDTH*2.5f -yahvy.getWidth()/2 );
-		//table.add(image).size(480);
+		yahvy = new Yahvy(this, TG.Display.WIDTH*2.5f, 0);
 		table.add().padTop(480);
 		
 		
@@ -146,10 +143,11 @@ public class God extends Screen {
 		bgTab.setAlpha(alpha_1);
 		bgTab2.setAlpha(alpha_2);
 
-		this.yahvy.setY(140 -yahvy.getHeight()/2 +yahvy.getHeight()/2*yahvy.getScaleY() +this.getScrollPane().getVisualScrollY());
+		this.yahvy.origin_y = 300 +this.getScrollPane().getVisualScrollY();
 		earth.act(dt);
 		
 		if (onYahvy) {
+			yahvy.act(dt);
 			mouth_rotation += Gdx.graphics.getDeltaTime()*100f;
 			if (mouth_rotation >= 360) { mouth_rotation -= 360; }
 			for (int i = 0; i < mouths.size(); i++) {

@@ -36,8 +36,7 @@ public class GameLoader extends Group {
 	private void loadAssets() {
 		// common
 		TG.Graphics.assets.load("pixel.png", Texture.class);
-		TG.Graphics.assets.load("aura.png", Texture.class);
-		TG.Graphics.assets.load("yahvy.png", Texture.class);
+		//TG.Graphics.assets.load("aura.png", Texture.class);
 		TG.Graphics.assets.load("mouth.png", Texture.class);
 		TG.Graphics.assets.load("toEarth.png", Texture.class);
 		TG.Graphics.assets.load("toYahvy.png", Texture.class);
@@ -47,8 +46,8 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("screen-background_02.png", Texture.class);
 		TG.Graphics.assets.load("god-bg.png", Texture.class);
 		TG.Graphics.assets.load("top.png", Texture.class);
-		TG.Graphics.assets.load("button-default-up.png", Texture.class);
-		TG.Graphics.assets.load("button-default-down.png", Texture.class);
+		//TG.Graphics.assets.load("button-default-up.png", Texture.class);
+		//TG.Graphics.assets.load("button-default-down.png", Texture.class);
 		// codex
 		TG.Graphics.assets.load("codex/button-settings.png", Texture.class);
 		TG.Graphics.assets.load("codex/button-credits.png", Texture.class);
@@ -59,8 +58,6 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("earth/EveMini.png", Texture.class);
 		TG.Graphics.assets.load("earth/sun.png", Texture.class);
 		TG.Graphics.assets.load("earth/tree.png", Texture.class);
-		
-		TG.Graphics.assets.load("spriter/Yahvy/Yahvy_Body.png", Texture.class);
 		// producers
 		TG.Graphics.assets.load("producers/locked.png", Texture.class);
 		TG.Graphics.assets.load("producers/servant.png", Texture.class);
@@ -77,6 +74,17 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("achievements/locked.png", Texture.class);
 		TG.Graphics.assets.load("achievements/selector.png", Texture.class);
 		TG.Graphics.assets.load("achievements/test.png", Texture.class); // test
+		//bodies
+		TG.Graphics.assets.load("spriter/Yahvy/Yahvy_Body.png", Texture.class);
+		//masks
+		TG.Graphics.assets.load("shaders/masks/mask001.png", Texture.class);
+		TG.Graphics.assets.load("shaders/masks/mask002.png", Texture.class);
+		TG.Graphics.assets.load("shaders/masks/mask003.png", Texture.class);
+		TG.Graphics.assets.load("shaders/masks/mask004.png", Texture.class);
+		TG.Graphics.assets.load("shaders/masks/mask005.png", Texture.class);
+		TG.Graphics.assets.load("shaders/masks/mask006.png", Texture.class);
+		TG.Graphics.assets.load("shaders/masks/mask007.png", Texture.class);
+		
 	}
 	
 	@Override
