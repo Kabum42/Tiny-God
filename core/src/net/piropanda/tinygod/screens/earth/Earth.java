@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Logger;
 
+import net.piropanda.tinygod.Lang;
 import net.piropanda.tinygod.Shaders;
 //import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
@@ -67,21 +68,10 @@ public class Earth extends Group {
 	private ArrayList<Physical> physicals = new ArrayList<Physical>();
 	private ArrayList<Physical> physicals_to_render = new ArrayList<Physical>();
 	
-	private Texture tex1, mask, mask2;
-	private Animation maskAnimation;
-	private AtlasRegion[] trAni;
-	private Sprite[] trAni2;
-	private Sprite body;
-	
-	private float maskAnimationTime = 0; 
-	
 	
 	private Label label;
 	
 	private float inertia = 0;
-	
-//	private Player player;
-//	private LibGdxLoader loader;
 	
 	private boolean screenVisible = false;
 	private boolean day = true;
@@ -156,20 +146,6 @@ public class Earth extends Group {
 			physicals.add(human);
 		}
 		
-		//System.out.println("Working Directory = " + System.getProperty("user.dir"));
-			
-//		FileHandle handle = Gdx.files.internal("spriter/Yahvy/YahvyAnimation.scml");
-//		SCMLReader scml = new SCMLReader(handle.read());
-//		Data data = scml.getData();
-//		loader = new LibGdxLoader(data);
-//		loader.load(handle.file());
-//		player = new Player(data.getEntity(0));
-//		player.setScale(1f/2.75f);
-//		player.setPosition(TG.Display.WIDTH*2.5f, 300);
-		
-		
-		
- 		
 		
 		label = new Label("Loading...", TG.Graphics.skin);
 		label.setColor(Color.WHITE);
@@ -179,6 +155,9 @@ public class Earth extends Group {
 		
 		soundCrickets = Gdx.audio.newSound(Gdx.files.internal("audio/crickets.mp3"));
 
+		System.out.println(Lang.getText(Lang.SERVANT_TEXT));
+		Lang.setLanguage(Lang.SPANISH_VALUE);
+		System.out.println(Lang.getText(Lang.SERVANT_TEXT));
 		
 	}
 	
@@ -221,12 +200,7 @@ public class Earth extends Group {
 		for (int i = 0; i < num_physicals; i++) {
 			physicals.get(i).act(Gdx.graphics.getDeltaTime());
 		}
-			
-		//System.out.println(player.getTime());
-//		player.setTime((int) (player.getTime() + Gdx.graphics.getDeltaTime()*1000));
-//		player.update();
-		
-//		maskAnimationTime = (player.getTime()/800f)*maskAnimation.getAnimationDuration();
+
 		
 		
 		label.setText("FPS: "+Gdx.graphics.getFramesPerSecond());
@@ -247,16 +221,6 @@ public class Earth extends Group {
 	
 		super.draw(batch, parentAlpha);
 		
-		
-//		if (Math.random() > 0.5) {
-//			mask.bind(2);
-//		}
-//		else {
-//			mask2.bind(2);
-//		}
-//
-//		Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-//		batch.setShader(maskShader);
 		
 		screenVisible = false;
 		
@@ -288,7 +252,6 @@ public class Earth extends Group {
 		
 		sortedPhysicalsRendering(batch);
 		
-//		drawSpriter(player, batch);
 		
 		if (screenVisible && day == false && soundCricketsPlaying <= 0) {
 			soundCricketsPlaying = 4.0f;
@@ -300,61 +263,6 @@ public class Earth extends Group {
 		
 	}
 	
-//	public void drawSpriter(Player player2, Batch batch) {
-//		
-//		CharacterMap[] maps = player2.characterMaps;
-//		Iterator<Timeline.Key.Object> it = player2.objectIterator();
-//		
-//		while(it.hasNext()){
-//			Timeline.Key.Object object = it.next();
-//			if(object.ref.hasFile()){
-//				if(maps != null){
-//					for(CharacterMap map: maps)
-//						if(map != null)
-//							object.ref.set(map.get(object.ref));
-//				}
-//				
-//				Sprite sprite = loader.get(object.ref);
-//				float newPivotX = (sprite.getWidth() * object.pivot.x);
-//				float newX = object.position.x - newPivotX;
-//				float newPivotY = (sprite.getHeight() * object.pivot.y);
-//				float newY = object.position.y - newPivotY;
-//				
-//				sprite.setX(newX);
-//				sprite.setY(newY);
-//				
-//				sprite.setOrigin(newPivotX, newPivotY);
-//				sprite.setRotation(object.angle);
-//				
-//				sprite.setScale(object.scale.x, object.scale.y);
-//				
-//				
-//				
-//				if (object.ref.file == 0) {
-//					
-//					TextureRegion current = maskAnimation.getKeyFrame(maskAnimationTime);
-//					current.getTexture().bind(2);
-//
-//					Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
-//					
-//					batch.setShader(Shaders.instance.maskShader);
-//					body.setScale(player.getScale());
-//					body.setX(sprite.getX());
-//					body.setY(sprite.getY());
-//					body.draw(batch);
-//					//sprite.draw(batch);
-//					batch.setShader(null);
-//				}
-//				else {
-//					sprite.draw(batch);
-//				}
-//				
-//				
-//				
-//			}
-//		}
-//		
-//	}
 
 	
 	public void sortedPhysicalsRendering(Batch batch) {

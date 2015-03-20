@@ -19,10 +19,4 @@ public class TG {
         public static Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
 	}
 	
-	public static class Language {
-		public static String current = "ENGLISH";
-		
-		
-	}
-	
 }

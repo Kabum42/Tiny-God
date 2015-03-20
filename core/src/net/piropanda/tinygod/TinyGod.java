@@ -39,6 +39,8 @@ public class TinyGod extends ApplicationAdapter {
         stage.addActor(Game.instance);
         stage.addActor(MiniGames.instance);
         
+        Lang.initialize();
+        
         Gdx.input.setInputProcessor(new InputMultiplexer(new GestureDetector(Game.instance), new GestureDetector(MiniGames.instance), stage));
 	}
 
@@ -49,7 +51,7 @@ public class TinyGod extends ApplicationAdapter {
 		
 		stage.act();
 		stage.draw();
-		System.out.println("FPS: " +Gdx.graphics.getFramesPerSecond());
+		//System.out.println("FPS: " +Gdx.graphics.getFramesPerSecond());
 	}
 	
 	@Override
