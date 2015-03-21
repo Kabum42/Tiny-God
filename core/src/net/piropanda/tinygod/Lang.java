@@ -85,7 +85,7 @@ public class Lang {
 	public static int HUMAN_UPGRADE_9 = 				60;
 	public static int HUMAN_UPGRADE_9_JOKE = 			61;
 	public static int HUMAN_UPGRADE_10 = 				62;
-	public static int HUMANT_UPGRADE_10_JOKE =  		63;
+	public static int HUMAN_UPGRADE_10_JOKE =  		63;
 	
 	// SPECIAL_HUMANS
 	public static int SPECIAL_HUMAN_1 = 				64;
@@ -288,13 +288,83 @@ public class Lang {
 		LANGUAGES[SPANISH_VALUE] = SPANISH_WORDS;
 		
 		//ENGLISH
-		ENGLISH_WORDS[TRANSLATOR_MALE] = "translator";
-		ENGLISH_WORDS[TRANSLATOR_FEMALE] = "translator";
 		
+		// MISCELLANEOUS
+		ENGLISH_WORDS[TRANSLATOR_MALE] = "Translator";
+		ENGLISH_WORDS[TRANSLATOR_FEMALE] = "Translator";
+		ENGLISH_WORDS[TRANSLATORS] = "Translators";
+		ENGLISH_WORDS[BUILDING] = "Building";
+		ENGLISH_WORDS[BUILDINGS] = "Buildings";
+		ENGLISH_WORDS[UPGRADE] = "Upgrade";
+		ENGLISH_WORDS[UPGRADES] = "Upgrades";
+		ENGLISH_WORDS[ACHIEVEMENT] = "Achievement";
+		ENGLISH_WORDS[ACHIEVEMENTS] = "Achievements";
+		ENGLISH_WORDS[LOVE_SINCE_BEGINNING_GAME] = "Love since beginning of this game";
+		ENGLISH_WORDS[LOVE_SINCE_BEGINNING_TIMES] = "Love since beginning of times";
+		ENGLISH_WORDS[PRODUCTION_MULTIPLIER] = "Production multiplier";
+		ENGLISH_WORDS[CURRENT_LOVE] = "Current love";
+		ENGLISH_WORDS[LOVE_PER_CLICK] = "Love per click";
+		ENGLISH_WORDS[CRITICAL_CLICK] = "Critical click";
+		ENGLISH_WORDS[CRITICAL_CLICK_CHANCE] = "Critical click chance";
+		ENGLISH_WORDS[NUMBER_OF_CLICKS] = "Number of clicks";
+		ENGLISH_WORDS[NUMBER_OF_MIRACLES] = "Number of miracles";
+		ENGLISH_WORDS[GAIN_BASE_LOVE] = "X gain +Y base love per second";
+		ENGLISH_WORDS[PRODUCE_TWICE_LOVE] = "X produce twice the love";
+		
+		// SERVANT
+		ENGLISH_WORDS[SERVANT_NAME] = "Servant";
+		ENGLISH_WORDS[SERVANT_DESCRIPTION] = "A loyal servant, it whispers nice things";
+		ENGLISH_WORDS[SERVANT_UPGRADE_1] = "You are not alone";
+		ENGLISH_WORDS[SERVANT_UPGRADE_1_JOKE] = "I'll take care of you";
+		ENGLISH_WORDS[SERVANT_UPGRADE_2] = "Duckface";
+		ENGLISH_WORDS[SERVANT_UPGRADE_2_JOKE] = "Adorably unbearable";
+		ENGLISH_WORDS[SERVANT_UPGRADE_3] = "Polyglot";
+		ENGLISH_WORDS[SERVANT_UPGRADE_3_JOKE] = "Omnia uincit amor, et nos cedamus amori";
+		ENGLISH_WORDS[SERVANT_UPGRADE_4] = "Dental plan";
+		ENGLISH_WORDS[SERVANT_UPGRADE_4_JOKE] = "Lisa needs braces";
+		ENGLISH_WORDS[SERVANT_UPGRADE_5] = "Chronic stuttering";
+		ENGLISH_WORDS[SERVANT_UPGRADE_5_JOKE] = "With all that babble I can’t hear me thinking";
+		ENGLISH_WORDS[SERVANT_UPGRADE_6] = "Naughty whispers";
+		ENGLISH_WORDS[SERVANT_UPGRADE_6_JOKE] = "Talk dirty to me";
+		ENGLISH_WORDS[SERVANT_UPGRADE_7] = "Babylon curse";
+		ENGLISH_WORDS[SERVANT_UPGRADE_7_JOKE] = "I taught them languages ​​I don't understand so I can ignore them";
+		ENGLISH_WORDS[SERVANT_UPGRADE_8] = "Love, God & Rock and roll";
+		ENGLISH_WORDS[SERVANT_UPGRADE_8_JOKE] = "The Holy Trinity";
+		ENGLISH_WORDS[SERVANT_UPGRADE_9] = "Voices in your head";
+		ENGLISH_WORDS[SERVANT_UPGRADE_9_JOKE] = "Are you talking to me?";
+		ENGLISH_WORDS[SERVANT_UPGRADE_10] = "Awakening";
+		ENGLISH_WORDS[SERVANT_UPGRADE_10_JOKE] = "Wake up, my children";
+		
+		// HUMAN
+		ENGLISH_WORDS[HUMAN_NAME] = "Human";
+		ENGLISH_WORDS[HUMAN_DESCRIPTION] = "A human who doesn’t quite understand your wisdom, but prays to you anyway";
+		ENGLISH_WORDS[HUMAN_UPGRADE_1] = "Narcissistic";
+		ENGLISH_WORDS[HUMAN_UPGRADE_1_JOKE] = "In your own image and likeness";
+		ENGLISH_WORDS[HUMAN_UPGRADE_2] = "Rib companion";
+		ENGLISH_WORDS[HUMAN_UPGRADE_2_JOKE] = "It’s funnier to play with someone else";
+		ENGLISH_WORDS[HUMAN_UPGRADE_3] = "Vegetal lingerie";
+		ENGLISH_WORDS[HUMAN_UPGRADE_3_JOKE] = "Sexy and ecological";
+		ENGLISH_WORDS[HUMAN_UPGRADE_4] = "Knowledge apple";
+		ENGLISH_WORDS[HUMAN_UPGRADE_4_JOKE] = "Now I know your fantasies";
+		ENGLISH_WORDS[HUMAN_UPGRADE_5] = "Aphrodisiac plants";
+		ENGLISH_WORDS[HUMAN_UPGRADE_5_JOKE] = "Where physique isn’t enough, leave it to the chemistry";
+		ENGLISH_WORDS[HUMAN_UPGRADE_6] = "Eternal life tree";
+		ENGLISH_WORDS[HUMAN_UPGRADE_6_JOKE] = "Who wants to live forever?";
+		ENGLISH_WORDS[HUMAN_UPGRADE_7] = "Pro-life fanatics";
+		ENGLISH_WORDS[HUMAN_UPGRADE_7_JOKE] = "Every sperm is sacred";
+		ENGLISH_WORDS[HUMAN_UPGRADE_8] = "Storks union";
+		ENGLISH_WORDS[HUMAN_UPGRADE_8_JOKE] = "It was necessary at this time";
+		ENGLISH_WORDS[HUMAN_UPGRADE_9] = "Arrogant apes";
+		ENGLISH_WORDS[HUMAN_UPGRADE_9_JOKE] = "No gods or kings, only man";
+		ENGLISH_WORDS[HUMAN_UPGRADE_10] = "Soylent Green";
+		ENGLISH_WORDS[HUMAN_UPGRADE_10_JOKE] = "100% recycled";
 		
 		//SPANISH
-		SPANISH_WORDS[TRANSLATOR_MALE] = "traductor";
-		SPANISH_WORDS[TRANSLATOR_FEMALE] = "traductora";
+		
+		// MISCELLANEOUS
+		SPANISH_WORDS[TRANSLATOR_MALE] = "Traductor";
+		SPANISH_WORDS[TRANSLATOR_FEMALE] = "Traductora";
+		SPANISH_WORDS[TRANSLATORS] = "Traductores";
 		
 		
 		//END
