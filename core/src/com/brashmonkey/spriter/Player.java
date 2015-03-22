@@ -29,7 +29,7 @@ public class Player {
 	
 	protected Entity entity;
 	Animation animation;
-	int time;
+	float time;
 	public int speed;
 	Timeline.Key[] tweenedKeys, unmappedTweenedKeys;
 	private Timeline.Key[] tempTweenedKeys, tempUnmappedTweenedKeys;
@@ -590,7 +590,7 @@ public class Player {
 		if(!this.entity.containsAnimation(animation) && animation.id != -1) throw new SpriterException("animation has to be in the same entity as the current set one!");
 		if(animation != this.animation) time = 0;
 		this.animation = animation;
-		int tempTime = this.time;
+		float tempTime = this.time;
 		this.time = 0;
 		this.update();
 		this.time = tempTime;
@@ -677,18 +677,18 @@ public class Player {
 	 * The player will make sure that the current time is always between 0 and {@link Animation#length}.
 	 * @return the current time
 	 */
-	public int getTime() {
+	public float getTime() {
 		return time;
 	}
 	
 	/**
 	 * Sets the time for the current time.
 	 * The player will make sure that the new time will not exceed the time bounds of the current animation.
-	 * @param time the new time
+	 * @param f the new time
 	 * @return this player to enable chained operations
 	 */
-	public Player setTime(int time){
-		this.time = time;
+	public Player setTime(float f){
+		this.time = f;
 		int prevSpeed = this.speed;
 		this.speed = 0;
 		this.increaseTime();

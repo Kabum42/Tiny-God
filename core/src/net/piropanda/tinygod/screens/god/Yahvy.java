@@ -82,7 +82,7 @@ public class Yahvy {
 		
 		player.setPosition(player.getX(), origin_y);
 		
-		player.setTime((int) (player.getTime() + Gdx.graphics.getDeltaTime()*1000));
+		player.setTime((player.getTime() + Gdx.graphics.getDeltaTime()*1000));
 		player.update();
 		
 		maskAnimationTime = (player.getTime()/800f)*maskAnimation.getAnimationDuration();

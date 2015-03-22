@@ -155,9 +155,9 @@ public class Earth extends Group {
 		
 		soundCrickets = Gdx.audio.newSound(Gdx.files.internal("audio/crickets.mp3"));
 
-		System.out.println(Lang.getText(Lang.TRANSLATOR_MALE));
-		Lang.setLanguage(Lang.SPANISH_VALUE);
-		System.out.println(Lang.getText(Lang.TRANSLATOR_MALE));
+//		System.out.println(Lang.getText(Lang.TRANSLATOR_MALE));
+//		Lang.setLanguage(Lang.SPANISH_VALUE);
+//		System.out.println(Lang.getText(Lang.TRANSLATOR_MALE));
 		
 	}
 	
