@@ -20,7 +20,12 @@ public class Creation extends Screen {
 	/** List of locked producers */
 	private ArrayList<Producer> producers;
 	
-	
+	private Producer lastProducerSelected = null;
+	private Producer producerSelected = null;
+	private float transition1 = 0f;
+	private float transition2 = 0f;
+	private float transition3 = 0f;
+	private float transition_y = 0f;
 	
 	public Creation() {
 		super();
@@ -30,7 +35,7 @@ public class Creation extends Screen {
 		producers = new ArrayList<Producer>();
 		producers.add(new Producer(this, Lang.SERVANT_NAME));
 		producers.add(new Producer(this, Lang.HUMAN_NAME));
-//		producers.add(new Producer(this, ProducerInfo.PROPHET_ID));
+		producers.add(new Producer(this, Lang.PROPHET_NAME));
 //		producers.add(new Producer(this, ProducerInfo.TEMPLE_ID));
 //		producers.add(new Producer(this, ProducerInfo.SHIP_ID));
 //		producers.add(new Producer(this, ProducerInfo.FACTORY_ID));
@@ -57,6 +62,38 @@ public class Creation extends Screen {
 			producers.get(i).act(dt);
 		}
 		
+		if (producerSelected == null) {
+			if (transition3 > 0f) {
+				transition3 -= dt*10f;
+				if (transition3 <= 0f) { transition3 = 0f;}
+			}
+			else if (transition2 > 0f) {
+				transition2 -= dt*10f;
+				if (transition2 <= 0f) { transition2 = 0f;}
+				lastProducerSelected.background.setY((470-lastProducerSelected.background.getHeight()/2)*transition2 + transition_y*(1f - transition2));
+			}
+			else if (transition1 > 0f) {
+				transition1 -= dt*10f;
+				if (transition1 <= 0f) { transition1 = 0f;}
+			}
+		}
+		else {
+			if (transition1 < 1f) {
+				transition1 += dt*10f;
+				if (transition1 >= 1f) { transition1 = 1f; transition_y = producerSelected.background.getY();}
+			}
+			else if (transition2 < 1f) {
+				transition2 += dt*10f;
+				if (transition2 >= 1f) { transition2 = 1f;}
+				producerSelected.background.setY((470-producerSelected.background.getHeight()/2)*transition2 + transition_y*(1f - transition2));
+			}
+			else if (transition3 < 1f) {
+				transition3 += dt*10f;
+				if (transition3 >= 1f) { transition3 = 1f;}
+			}
+		}
+
+		
 		//unlockNewProducers();
 	}
 	
@@ -69,27 +106,101 @@ public class Creation extends Screen {
 	public void draw(Batch batch, float parentAlpha) {
 		bgTab.draw(batch);
 		
-		for (int i = 0; i < producers.size(); i++) {
-			producers.get(i).background.draw(batch);
-			producers.get(i).icon.draw(batch);
-			producers.get(i).label.draw(batch, parentAlpha);
+		if (producerSelected == null) {
+			
+			if (transition3 > 0f) {
+				lastProducerSelected.background.draw(batch);
+				lastProducerSelected.icon.draw(batch);
+				lastProducerSelected.label.draw(batch, parentAlpha);
+				lastProducerSelected.amount.draw(batch, parentAlpha);
+				lastProducerSelected.info.draw(batch, transition3);
+			}
+			else if (transition2 > 0f) {
+				lastProducerSelected.background.draw(batch);
+				lastProducerSelected.icon.draw(batch);
+				lastProducerSelected.label.draw(batch, parentAlpha);
+				lastProducerSelected.amount.draw(batch, parentAlpha);
+			}
+			else {
+				for (int i = 0; i < producers.size(); i++) {
+					if (producers.get(i) == lastProducerSelected) {
+						producers.get(i).background.draw(batch);
+						producers.get(i).icon.draw(batch);
+						producers.get(i).label.draw(batch, parentAlpha);
+						producers.get(i).amount.draw(batch, parentAlpha);
+					}
+					else {
+						producers.get(i).background.setAlpha(1f - transition1);
+						producers.get(i).background.draw(batch);
+						producers.get(i).icon.setAlpha(1f - transition1);
+						producers.get(i).icon.draw(batch);
+						producers.get(i).label.draw(batch, 1f - transition1);
+						producers.get(i).amount.draw(batch, 1f - transition1);
+					}
+				}
+			}
+			
+			
+		}
+		else {
+			if (transition1 < 1f) {
+				for (int i = 0; i < producers.size(); i++) {
+					if (producers.get(i) == producerSelected) {
+						producers.get(i).background.draw(batch);
+						producers.get(i).icon.draw(batch);
+						producers.get(i).label.draw(batch, parentAlpha);
+						producers.get(i).amount.draw(batch, parentAlpha);
+					}
+					else {
+						producers.get(i).background.setAlpha(1f - transition1);
+						producers.get(i).background.draw(batch);
+						producers.get(i).icon.setAlpha(1f - transition1);
+						producers.get(i).icon.draw(batch);
+						producers.get(i).label.draw(batch, 1f - transition1);
+						producers.get(i).amount.draw(batch, 1f - transition1);
+					}
+				}
+
+			}
+			else if (transition2 < 1f) {
+				producerSelected.background.draw(batch);
+				producerSelected.icon.draw(batch);
+				producerSelected.label.draw(batch, parentAlpha);
+				producerSelected.amount.draw(batch, parentAlpha);
+			}
+			else {
+				producerSelected.background.draw(batch);
+				producerSelected.icon.draw(batch);
+				producerSelected.label.draw(batch, parentAlpha);
+				producerSelected.amount.draw(batch, parentAlpha);
+				producerSelected.info.draw(batch, transition3);
+			}
 		}
 
 	}
 	
 	public boolean tap(float x, float y, int count, int button) {
 
-		if (isOnSprite(producers.get(0).background, x, y)) {
-//			Game.instance.creation.open(producers.get(0).tab);
-			System.out.println("CLICKADO SPRITE 1");
+		if (producerSelected == null) {
+			for (int i = 0; i < producers.size(); i++) {
+				if (isOnSprite(producers.get(i).background, x, y)) {
+					producerSelected = producers.get(i);
+				}
+			}
+		}
+		else {
+			if (isOnSprite(producerSelected.background, x, y)) {
+				lastProducerSelected = producerSelected;
+				producerSelected = null;
+			}
 		}
 		
-		if (Lang.getLanguage() == Lang.ENGLISH_VALUE) {
-			Lang.setLanguage(Lang.SPANISH_VALUE);
-		}
-		else if (Lang.getLanguage() == Lang.SPANISH_VALUE) {
-			Lang.setLanguage(Lang.ENGLISH_VALUE);
-		}
+//		if (Lang.getLanguage() == Lang.ENGLISH_VALUE) {
+//			Lang.setLanguage(Lang.SPANISH_VALUE);
+//		}
+//		else if (Lang.getLanguage() == Lang.SPANISH_VALUE) {
+//			Lang.setLanguage(Lang.ENGLISH_VALUE);
+//		}
 		
 		return false;
 	}
