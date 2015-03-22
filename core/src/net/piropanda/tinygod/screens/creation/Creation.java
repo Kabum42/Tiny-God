@@ -29,6 +29,10 @@ public class Creation extends Screen {
 	private float transition3 = 0f;
 	private float transition_y = 0f;
 	
+	private float customScroll = 0f;
+	private float customScrollMax = 290f;
+	private float inertia = 0f;
+	
 	public Sound soundTap;
 	
 	public Creation() {
@@ -42,13 +46,12 @@ public class Creation extends Screen {
 		producers.add(new Producer(this, Lang.SERVANT_NAME));
 		producers.add(new Producer(this, Lang.HUMAN_NAME));
 		producers.add(new Producer(this, Lang.PROPHET_NAME));
-//		producers.add(new Producer(this, ProducerInfo.TEMPLE_ID));
-//		producers.add(new Producer(this, ProducerInfo.SHIP_ID));
-//		producers.add(new Producer(this, ProducerInfo.FACTORY_ID));
-//		producers.add(new Producer(this, ProducerInfo.LABORATORY_ID));
-//		producers.add(new Producer(this, ProducerInfo.HIPPIEVAN_ID));
-//		producers.add(new Producer(this, ProducerInfo.SHOP_ID));
-//		producers.add(new Producer(this, ProducerInfo.SPACESHIP_ID));
+		producers.add(new Producer(this, Lang.TEMPLE_NAME));
+		producers.add(new Producer(this, Lang.SHIP_NAME));
+		producers.add(new Producer(this, Lang.FACTORY_NAME));
+		producers.add(new Producer(this, Lang.LABORATORY_NAME));
+		producers.add(new Producer(this, Lang.SHOP_NAME));
+		producers.add(new Producer(this, Lang.SPACESHIP_NAME));
 		
 		//addProducer(producers.get(0));
 
@@ -82,11 +85,20 @@ public class Creation extends Screen {
 				transition1 -= dt*10f;
 				if (transition1 <= 0f) { transition1 = 0f;}
 			}
+			else {
+				inertia = inertia/1.02f;
+				customScroll += inertia;
+				if (customScroll > customScrollMax) { customScroll = customScrollMax; }
+				else if (customScroll < 0 ) { customScroll = 0; }
+				for (int i = 0; i < producers.size(); i++) {
+					producers.get(i).background.setY(producers.get(i).origin_y -producers.get(i).background.getHeight()/2 +customScroll);
+				}
+			}
 		}
 		else {
 			if (transition1 < 1f) {
 				transition1 += dt*10f;
-				if (transition1 >= 1f) { transition1 = 1f; transition_y = producerSelected.background.getY();}
+				if (transition1 >= 1f) { transition1 = 1f; transition_y = producerSelected.origin_y -producerSelected.background.getHeight()/2 +customScroll;}
 			}
 			else if (transition2 < 1f) {
 				transition2 += dt*10f;
@@ -223,6 +235,17 @@ public class Creation extends Screen {
 //		}
 		
 		return false;
+	}
+	
+	@Override
+	public void pan(float x, float y, float deltaX, float deltaY) {
+		
+		if (producerSelected == null && transition1 == 0f) {
+			inertia -= deltaY*(11f/480f);
+			if (inertia > 60) { inertia = 60; }
+			else if (inertia < -60) { inertia = -60; }
+		}
+		
 	}
 	
 	private boolean isOnSprite(Sprite s, float x, float y) {

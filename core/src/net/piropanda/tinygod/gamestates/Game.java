@@ -206,6 +206,9 @@ public class Game extends Group implements GestureListener {
 
 	@Override
 	public boolean pan(float x, float y, float deltaX, float deltaY) {
+		
+		
+		
 		if(screens[currentScreen].canPan() && Math.abs(deltaX) > Math.abs(deltaY)) {
 			accumulatedX += deltaX;
 			movingX = true;
@@ -216,6 +219,9 @@ public class Game extends Group implements GestureListener {
 			this.getStage().cancelTouchFocus();
 			
 			return true;
+		}
+		else if (screens[currentScreen].canPan() && Math.abs(deltaX) < Math.abs(deltaY)) {
+			screens[currentScreen].pan(x, y, deltaX, deltaY);
 		}
 		else if(!screens[currentScreen].canPan()) {
 			screens[currentScreen].pan(x, y, deltaX, deltaY);
