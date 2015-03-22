@@ -79,10 +79,10 @@ public class Creation extends Screen {
 	
 	public boolean tap(float x, float y, int count, int button) {
 
-//		if (isOnSprite(s, x, y)) {
+		if (isOnSprite(producers.get(0).background, x, y)) {
 //			Game.instance.creation.open(producers.get(0).tab);
-//			System.out.println("CLICKADO SPRITE 1");
-//		}
+			System.out.println("CLICKADO SPRITE 1");
+		}
 		
 		if (Lang.getLanguage() == Lang.ENGLISH_VALUE) {
 			Lang.setLanguage(Lang.SPANISH_VALUE);
@@ -102,8 +102,8 @@ public class Creation extends Screen {
 		float first_y = s.getY() + s.getHeight()/2 +s.getHeight()/2*s.getScaleY();
 		float second_y = s.getY() + s.getHeight()/2 -s.getHeight()/2*s.getScaleY();
 		
-		float modified_x = x+TG.Display.WIDTH*POSITION;
-		float modified_y = -(y-TG.Display.HEIGHT);
+		float modified_x = (x - TG.Display.whiteSpaceX)*(1f/TG.Display.scale) +TG.Display.WIDTH*POSITION;
+		float modified_y = -((y -TG.Display.whiteSpaceY)*(1f/TG.Display.scale) -TG.Display.HEIGHT);
 		
 		if (modified_x >= first_x && modified_x <= second_x &&
 				modified_y <= first_y && modified_y >= second_y) {

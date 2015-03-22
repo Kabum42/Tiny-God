@@ -57,6 +57,26 @@ public class TinyGod extends ApplicationAdapter {
 	@Override
 	public void resize(int width, int height) {
 		stage.getViewport().update(width, height);
+		
+		if ((float)height/(float)width > (float)TG.Display.HEIGHT/(float)TG.Display.WIDTH) {
+			
+			//System.out.println("SOBRA VERTICAL");
+			
+			TG.Display.scale = (float)width/(float)TG.Display.WIDTH;
+			TG.Display.whiteSpaceX = 0f;
+			TG.Display.whiteSpaceY = ((float)height - (float)TG.Display.HEIGHT*(float)TG.Display.scale)/2;
+			
+		}
+		else {
+			
+			//System.out.println("SOBRA HORIZONTAL");
+			
+			TG.Display.scale = (float)height/(float)TG.Display.HEIGHT;
+			TG.Display.whiteSpaceY = 0f;
+			TG.Display.whiteSpaceX = ((float)width - (float)TG.Display.WIDTH*(float)TG.Display.scale)/2;
+			
+		}
+		
 	}
 	
 	@Override
