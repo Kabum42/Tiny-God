@@ -45,7 +45,7 @@ public class Producer extends Group {
 		if (id == Lang.SERVANT_NAME) {
 			background.setY(470 -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.Graphics.assets.get("producers/servant.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			icon.setY(470 -icon.getHeight()/2);
@@ -54,11 +54,13 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(470 -label.getHeight()/2);
+			
+			info = new Label("INFO SERVANT", TG.Graphics.skin);
 		}
 		else if (id == Lang.HUMAN_NAME) {
 			background.setY(370 -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.Graphics.assets.get("producers/human.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			icon.setY(370 -icon.getHeight()/2);
@@ -67,11 +69,13 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(370 -label.getHeight()/2);
+			
+			info = new Label("INFO HUMAN", TG.Graphics.skin);
 		}
 		else if (id == Lang.PROPHET_NAME) {
 			background.setY(270 -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.Graphics.assets.get("producers/prophet.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
@@ -79,6 +83,8 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(270 -label.getHeight()/2);
+			
+			info = new Label("INFO PROPHET", TG.Graphics.skin);
 		}
 		
 		amount = new Label(""+999, TG.Graphics.skin);
@@ -86,9 +92,9 @@ public class Producer extends Group {
 		amount.setX(TG.Display.WIDTH*3.5f +background.getWidth()/2*background.getScaleX() -amount.getWidth() -10f);
 		amount.setY(background.getY() +background.getHeight()/2 -amount.getHeight()/2);
 		
-		info = new Label("INFO", TG.Graphics.skin);
+		
 		info.setColor(Color.WHITE);
-		info.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
+		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
 		info.setY(background.getY() +background.getHeight()/2 -info.getHeight()/2 +100f);
 	}
 	

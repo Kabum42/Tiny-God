@@ -2,6 +2,8 @@ package net.piropanda.tinygod.screens.creation;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -27,8 +29,12 @@ public class Creation extends Screen {
 	private float transition3 = 0f;
 	private float transition_y = 0f;
 	
+	public Sound soundTap;
+	
 	public Creation() {
 		super();
+		
+		soundTap = Gdx.audio.newSound(Gdx.files.internal("audio/tap-mellow.mp3"));
 		
 		this.bgTab.setX(TG.Display.WIDTH*POSITION);
 		
@@ -109,14 +115,18 @@ public class Creation extends Screen {
 		if (producerSelected == null) {
 			
 			if (transition3 > 0f) {
+				lastProducerSelected.background.setAlpha(1f);
 				lastProducerSelected.background.draw(batch);
+				lastProducerSelected.icon.setAlpha(1f);
 				lastProducerSelected.icon.draw(batch);
 				lastProducerSelected.label.draw(batch, parentAlpha);
 				lastProducerSelected.amount.draw(batch, parentAlpha);
 				lastProducerSelected.info.draw(batch, transition3);
 			}
 			else if (transition2 > 0f) {
+				lastProducerSelected.background.setAlpha(1f);
 				lastProducerSelected.background.draw(batch);
+				lastProducerSelected.icon.setAlpha(1f);
 				lastProducerSelected.icon.draw(batch);
 				lastProducerSelected.label.draw(batch, parentAlpha);
 				lastProducerSelected.amount.draw(batch, parentAlpha);
@@ -124,7 +134,9 @@ public class Creation extends Screen {
 			else {
 				for (int i = 0; i < producers.size(); i++) {
 					if (producers.get(i) == lastProducerSelected) {
+						producers.get(i).background.setAlpha(1f);
 						producers.get(i).background.draw(batch);
+						producers.get(i).icon.setAlpha(1f);
 						producers.get(i).icon.draw(batch);
 						producers.get(i).label.draw(batch, parentAlpha);
 						producers.get(i).amount.draw(batch, parentAlpha);
@@ -146,7 +158,9 @@ public class Creation extends Screen {
 			if (transition1 < 1f) {
 				for (int i = 0; i < producers.size(); i++) {
 					if (producers.get(i) == producerSelected) {
+						producers.get(i).background.setAlpha(1f);
 						producers.get(i).background.draw(batch);
+						producers.get(i).icon.setAlpha(1f);
 						producers.get(i).icon.draw(batch);
 						producers.get(i).label.draw(batch, parentAlpha);
 						producers.get(i).amount.draw(batch, parentAlpha);
@@ -163,13 +177,17 @@ public class Creation extends Screen {
 
 			}
 			else if (transition2 < 1f) {
+				producerSelected.background.setAlpha(1f);
 				producerSelected.background.draw(batch);
+				producerSelected.icon.setAlpha(1f);
 				producerSelected.icon.draw(batch);
 				producerSelected.label.draw(batch, parentAlpha);
 				producerSelected.amount.draw(batch, parentAlpha);
 			}
 			else {
+				producerSelected.background.setAlpha(1f);
 				producerSelected.background.draw(batch);
+				producerSelected.icon.setAlpha(1f);
 				producerSelected.icon.draw(batch);
 				producerSelected.label.draw(batch, parentAlpha);
 				producerSelected.amount.draw(batch, parentAlpha);
@@ -181,17 +199,19 @@ public class Creation extends Screen {
 	
 	public boolean tap(float x, float y, int count, int button) {
 
-		if (producerSelected == null) {
+		if (producerSelected == null && transition1 == 0f) {
 			for (int i = 0; i < producers.size(); i++) {
 				if (isOnSprite(producers.get(i).background, x, y)) {
 					producerSelected = producers.get(i);
+					soundTap.play(1f);
 				}
 			}
 		}
-		else {
+		else if (producerSelected != null && transition3 == 1f) {
 			if (isOnSprite(producerSelected.background, x, y)) {
 				lastProducerSelected = producerSelected;
 				producerSelected = null;
+				soundTap.play(1f);
 			}
 		}
 		
