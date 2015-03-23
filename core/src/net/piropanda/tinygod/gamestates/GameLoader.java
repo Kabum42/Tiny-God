@@ -60,6 +60,7 @@ public class GameLoader extends Group {
 		TG.Graphics.assets.load("earth/tree.png", Texture.class);
 		// producers
 		TG.Graphics.assets.load("producers/bg.png", Texture.class);
+		TG.Graphics.assets.load("producers/bg2.png", Texture.class);
 		TG.Graphics.assets.load("producers/grandma.png", Texture.class);
 		
 		TG.Graphics.assets.load("producers/locked.png", Texture.class);

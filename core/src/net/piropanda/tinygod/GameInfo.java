@@ -1,6 +1,7 @@
 package net.piropanda.tinygod;
 
 import java.util.HashMap;
+import java.util.Iterator;
 
 import net.piropanda.tinygod.helpers.ProducerInfo;
 
@@ -90,65 +91,65 @@ public class GameInfo {
 	}
 
 	public static void loadFromJson(String json) {
-		// reset();
-		//
-		// if (json == null || json.trim().equals("")) return;
-		//
-		// try {
-		// JSONObject obj = new JSONObject(json);
-		// String format = obj.getString("version");
-		//
-		// if (!format.equals(SERIAL_VERSION)) {
-		// throw new RuntimeException("Unexpected loot format " + format);
-		// }
-		//
-		// JSONObject jsonLove = obj.getJSONObject("love");
-		// JSONObject jsonTotalLove = obj.getJSONObject("totalLove");
-		// JSONObject jsonBuildings = obj.getJSONObject("buildings");
-		// JSONObject jsonUpgrades = obj.getJSONObject("upgrades");
-		// JSONObject jsonAchievements = obj.getJSONObject("achievements");
-		//
-		// Iterator<?> iterLove = jsonLove.keys();
-		// Iterator<?> iterTotalLove = jsonTotalLove.keys();
-		// Iterator<?> iterBuildings = jsonBuildings.keys();
-		// Iterator<?> iterUpgrades = jsonUpgrades.keys();
-		// Iterator<?> iterAchievements = jsonAchievements.keys();
-		//
-		// while (iterLove.hasNext()) {
-		// String loveName = (String)iterLove.next();
-		// love = jsonLove.getfloat(loveName);
-		// }
-		//
-		// while (iterTotalLove.hasNext()) {
-		// String totalLoveName = (String)iterTotalLove.next();
-		// totalLove = jsonTotalLove.getfloat(totalLoveName);
-		// }
-		//
-		// while (iterBuildings.hasNext()) {
-		// String buildingName = (String)iterBuildings.next();
-		// producers.put(buildingName, jsonBuildings.getInt(buildingName));
-		// }
-		//
-		// while (iterUpgrades.hasNext()) {
-		// String upgradeName = (String)iterUpgrades.next();
-		// upgrades.put(upgradeName, jsonUpgrades.getBoolean(upgradeName));
-		// }
-		//
-		// while (iterAchievements.hasNext()) {
-		// String achievementName = (String)iterAchievements.next();
-		// achievements.put(achievementName,
-		// jsonAchievements.getBoolean(achievementName));
-		// }
-		//
-		// }
-		// catch (JSONException ex) {
-		// ex.printStackTrace();
-		// }
-		// catch (NumberFormatException ex) {
-		// ex.printStackTrace();
-		// throw new RuntimeException("Save data has an invalid number in it: "
-		// + json, ex);
-		// }
+		 reset();
+		
+		 if (json == null || json.trim().equals("")) return;
+		
+		 try {
+		 JSONObject obj = new JSONObject(json);
+		 String format = obj.getString("version");
+		
+		 if (!format.equals(SERIAL_VERSION)) {
+		 throw new RuntimeException("Unexpected loot format " + format);
+		 }
+		
+		 JSONObject jsonLove = obj.getJSONObject("love");
+		 JSONObject jsonTotalLove = obj.getJSONObject("totalLove");
+		 JSONObject jsonBuildings = obj.getJSONObject("buildings");
+		 JSONObject jsonUpgrades = obj.getJSONObject("upgrades");
+		 JSONObject jsonAchievements = obj.getJSONObject("achievements");
+		
+		 Iterator<?> iterLove = jsonLove.keys();
+		 Iterator<?> iterTotalLove = jsonTotalLove.keys();
+		 Iterator<?> iterBuildings = jsonBuildings.keys();
+		 Iterator<?> iterUpgrades = jsonUpgrades.keys();
+		 Iterator<?> iterAchievements = jsonAchievements.keys();
+		
+		 while (iterLove.hasNext()) {
+		 String loveName = (String)iterLove.next();
+		 love = jsonLove.getDouble(loveName);
+		 }
+		
+		 while (iterTotalLove.hasNext()) {
+		 String totalLoveName = (String)iterTotalLove.next();
+		 totalLove = jsonTotalLove.getDouble(totalLoveName);
+		 }
+		
+		 while (iterBuildings.hasNext()) {
+		 String buildingName = (String)iterBuildings.next();
+		 producers.put(buildingName, jsonBuildings.getInt(buildingName));
+		 }
+		
+		 while (iterUpgrades.hasNext()) {
+		 String upgradeName = (String)iterUpgrades.next();
+		 upgrades.put(upgradeName, jsonUpgrades.getBoolean(upgradeName));
+		 }
+		
+		 while (iterAchievements.hasNext()) {
+		 String achievementName = (String)iterAchievements.next();
+		 achievements.put(achievementName,
+		 jsonAchievements.getBoolean(achievementName));
+		 }
+		
+		 }
+		 catch (JSONException ex) {
+		 ex.printStackTrace();
+		 }
+		 catch (NumberFormatException ex) {
+		 ex.printStackTrace();
+		 throw new RuntimeException("Save data has an invalid number in it: "
+		 + json, ex);
+		 }
 	}
 
 	public static byte[] toBytes() {
@@ -209,15 +210,15 @@ public class GameInfo {
 	private static void resetBuildings() {
 		producers.clear();
 
-		producers.put(""+Lang.SERVANT_NAME, 0);
-		producers.put(""+Lang.HUMAN_NAME, 0);
-		producers.put(""+Lang.PROPHET_NAME, 0);
-		producers.put(""+Lang.TEMPLE_NAME, 0);
-		producers.put(""+Lang.SHIP_NAME, 0);
-		producers.put(""+Lang.FACTORY_NAME, 0);
-		producers.put(""+Lang.LABORATORY_NAME, 0);
-		producers.put(""+Lang.SHOP_NAME, 0);
-		producers.put(""+Lang.SPACESHIP_NAME, 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME], 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.HUMAN_NAME], 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.PROPHET_NAME], 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_NAME], 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.SHIP_NAME], 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.FACTORY_NAME], 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_NAME], 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.SHOP_NAME], 0);
+		producers.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_NAME], 0);
 	}
 
 	private static void resetUpgrades() {
@@ -253,15 +254,15 @@ public class GameInfo {
 		criticalClickChance = 0.1;
 		criticalClickMultiplier = 10.0;
 
-		lps += producers.get(Lang.SERVANT_NAME+"") 		* ProducerInfo.getLps(Lang.SERVANT_NAME);
-		lps += producers.get(Lang.HUMAN_NAME+"") 		* ProducerInfo.getLps(Lang.HUMAN_NAME);
-		lps += producers.get(Lang.PROPHET_NAME+"") 		* ProducerInfo.getLps(Lang.HUMAN_NAME);
-		lps += producers.get(Lang.TEMPLE_NAME+"") 		* ProducerInfo.getLps(Lang.TEMPLE_NAME);
-		lps += producers.get(Lang.SHIP_NAME+"") 			* ProducerInfo.getLps(Lang.SHIP_NAME);
-		lps += producers.get(Lang.FACTORY_NAME+"") 		* ProducerInfo.getLps(Lang.FACTORY_NAME);
-		lps += producers.get(Lang.LABORATORY_NAME+"") 	* ProducerInfo.getLps(Lang.LABORATORY_NAME);
-		lps += producers.get(Lang.SHOP_NAME+"") 	* ProducerInfo.getLps(Lang.SHOP_NAME);
-		lps += producers.get(Lang.SPACESHIP_NAME+"") 			* ProducerInfo.getLps(Lang.SPACESHIP_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME]) 		* ProducerInfo.getLps(Lang.SERVANT_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.HUMAN_NAME]) 		* ProducerInfo.getLps(Lang.HUMAN_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.PROPHET_NAME]) 		* ProducerInfo.getLps(Lang.HUMAN_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_NAME]) 		* ProducerInfo.getLps(Lang.TEMPLE_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.SHIP_NAME]) 			* ProducerInfo.getLps(Lang.SHIP_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.FACTORY_NAME]) 		* ProducerInfo.getLps(Lang.FACTORY_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_NAME]) 	* ProducerInfo.getLps(Lang.LABORATORY_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.SHOP_NAME]) 	* ProducerInfo.getLps(Lang.SHOP_NAME);
+		lps += producers.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_NAME]) 			* ProducerInfo.getLps(Lang.SPACESHIP_NAME);
 
 		lovePerClick = 1f;
 

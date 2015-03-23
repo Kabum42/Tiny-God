@@ -13,7 +13,9 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
+import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -27,6 +29,8 @@ public class Producer extends Group {
 	public Sprite icon;
 	public Label label;
 	public Label amount;
+	
+	public Sprite background2;
 	public Label info;
 	
 	public float origin_y = 0;
@@ -40,6 +44,10 @@ public class Producer extends Group {
 		background = new Sprite(TG.Graphics.assets.get("producers/bg.png", Texture.class));
 		background.setScale(1f/2.75f, 1f/2.75f);
 		background.setX(TG.Display.WIDTH*((float)3f+0.5f) -background.getWidth()/2);
+		
+		background2 = new Sprite(TG.Graphics.assets.get("producers/bg2.png", Texture.class));
+		background2.setScale(1f/2.75f, 1f/2.75f);
+		background2.setX(TG.Display.WIDTH*((float)3f+0.5f) -background2.getWidth()/2);
 		
 		float base_y = 470;
 		float distance_y = background.getHeight()*background.getScaleY() +10;
@@ -210,11 +218,12 @@ public class Producer extends Group {
 		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
 		info.setY(background.getY() +background.getHeight()/2 -info.getHeight()/2 +100f);
 		
+		info.setBounds(0, 0, 200f, 500f);
 		
 
 		//System.out.println(GameInfo.producers.get(id+""));	
-		System.out.println("Cost: "+ (ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(id+""))));
-		System.out.println("LPS: " + ProducerInfo.getLps(id) + " (" + ProducerInfo.getLps(id)*GameInfo.producers.get(id+"")+ ")");
+		System.out.println("Cost: "+ (ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))));
+		System.out.println("LPS: " + ProducerInfo.getLps(id) + " (" + ProducerInfo.getLps(id)*GameInfo.producers.get(Lang.ENGLISH_WORDS[id])+ ")");
 
 		//+ "LPS: " + producer.getLps() + " (" + producer.getLps()*GameInfo.producers.get(producer.getId()) + ")"
 
@@ -236,10 +245,12 @@ public class Producer extends Group {
 		icon.setY(background.getY());
 		label.setY(background.getY() +background.getHeight()/2 -label.getHeight()/2);
 		
-		amount.setText(GameInfo.producers.get(id+"")+"");
+		amount.setText(GameInfo.producers.get(Lang.ENGLISH_WORDS[id])+"");
 		amount.pack();
 		amount.setX(TG.Display.WIDTH*3.5f +background.getWidth()/2*background.getScaleX() -amount.getWidth() -10f);
 		amount.setY(background.getY() +background.getHeight()/2 -amount.getHeight()/2);
+		
+		background2.setY(background.getY() +background.getHeight()/2 -background2.getHeight()/2 -background2.getHeight()/2*background2.getScaleY() -30f);
 		
 		info.setText(Lang.getText(id+1));
 		info.pack();

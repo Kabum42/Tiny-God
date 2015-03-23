@@ -127,13 +127,16 @@ public class Creation extends Screen {
 		if (producerSelected == null) {
 			
 			if (transition3 > 0f) {
+				lastProducerSelected.background2.setAlpha(transition3);
+				lastProducerSelected.background2.draw(batch);
+				lastProducerSelected.info.draw(batch, transition3);
+				
 				lastProducerSelected.background.setAlpha(1f);
 				lastProducerSelected.background.draw(batch);
 				lastProducerSelected.icon.setAlpha(1f);
 				lastProducerSelected.icon.draw(batch);
 				lastProducerSelected.label.draw(batch, parentAlpha);
 				lastProducerSelected.amount.draw(batch, parentAlpha);
-				lastProducerSelected.info.draw(batch, transition3);
 			}
 			else if (transition2 > 0f) {
 				lastProducerSelected.background.setAlpha(1f);
@@ -197,13 +200,16 @@ public class Creation extends Screen {
 				producerSelected.amount.draw(batch, parentAlpha);
 			}
 			else {
+				producerSelected.background2.setAlpha(transition3);
+				producerSelected.background2.draw(batch);
+				producerSelected.info.draw(batch, transition3);
+				
 				producerSelected.background.setAlpha(1f);
 				producerSelected.background.draw(batch);
 				producerSelected.icon.setAlpha(1f);
 				producerSelected.icon.draw(batch);
 				producerSelected.label.draw(batch, parentAlpha);
 				producerSelected.amount.draw(batch, parentAlpha);
-				producerSelected.info.draw(batch, transition3);
 			}
 		}
 
