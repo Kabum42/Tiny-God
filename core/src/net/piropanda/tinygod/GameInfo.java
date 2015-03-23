@@ -209,16 +209,15 @@ public class GameInfo {
 	private static void resetBuildings() {
 		producers.clear();
 
-		producers.put(ProducerInfo.SERVANT_ID, 0);
-		producers.put(ProducerInfo.HUMAN_ID, 0);
-		producers.put(ProducerInfo.PROPHET_ID, 0);
-		producers.put(ProducerInfo.TEMPLE_ID, 0);
-		producers.put(ProducerInfo.SHIP_ID, 0);
-		producers.put(ProducerInfo.FACTORY_ID, 0);
-		producers.put(ProducerInfo.LABORATORY_ID, 0);
-		producers.put(ProducerInfo.HIPPIEVAN_ID, 0);
-		producers.put(ProducerInfo.SHOP_ID, 0);
-		producers.put(ProducerInfo.SPACESHIP_ID, 0);
+		producers.put(""+Lang.SERVANT_NAME, 0);
+		producers.put(""+Lang.HUMAN_NAME, 0);
+		producers.put(""+Lang.PROPHET_NAME, 0);
+		producers.put(""+Lang.TEMPLE_NAME, 0);
+		producers.put(""+Lang.SHIP_NAME, 0);
+		producers.put(""+Lang.FACTORY_NAME, 0);
+		producers.put(""+Lang.LABORATORY_NAME, 0);
+		producers.put(""+Lang.SHOP_NAME, 0);
+		producers.put(""+Lang.SPACESHIP_NAME, 0);
 	}
 
 	private static void resetUpgrades() {
@@ -254,16 +253,15 @@ public class GameInfo {
 		criticalClickChance = 0.1;
 		criticalClickMultiplier = 10.0;
 
-		lps += producers.get(ProducerInfo.SERVANT_ID) 		* ProducerInfo.getLps(ProducerInfo.SERVANT_ID);
-		lps += producers.get(ProducerInfo.HUMAN_ID) 		* ProducerInfo.getLps(ProducerInfo.HUMAN_ID);
-		lps += producers.get(ProducerInfo.PROPHET_ID) 		* ProducerInfo.getLps(ProducerInfo.PROPHET_ID);
-		lps += producers.get(ProducerInfo.TEMPLE_ID) 		* ProducerInfo.getLps(ProducerInfo.TEMPLE_ID);
-		lps += producers.get(ProducerInfo.SHIP_ID) 			* ProducerInfo.getLps(ProducerInfo.SHIP_ID);
-		lps += producers.get(ProducerInfo.FACTORY_ID) 		* ProducerInfo.getLps(ProducerInfo.FACTORY_ID);
-		lps += producers.get(ProducerInfo.LABORATORY_ID) 	* ProducerInfo.getLps(ProducerInfo.LABORATORY_ID);
-		lps += producers.get(ProducerInfo.HIPPIEVAN_ID) 	* ProducerInfo.getLps(ProducerInfo.HIPPIEVAN_ID);
-		lps += producers.get(ProducerInfo.SHOP_ID) 			* ProducerInfo.getLps(ProducerInfo.SHOP_ID);
-		lps += producers.get(ProducerInfo.SPACESHIP_ID) 	* ProducerInfo.getLps(ProducerInfo.SPACESHIP_ID);
+		lps += producers.get(Lang.SERVANT_NAME+"") 		* ProducerInfo.getLps(Lang.SERVANT_NAME);
+		lps += producers.get(Lang.HUMAN_NAME+"") 		* ProducerInfo.getLps(Lang.HUMAN_NAME);
+		lps += producers.get(Lang.PROPHET_NAME+"") 		* ProducerInfo.getLps(Lang.HUMAN_NAME);
+		lps += producers.get(Lang.TEMPLE_NAME+"") 		* ProducerInfo.getLps(Lang.TEMPLE_NAME);
+		lps += producers.get(Lang.SHIP_NAME+"") 			* ProducerInfo.getLps(Lang.SHIP_NAME);
+		lps += producers.get(Lang.FACTORY_NAME+"") 		* ProducerInfo.getLps(Lang.FACTORY_NAME);
+		lps += producers.get(Lang.LABORATORY_NAME+"") 	* ProducerInfo.getLps(Lang.LABORATORY_NAME);
+		lps += producers.get(Lang.SHOP_NAME+"") 	* ProducerInfo.getLps(Lang.SHOP_NAME);
+		lps += producers.get(Lang.SPACESHIP_NAME+"") 			* ProducerInfo.getLps(Lang.SPACESHIP_NAME);
 
 		lovePerClick = 1f;
 

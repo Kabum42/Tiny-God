@@ -209,6 +209,15 @@ public class Producer extends Group {
 		info.setColor(Color.WHITE);
 		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
 		info.setY(background.getY() +background.getHeight()/2 -info.getHeight()/2 +100f);
+		
+		
+
+		//System.out.println(GameInfo.producers.get(id+""));	
+		System.out.println("Cost: "+ (ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(id+""))));
+		System.out.println("LPS: " + ProducerInfo.getLps(id) + " (" + ProducerInfo.getLps(id)*GameInfo.producers.get(id+"")+ ")");
+
+		//+ "LPS: " + producer.getLps() + " (" + producer.getLps()*GameInfo.producers.get(producer.getId()) + ")"
+
 	}
 	
 	
@@ -219,8 +228,6 @@ public class Producer extends Group {
 	@Override
 	public void act(float dt) {
 		super.act(dt);
-		
-		
 
 		label.setText(Lang.getText(id));
 		label.pack();
@@ -228,6 +235,10 @@ public class Producer extends Group {
 		
 		icon.setY(background.getY());
 		label.setY(background.getY() +background.getHeight()/2 -label.getHeight()/2);
+		
+		amount.setText(GameInfo.producers.get(id+"")+"");
+		amount.pack();
+		amount.setX(TG.Display.WIDTH*3.5f +background.getWidth()/2*background.getScaleX() -amount.getWidth() -10f);
 		amount.setY(background.getY() +background.getHeight()/2 -amount.getHeight()/2);
 		
 		info.setText(Lang.getText(id+1));

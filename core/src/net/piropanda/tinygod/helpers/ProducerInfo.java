@@ -1,11 +1,15 @@
 package net.piropanda.tinygod.helpers;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+
+import net.piropanda.tinygod.Lang;
+import net.piropanda.tinygod.screens.creation.Producer;
 
 public class ProducerInfo {
 
-	private static HashMap<String, Float> cost = new HashMap<String, Float>();
-	private static HashMap<String, Float> lps = new HashMap<String, Float>();
+	private static HashMap<Integer, Float> cost = new HashMap<Integer, Float>();
+	private static HashMap<Integer, Float> lps = new HashMap<Integer, Float>();
 	
 	public static final String SERVANT_ID = "servant";
 //    public static final float SERVANT_INITIAL_PRICE = 15f;
@@ -48,35 +52,35 @@ public class ProducerInfo {
 //    public static final float SPACESHIP_BASE_LPS = 1000000f; // 1 M
     
     public static void init() {
-    	cost.put(SERVANT_ID, 	15f);
-    	cost.put(HUMAN_ID, 		100f);
-    	cost.put(PROPHET_ID, 	500f);
-    	cost.put(TEMPLE_ID, 	3000f);
-    	cost.put(SHIP_ID, 		10000f);
-    	cost.put(FACTORY_ID, 	40000f);
-    	cost.put(LABORATORY_ID, 200000f);
-    	cost.put(HIPPIEVAN_ID, 	1700000f);
-    	cost.put(SHOP_ID, 		125000000f);
-    	cost.put(SPACESHIP_ID, 	4000000000f);
     	
-    	lps.put(SERVANT_ID, 	0.1f);
-    	lps.put(HUMAN_ID, 		1f);
-    	lps.put(PROPHET_ID, 	4f);
-    	lps.put(TEMPLE_ID, 		10f);
-    	lps.put(SHIP_ID, 		40f);
-    	lps.put(FACTORY_ID, 	100f);
-    	lps.put(LABORATORY_ID, 	400f);
-    	lps.put(HIPPIEVAN_ID, 	7000f);
-    	lps.put(SHOP_ID, 		100000f);
-    	lps.put(SPACESHIP_ID, 	1000000f);
+    	
+    	cost.put(Lang.SERVANT_NAME, 	15f);
+    	cost.put(Lang.HUMAN_NAME, 		100f);
+    	cost.put(Lang.PROPHET_NAME, 	500f);
+    	cost.put(Lang.TEMPLE_NAME, 	3000f);
+    	cost.put(Lang.SHIP_NAME, 		10000f);
+    	cost.put(Lang.FACTORY_NAME, 	40000f);
+    	cost.put(Lang.LABORATORY_NAME, 200000f);
+    	cost.put(Lang.SHOP_NAME, 	1700000f);
+    	cost.put(Lang.SPACESHIP_NAME, 		125000000f);
+    	
+    	lps.put(Lang.SERVANT_NAME, 	0.1f);
+    	lps.put(Lang.HUMAN_NAME, 		1f);
+    	lps.put(Lang.PROPHET_NAME, 	4f);
+    	lps.put(Lang.TEMPLE_NAME, 		10f);
+    	lps.put(Lang.SHIP_NAME, 		40f);
+    	lps.put(Lang.FACTORY_NAME, 	100f);
+    	lps.put(Lang.LABORATORY_NAME, 	400f);
+    	lps.put(Lang.SHOP_NAME, 	7000f);
+    	lps.put(Lang.SPACESHIP_NAME, 		100000f);
     }
     
-    public static float getBaseCost(String id) {
+    public static float getBaseCost(int id) {
     	if(cost.containsKey(id)) return cost.get(id);
     	return 0f;
     }
     
-    public static float getLps(String id) {
+    public static float getLps(int id) {
     	if(lps.containsKey(id)) return lps.get(id);
     	return 0f;
     }

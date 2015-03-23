@@ -86,7 +86,7 @@ public class Creation extends Screen {
 				if (transition1 <= 0f) { transition1 = 0f;}
 			}
 			else {
-				inertia = inertia/1.02f;
+				inertia = inertia/1.05f;
 				customScroll += inertia;
 				if (customScroll > customScrollMax) { customScroll = customScrollMax; }
 				else if (customScroll < 0 ) { customScroll = 0; }
@@ -241,7 +241,7 @@ public class Creation extends Screen {
 	public void pan(float x, float y, float deltaX, float deltaY) {
 		
 		if (producerSelected == null && transition1 == 0f) {
-			inertia -= deltaY*(11f/480f);
+			inertia -= deltaY*(40f/480f);
 			if (inertia > 60) { inertia = 60; }
 			else if (inertia < -60) { inertia = -60; }
 		}
