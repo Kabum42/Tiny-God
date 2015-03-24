@@ -47,6 +47,9 @@ public class Yahvy {
 		loader = new LibGdxLoader(data);
 		loader.load(handle.file());
 		player = new Player(data.getEntity(0));
+		
+		player.setAnimation(1);
+		
 		player.setScale(1f/2.75f);
 		player.setPosition(TG.Display.WIDTH*2.5f, 300);
 		
@@ -141,7 +144,7 @@ public class Yahvy {
 						batch.setShader(null);
 					}
 					else {
-						sprite.draw(batch);
+						sprite.draw(batch, object.alpha);
 					}
 					
 					
