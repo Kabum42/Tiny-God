@@ -26,13 +26,13 @@ public abstract class Screen extends Group {
 	
 	public Screen() {
 		// tab background (sub-screen)
-		bgTab = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		bgTab = new Sprite(TG.assets.get("pixel.png", Texture.class));
 		bgTab.setScale(1, 1);
 		bgTab.setColor(100f/255f, 130f/255f, 210f/255f, 1f);
 		bgTab.setBounds(0, 0, TG.Display.WIDTH, TG.Display.HEIGHT);
 
 		
-		bgTab2 = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		bgTab2 = new Sprite(TG.assets.get("pixel.png", Texture.class));
 		//bgTab2.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
 		//bgTab2.setColor(100f/255f, 1f, 1f, 1f);
 		bgTab2.setBounds(0, 0, TG.Display.WIDTH, TG.Display.HEIGHT);

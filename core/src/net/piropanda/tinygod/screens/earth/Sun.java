@@ -23,7 +23,7 @@ public class Sun extends Physical {
 		
 		speed = (float) (-0.2f);
 		
-		sprite = new Sprite(TG.Graphics.assets.get("earth/sun.png", Texture.class));
+		sprite = new Sprite(TG.assets.get("earth/sun.png", Texture.class));
 		sprite.setScale(3f/10f);
 		
 		

@@ -30,7 +30,7 @@ public class Mouth {
 		
 		variation_color = (float) (-0.15f + Math.random()*0.3f);
 		
-		sprite = new Sprite(TG.Graphics.assets.get("mouth.png", Texture.class));
+		sprite = new Sprite(TG.assets.get("mouth.png", Texture.class));
 		sprite.setScale(1f/2.75f);
 		
 		

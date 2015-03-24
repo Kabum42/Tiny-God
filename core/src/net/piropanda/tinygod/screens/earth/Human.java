@@ -30,10 +30,10 @@ public class Human extends Physical {
 		}
 		
 		if (Math.random() > 0.5f) {
-			sprite = new Sprite(TG.Graphics.assets.get("earth/AdamMini.png", Texture.class));
+			sprite = new Sprite(TG.assets.get("earth/AdamMini.png", Texture.class));
 		}
 		else {
-			sprite = new Sprite(TG.Graphics.assets.get("earth/EveMini.png", Texture.class));
+			sprite = new Sprite(TG.assets.get("earth/EveMini.png", Texture.class));
 		}
 		
 		sprite.setScale(1f/4f);

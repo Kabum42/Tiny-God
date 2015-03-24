@@ -51,21 +51,21 @@ public class Yahvy {
 		player.setPosition(TG.Display.WIDTH*2.5f, 300);
 		
 		TextureRegion[] frames = new TextureRegion[15];
-		frames[0] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask001.png", Texture.class));
-		frames[1] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask001.png", Texture.class));
-		frames[2] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask002.png", Texture.class));
-		frames[3] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask003.png", Texture.class));
-		frames[4] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask004.png", Texture.class));
-		frames[5] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask005.png", Texture.class));
-		frames[6] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask006.png", Texture.class));
-		frames[7] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask007.png", Texture.class));
-		frames[8] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask006.png", Texture.class));
-		frames[9] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask005.png", Texture.class));
-		frames[10] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask004.png", Texture.class));
-		frames[11] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask003.png", Texture.class));
-		frames[12] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask002.png", Texture.class));
-		frames[13] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask001.png", Texture.class));
-		frames[14] = new TextureRegion(TG.Graphics.assets.get("shaders/masks/mask001.png", Texture.class));
+		frames[0] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
+		frames[1] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
+		frames[2] = new TextureRegion(TG.assets.get("shaders/masks/mask002.png", Texture.class));
+		frames[3] = new TextureRegion(TG.assets.get("shaders/masks/mask003.png", Texture.class));
+		frames[4] = new TextureRegion(TG.assets.get("shaders/masks/mask004.png", Texture.class));
+		frames[5] = new TextureRegion(TG.assets.get("shaders/masks/mask005.png", Texture.class));
+		frames[6] = new TextureRegion(TG.assets.get("shaders/masks/mask006.png", Texture.class));
+		frames[7] = new TextureRegion(TG.assets.get("shaders/masks/mask007.png", Texture.class));
+		frames[8] = new TextureRegion(TG.assets.get("shaders/masks/mask006.png", Texture.class));
+		frames[9] = new TextureRegion(TG.assets.get("shaders/masks/mask005.png", Texture.class));
+		frames[10] = new TextureRegion(TG.assets.get("shaders/masks/mask004.png", Texture.class));
+		frames[11] = new TextureRegion(TG.assets.get("shaders/masks/mask003.png", Texture.class));
+		frames[12] = new TextureRegion(TG.assets.get("shaders/masks/mask002.png", Texture.class));
+		frames[13] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
+		frames[14] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
 
 		maskAnimation = new Animation(1f, frames);
 		

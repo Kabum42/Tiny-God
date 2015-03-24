@@ -64,22 +64,22 @@ public class Game extends Group implements GestureListener {
 		GameInfo.reset();
 		ProducerInfo.init();
 		
-		soundSlide = Gdx.audio.newSound(Gdx.files.internal("audio/slide-network.mp3"));
+		soundSlide = TG.assets.get("common/slide.mp3", Sound.class);
 		
 		// background
-		bg = new Image(TG.Graphics.assets.get("screen-background_01.png", Texture.class));
+		bg = new Image(TG.assets.get("screen-background_01.png", Texture.class));
 		bg.setTouchable(Touchable.disabled);
 		
-		godBackground = new Sprite(TG.Graphics.assets.get("god-bg.png", Texture.class));
+		godBackground = new Sprite(TG.assets.get("god-bg.png", Texture.class));
 		godBackground.setScale(1f/2.75f);
 		godBackground.setX((TG.Display.WIDTH*2f -godBackground.getWidth()/2 +godBackground.getWidth()/2*godBackground.getScaleX()));
 		godBackground.setY(0 -godBackground.getHeight()/2 +godBackground.getHeight()/2*godBackground.getScaleY());
 		
-		bg2 = new Image(TG.Graphics.assets.get("screen-background_02.png", Texture.class));
+		bg2 = new Image(TG.assets.get("screen-background_02.png", Texture.class));
 		bg2.setX(TG.Display.WIDTH*3);
 		bg2.setTouchable(Touchable.disabled);
 		
-		top = new Sprite(TG.Graphics.assets.get("top.png", Texture.class));
+		top = new Sprite(TG.assets.get("top.png", Texture.class));
 		top.setScale(1f/2.75f);
 		top.setY(TG.Display.HEIGHT -top.getHeight()/2 -top.getHeight()/2*top.getScaleY());
 		
@@ -129,7 +129,7 @@ public class Game extends Group implements GestureListener {
 		
 		GameInfo.update();
 		
-		label.setText("Love: " + GameInfo.love);
+		label.setText("Love: " + Math.floor(GameInfo.love));
 		
 		// ease camera to current screen position
 		if(!movingX) {

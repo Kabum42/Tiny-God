@@ -33,7 +33,7 @@ public class Codex extends Screen {
 		TextureRegionDrawable trd;
 
 		// settings button
-		trd = new TextureRegionDrawable(new TextureRegion(TG.Graphics.assets.get("codex/button-settings.png", Texture.class)));
+		trd = new TextureRegionDrawable(new TextureRegion(TG.assets.get("codex/button-settings.png", Texture.class)));
 		button = new ImageButton(trd);
 		button.addListener(new ChangeListener() {
 			@Override
@@ -44,7 +44,7 @@ public class Codex extends Screen {
 		table.add(button).pad(10);
 		
 		// credits button
-		trd = new TextureRegionDrawable(new TextureRegion(TG.Graphics.assets.get("codex/button-credits.png", Texture.class)));
+		trd = new TextureRegionDrawable(new TextureRegion(TG.assets.get("codex/button-credits.png", Texture.class)));
 		button = new ImageButton(trd);
 		button.addListener(new ChangeListener() {
 			@Override
@@ -55,7 +55,7 @@ public class Codex extends Screen {
 		table.add(button).pad(10);
 		
 		// statistics button
-		trd = new TextureRegionDrawable(new TextureRegion(TG.Graphics.assets.get("codex/button-stats.png", Texture.class)));
+		trd = new TextureRegionDrawable(new TextureRegion(TG.assets.get("codex/button-stats.png", Texture.class)));
 		button = new ImageButton(trd);
 		button.addListener(new ChangeListener() {
 			@Override

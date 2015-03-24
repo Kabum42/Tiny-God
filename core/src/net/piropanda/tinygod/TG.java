@@ -5,6 +5,8 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class TG {
+	
+	public static AssetManager assets = new AssetManager();
 
 	public static class Display {
 		public static final int WIDTH = 432;
@@ -20,8 +22,8 @@ public class TG {
 	}
 	
 	public static class Graphics {
-		public static AssetManager assets = new AssetManager();
         public static Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
 	}
+
 	
 }

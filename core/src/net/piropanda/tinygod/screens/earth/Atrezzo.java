@@ -20,7 +20,7 @@ public class Atrezzo extends Physical {
 		this.angle = angle;
 		
 		if (type == "tree") {
-			sprite = new Sprite(TG.Graphics.assets.get("earth/tree.png", Texture.class));
+			sprite = new Sprite(TG.assets.get("earth/tree.png", Texture.class));
 			sprite.setScale(4f/10f);
 		}
 		

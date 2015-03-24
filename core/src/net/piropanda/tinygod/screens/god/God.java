@@ -40,9 +40,9 @@ public class God extends Screen {
 	public God() {
 		super();
 		
-		soundTap = Gdx.audio.newSound(Gdx.files.internal("audio/tap-mellow.mp3"));
+		soundTap = TG.assets.get("common/tap.mp3", Sound.class);
 		
-		this.bgTab = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		this.bgTab = new Sprite(TG.assets.get("pixel.png", Texture.class));
 		//this.bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
 		this.bgTab.setScale(1025f/2.75f +2f, 1405f/2.75f +2f);
 		this.bgTab.setX(TG.Display.WIDTH*2.5f - this.bgTab.getWidth()/2);
@@ -50,7 +50,7 @@ public class God extends Screen {
 		this.bgTab.setY(81f/2.75f - this.bgTab.getHeight()/2 +this.bgTab.getHeight()/2*this.bgTab.getScaleY());
 		this.bgTab.setColor(100f/255f, 130f/255f, 210f/255f, 1f);
 		
-		this.bgTab2 = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+		this.bgTab2 = new Sprite(TG.assets.get("pixel.png", Texture.class));
 		//this.bgTab2.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
 		this.bgTab2.setScale(1025f/2.75f +2f, 1405f/2.75f +2f);
 		this.bgTab2.setX(TG.Display.WIDTH*2.5f - this.bgTab.getWidth()/2);

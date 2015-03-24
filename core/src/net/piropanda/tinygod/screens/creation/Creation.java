@@ -38,7 +38,7 @@ public class Creation extends Screen {
 	public Creation() {
 		super();
 		
-		soundTap = Gdx.audio.newSound(Gdx.files.internal("audio/tap-mellow.mp3"));
+		soundTap = TG.assets.get("common/tap.mp3", Sound.class);
 		
 		this.bgTab.setX(TG.Display.WIDTH*POSITION);
 		
@@ -133,7 +133,7 @@ public class Creation extends Screen {
 			if (transition3 > 0f) {
 				lastProducerSelected.background2.setAlpha(transition3);
 				lastProducerSelected.background2.draw(batch);
-				lastProducerSelected.info.draw(batch, transition3);
+				lastProducerSelected.buy.draw(batch, transition3);
 				
 				lastProducerSelected.background.setAlpha(1f);
 				lastProducerSelected.background.draw(batch);
@@ -206,7 +206,7 @@ public class Creation extends Screen {
 			else {
 				producerSelected.background2.setAlpha(transition3);
 				producerSelected.background2.draw(batch);
-				producerSelected.info.draw(batch, transition3);
+				producerSelected.buy.draw(batch, transition3);
 				
 				producerSelected.background.setAlpha(1f);
 				producerSelected.background.draw(batch);
@@ -237,6 +237,7 @@ public class Creation extends Screen {
 			}
 		}
 		else if (producerSelected != null && transition3 == 1f) {
+			producerSelected.tap(x,  y, count, button);
 			if (isOnSprite(producerSelected.background, x, y)) {
 				lastProducerSelected = producerSelected;
 				producerSelected = null;

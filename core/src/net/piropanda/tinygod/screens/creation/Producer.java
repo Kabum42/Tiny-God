@@ -8,6 +8,7 @@ import net.piropanda.tinygod.helpers.ProducerInfo;
 import net.piropanda.tinygod.screens.Screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -37,11 +38,16 @@ public class Producer extends Group {
 	public Sprite icon;
 	public Label label;
 	public Label amount;
+	public Sprite buy;
 	
 	public Sprite background2;
 	public Label info;
 	
 	public float origin_y = 0;
+	
+	public Sound buy1;
+	public Sound buy2;
+	public Sound buy3;
 	
 	
 	public Producer(Screen screen, int id) {
@@ -64,15 +70,18 @@ public class Producer extends Group {
 		
 		this.addActor(scroll);
 		
+		
 		this.id = id;
 		
-		tab = new ProducerScreenTab(screen, this);
+		buy1 = TG.assets.get("producers/buy1.mp3", Sound.class);
+		buy2 = TG.assets.get("producers/buy2.mp3", Sound.class);
+		buy3 = TG.assets.get("producers/buy3.mp3", Sound.class);
 
-		background = new Sprite(TG.Graphics.assets.get("producers/bg.png", Texture.class));
+		background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
 		background.setScale(1f/2.75f, 1f/2.75f);
 		background.setX(TG.Display.WIDTH*((float)3f+0.5f) -background.getWidth()/2);
 		
-		background2 = new Sprite(TG.Graphics.assets.get("producers/bg2.png", Texture.class));
+		background2 = new Sprite(TG.assets.get("producers/bg2.png", Texture.class));
 		background2.setScale(1f/2.75f, 1f/2.75f);
 		background2.setX(TG.Display.WIDTH*((float)3f+0.5f) -background2.getWidth()/2);
 		
@@ -85,7 +94,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/servant.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/servant.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			icon.setY(origin_y -icon.getHeight()/2);
@@ -103,7 +112,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/human.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/human.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			icon.setY(370 -icon.getHeight()/2);
@@ -121,7 +130,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/prophet.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/prophet.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
@@ -138,7 +147,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/grandma.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
@@ -155,7 +164,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/grandma.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
@@ -172,7 +181,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/grandma.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
@@ -189,7 +198,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/grandma.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
@@ -206,7 +215,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/grandma.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
@@ -223,7 +232,7 @@ public class Producer extends Group {
 			
 			background.setY(origin_y -background.getHeight()/2);
 			
-			icon = new Sprite(TG.Graphics.assets.get("producers/grandma.png", Texture.class));
+			icon = new Sprite(TG.assets.get("producers/grandma.png", Texture.class));
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
@@ -248,11 +257,16 @@ public class Producer extends Group {
 		info.setFontScale(TG.Display.WIDTH / Gdx.graphics.getWidth()); // scale the font to a readable size
 		info.setWrap(true);
 		Container<Label> container = new Container<Label>(info);
-		container.prefWidth(350);
-		container.padBottom(25);
+		container.prefWidth(300);
+		//container.padBottom(25);
 		table.add(container);
 		
-		info.setBounds(0, 0, 200f, 500f);
+		buy = new Sprite(TG.assets.get("producers/buy.png", Texture.class));
+		buy.setScale(1f/2.75f, 1f/2.75f);
+		buy.setX(background.getX() +background.getWidth()/2 -buy.getWidth()/2);
+		buy.setY(0f -buy.getHeight()/2 +100f);
+		
+		//info.setBounds(0, 0, 200f, 500f);
 		
 
 		//System.out.println(GameInfo.producers.get(id+""));	
@@ -286,10 +300,8 @@ public class Producer extends Group {
 		
 		background2.setY(background.getY() +background.getHeight()/2 -background2.getHeight()/2 -background2.getHeight()/2*background2.getScaleY() -30f);
 		
-		info.setText(Lang.getText(id+1));
-//		info.pack();
-//		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
-//		info.setY(background.getY() +background.getHeight()/2 -info.getHeight()/2 -200f);
+		info.setText(Lang.getText(id+1) 
+				+"\n \n" + "Cost: "+ Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))));
 
 	}
 	
@@ -312,5 +324,54 @@ public class Producer extends Group {
 			super.draw(batch, creationParent.transition3);
 		}
 	}
+	
+	public boolean tap(float x, float y, int count, int button) {
+		
+		if (isOnSprite(buy, x, y)) {
+			// QUIERE COMPRAR
+			
+			double cost = Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id])));
+			if (Math.floor(GameInfo.love) >= cost) {
+				GameInfo.love -= cost;
+				GameInfo.producers.put(Lang.ENGLISH_WORDS[id], GameInfo.producers.get(Lang.ENGLISH_WORDS[id]) +1);
+				
+				float random = (float) (Math.random()*100f);
+				if (random >= 66.6f) {
+					buy1.play(0.25f);
+				}
+				else if (random >= 33.3f) {
+					buy2.play(0.25f);
+				}
+				else {
+					buy3.play(0.25f);
+				}
+				
+			}	
+			
+		}
+		
+		return false;
+	}
+	
+	private boolean isOnSprite(Sprite s, float x, float y) {
+		
+		float first_x = s.getX() + s.getWidth()/2 -s.getWidth()/2*s.getScaleX();
+		float second_x = s.getX() + s.getWidth()/2 +s.getWidth()/2*s.getScaleX();
+		
+		float first_y = s.getY() + s.getHeight()/2 +s.getHeight()/2*s.getScaleY();
+		float second_y = s.getY() + s.getHeight()/2 -s.getHeight()/2*s.getScaleY();
+		
+		float modified_x = (x - TG.Display.whiteSpaceX)*(1f/TG.Display.scale) +TG.Display.WIDTH*creationParent.POSITION;
+		float modified_y = -((y -TG.Display.whiteSpaceY)*(1f/TG.Display.scale) -TG.Display.HEIGHT);
+		
+		if (modified_x >= first_x && modified_x <= second_x &&
+				modified_y <= first_y && modified_y >= second_y) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
 
 }

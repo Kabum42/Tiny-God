@@ -92,11 +92,11 @@ public class Earth extends Group {
 		earth_y = earth_original_y;
 		
 		
-		earth = new Sprite(TG.Graphics.assets.get("earth/earth.png", Texture.class));
+		earth = new Sprite(TG.assets.get("earth/earth.png", Texture.class));
 		earth.setX(TG.Display.WIDTH*2.5f - earth.getWidth()/2*earth.getScaleX());
 		
 		for (int i = 0; i < 200; i++) {
-			Sprite s = new Sprite(TG.Graphics.assets.get("pixel.png", Texture.class));
+			Sprite s = new Sprite(TG.assets.get("pixel.png", Texture.class));
 			s.setScale(2f);
 			s.setX((float) (TG.Display.WIDTH*2f + Math.random()*TG.Display.WIDTH));
 			s.setY((float) (Math.random()*TG.Display.HEIGHT));
@@ -153,7 +153,7 @@ public class Earth extends Group {
 		label.setY(500);
 		this.addActor(label);
 		
-		soundCrickets = Gdx.audio.newSound(Gdx.files.internal("audio/crickets.mp3"));
+		soundCrickets = TG.assets.get("earth/crickets.mp3", Sound.class);
 
 //		System.out.println(Lang.getText(Lang.TRANSLATOR_MALE));
 //		Lang.setLanguage(Lang.SPANISH_VALUE);
