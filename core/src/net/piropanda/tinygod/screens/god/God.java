@@ -36,6 +36,12 @@ public class God extends Screen {
 	private Yahvy yahvy;
 	public ArrayList<Mouth> mouths = new ArrayList<Mouth>();
 	public float mouth_rotation = 0f;
+	public float mouth_rotation2 = 0f;
+	public float mouth_rotation3 = 0f;
+	public float mouth_rotation4 = 0f;
+	
+	public float spinning = 1f;
+	public boolean clockwise = true;
 	
 	public God() {
 		super();
@@ -148,7 +154,27 @@ public class God extends Screen {
 		
 		if (onYahvy) {
 			yahvy.act(dt);
-			mouth_rotation += Gdx.graphics.getDeltaTime()*100f;
+			
+			if (clockwise) {
+				spinning -= Gdx.graphics.getDeltaTime()/5;
+				if (spinning <= -1f) {
+					spinning = -1f;
+					clockwise = false;
+				}
+			}
+			else {
+				spinning += Gdx.graphics.getDeltaTime()/5;
+				if (spinning >= 1f) {
+					spinning = 1f;
+					clockwise = true;
+				}
+			}
+			
+			mouth_rotation += Gdx.graphics.getDeltaTime()*100f*spinning;
+			mouth_rotation2 += Gdx.graphics.getDeltaTime()*50f*spinning;
+			mouth_rotation3 += Gdx.graphics.getDeltaTime()*25f*spinning;
+			mouth_rotation4 += Gdx.graphics.getDeltaTime()*25f/2f*spinning;
+			
 			if (mouth_rotation >= 360) { mouth_rotation -= 360; }
 			for (int i = 0; i < mouths.size(); i++) {
 				mouths.get(i).act(dt);

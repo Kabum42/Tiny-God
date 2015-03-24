@@ -64,6 +64,8 @@ public class Game extends Group implements GestureListener {
 		GameInfo.reset();
 		ProducerInfo.init();
 		
+		GameInfo.love = 10000f;
+		
 		soundSlide = TG.assets.get("common/slide.mp3", Sound.class);
 		
 		// background
@@ -89,7 +91,7 @@ public class Game extends Group implements GestureListener {
 		screens[0] = codex = new Codex();
 		screens[1] = providence = new Providence();
 		screens[2] = god = new God();
-		screens[3] = creation = new Creation();
+		screens[3] = creation = new Creation(this);
 		screens[4] = store = new Store();
 		
 		codex.setX(TG.Display.WIDTH 		* Codex.POSITION);

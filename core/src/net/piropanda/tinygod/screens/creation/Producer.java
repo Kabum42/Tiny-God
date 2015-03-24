@@ -335,6 +335,10 @@ public class Producer extends Group {
 				GameInfo.love -= cost;
 				GameInfo.producers.put(Lang.ENGLISH_WORDS[id], GameInfo.producers.get(Lang.ENGLISH_WORDS[id]) +1);
 				
+				if (id == Lang.SERVANT_NAME) {
+					creationParent.gameParent.god.addMouth();
+				}
+				
 				float random = (float) (Math.random()*100f);
 				if (random >= 66.6f) {
 					buy1.play(0.25f);

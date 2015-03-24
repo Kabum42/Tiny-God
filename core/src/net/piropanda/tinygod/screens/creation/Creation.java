@@ -17,6 +17,7 @@ import net.piropanda.tinygod.screens.Screen;
 
 public class Creation extends Screen {
 
+	public Game gameParent;
 	public static final int POSITION = 3;
 	
 	/** List of locked producers */
@@ -35,8 +36,10 @@ public class Creation extends Screen {
 	
 	public Sound soundTap;
 	
-	public Creation() {
+	public Creation(Game g) {
 		super();
+		
+		gameParent = g;
 		
 		soundTap = TG.assets.get("common/tap.mp3", Sound.class);
 		
