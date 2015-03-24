@@ -7,6 +7,7 @@ import net.piropanda.tinygod.gamestates.Game;
 import net.piropanda.tinygod.helpers.ProducerInfo;
 import net.piropanda.tinygod.screens.Screen;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -15,12 +16,19 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
 public class Producer extends Group {
+	
+	public Creation creationParent;
+	
+	protected Table table;
+	protected ScrollPane scroll;
 	
 	public int id;
 	public ProducerScreenTab tab;
@@ -37,6 +45,25 @@ public class Producer extends Group {
 	
 	
 	public Producer(Screen screen, int id) {
+		
+		creationParent = (Creation)screen;
+		
+		this.setBounds(30, 30, Screen.SCROLL_WIDTH, Screen.SCROLL_HEIGHT);
+		
+		// main table
+		table = new Table();
+		table.setFillParent(false);
+		
+		// new row
+		table.row();
+		
+		// scroll pane where the main table is going to go
+		scroll = new ScrollPane(table);
+		scroll.setFillParent(true);
+		scroll.setScrollingDisabled(true, false);
+		
+		this.addActor(scroll);
+		
 		this.id = id;
 		
 		tab = new ProducerScreenTab(screen, this);
@@ -207,7 +234,7 @@ public class Producer extends Group {
 			
 			info = new Label("INFO SHIP", TG.Graphics.skin);
 		}
-		
+
 		amount = new Label(""+999, TG.Graphics.skin);
 		amount.setColor(Color.WHITE);
 		amount.setX(TG.Display.WIDTH*3.5f +background.getWidth()/2*background.getScaleX() -amount.getWidth() -10f);
@@ -217,6 +244,13 @@ public class Producer extends Group {
 		info.setColor(Color.WHITE);
 		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
 		info.setY(background.getY() +background.getHeight()/2 -info.getHeight()/2 +100f);
+		
+		info.setFontScale(TG.Display.WIDTH / Gdx.graphics.getWidth()); // scale the font to a readable size
+		info.setWrap(true);
+		Container<Label> container = new Container<Label>(info);
+		container.prefWidth(350);
+		container.padBottom(25);
+		table.add(container);
 		
 		info.setBounds(0, 0, 200f, 500f);
 		
@@ -253,9 +287,9 @@ public class Producer extends Group {
 		background2.setY(background.getY() +background.getHeight()/2 -background2.getHeight()/2 -background2.getHeight()/2*background2.getScaleY() -30f);
 		
 		info.setText(Lang.getText(id+1));
-		info.pack();
-		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
-		info.setY(background.getY() +background.getHeight()/2 -info.getHeight()/2 -200f);
+//		info.pack();
+//		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
+//		info.setY(background.getY() +background.getHeight()/2 -info.getHeight()/2 -200f);
 
 	}
 	
@@ -274,7 +308,9 @@ public class Producer extends Group {
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
-		
+		if (this == creationParent.producerSelected) {
+			super.draw(batch, creationParent.transition3);
+		}
 	}
 
 }

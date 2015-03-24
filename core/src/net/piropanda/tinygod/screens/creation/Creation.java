@@ -22,12 +22,12 @@ public class Creation extends Screen {
 	/** List of locked producers */
 	private ArrayList<Producer> producers;
 	
-	private Producer lastProducerSelected = null;
-	private Producer producerSelected = null;
-	private float transition1 = 0f;
-	private float transition2 = 0f;
-	private float transition3 = 0f;
-	private float transition_y = 0f;
+	public Producer lastProducerSelected = null;
+	public Producer producerSelected = null;
+	public float transition1 = 0f;
+	public float transition2 = 0f;
+	public float transition3 = 0f;
+	public float transition_y = 0f;
 	
 	private float customScroll = 0f;
 	private float customScrollMax = 290f;
@@ -52,6 +52,10 @@ public class Creation extends Screen {
 		producers.add(new Producer(this, Lang.LABORATORY_NAME));
 		producers.add(new Producer(this, Lang.SHOP_NAME));
 		producers.add(new Producer(this, Lang.SPACESHIP_NAME));
+		
+		for (int i = 0; i < producers.size(); i++) {
+			this.addActor(producers.get(i));
+		}
 		
 		//addProducer(producers.get(0));
 
@@ -212,6 +216,13 @@ public class Creation extends Screen {
 				producerSelected.amount.draw(batch, parentAlpha);
 			}
 		}
+		
+
+		super.draw(batch, parentAlpha);
+
+		
+		
+		//super.draw(batch, parentAlpha);
 
 	}
 	

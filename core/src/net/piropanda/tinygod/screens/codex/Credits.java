@@ -5,6 +5,7 @@ import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.ScreenTab;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 
@@ -22,6 +23,10 @@ public class Credits extends ScreenTab {
 		container.prefWidth(350);
 		container.padBottom(25);
 		content.add(container);
+	}
+	
+	public void draw(Batch batch, float parentAlpha) {
+		super.draw(batch, parentAlpha);
 	}
 	
 }
