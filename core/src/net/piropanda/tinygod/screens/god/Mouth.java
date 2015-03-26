@@ -39,14 +39,17 @@ public class Mouth {
 	
 	public void act(float dt) {
 		
-		if (screen.mouths.size() >= 1 && screen.mouths.size() <= 6) {
+		if (screen.mouths.size() >= 1 && screen.mouths.size() <= 3) {
 			patternDavid();
 		}
-		else if (screen.mouths.size() >= 7 && screen.mouths.size() <= 30) {
+		else if (screen.mouths.size() >= 4 && screen.mouths.size() <= 60) {
 			patternWiggle();
 		}
 		else if (screen.mouths.size() >= 61 && screen.mouths.size() <= 100) {
 			patternWarp();
+		}
+		else {
+			patternUniverse();
 		}
 		
 
@@ -106,8 +109,7 @@ public class Mouth {
 }
 	
 public void patternWiggle() {
-	if (position < 30) {
-		
+
 		float angle = 0;
 		
 
@@ -120,39 +122,34 @@ public void patternWiggle() {
 			angle += 360;
 		}
 
-		//System.out.println(Math.cos(0) + "//"+ Math.cos(Math.toRadians(360)));
-			
-		//angle+= 180;
 		
 		float aux = -screen.mouth_rotation4+angle;
+		// 20 es el numero de picos que tiene
+		aux = ((float) Math.toRadians(aux))*20f;
 		
-		System.out.println(aux);
-		
-		float aux2 = ((float) Math.toRadians(aux))*20f;
-		
-		radius = (float) (160 -Math.cos(aux2)*20f);
+		radius = (float) (160 -Math.cos(aux)*20f);
 		
 		float amount = 30f/screen.mouths.size();
 		if (amount > 1.5f) {
 			amount = 1.5f;
 		}
+		if (amount < 0.6f) {
+			amount = 0.6f;
+		}
 		
-		sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux2)*0.25f))));
+		sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
 		
 		sprite.setRotation(screen.mouth_rotation4 +angle -90);
 		
 		sprite.setX((float) (origin_x + Math.cos(Math.toRadians(screen.mouth_rotation4+angle))*(radius) -sprite.getWidth()/2 ));
 		sprite.setY((float) (origin_y + Math.sin(Math.toRadians(screen.mouth_rotation4+angle))*(radius) +screen.getScrollPane().getVisualScrollY()));
-		
-		
-	}
 }
 	
 public void patternWarp() {
 		
 		float angle = 0;
 		
-		if (position <= 10) {
+		if (position < 10) {
 
 			radius = 120;
 			
@@ -163,15 +160,29 @@ public void patternWarp() {
 				angle = ((float)(position+1f)/(float)(screen.mouths.size()))*360f;
 			}
 			
-			sprite.setScale(1f/2.75f);
+			float aux = -screen.mouth_rotation+angle;
+			// 20 es el numero de picos que tiene
+			float spikes = screen.mouths.size()%10f;
+			if (spikes == 0) { spikes = 10f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius = (float) (radius -Math.cos(aux)*spikes);
+			
+			float amount = 30f/10f;
+			if (amount > 1.5f) {
+				amount = 1.5f;
+			}
+			
+			sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
 			
 			sprite.setRotation(screen.mouth_rotation +angle -90);
+
 			
 			sprite.setX((float) (origin_x + Math.cos(Math.toRadians(screen.mouth_rotation+angle))*(radius) -sprite.getWidth()/2 ));
 			sprite.setY((float) (origin_y + Math.sin(Math.toRadians(screen.mouth_rotation+angle))*(radius) +screen.getScrollPane().getVisualScrollY()));
 
 		}
-		else if (position <= 30) {
+		else if (position < 30) {
 			
 			radius = 150;
 			
@@ -182,16 +193,30 @@ public void patternWarp() {
 				angle = ((float)(position+1f)/(float)(screen.mouths.size()-11))*360f;
 			}
 			
-			sprite.setScale(1f/(2.75f*1.5f));
+			float aux = -screen.mouth_rotation2+angle;
+			// 20 es el numero de picos que tiene
+			float spikes = screen.mouths.size()%15f;
+			if (spikes == 0) { spikes = 15f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius = (float) (radius -Math.cos(aux)*spikes);
+			
+			float amount = 30f/30f;
+			if (amount > 1.5f) {
+				amount = 1.5f;
+			}
+			
+			sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
 			
 			sprite.setRotation(screen.mouth_rotation2 +angle -90);
+
 			
 			sprite.setX((float) (origin_x + Math.cos(Math.toRadians(screen.mouth_rotation2+angle))*(radius) -sprite.getWidth()/2 ));
 			sprite.setY((float) (origin_y + Math.sin(Math.toRadians(screen.mouth_rotation2+angle))*(radius) +screen.getScrollPane().getVisualScrollY()));
 
 			
 		}
-		else if (position <= 60) {
+		else if (position < 60) {
 			
 			radius = 170;
 			
@@ -202,15 +227,30 @@ public void patternWarp() {
 				angle = ((float)(position+1f)/(float)(screen.mouths.size()-31))*360f;
 			}
 			
-			sprite.setScale(1f/(2.75f*2f));
+			float aux = -screen.mouth_rotation3+angle;
+			// 20 es el numero de picos que tiene
+			float spikes = screen.mouths.size()%20f;
+			spikes += 4f;
+			if (spikes == 4) { spikes = 20f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius = (float) (radius -Math.cos(aux)*spikes);
+			
+			float amount = 30f/60f;
+			if (amount > 1.5f) {
+				amount = 1.5f;
+			}
+			
+			sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
 			
 			sprite.setRotation(screen.mouth_rotation3 +angle -90);
+
 			
 			sprite.setX((float) (origin_x + Math.cos(Math.toRadians(screen.mouth_rotation3+angle))*(radius) -sprite.getWidth()/2 ));
 			sprite.setY((float) (origin_y + Math.sin(Math.toRadians(screen.mouth_rotation3+angle))*(radius) +screen.getScrollPane().getVisualScrollY()));
 
 		}
-		else if (position <= 100) {
+		else if (position < 100) {
 			
 			radius = 190;
 			
@@ -221,7 +261,21 @@ public void patternWarp() {
 				angle = ((float)(position+1f)/(float)(screen.mouths.size()-61))*360f;
 			}
 			
-			sprite.setScale(1f/(2.75f*2.5f));
+			float aux = -screen.mouth_rotation4+angle;
+			// 20 es el numero de picos que tiene
+			float spikes = screen.mouths.size()%30f;
+			spikes += 10f; 
+			if (spikes == 10) { spikes = 30f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius = (float) (radius -Math.cos(aux)*spikes);
+			
+			float amount = 30f/(float)screen.mouths.size();
+			if (amount > 1.5f) {
+				amount = 1.5f;
+			}
+			
+			sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
 			
 			sprite.setRotation(screen.mouth_rotation4 +angle -90);
 			
@@ -229,6 +283,10 @@ public void patternWarp() {
 			sprite.setY((float) (origin_y + Math.sin(Math.toRadians(screen.mouth_rotation4+angle))*(radius) +screen.getScrollPane().getVisualScrollY()));
 
 		}
+	}
+
+	public void patternUniverse() {
+		
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {

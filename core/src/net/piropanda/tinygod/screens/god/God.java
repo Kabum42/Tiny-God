@@ -204,9 +204,12 @@ public class God extends Screen {
 		if (onYahvy) {
 			
 //			aura.draw(batch);
-			for (int i = 0; i < mouths.size(); i++) {
+			for (int i = mouths.size()-1; i >= 0; i--) {
 				mouths.get(i).draw(batch, parentAlpha);
 			}
+//			for (int i = 0; i < mouths.size(); i++) {
+//				mouths.get(i).draw(batch, parentAlpha);
+//			}
 			yahvy.draw(batch, parentAlpha);
 		}
 		else {
