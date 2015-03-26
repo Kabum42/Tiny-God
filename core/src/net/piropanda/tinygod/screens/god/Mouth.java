@@ -39,18 +39,20 @@ public class Mouth {
 	
 	public void act(float dt) {
 		
-		if (screen.mouths.size() >= 1 && screen.mouths.size() <= 3) {
-			patternDavid();
-		}
-		else if (screen.mouths.size() >= 4 && screen.mouths.size() <= 60) {
-			patternWiggle();
-		}
-		else if (screen.mouths.size() >= 61 && screen.mouths.size() <= 100) {
-			patternWarp();
-		}
-		else {
-			patternUniverse();
-		}
+//		if (screen.mouths.size() >= 1 && screen.mouths.size() <= 3) {
+//			patternDavid();
+//		}
+//		else if (screen.mouths.size() >= 4 && screen.mouths.size() <= 60) {
+//			patternWiggle();
+//		}
+//		else if (screen.mouths.size() >= 61 && screen.mouths.size() <= 100) {
+//			patternWarp();
+//		}
+//		else {
+//			patternUniverse();
+//		}
+		
+		patternUniverse();
 		
 
 		
@@ -286,6 +288,123 @@ public void patternWarp() {
 	}
 
 	public void patternUniverse() {
+		
+		int fractal_base = 10;
+		
+		if (position <= (fractal_base -1)) {
+			// CAPA 1 
+			int aux1 = position;  // (0-5)
+			
+			float angle = 0;
+			radius = 190;
+			
+			if (screen.mouths.size() > fractal_base) {
+				angle = ((float)(aux1+1f)/(float)(fractal_base))*360f;
+			}
+			else {
+				angle = ((float)(aux1+1f)/(float)(screen.mouths.size()))*360f;
+			}
+			
+			float aux = -screen.mouth_rotation4+angle;
+			// 20 es el numero de picos que tiene
+			float spikes = screen.mouths.size()%30f;
+			spikes += 10f; 
+			if (spikes == 10) { spikes = 30f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius = (float) (radius -Math.cos(aux)*spikes);
+			
+			float amount = 1f;
+			
+			sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
+			
+			sprite.setRotation(screen.mouth_rotation +angle -90);
+			
+			sprite.setX((float) (origin_x + Math.cos(Math.toRadians(screen.mouth_rotation+angle))*(radius) -sprite.getWidth()/2 ));
+			sprite.setY((float) (origin_y + Math.sin(Math.toRadians(screen.mouth_rotation+angle))*(radius) +screen.getScrollPane().getVisualScrollY()));
+
+			
+			//System.out.println (aux1);
+			
+		}
+		else if (position <= (Math.pow(fractal_base, 2f) +fractal_base -1)) {
+			// CAPA 2 
+			int local_position = (int) (position - Math.pow(fractal_base, 1f)); // (0-35)
+			
+			int aux1 = (int) Math.floor(local_position / Math.pow(fractal_base, 1f)); // (0-5)
+			int aux2 = (int) Math.floor(local_position % Math.pow(fractal_base, 1f)); // (0-5)
+			
+			float angle = 0;
+			float amount = 0.5f;
+
+			radius = 190;
+			float radius2 = 20f;
+			
+			if (screen.mouths.size() > fractal_base) {
+				angle = ((float)(aux1+1f)/(float)(fractal_base))*360f;
+			}
+			else {
+				angle = ((float)(aux1+1f)/(float)(screen.mouths.size()))*360f;
+			}
+			
+			float angle2 = ((float)(aux2+1f)/(float)(fractal_base))*360f;
+			
+			//float aux = -screen.mouth_rotation4+angle;
+			float aux = -screen.mouth_rotation4+angle;
+			// 20 es el numero de picos que tiene
+			float spikes = screen.mouths.size()%30f;
+			spikes += 10f; 
+			if (spikes == 10) { spikes = 30f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius = (float) (radius -Math.cos(aux)*spikes);
+			
+			
+			aux = -screen.mouth_rotation3+angle2;
+			// 20 es el numero de picos que tiene
+			spikes = (screen.mouths.size())%20f;
+			spikes += 7f; 
+			if (spikes == 7) { spikes = 20f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius2 = (float) (radius2 -Math.cos(aux)*spikes);
+			
+			
+			sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
+			
+			sprite.setRotation(screen.mouth_rotation +angle -90);
+			
+			sprite.setX((float) (origin_x + Math.cos(Math.toRadians(screen.mouth_rotation+angle))*(radius) + Math.cos(Math.toRadians(-screen.mouth_rotation2+angle2))*(radius2) -sprite.getWidth()/2 ));
+			sprite.setY((float) (origin_y + Math.sin(Math.toRadians(screen.mouth_rotation+angle))*(radius) + Math.sin(Math.toRadians(-screen.mouth_rotation2+angle2))*(radius2) +screen.getScrollPane().getVisualScrollY()));
+
+			
+			//System.out.println (aux1 + " // " +aux2);
+
+		}
+		else if (position <= (Math.pow(fractal_base, 3f) +Math.pow(fractal_base, 2f) +fractal_base -1)) {
+			// CAPA 3 
+			int local_position = (int) (position - Math.pow(fractal_base, 1f) - Math.pow(fractal_base, 2f)); // (0-35)
+			
+			int aux1 = (int) Math.floor(local_position / Math.pow(fractal_base, 2f)); // (0-5)
+			int aux2 = (int) (Math.floor(local_position % Math.pow(fractal_base, 2f))/Math.pow(fractal_base, 1f)) ; // (0-5)
+			int aux3 = (int) (Math.floor(local_position % Math.pow(fractal_base, 2f))%Math.pow(fractal_base, 1f)) ; // (0-5)
+			
+
+			//System.out.println (aux1 + " // " +aux2 + " // " +aux3);
+
+		}
+		else if (position <= (Math.pow(fractal_base, 4f) +Math.pow(fractal_base, 3f) +Math.pow(fractal_base, 2f) +fractal_base -1)) {
+			// CAPA 4 
+			int local_position = (int) (position - Math.pow(fractal_base, 1f) - Math.pow(fractal_base, 2f) - Math.pow(fractal_base, 3f)); // (0-35)
+			
+			int aux1 = (int) Math.floor(local_position / Math.pow(fractal_base, 3f)); // (0-5)
+			int aux2 = (int) (Math.floor(local_position % Math.pow(fractal_base, 3f))/Math.pow(fractal_base, 2f)); // (0-5)
+			int aux3 = (int) (Math.floor(local_position % Math.pow(fractal_base, 3f))%Math.pow(fractal_base, 2f)/Math.pow(fractal_base, 1f)); // (0-5)
+			int aux4 = (int) (Math.floor(local_position % Math.pow(fractal_base, 3f))%Math.pow(fractal_base, 2f)%Math.pow(fractal_base, 1f)); // (0-5)
+			
+			//System.out.println (aux1 + " // " +aux2 +" // " +aux3 + " // " +aux4 );
+
+		}
 		
 	}
 	

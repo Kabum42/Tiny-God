@@ -131,6 +131,10 @@ public class God extends Screen {
 //		table.add(earth).size(TG.Display.WIDTH);
 		table.add().padBottom(TG.Display.WIDTH);
 		
+		for (int i = 0; i < 99; i++) {
+			addMouth();
+		}
+		
 	}
 	
 	public boolean canPan() {
