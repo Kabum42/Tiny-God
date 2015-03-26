@@ -347,7 +347,17 @@ public void patternWarp() {
 				angle = ((float)(aux1+1f)/(float)(screen.mouths.size()))*360f;
 			}
 			
-			float angle2 = ((float)(aux2+1f)/(float)(fractal_base))*360f;
+			float angle2 = 0;
+			
+			if (screen.mouths.size() > fractal_base + (aux1+1)*Math.pow(fractal_base, 1f)) {
+				angle2 = ((float)(aux2+1f)/(float)(fractal_base))*360f;
+			}
+			else {
+				// ESTO HAY QUE HACERLO AUN
+				angle2 = ((aux2+1f)/ 10)*360f;
+			}
+			
+			//float angle2 = ((float)(aux2+1f)/(float)(fractal_base))*360f;
 			
 			//float aux = -screen.mouth_rotation4+angle;
 			float aux = -screen.mouth_rotation4+angle;
