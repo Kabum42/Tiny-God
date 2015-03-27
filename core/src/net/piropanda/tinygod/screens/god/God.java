@@ -79,10 +79,6 @@ public class God extends Screen {
 		
 		
 		
-//		for (int i = 0; i < 30; i++) {
-//			addMouth();
-//		}
-		
 		
 		
 		// new row
@@ -131,9 +127,9 @@ public class God extends Screen {
 //		table.add(earth).size(TG.Display.WIDTH);
 		table.add().padBottom(TG.Display.WIDTH);
 		
-		for (int i = 0; i < 99; i++) {
-			addMouth();
-		}
+//		for (int i = 0; i < 300; i++) {
+//			addMouth();
+//		}
 		
 	}
 	

@@ -39,20 +39,20 @@ public class Mouth {
 	
 	public void act(float dt) {
 		
-//		if (screen.mouths.size() >= 1 && screen.mouths.size() <= 3) {
-//			patternDavid();
-//		}
-//		else if (screen.mouths.size() >= 4 && screen.mouths.size() <= 60) {
-//			patternWiggle();
-//		}
-//		else if (screen.mouths.size() >= 61 && screen.mouths.size() <= 100) {
-//			patternWarp();
-//		}
-//		else {
-//			patternUniverse();
-//		}
+		if (screen.mouths.size() >= 1 && screen.mouths.size() <= 3) {
+			patternDavid();
+		}
+		else if (screen.mouths.size() >= 4 && screen.mouths.size() <= 60) {
+			patternWiggle();
+		}
+		else if (screen.mouths.size() >= 61 && screen.mouths.size() <= 110) {
+			patternWarp();
+		}
+		else {
+			patternUniverse();
+		}
 		
-		patternUniverse();
+//		patternUniverse();
 		
 
 		
@@ -338,14 +338,11 @@ public void patternWarp() {
 			float amount = 0.5f;
 
 			radius = 190;
-			float radius2 = 20f;
+			float radius2 = 30f;
 			
-			if (screen.mouths.size() > fractal_base) {
-				angle = ((float)(aux1+1f)/(float)(fractal_base))*360f;
-			}
-			else {
-				angle = ((float)(aux1+1f)/(float)(screen.mouths.size()))*360f;
-			}
+
+			angle = ((float)(aux1+1f)/(float)(fractal_base))*360f;
+
 			
 			float angle2 = 0;
 			
@@ -353,8 +350,7 @@ public void patternWarp() {
 				angle2 = ((float)(aux2+1f)/(float)(fractal_base))*360f;
 			}
 			else {
-				// ESTO HAY QUE HACERLO AUN
-				angle2 = ((aux2+1f)/ 10)*360f;
+				angle2 = ((aux2+1f)/(screen.mouths.size() - fractal_base -aux1*fractal_base))*360f;
 			}
 			
 			//float angle2 = ((float)(aux2+1f)/(float)(fractal_base))*360f;
@@ -399,6 +395,64 @@ public void patternWarp() {
 			int aux2 = (int) (Math.floor(local_position % Math.pow(fractal_base, 2f))/Math.pow(fractal_base, 1f)) ; // (0-5)
 			int aux3 = (int) (Math.floor(local_position % Math.pow(fractal_base, 2f))%Math.pow(fractal_base, 1f)) ; // (0-5)
 			
+			
+			float angle = 0;
+			float amount = 0.25f;
+
+			radius = 190;
+			float radius2 = 30f;
+			float radius3 = 15f;
+			
+
+			angle = ((float)(aux1+1f)/(float)(fractal_base))*360f;
+			float angle2 = ((float)(aux2+1f)/(float)(fractal_base))*360f;
+
+			float angle3 = 0;
+			
+			if (screen.mouths.size() > fractal_base + Math.pow(fractal_base, 2f) + (aux2+1)*Math.pow(fractal_base, 1f)) {
+				angle3 = ((float)(aux3+1f)/(float)(fractal_base))*360f;
+			}
+			else {
+				angle3 = (float) (((aux3+1f)/(screen.mouths.size() - fractal_base -Math.pow(fractal_base, 2f) -aux2*fractal_base))*360f);
+			}
+			
+
+			float aux = -screen.mouth_rotation4+angle;
+			// 20 es el numero de picos que tiene
+			float spikes = screen.mouths.size()%30f;
+			spikes += 10f; 
+			if (spikes == 10) { spikes = 30f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius = (float) (radius -Math.cos(aux)*spikes);
+			
+			
+			aux = -screen.mouth_rotation3+angle2;
+			// 20 es el numero de picos que tiene
+			spikes = (screen.mouths.size())%20f;
+			spikes += 7f; 
+			if (spikes == 7) { spikes = 20f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius2 = (float) (radius2 -Math.cos(aux)*spikes);
+			
+			aux = -screen.mouth_rotation2+angle3;
+			// 20 es el numero de picos que tiene
+			spikes = (screen.mouths.size())%10f;
+			spikes += 5f; 
+			if (spikes == 5) { spikes = 10f; }
+			aux = ((float) Math.toRadians(aux))*spikes;
+			
+			radius3 = (float) (radius3 -Math.cos(aux)*spikes);
+			
+			
+			sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
+			
+			sprite.setRotation(screen.mouth_rotation +angle -90);
+			
+			sprite.setX((float) (origin_x + Math.cos(Math.toRadians(screen.mouth_rotation+angle))*(radius) + Math.cos(Math.toRadians(-screen.mouth_rotation2+angle2))*(radius2) + Math.cos(Math.toRadians(-screen.mouth_rotation3+angle3))*(radius3) -sprite.getWidth()/2 ));
+			sprite.setY((float) (origin_y + Math.sin(Math.toRadians(screen.mouth_rotation+angle))*(radius) + Math.sin(Math.toRadians(-screen.mouth_rotation2+angle2))*(radius2) + Math.sin(Math.toRadians(-screen.mouth_rotation3+angle3))*(radius3) +screen.getScrollPane().getVisualScrollY()));
+
 
 			//System.out.println (aux1 + " // " +aux2 + " // " +aux3);
 
