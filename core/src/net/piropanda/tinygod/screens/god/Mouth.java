@@ -1,5 +1,7 @@
 package net.piropanda.tinygod.screens.god;
 
+import net.piropanda.tinygod.GameInfo;
+import net.piropanda.tinygod.Lang;
 import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
@@ -45,14 +47,15 @@ public class Mouth {
 		else if (screen.mouths.size() >= 4 && screen.mouths.size() <= 60) {
 			patternWiggle();
 		}
-		else if (screen.mouths.size() >= 61 && screen.mouths.size() <= 110) {
+		else {
 			patternWarp();
 		}
-		else {
-			patternUniverse();
-		}
 		
-//		patternUniverse();
+//		else {
+//			patternUniverse();
+//		}
+		
+
 		
 
 		
@@ -150,21 +153,22 @@ public void patternWiggle() {
 public void patternWarp() {
 		
 		float angle = 0;
+		float number_mouths = GameInfo.producers.get(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME]);
 		
 		if (position < 10) {
 
 			radius = 120;
 			
-			if (screen.mouths.size() > 10) {
+			if (GameInfo.producers.get(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME]) > 10) {
 				angle = ((float)(position+1f)/(float)(10))*360f;
 			}
 			else {
-				angle = ((float)(position+1f)/(float)(screen.mouths.size()))*360f;
+				angle = ((float)(position+1f)/(float)(number_mouths))*360f;
 			}
 			
 			float aux = -screen.mouth_rotation+angle;
 			// 20 es el numero de picos que tiene
-			float spikes = screen.mouths.size()%10f;
+			float spikes = number_mouths%10f;
 			if (spikes == 0) { spikes = 10f; }
 			aux = ((float) Math.toRadians(aux))*spikes;
 			
@@ -188,16 +192,16 @@ public void patternWarp() {
 			
 			radius = 150;
 			
-			if (screen.mouths.size() > 30) {
+			if (number_mouths > 30) {
 				angle = ((float)(position+1f)/(float)(30-10))*360f;
 			}
 			else {
-				angle = ((float)(position+1f)/(float)(screen.mouths.size()-11))*360f;
+				angle = ((float)(position+1f)/(float)(number_mouths-11))*360f;
 			}
 			
 			float aux = -screen.mouth_rotation2+angle;
 			// 20 es el numero de picos que tiene
-			float spikes = screen.mouths.size()%15f;
+			float spikes = number_mouths%15f;
 			if (spikes == 0) { spikes = 15f; }
 			aux = ((float) Math.toRadians(aux))*spikes;
 			
@@ -222,16 +226,16 @@ public void patternWarp() {
 			
 			radius = 170;
 			
-			if (screen.mouths.size() > 60) {
+			if (number_mouths > 60) {
 				angle = ((float)(position+1f)/(float)(60-30))*360f;
 			}
 			else {
-				angle = ((float)(position+1f)/(float)(screen.mouths.size()-31))*360f;
+				angle = ((float)(position+1f)/(float)(number_mouths-31))*360f;
 			}
 			
 			float aux = -screen.mouth_rotation3+angle;
 			// 20 es el numero de picos que tiene
-			float spikes = screen.mouths.size()%20f;
+			float spikes = number_mouths%20f;
 			spikes += 4f;
 			if (spikes == 4) { spikes = 20f; }
 			aux = ((float) Math.toRadians(aux))*spikes;
@@ -256,25 +260,28 @@ public void patternWarp() {
 			
 			radius = 190;
 			
-			if (screen.mouths.size() > 100) {
+			if (number_mouths > 100) {
 				angle = ((float)(position+1f)/(float)(100-60))*360f;
 			}
 			else {
-				angle = ((float)(position+1f)/(float)(screen.mouths.size()-61))*360f;
+				angle = ((float)(position+1f)/(float)(number_mouths-61))*360f;
 			}
 			
 			float aux = -screen.mouth_rotation4+angle;
 			// 20 es el numero de picos que tiene
-			float spikes = screen.mouths.size()%30f;
+			float spikes = number_mouths%30f;
 			spikes += 10f; 
 			if (spikes == 10) { spikes = 30f; }
 			aux = ((float) Math.toRadians(aux))*spikes;
 			
 			radius = (float) (radius -Math.cos(aux)*spikes);
 			
-			float amount = 30f/(float)screen.mouths.size();
+			float amount = 30f/(float)number_mouths;
 			if (amount > 1.5f) {
 				amount = 1.5f;
+			}
+			if (amount < (30f/100f)) {
+				amount = 30f / 100f;
 			}
 			
 			sprite.setScale((float) (1f*amount/(2.75f*(1.5f + Math.cos(aux)*0.25f))));
@@ -287,6 +294,8 @@ public void patternWarp() {
 		}
 	}
 
+
+	// ESTE NO LO VAMOS A USAR
 	public void patternUniverse() {
 		
 		int fractal_base = 10;
