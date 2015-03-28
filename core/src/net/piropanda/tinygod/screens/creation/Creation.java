@@ -137,6 +137,7 @@ public class Creation extends Screen {
 				lastProducerSelected.background2.setAlpha(transition3);
 				lastProducerSelected.background2.draw(batch);
 				lastProducerSelected.buy.draw(batch, transition3);
+				lastProducerSelected.info.draw(batch, transition3);
 				
 				lastProducerSelected.background.setAlpha(1f);
 				lastProducerSelected.background.draw(batch);
@@ -210,6 +211,7 @@ public class Creation extends Screen {
 				producerSelected.background2.setAlpha(transition3);
 				producerSelected.background2.draw(batch);
 				producerSelected.buy.draw(batch, transition3);
+				producerSelected.info.draw(batch, transition3);
 				
 				producerSelected.background.setAlpha(1f);
 				producerSelected.background.draw(batch);

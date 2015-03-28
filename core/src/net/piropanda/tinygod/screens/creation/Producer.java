@@ -53,24 +53,7 @@ public class Producer extends Group {
 	public Producer(Screen screen, int id) {
 		
 		creationParent = (Creation)screen;
-		
-		this.setBounds(30, 30, Screen.SCROLL_WIDTH, Screen.SCROLL_HEIGHT);
-		
-		// main table
-		table = new Table();
-		table.setFillParent(false);
-		
-		// new row
-		table.row();
-		
-		// scroll pane where the main table is going to go
-		scroll = new ScrollPane(table);
-		scroll.setFillParent(true);
-		scroll.setScrollingDisabled(true, false);
-		
-		this.addActor(scroll);
-		
-		
+
 		this.id = id;
 		
 		buy1 = TG.assets.get("producers/buy1.mp3", Sound.class);
@@ -103,8 +86,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO SERVANT", TG.Graphics.skin);
 		}
 		else if (id == Lang.HUMAN_NAME) {
 			
@@ -121,8 +102,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO HUMAN", TG.Graphics.skin);
 		}
 		else if (id == Lang.PROPHET_NAME) {
 			
@@ -138,8 +117,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO PROPHET", TG.Graphics.skin);
 		}
 		else if (id == Lang.TEMPLE_NAME) {
 			
@@ -155,8 +132,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO TEMPLE", TG.Graphics.skin);
 		}
 		else if (id == Lang.SHIP_NAME) {
 			
@@ -172,8 +147,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO SHIP", TG.Graphics.skin);
 		}
 		else if (id == Lang.FACTORY_NAME) {
 			
@@ -189,8 +162,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO SHIP", TG.Graphics.skin);
 		}
 		else if (id == Lang.LABORATORY_NAME) {
 			
@@ -206,8 +177,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO SHIP", TG.Graphics.skin);
 		}
 		else if (id == Lang.SHOP_NAME) {
 			
@@ -223,8 +192,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO SHIP", TG.Graphics.skin);
 		}
 		else if (id == Lang.SPACESHIP_NAME) {
 			
@@ -240,8 +207,6 @@ public class Producer extends Group {
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
-			
-			info = new Label("INFO SHIP", TG.Graphics.skin);
 		}
 
 		amount = new Label(""+999, TG.Graphics.skin);
@@ -249,31 +214,30 @@ public class Producer extends Group {
 		amount.setX(TG.Display.WIDTH*3.5f +background.getWidth()/2*background.getScaleX() -amount.getWidth() -10f);
 		amount.setY(background.getY() +background.getHeight()/2 -amount.getHeight()/2);
 		
+		table = new Table();
+		table.setFillParent(false);
 		
+		scroll = new ScrollPane(table);
+		scroll.setFillParent(true);
+		scroll.setScrollingDisabled(true, true);
+		
+		info = new Label("LOL", TG.Graphics.skin);
 		info.setColor(Color.WHITE);
 		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
-		info.setY(background.getY() +background.getHeight()/2 -info.getHeight()/2 +100f);
-		
-		info.setFontScale(TG.Display.WIDTH / Gdx.graphics.getWidth()); // scale the font to a readable size
+		info.setY(300);
 		info.setWrap(true);
-		Container<Label> container = new Container<Label>(info);
-		container.prefWidth(300);
-		//container.padBottom(25);
-		table.add(container);
 		
 		buy = new Sprite(TG.assets.get("producers/buy.png", Texture.class));
 		buy.setScale(1f/2.75f, 1f/2.75f);
 		buy.setX(background.getX() +background.getWidth()/2 -buy.getWidth()/2);
 		buy.setY(0f -buy.getHeight()/2 +100f);
-		
-		//info.setBounds(0, 0, 200f, 500f);
+
 		
 
 		//System.out.println(GameInfo.producers.get(id+""));	
 		System.out.println("Cost: "+ (ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))));
 		System.out.println("LPS: " + ProducerInfo.getLps(id) + " (" + ProducerInfo.getLps(id)*GameInfo.producers.get(Lang.ENGLISH_WORDS[id])+ ")");
 
-		//+ "LPS: " + producer.getLps() + " (" + producer.getLps()*GameInfo.producers.get(producer.getId()) + ")"
 
 	}
 	
@@ -303,6 +267,8 @@ public class Producer extends Group {
 		info.setText(Lang.getText(id+1) 
 				+"\n \n" + "Cost: "+ Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))));
 
+		info.setWidth(300);
+		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
 	}
 	
 	/**
@@ -320,9 +286,7 @@ public class Producer extends Group {
 	}
 	
 	public void draw(Batch batch, float parentAlpha) {
-		if (this == creationParent.producerSelected) {
-			super.draw(batch, creationParent.transition3);
-		}
+
 	}
 	
 	public boolean tap(float x, float y, int count, int button) {
