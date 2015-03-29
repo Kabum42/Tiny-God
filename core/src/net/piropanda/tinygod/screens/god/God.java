@@ -177,6 +177,7 @@ public class God extends Screen {
 			mouth_rotation4 += Gdx.graphics.getDeltaTime()*25f/2f*spinning;
 			
 			if (mouth_rotation >= 360) { mouth_rotation -= 360; }
+			
 			for (int i = 0; i < mouths.size(); i++) {
 				mouths.get(i).act(dt);
 			}
@@ -239,7 +240,7 @@ public class God extends Screen {
 	
 	public void addMouth() {
 		
-		//GameInfo.producers.put(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME], GameInfo.producers.get(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME]) +1);
+		GameInfo.producers.put(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME], GameInfo.producers.get(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME]) +1);
 		
 		if (mouths.size() < 100) {
 			mouths.add(new Mouth(this, mouths.size(), TG.Display.WIDTH*2.5f, 250));

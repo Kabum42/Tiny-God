@@ -74,9 +74,6 @@ public class Creation extends Screen {
 	public void act(float dt) {
 		super.act(dt);
 		
-		for (int i = 0; i < producers.size(); i++) {
-			producers.get(i).act(dt);
-		}
 		
 		if (producerSelected == null) {
 			if (transition3 > 0f) {
@@ -116,6 +113,10 @@ public class Creation extends Screen {
 				transition3 += dt*10f;
 				if (transition3 >= 1f) { transition3 = 1f;}
 			}
+		}
+		
+		for (int i = 0; i < producers.size(); i++) {
+			producers.get(i).act(dt);
 		}
 
 		
