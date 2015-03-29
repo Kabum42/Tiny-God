@@ -486,7 +486,7 @@ public class Lang {
 		ENGLISH_WORDS[LABORATORY_UPGRADE_4] = "Cute explosion";
 		ENGLISH_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contains an enriched isotope love";
 		ENGLISH_WORDS[LABORATORY_UPGRADE_5] = "General relativity";
-		ENGLISH_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes ‘no’ means ‘yes’";
+		ENGLISH_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes 'no' means 'yes'";
 		ENGLISH_WORDS[LABORATORY_UPGRADE_6] = "Love fundamental particle";
 		ENGLISH_WORDS[LABORATORY_UPGRADE_6_JOKE] = "The model is perfect, but reality doesn’t fit well in it";
 		ENGLISH_WORDS[LABORATORY_UPGRADE_7] = "Quantum love";
@@ -746,7 +746,7 @@ public class Lang {
 		SPANISH_WORDS[LABORATORY_UPGRADE_4] = "Explosión mona";
 		SPANISH_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contiene un isótopo enriquecido con amor";
 		SPANISH_WORDS[LABORATORY_UPGRADE_5] = "Relatividad general";
-		SPANISH_WORDS[LABORATORY_UPGRADE_5_JOKE] = "A veces ‘no’ significa ‘sí’";
+		SPANISH_WORDS[LABORATORY_UPGRADE_5_JOKE] = "A veces 'no' significa 'sí'";
 		SPANISH_WORDS[LABORATORY_UPGRADE_6] = "Partícula fundamental del amor";
 		SPANISH_WORDS[LABORATORY_UPGRADE_6_JOKE] = "El modelo es perfecto, pero la realidad no se ajusta bien a él";
 		SPANISH_WORDS[LABORATORY_UPGRADE_7] = "Amor cuántico";

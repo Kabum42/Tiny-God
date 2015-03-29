@@ -12,6 +12,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Group;
@@ -41,6 +42,8 @@ public class Producer extends Group {
 	public Sprite buy;
 	
 	public Sprite background2;
+	
+	public Label info_outline;
 	public Label info;
 	
 	public float origin_y = 0;
@@ -82,7 +85,7 @@ public class Producer extends Group {
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			icon.setY(origin_y -icon.getHeight()/2);
 			
-			label = new Label(Lang.getText(Lang.SERVANT_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.SERVANT_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
@@ -98,7 +101,7 @@ public class Producer extends Group {
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			icon.setY(370 -icon.getHeight()/2);
 			
-			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
@@ -113,7 +116,7 @@ public class Producer extends Group {
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
-			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
@@ -128,7 +131,7 @@ public class Producer extends Group {
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
-			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
@@ -143,7 +146,7 @@ public class Producer extends Group {
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
-			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
@@ -158,7 +161,7 @@ public class Producer extends Group {
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
-			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
@@ -173,7 +176,7 @@ public class Producer extends Group {
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
-			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
@@ -188,7 +191,7 @@ public class Producer extends Group {
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
-			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
@@ -203,13 +206,13 @@ public class Producer extends Group {
 			icon.setScale(1f/2.75f, 1f/2.75f);
 			icon.setX(background.getX() +background.getWidth()/2 -icon.getWidth()/2 -background.getWidth()/2*background.getScaleX() +icon.getWidth()/2*icon.getScaleX());
 			
-			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.skin);
+			label = new Label(Lang.getText(Lang.HUMAN_NAME), TG.Graphics.font1);
 			label.setColor(Color.WHITE);
 			label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
 			label.setY(origin_y -label.getHeight()/2);
 		}
 
-		amount = new Label(""+999, TG.Graphics.skin);
+		amount = new Label(""+999, TG.Graphics.font1);
 		amount.setColor(Color.WHITE);
 		amount.setX(TG.Display.WIDTH*3.5f +background.getWidth()/2*background.getScaleX() -amount.getWidth() -10f);
 		amount.setY(background.getY() +background.getHeight()/2 -amount.getHeight()/2);
@@ -221,11 +224,19 @@ public class Producer extends Group {
 		scroll.setFillParent(true);
 		scroll.setScrollingDisabled(true, true);
 		
-		info = new Label("LOL", TG.Graphics.skin);
-		info.setColor(Color.WHITE);
+
+		info = new Label("LOL", TG.Graphics.font1);
+		info.setWrap(true);
+		info.setWidth(300);
 		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
 		info.setY(300);
-		info.setWrap(true);
+		
+		info_outline = new Label("LOL", TG.Graphics.font1);
+		info_outline.setWrap(true);
+		info_outline.setWidth(300);
+		info_outline.setX(info.getX() -1f);
+		info_outline.setY(info.getY() -1f);
+		info_outline.setColor(0, 0, 0, 0.7f);
 		
 		buy = new Sprite(TG.assets.get("producers/buy.png", Texture.class));
 		buy.setScale(1f/2.75f, 1f/2.75f);
@@ -251,9 +262,7 @@ public class Producer extends Group {
 		super.act(dt);
 
 		label.setText(Lang.getText(id));
-		label.pack();
-		label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
-		
+
 		icon.setY(background.getY());
 		label.setY(background.getY() +background.getHeight()/2 -label.getHeight()/2);
 		
@@ -267,8 +276,23 @@ public class Producer extends Group {
 		info.setText(Lang.getText(id+1) 
 				+"\n \n" + "Cost: "+ Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))));
 
-		info.setWidth(300);
-		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
+		//info.setText("дфц ‘no’ means 'yes' caçar où â ë construieşti * LoveCard® ");
+		
+		info_outline.setText(info.getText());
+		
+		if (GameInfo.totalLove >= ProducerInfo.getBaseCost(id)) {
+			// DESBLOQUEADO
+		}
+		else {
+			// BLOQUEADO
+			background.setAlpha(0.5f);
+			icon.setColor(0, 0, 0, 0.5f);
+			label.setText("???");
+		}
+		
+		label.pack();
+		label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
+		
 	}
 	
 	/**

@@ -65,6 +65,7 @@ public class Game extends Group implements GestureListener {
 		ProducerInfo.init();
 		
 		GameInfo.love = 10000f;
+		GameInfo.totalLove = 10000f;
 		
 		soundSlide = TG.assets.get("common/slide.mp3", Sound.class);
 		

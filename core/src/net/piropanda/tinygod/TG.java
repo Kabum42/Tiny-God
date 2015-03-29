@@ -2,6 +2,9 @@ package net.piropanda.tinygod;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class TG {
@@ -23,6 +26,7 @@ public class TG {
 	
 	public static class Graphics {
         public static Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
+        public static LabelStyle font1 = new LabelStyle(new BitmapFont(Gdx.files.internal("fonts/font1.fnt")), Color.WHITE);
 	}
 
 	
