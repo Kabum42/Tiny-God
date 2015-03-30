@@ -232,7 +232,7 @@ public class God extends Screen {
 	public boolean tap(float x, float y, int count, int button) {
 		if(onYahvy) {
 			GameInfo.addLove(GameInfo.lovePerClick);
-			addMouth();
+			//addMouth();
 		}
 		
 		return false;
@@ -240,7 +240,7 @@ public class God extends Screen {
 	
 	public void addMouth() {
 		
-		GameInfo.producers.put(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME], GameInfo.producers.get(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME]) +1);
+		//GameInfo.producers.put(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME], GameInfo.producers.get(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME]) +1);
 		
 		if (mouths.size() < 100) {
 			mouths.add(new Mouth(this, mouths.size(), TG.Display.WIDTH*2.5f, 250));

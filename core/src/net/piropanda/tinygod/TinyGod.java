@@ -52,7 +52,7 @@ public class TinyGod extends ApplicationAdapter {
 		
 		stage.act();
 		stage.draw();
-		System.out.println("FPS: " +Gdx.graphics.getFramesPerSecond());
+		//System.out.println("FPS: " +Gdx.graphics.getFramesPerSecond());
 	}
 	
 	@Override

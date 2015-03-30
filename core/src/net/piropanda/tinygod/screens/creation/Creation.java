@@ -135,44 +135,61 @@ public class Creation extends Screen {
 		if (producerSelected == null) {
 			
 			if (transition3 > 0f) {
-				lastProducerSelected.background2.setAlpha(transition3);
-				lastProducerSelected.background2.draw(batch);
-				lastProducerSelected.buy.draw(batch, transition3);
-				lastProducerSelected.info_outline.draw(batch, transition3);
-				lastProducerSelected.info.draw(batch, transition3);
 				
-				lastProducerSelected.background.setAlpha(1f);
-				lastProducerSelected.background.draw(batch);
-				lastProducerSelected.icon.setAlpha(1f);
-				lastProducerSelected.icon.draw(batch);
-				lastProducerSelected.label.draw(batch, parentAlpha);
-				lastProducerSelected.amount.draw(batch, parentAlpha);
+				Producer t = lastProducerSelected;
+				
+				if (t.state != "unexistant") {
+					t.background2.setAlpha(transition3);
+					t.background2.draw(batch);
+					t.buy.draw(batch, transition3);
+					t.info_outline.draw(batch, transition3);
+					t.info.draw(batch, transition3);
+					
+					t.background.draw(batch, 1f*t.background_alpha);
+					t.icon.draw(batch, 1f*t.icon_alpha);
+					t.label.draw(batch, 1f);
+					t.amount.draw(batch, 1f);
+				}
+				
 			}
 			else if (transition2 > 0f) {
-				lastProducerSelected.background.setAlpha(1f);
-				lastProducerSelected.background.draw(batch);
-				lastProducerSelected.icon.setAlpha(1f);
-				lastProducerSelected.icon.draw(batch);
-				lastProducerSelected.label.draw(batch, parentAlpha);
-				lastProducerSelected.amount.draw(batch, parentAlpha);
+				
+				Producer t = lastProducerSelected;
+				
+				if (t.state != "unexistant") {
+					t.background.draw(batch, 1f*t.background_alpha);
+					t.icon.draw(batch, 1f*t.icon_alpha);
+					t.label.draw(batch, 1f*t.label_alpha);
+					t.amount.draw(batch, 1f*t.amount_alpha);
+				}
+				
 			}
 			else {
 				for (int i = 0; i < producers.size(); i++) {
 					if (producers.get(i) == lastProducerSelected) {
-						producers.get(i).background.setAlpha(1f);
-						producers.get(i).background.draw(batch);
-						producers.get(i).icon.setAlpha(1f);
-						producers.get(i).icon.draw(batch);
-						producers.get(i).label.draw(batch, parentAlpha);
-						producers.get(i).amount.draw(batch, parentAlpha);
+						
+						Producer t = producers.get(i);
+						
+						if (t.state != "unexistant") {
+							t.background.draw(batch, 1f*t.background_alpha);
+							t.icon.draw(batch, 1f*t.icon_alpha);
+							t.label.draw(batch, 1f*t.label_alpha);
+							t.amount.draw(batch, 1f*t.amount_alpha);
+						}
+						
+						
 					}
 					else {
-						producers.get(i).background.setAlpha(1f - transition1);
-						producers.get(i).background.draw(batch);
-						producers.get(i).icon.setAlpha(1f - transition1);
-						producers.get(i).icon.draw(batch);
-						producers.get(i).label.draw(batch, 1f - transition1);
-						producers.get(i).amount.draw(batch, 1f - transition1);
+						
+						Producer t = producers.get(i);
+						
+						if (t.state != "unexistant") {
+							t.background.draw(batch, (1f - transition1)*t.background_alpha);
+							t.icon.draw(batch, (1f - transition1)*t.icon_alpha);
+							t.label.draw(batch, (1f - transition1)*t.label_alpha);
+							t.amount.draw(batch, (1f - transition1)*t.amount_alpha);
+						}
+						
 					}
 				}
 			}
@@ -183,45 +200,61 @@ public class Creation extends Screen {
 			if (transition1 < 1f) {
 				for (int i = 0; i < producers.size(); i++) {
 					if (producers.get(i) == producerSelected) {
-						producers.get(i).background.setAlpha(1f);
-						producers.get(i).background.draw(batch);
-						producers.get(i).icon.setAlpha(1f);
-						producers.get(i).icon.draw(batch);
-						producers.get(i).label.draw(batch, parentAlpha);
-						producers.get(i).amount.draw(batch, parentAlpha);
+						
+						Producer t = producers.get(i);
+						
+						if (t.state != "unexistant") {
+							t.background.draw(batch, 1f*t.background_alpha);
+							t.icon.draw(batch, 1f*t.icon_alpha);
+							t.label.draw(batch, 1f*t.label_alpha);
+							t.amount.draw(batch, 1f*t.amount_alpha);
+						}
+						
 					}
 					else {
-						producers.get(i).background.setAlpha(1f - transition1);
-						producers.get(i).background.draw(batch);
-						producers.get(i).icon.setAlpha(1f - transition1);
-						producers.get(i).icon.draw(batch);
-						producers.get(i).label.draw(batch, 1f - transition1);
-						producers.get(i).amount.draw(batch, 1f - transition1);
+
+						Producer t = producers.get(i);
+						
+						if (t.state != "unexistant") {
+							t.background.draw(batch, (1f - transition1)*t.background_alpha);
+							t.icon.draw(batch, (1f - transition1)*t.icon_alpha);
+							t.label.draw(batch, (1f - transition1)*t.label_alpha);
+							t.amount.draw(batch, (1f - transition1)*t.amount_alpha);
+						}
+						
 					}
 				}
 
 			}
 			else if (transition2 < 1f) {
-				producerSelected.background.setAlpha(1f);
-				producerSelected.background.draw(batch);
-				producerSelected.icon.setAlpha(1f);
-				producerSelected.icon.draw(batch);
-				producerSelected.label.draw(batch, parentAlpha);
-				producerSelected.amount.draw(batch, parentAlpha);
+				
+				Producer t = producerSelected;
+				
+				if (t.state != "unexistant") {
+					t.background.draw(batch, 1f*t.background_alpha);
+					t.icon.draw(batch, 1f*t.icon_alpha);
+					t.label.draw(batch, 1f*t.label_alpha);
+					t.amount.draw(batch, 1f*t.amount_alpha);
+				}
+				
 			}
 			else {
-				producerSelected.background2.setAlpha(transition3);
-				producerSelected.background2.draw(batch);
-				producerSelected.buy.draw(batch, transition3);
-				producerSelected.info_outline.draw(batch, transition3);
-				producerSelected.info.draw(batch, transition3);
 				
-				producerSelected.background.setAlpha(1f);
-				producerSelected.background.draw(batch);
-				producerSelected.icon.setAlpha(1f);
-				producerSelected.icon.draw(batch);
-				producerSelected.label.draw(batch, parentAlpha);
-				producerSelected.amount.draw(batch, parentAlpha);
+				Producer t = producerSelected;
+				
+				if (t.state != "unexistant") {
+					t.background2.setAlpha(transition3);
+					t.background2.draw(batch);
+					t.buy.draw(batch, transition3);
+					t.info_outline.draw(batch, transition3);
+					t.info.draw(batch, transition3);
+					
+					t.background.draw(batch, 1f*t.background_alpha);
+					t.icon.draw(batch, 1f*t.icon_alpha);
+					t.label.draw(batch, 1f);
+					t.amount.draw(batch, 1f);
+				}
+				
 			}
 		}
 		
@@ -238,7 +271,7 @@ public class Creation extends Screen {
 
 		if (producerSelected == null && transition1 == 0f) {
 			for (int i = 0; i < producers.size(); i++) {
-				if (isOnSprite(producers.get(i).background, x, y)) {
+				if (isOnSprite(producers.get(i).background, x, y) && (producers.get(i).state == "discovered" || producers.get(i).state == "buyable") ) {
 					producerSelected = producers.get(i);
 					soundTap.play(1f);
 				}

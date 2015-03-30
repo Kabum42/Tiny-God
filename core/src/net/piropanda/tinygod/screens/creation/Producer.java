@@ -41,6 +41,11 @@ public class Producer extends Group {
 	public Label amount;
 	public Sprite buy;
 	
+	public float background_alpha = 1f;
+	public float icon_alpha = 1f;
+	public float label_alpha = 1f;
+	public float amount_alpha = 1f;
+	
 	public Sprite background2;
 	
 	public Label info_outline;
@@ -51,6 +56,8 @@ public class Producer extends Group {
 	public Sound buy1;
 	public Sound buy2;
 	public Sound buy3;
+	
+	public String state = "unexistant";
 	
 	
 	public Producer(Screen screen, int id) {
@@ -280,15 +287,81 @@ public class Producer extends Group {
 		
 		info_outline.setText(info.getText());
 		
-		if (GameInfo.totalLove >= ProducerInfo.getBaseCost(id)) {
-			// DESBLOQUEADO
+		
+		
+		if (state == "unexistant") {
+			// NI APARECE
+			
+			if (id == Lang.SERVANT_NAME) {
+				state = "undiscovered";
+				System.out.println("LOL");
+			}
+			else if (id == Lang.PROPHET_NAME) {
+				if (GameInfo.totalLove >= Math.floor(ProducerInfo.getBaseCost(Lang.HUMAN_NAME))) {
+					state = "undiscovered";
+				}
+			}
+			else if (GameInfo.totalLove >= Math.floor(ProducerInfo.getBaseCost(id-22))) {
+				state = "undiscovered";
+			}
+			
+			//System.out.println(id);
+			System.out.println(ProducerInfo.getBaseCost(id-22));
+			
 		}
-		else {
-			// BLOQUEADO
-			background.setAlpha(0.5f);
-			icon.setColor(0, 0, 0, 0.5f);
-			label.setText("???");
+		else if (state == "undiscovered") {
+			// APARECE BLOQUEADO
+			
+			if (GameInfo.totalLove >= Math.floor(ProducerInfo.getBaseCost(id))) {
+				// SE DESBLOQUEA
+				state = "discovered";
+			}
+			else {
+				// SIGUE BLOQUEADO
+				background_alpha = 0.7f;
+				icon_alpha = 0.7f;
+				label_alpha = 0.7f;
+				amount_alpha = 0.7f;
+				icon.setColor(0, 0, 0, 1f);
+				label.setText("???");
+			}
+			
 		}
+		else if (state == "discovered") {
+			// APARECE DESBLOQUEADO
+			
+			if (GameInfo.love >= Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id])))) {
+				// PUEDE COMPRARLO
+				state = "buyable";
+			}
+			else {
+				// NO PUEDE COMPRARLO
+				background_alpha = 0.7f;
+				icon_alpha = 0.7f;
+				label_alpha = 0.7f;
+				amount_alpha = 0.7f;
+				icon.setColor(0.6f, 0.6f, 0.6f, 1f);
+			}
+			
+		}
+		else if (state == "buyable") {
+			
+			if (GameInfo.love >= Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id])))) {
+				// PUEDE COMPRARLO
+				background_alpha = 1f;
+				icon_alpha = 1f;
+				label_alpha = 1f;
+				amount_alpha = 1f;
+				icon.setColor(1f, 1f, 1f, 1f);
+			}
+			else {
+				// NO PUEDE COMPRARLO
+				state = "discovered";
+			}
+			
+		}
+		
+
 		
 		label.pack();
 		label.setX(TG.Display.WIDTH*3.5f -label.getWidth()/2);
