@@ -294,7 +294,6 @@ public class Producer extends Group {
 			
 			if (id == Lang.SERVANT_NAME) {
 				state = "undiscovered";
-				System.out.println("LOL");
 			}
 			else if (id == Lang.PROPHET_NAME) {
 				if (GameInfo.totalLove >= Math.floor(ProducerInfo.getBaseCost(Lang.HUMAN_NAME))) {
@@ -304,9 +303,6 @@ public class Producer extends Group {
 			else if (GameInfo.totalLove >= Math.floor(ProducerInfo.getBaseCost(id-22))) {
 				state = "undiscovered";
 			}
-			
-			//System.out.println(id);
-			System.out.println(ProducerInfo.getBaseCost(id-22));
 			
 		}
 		else if (state == "undiscovered") {
