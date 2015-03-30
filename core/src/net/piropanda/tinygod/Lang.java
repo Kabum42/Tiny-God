@@ -11,11 +11,13 @@ public class Lang {
 	
 	public static int ENGLISH_VALUE = 0;
 	public static int SPANISH_VALUE = 1;
+	public static int CATALAN_VALUE = 1;
 	
 	public static String[][]LANGUAGES = new String[10][];
 	
 	public static String[]ENGLISH_WORDS = new String[300];
 	public static String[]SPANISH_WORDS = new String[300];
+	public static String[]CATALAN_WORDS = new String[300];
 	
 	// MISCELLANEOUS
 	public static int TRANSLATOR_MALE = 				0;
@@ -809,6 +811,267 @@ public class Lang {
 		// MORE MISCELLANEOUS
 		SPANISH_WORDS[LANGUAGE_WORD] = "Idioma";
 		
+		
+		/**CATALAN**/
+		
+		// MISCELLANEOUS
+		CATALAN_WORDS[TRANSLATOR_MALE] = "Traductor";
+		CATALAN_WORDS[TRANSLATOR_FEMALE] = "Traductora";
+		CATALAN_WORDS[TRANSLATORS] = "Traductors";
+		CATALAN_WORDS[BUILDING] = "Edifici ";
+		CATALAN_WORDS[BUILDINGS] = "Edificis";
+		CATALAN_WORDS[UPGRADE] = "Millora";
+		CATALAN_WORDS[UPGRADES] = "Millores";
+		CATALAN_WORDS[ACHIEVEMENT] = "Fita";
+		CATALAN_WORDS[ACHIEVEMENTS] = "Fites";
+		CATALAN_WORDS[LOVE_SINCE_BEGINNING_GAME] = "Amor des del començament d’aquesta partida";
+		CATALAN_WORDS[LOVE_SINCE_BEGINNING_TIMES] = "Amor des del començament dels temps";
+		CATALAN_WORDS[PRODUCTION_MULTIPLIER] = "Multiplicador de producció";
+		CATALAN_WORDS[CURRENT_LOVE] = "Amor actual";
+		CATALAN_WORDS[LOVE_PER_CLICK] = "Amor per toc";
+		CATALAN_WORDS[CRITICAL_CLICK] = "Toc crític";
+		CATALAN_WORDS[CRITICAL_CLICK_CHANCE] = "Probabilitat de toc crític";
+		CATALAN_WORDS[NUMBER_OF_CLICKS] = "Número de tocs";
+		CATALAN_WORDS[NUMBER_OF_MIRACLES] = "Número de miracles";
+		CATALAN_WORDS[GAIN_BASE_LOVE] = "X guanya +Y d’amor base per segon";
+		CATALAN_WORDS[PRODUCE_TWICE_LOVE] = "X produeix el doble d’amor";
+		
+		// SERVANT
+		CATALAN_WORDS[SERVANT_NAME] = "Servent";
+		CATALAN_WORDS[SERVANT_DESCRIPTION] = "Un servent lleial, xiuxiueja coses boniques";
+		CATALAN_WORDS[SERVANT_UPGRADE_1] = "No estàs sol";
+		CATALAN_WORDS[SERVANT_UPGRADE_1_JOKE] = "Jo et cuidaré";
+		CATALAN_WORDS[SERVANT_UPGRADE_2] = "Fer cara d’ànec";
+		CATALAN_WORDS[SERVANT_UPGRADE_2_JOKE] = "Adorablement insuportable";
+		CATALAN_WORDS[SERVANT_UPGRADE_3] = "Poliglot";
+		CATALAN_WORDS[SERVANT_UPGRADE_3_JOKE] = "Omnia uincit amor, et nos cedamus amori";
+		CATALAN_WORDS[SERVANT_UPGRADE_4] = "Segur dental";
+		CATALAN_WORDS[SERVANT_UPGRADE_4_JOKE] = "Lisa necessita un bràquet";
+		CATALAN_WORDS[SERVANT_UPGRADE_5] = "Quequeig crònic";
+		CATALAN_WORDS[SERVANT_UPGRADE_5_JOKE] = "Amb tant de balboteig no em sent pensar";
+		CATALAN_WORDS[SERVANT_UPGRADE_6] = "Xiuxiuejos entremaliats";
+		CATALAN_WORDS[SERVANT_UPGRADE_6_JOKE] = "Digues-me marranades";
+		CATALAN_WORDS[SERVANT_UPGRADE_7] = "Maledicció babilònica";
+		CATALAN_WORDS[SERVANT_UPGRADE_7_JOKE] = "Els vaig ensenyar llengües que no entenc per poder ignorar-los";
+		CATALAN_WORDS[SERVANT_UPGRADE_8] = "Amor, Déu i Rock and roll";
+		CATALAN_WORDS[SERVANT_UPGRADE_8_JOKE] = "La Santíssima Trinitat";
+		CATALAN_WORDS[SERVANT_UPGRADE_9] = "Veus al cap";
+		CATALAN_WORDS[SERVANT_UPGRADE_9_JOKE] = "Em parles a mi?";
+		CATALAN_WORDS[SERVANT_UPGRADE_10] = "Despertar";
+		CATALAN_WORDS[SERVANT_UPGRADE_10_JOKE] = "Desperteu, fills meus";
+		
+		// HUMAN
+		CATALAN_WORDS[HUMAN_NAME] = "Humà";
+		CATALAN_WORDS[HUMAN_DESCRIPTION] = "Un humà que no entén molt bé la teua saviesa, però et prega de totes maneres";
+		CATALAN_WORDS[HUMAN_UPGRADE_1] = "Narcisista";
+		CATALAN_WORDS[HUMAN_UPGRADE_1_JOKE] = "A imatge i semblança teua";
+		CATALAN_WORDS[HUMAN_UPGRADE_2] = "Company de costella";
+		CATALAN_WORDS[HUMAN_UPGRADE_2_JOKE] = "És més divertit jugar en companyia";
+		CATALAN_WORDS[HUMAN_UPGRADE_3] = "Llenceria vegetal";
+		CATALAN_WORDS[HUMAN_UPGRADE_3_JOKE] = "Verd i atractiva";
+		CATALAN_WORDS[HUMAN_UPGRADE_4] = "Poma del coneixement";
+		CATALAN_WORDS[HUMAN_UPGRADE_4_JOKE] = "Ara conec les teues fantasies";
+		CATALAN_WORDS[HUMAN_UPGRADE_5] = "Plantes afrodisíaques";
+		CATALAN_WORDS[HUMAN_UPGRADE_5_JOKE] = "On el físic no és prou, deixa-li-ho a la química";
+		CATALAN_WORDS[HUMAN_UPGRADE_6] = "Arbre de la vida eterna";
+		CATALAN_WORDS[HUMAN_UPGRADE_6_JOKE] = "Qui vol viure per sempre?";
+		CATALAN_WORDS[HUMAN_UPGRADE_7] = "Fanàtics pro vida";
+		CATALAN_WORDS[HUMAN_UPGRADE_7_JOKE] = "Tot l’esperma és sagrat";
+		CATALAN_WORDS[HUMAN_UPGRADE_8] = "Sindicat de cigonyes";
+		CATALAN_WORDS[HUMAN_UPGRADE_8_JOKE] = "Era necessari a aquestes alçades";
+		CATALAN_WORDS[HUMAN_UPGRADE_9] = "Simis arrogants";
+		CATALAN_WORDS[HUMAN_UPGRADE_9_JOKE] = "Ni déus ni reis, només l’home";
+		CATALAN_WORDS[HUMAN_UPGRADE_10] = "Soylent Green";
+		CATALAN_WORDS[HUMAN_UPGRADE_10_JOKE] = "100 % reciclat";
+		
+		// SPECIAL HUMANS
+		CATALAN_WORDS[SPECIAL_HUMAN_1] = "Fanàtic";
+		CATALAN_WORDS[SPECIAL_HUMAN_1_JOKE] = "Déu existeix perquè ho diu el llibre, i el llibre és la paraula de Déu";
+		CATALAN_WORDS[SPECIAL_HUMAN_2] = "Croat";
+		CATALAN_WORDS[SPECIAL_HUMAN_2_JOKE] = "Tan sols és una arrapada, encara tinc l’altre braç";
+		CATALAN_WORDS[SPECIAL_HUMAN_3] = "Esclavista";
+		CATALAN_WORDS[SPECIAL_HUMAN_3_JOKE] = "Els donem treball fix i, de vegades, fins i tot menjar. No se’n poden queixar";
+		CATALAN_WORDS[SPECIAL_HUMAN_4] = "Burgés";
+		CATALAN_WORDS[SPECIAL_HUMAN_4_JOKE] = "El que és meu és meu, i el que és teu prompte serà meu";
+		CATALAN_WORDS[SPECIAL_HUMAN_5] = "Científic boig";
+		CATALAN_WORDS[SPECIAL_HUMAN_5_JOKE] = "L’anomene el 'L.A.S.E.R.' Muahahaha";
+		CATALAN_WORDS[SPECIAL_HUMAN_6] = "Telepredicador";
+		CATALAN_WORDS[SPECIAL_HUMAN_6_JOKE] = "Al·leluia, germà, la teua transferència bancària no serà en va";
+		CATALAN_WORDS[SPECIAL_HUMAN_7] = "Cíborg";
+		CATALAN_WORDS[SPECIAL_HUMAN_7_JOKE] = "Jo... he vist coses que vosaltres els humans no us creuríeu";
+		
+		// PROPHET
+		CATALAN_WORDS[PROPHET_NAME] = "Profeta";
+		CATALAN_WORDS[PROPHET_DESCRIPTION] = "Un profeta és un humà que entén encara menys, però pensa exactament el contrari";
+		CATALAN_WORDS[PROPHET_UPGRADE_1] = "Barba postissa";
+		CATALAN_WORDS[PROPHET_UPGRADE_1_JOKE] = "Imprescindible per a les lapidacions";
+		CATALAN_WORDS[PROPHET_UPGRADE_2] = "Oracle pessimista";
+		CATALAN_WORDS[PROPHET_UPGRADE_2_JOKE] = "Us done dues setmanes";
+		CATALAN_WORDS[PROPHET_UPGRADE_3] = "Profecia apocalíptica";
+		CATALAN_WORDS[PROPHET_UPGRADE_3_JOKE] = "I quan s’òbriga el seté segell, ella dirà...: 'Hem de parlar'";
+		CATALAN_WORDS[PROPHET_UPGRADE_4] = "El diluvi universal";
+		CATALAN_WORDS[PROPHET_UPGRADE_4_JOKE] = "Salva dues de cada: dues brunes, dues pèl-roges i dues rosses";
+		CATALAN_WORDS[PROPHET_UPGRADE_5] = "Estel fugaç";
+		CATALAN_WORDS[PROPHET_UPGRADE_5_JOKE] = "El moment s’acosta";
+		CATALAN_WORDS[PROPHET_UPGRADE_6] = "Duplicació miraculosa";
+		CATALAN_WORDS[PROPHET_UPGRADE_6_JOKE] = "This is against thermodynam-SHUT UP!";
+		CATALAN_WORDS[PROPHET_UPGRADE_7] = "Resurrecció";
+		CATALAN_WORDS[PROPHET_UPGRADE_7_JOKE] = "Hauries de prendre una dutxa després de passar tres dies mort";
+		CATALAN_WORDS[PROPHET_UPGRADE_8] = "Llibre sagrat de l’Amor";
+		CATALAN_WORDS[PROPHET_UPGRADE_8_JOKE] = "Espera, per què totes aqueixes postures?";
+		CATALAN_WORDS[PROPHET_UPGRADE_9] = "Amorologia";
+		CATALAN_WORDS[PROPHET_UPGRADE_9_JOKE] = "Tot el que necessites saber per evitar-lo";
+		CATALAN_WORDS[PROPHET_UPGRADE_10] = "Competició injusta";
+		CATALAN_WORDS[PROPHET_UPGRADE_10_JOKE] = "Si el seu Déu fóra real, no els hauria salvat?";
+		
+		// TRANSLATION CHECKPOINT
+		
+		// TEMPLE
+		CATALAN_WORDS[TEMPLE_NAME] = "Temple";
+		CATALAN_WORDS[TEMPLE_DESCRIPTION] = "A temple in the name of love, more or less";
+		CATALAN_WORDS[TEMPLE_UPGRADE_1] = "Love Sanctuary";
+		CATALAN_WORDS[TEMPLE_UPGRADE_1_JOKE] = "A place to give and receive";
+		CATALAN_WORDS[TEMPLE_UPGRADE_2] = "Generous almsgiving";
+		CATALAN_WORDS[TEMPLE_UPGRADE_2_JOKE] = "It never has been easier to earn a living";
+		CATALAN_WORDS[TEMPLE_UPGRADE_3] = "Divine visions";
+		CATALAN_WORDS[TEMPLE_UPGRADE_3_JOKE] = "No more cheap wine";
+		CATALAN_WORDS[TEMPLE_UPGRADE_4] = "Obedient altar boys";
+		CATALAN_WORDS[TEMPLE_UPGRADE_4_JOKE] = "These kids make more bearable the long and hard... masses at the monastery";
+		CATALAN_WORDS[TEMPLE_UPGRADE_5] = "Remorseful sinners";
+		CATALAN_WORDS[TEMPLE_UPGRADE_5_JOKE] = "Get on your knees and earn your absolution";
+		CATALAN_WORDS[TEMPLE_UPGRADE_6] = "Elder in a dress";
+		CATALAN_WORDS[TEMPLE_UPGRADE_6_JOKE] = "I am the voice of God on earth";
+		CATALAN_WORDS[TEMPLE_UPGRADE_7] = "Witch hunt";
+		CATALAN_WORDS[TEMPLE_UPGRADE_7_JOKE] = "These ladies need affection desperately";
+		CATALAN_WORDS[TEMPLE_UPGRADE_8] = "Punish heretics";
+		CATALAN_WORDS[TEMPLE_UPGRADE_8_JOKE] = "You have to spank them gently";
+		CATALAN_WORDS[TEMPLE_UPGRADE_9] = "Repulsive relic";
+		CATALAN_WORDS[TEMPLE_UPGRADE_9_JOKE] = "I hope that's a wrinkled thumb...";
+		CATALAN_WORDS[TEMPLE_UPGRADE_10] = "Violent pilgrimage";
+		CATALAN_WORDS[TEMPLE_UPGRADE_10_JOKE] = "We’re going to the Land of Love and will kill whoever stands in our way";
+		
+		// SHIP
+		CATALAN_WORDS[SHIP_NAME] = "Ship";
+		CATALAN_WORDS[SHIP_DESCRIPTION] = "A ship to bring love across the seas";
+		CATALAN_WORDS[SHIP_UPGRADE_1] = "Into the unknown";
+		CATALAN_WORDS[SHIP_UPGRADE_1_JOKE] = "Honey, I’m going out for tobacco";
+		CATALAN_WORDS[SHIP_UPGRADE_2] = "Obscene figurehead";
+		CATALAN_WORDS[SHIP_UPGRADE_2_JOKE] = "The crew looks excited";
+		CATALAN_WORDS[SHIP_UPGRADE_3] = "Intercultural exchange";
+		CATALAN_WORDS[SHIP_UPGRADE_3_JOKE] = "Enjoy the Amazons' coconuts";
+		CATALAN_WORDS[SHIP_UPGRADE_4] = "Contagious love flu";
+		CATALAN_WORDS[SHIP_UPGRADE_4_JOKE] = "Love is in the air";
+		CATALAN_WORDS[SHIP_UPGRADE_5] = "The chosen ones";
+		CATALAN_WORDS[SHIP_UPGRADE_5_JOKE] = "One race to rule them all";
+		CATALAN_WORDS[SHIP_UPGRADE_6] = "Convert infidels";
+		CATALAN_WORDS[SHIP_UPGRADE_6_JOKE] = "Teach them how to love properly";
+		CATALAN_WORDS[SHIP_UPGRADE_7] = "Pleasurable whiplashes";
+		CATALAN_WORDS[SHIP_UPGRADE_7_JOKE] = "Now with heart-shaped bruises";
+		CATALAN_WORDS[SHIP_UPGRADE_8] = "Pirates ahoy!";
+		CATALAN_WORDS[SHIP_UPGRADE_8_JOKE] = "Arr! Stealing love is easier than earning it!";
+		CATALAN_WORDS[SHIP_UPGRADE_9] = "Paradise map";
+		CATALAN_WORDS[SHIP_UPGRADE_9_JOKE] = "Ideal to find the G spot,  I mean, to spot the X";
+		CATALAN_WORDS[SHIP_UPGRADE_10] = "Invincible Fleet";
+		CATALAN_WORDS[SHIP_UPGRADE_10_JOKE] = "Definitively invincible";
+		
+		// FACTORY
+		CATALAN_WORDS[FACTORY_NAME] = "Factory";
+		CATALAN_WORDS[FACTORY_DESCRIPTION] = "A factory to manufacture love";
+		CATALAN_WORDS[FACTORY_UPGRADE_1] = "Teamwork";
+		CATALAN_WORDS[FACTORY_UPGRADE_1_JOKE] = "You sweat and I supervise";
+		CATALAN_WORDS[FACTORY_UPGRADE_2] = "Tiny hands";
+		CATALAN_WORDS[FACTORY_UPGRADE_2_JOKE] = "Tiny workers to manage even the tiniest details";
+		CATALAN_WORDS[FACTORY_UPGRADE_3] = "Lowered standards";
+		CATALAN_WORDS[FACTORY_UPGRADE_3_JOKE] = "We will have to settle for this";
+		CATALAN_WORDS[FACTORY_UPGRADE_4] = "Ignore nonsense";
+		CATALAN_WORDS[FACTORY_UPGRADE_4_JOKE] = "Some workers demand sleep";
+		CATALAN_WORDS[FACTORY_UPGRADE_5] = "Steam engines";
+		CATALAN_WORDS[FACTORY_UPGRADE_5_JOKE] = "Increased production at the expense of a few accidents";
+		CATALAN_WORDS[FACTORY_UPGRADE_6] = "Fair rights";
+		CATALAN_WORDS[FACTORY_UPGRADE_6_JOKE] = "You have the right to shut up";
+		CATALAN_WORDS[FACTORY_UPGRADE_7] = "Oversupply";
+		CATALAN_WORDS[FACTORY_UPGRADE_7_JOKE] = "Don't stop me now";
+		CATALAN_WORDS[FACTORY_UPGRADE_8] = "Toxic gas leaks";
+		CATALAN_WORDS[FACTORY_UPGRADE_8_JOKE] = "Dead employees will be fired";
+		CATALAN_WORDS[FACTORY_UPGRADE_9] = "Scab Monkeys";
+		CATALAN_WORDS[FACTORY_UPGRADE_9_JOKE] = "They demand a lot of bananas, but do not demand any right";
+		CATALAN_WORDS[FACTORY_UPGRADE_10] = "Acid Rivers";
+		CATALAN_WORDS[FACTORY_UPGRADE_10_JOKE] = "Catching fish bare-hands it’s easy when they float face up";
+		
+		// LABORATORY
+		CATALAN_WORDS[LABORATORY_NAME] = "Laboratory";
+		CATALAN_WORDS[LABORATORY_DESCRIPTION] = "A laboratory to understand the nature of love";
+		CATALAN_WORDS[LABORATORY_UPGRADE_1] = "First patent";
+		CATALAN_WORDS[LABORATORY_UPGRADE_1_JOKE] = "A revolutionary device, but it needs a lot of lube";
+		CATALAN_WORDS[LABORATORY_UPGRADE_2] = "Brilliant minds";
+		CATALAN_WORDS[LABORATORY_UPGRADE_2_JOKE] = "We invented a lot of things, but now we have to figure what are they for";
+		CATALAN_WORDS[LABORATORY_UPGRADE_3] = "Robo-maid";
+		CATALAN_WORDS[LABORATORY_UPGRADE_3_JOKE] = "Scientists are very pleased";
+		CATALAN_WORDS[LABORATORY_UPGRADE_4] = "Cute explosion";
+		CATALAN_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contains an enriched isotope love";
+		CATALAN_WORDS[LABORATORY_UPGRADE_5] = "General relativity";
+		CATALAN_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes 'no' means 'yes'";
+		CATALAN_WORDS[LABORATORY_UPGRADE_6] = "Love fundamental particle";
+		CATALAN_WORDS[LABORATORY_UPGRADE_6_JOKE] = "The model is perfect, but reality doesn’t fit well in it";
+		CATALAN_WORDS[LABORATORY_UPGRADE_7] = "Quantum love";
+		CATALAN_WORDS[LABORATORY_UPGRADE_7_JOKE] = "Entangled hearts";
+		CATALAN_WORDS[LABORATORY_UPGRADE_8] = "Violation of physical laws";
+		CATALAN_WORDS[LABORATORY_UPGRADE_8_JOKE] = "Inside this lab nobody will hear you scream";
+		CATALAN_WORDS[LABORATORY_UPGRADE_9] = "Broken spatiotemporal fabric";
+		CATALAN_WORDS[LABORATORY_UPGRADE_9_JOKE] = "We are developing a spatiotemporal needle to patch it";
+		CATALAN_WORDS[LABORATORY_UPGRADE_10] = "LoveOS";
+		CATALAN_WORDS[LABORATORY_UPGRADE_10_JOKE] = "The answer to your question is 69";
+		
+		// SHOP
+		CATALAN_WORDS[SHOP_NAME] = "Shop";
+		CATALAN_WORDS[SHOP_DESCRIPTION] = "A shop where you can buy love at a reasonable price";
+		CATALAN_WORDS[SHOP_UPGRADE_1] = "Selling affection";
+		CATALAN_WORDS[SHOP_UPGRADE_1_JOKE] = "Now you can buy your happiness without commitments";
+		CATALAN_WORDS[SHOP_UPGRADE_2] = "Crazy sales";
+		CATALAN_WORDS[SHOP_UPGRADE_2_JOKE] = "For that price… gimme seven!";
+		CATALAN_WORDS[SHOP_UPGRADE_3] = "Planned obsolescence";
+		CATALAN_WORDS[SHOP_UPGRADE_3_JOKE] = "Our relationship has no future";
+		CATALAN_WORDS[SHOP_UPGRADE_4] = "Disposable love";
+		CATALAN_WORDS[SHOP_UPGRADE_4_JOKE] = "Piles of rubbish as far as the eye can see";
+		CATALAN_WORDS[SHOP_UPGRADE_5] = "Product design";
+		CATALAN_WORDS[SHOP_UPGRADE_5_JOKE] = "Awesome, now with 87% more packing!";
+		CATALAN_WORDS[SHOP_UPGRADE_6] = "Invasive product placement";
+		CATALAN_WORDS[SHOP_UPGRADE_6_JOKE] = "Enjoy incredible ads while you’re dreaming";
+		CATALAN_WORDS[SHOP_UPGRADE_7] = "Imported love";
+		CATALAN_WORDS[SHOP_UPGRADE_7_JOKE] = "Developed by the third world for our joy";
+		CATALAN_WORDS[SHOP_UPGRADE_8] = "Make up new festivity";
+		CATALAN_WORDS[SHOP_UPGRADE_8_JOKE] = "Consume more, you bastards";
+		CATALAN_WORDS[SHOP_UPGRADE_9] = "Loveh*";
+		CATALAN_WORDS[SHOP_UPGRADE_9_JOKE] = "Almost* like the original";
+		CATALAN_WORDS[SHOP_UPGRADE_10] = "LoveCard®";
+		CATALAN_WORDS[SHOP_UPGRADE_10_JOKE] = "There are things that love can’t buy, for everything else: LoveCard®";
+		
+		// SPACESHIP
+		CATALAN_WORDS[SPACESHIP_NAME] = "Spaceship";
+		CATALAN_WORDS[SPACESHIP_DESCRIPTION] = "A spaceship to spread love to other galaxies";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_1] = "Astronaut dog";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_1_JOKE] = "Ouch, we forgot to give him his space food";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_2] = "Fake moon landing";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_2_JOKE] = "Raising the audience is also a giant leap";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_3] = "Cosmic jet";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_3_JOKE] = "Shake before use";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_4] = "Space junk";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_4_JOKE] = "Although you can throw it far away it’s not gonna disappear";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_5] = "International Space Station";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "Zero gravity opens up new possibilities, we must update the Holy Book of Love";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_6] = "Pacifist colonies";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Full of leftover hippies";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_7] = "Open up pink hole";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Crossing it can cause a tear in the space-time";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_8] = "Close Encounters of the Third Kind";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_8_JOKE] = "They are a bit stupid, but we must learn to love them - Signed: The Aliens";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_9] = "Faster than light";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_9_JOKE] = "Hyperspatial jumping is awesome until the day you crash into a star";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_10] = "Galactic Empire";
+		CATALAN_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "May the love be with you";
+		
+		// MORE MISCELLANEOUS
+		CATALAN_WORDS[LANGUAGE_WORD] = "Language";
 		
 		//END
 		System.out.println("Languages initialized");
