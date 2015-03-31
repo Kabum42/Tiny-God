@@ -89,6 +89,10 @@ public class GameLoader extends Group {
 		TG.assets.load("achievements/locked.png", Texture.class);
 		TG.assets.load("achievements/selector.png", Texture.class);
 		TG.assets.load("achievements/test.png", Texture.class); // test
+		
+		// upgrades
+		TG.assets.load("upgrades/mini-bg.png", Texture.class);
+		
 		//bodies
 		TG.assets.load("spriter/Yahvy/Yahvy_Body.png", Texture.class);
 		//masks

@@ -18,8 +18,12 @@ public class Providence extends Screen {
 	
 	private ArrayList<Upgrade> upgrades;
 	
+	private int upgradesPerRow = 4;
+	
 	private float customScroll = 0f;
-	private float customScrollMax = 0f;
+	private float customScrollMax = 2000f;
+	
+	private float inertia = 0f;
 	
 	public Sound soundTap;
 	
@@ -143,11 +147,58 @@ public class Providence extends Screen {
 		
 	}
 	
+	@Override
+	public void act(float dt) {
+		
+		inertia = inertia/1.05f;
+		customScroll += inertia;
+		if (customScroll > customScrollMax) { customScroll = customScrollMax; }
+		else if (customScroll < 0 ) { customScroll = 0; }
+		
+		for (int i = 0; i < upgrades.size(); i++) {
+			upgrades.get(i).act(dt);
+		}
+		
+	}
+	
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		bgTab.draw(batch);
+		
+		float availableWidth = 260;
+		
+		int aux_x = -1;
+		int aux_y = 0;
+		
+		for (int i = 0; i < upgrades.size(); i++) {
+			aux_x ++;
+			if (aux_x == upgradesPerRow) {
+				aux_x = 0;
+				aux_y++;
+			}
+			
+			float aux_x2 = ((float)aux_x - ((float)upgradesPerRow-1f)/2f)/(((float)upgradesPerRow-1f)/2f);
+			
+			upgrades.get(i).mini_bg.setX(1.5f*TG.Display.WIDTH -upgrades.get(i).mini_bg.getWidth()/2 +aux_x2*availableWidth/2f);
+			upgrades.get(i).mini_bg.setY(TG.Display.HEIGHT/2 -upgrades.get(i).mini_bg.getHeight()/2 +120 -aux_y*100f +customScroll);
+			upgrades.get(i).mini_bg.draw(batch, 1f);
+			upgrades.get(i).icon.draw(batch, 1f);
+			
+		}
+		
 		//super.draw(batch, parentAlpha);
+	}
+	
+	@Override
+	public void pan(float x, float y, float deltaX, float deltaY) {
+		
+		if (true) {
+			inertia -= deltaY*(40f/480f);
+			if (inertia > 60) { inertia = 60; }
+			else if (inertia < -60) { inertia = -60; }
+		}
+		
 	}
 	
 }
