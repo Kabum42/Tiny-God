@@ -11,13 +11,15 @@ public class Lang {
 	
 	public static int ENGLISH_VALUE = 0;
 	public static int SPANISH_VALUE = 1;
-	public static int CATALAN_VALUE = 1;
+	public static int CATALAN_VALUE = 2;
+	public static int ITALIAN_VALUE = 3;
 	
 	public static String[][]LANGUAGES = new String[10][];
 	
 	public static String[]ENGLISH_WORDS = new String[300];
 	public static String[]SPANISH_WORDS = new String[300];
 	public static String[]CATALAN_WORDS = new String[300];
+	public static String[]ITALIAN_WORDS = new String[300];
 	
 	// MISCELLANEOUS
 	public static int TRANSLATOR_MALE = 				0;
@@ -291,6 +293,8 @@ public class Lang {
 		
 		LANGUAGES[ENGLISH_VALUE] = ENGLISH_WORDS;
 		LANGUAGES[SPANISH_VALUE] = SPANISH_WORDS;
+		LANGUAGES[CATALAN_VALUE] = CATALAN_WORDS;
+		LANGUAGES[ITALIAN_VALUE] = ITALIAN_WORDS;
 		
 		/**ENGLISH**/
 		
@@ -924,8 +928,6 @@ public class Lang {
 		CATALAN_WORDS[PROPHET_UPGRADE_10] = "Competició injusta";
 		CATALAN_WORDS[PROPHET_UPGRADE_10_JOKE] = "Si el seu Déu fóra real, no els hauria salvat?";
 		
-		// TRANSLATION CHECKPOINT
-		
 		// TEMPLE
 		CATALAN_WORDS[TEMPLE_NAME] = "Temple";
 		CATALAN_WORDS[TEMPLE_DESCRIPTION] = "Un temple en el nom de l’amor, més o menys";
@@ -1072,6 +1074,269 @@ public class Lang {
 		
 		// MORE MISCELLANEOUS
 		CATALAN_WORDS[LANGUAGE_WORD] = "Llengua";
+		
+		
+		/**ITALIAN**/
+		
+		// MISCELLANEOUS
+		ITALIAN_WORDS[TRANSLATOR_MALE] = "Traduttore";
+		ITALIAN_WORDS[TRANSLATOR_FEMALE] = "Traduttrice";
+		ITALIAN_WORDS[TRANSLATORS] = "Traduttori";
+		ITALIAN_WORDS[BUILDING] = "Edificio";
+		ITALIAN_WORDS[BUILDINGS] = "Edifici";
+		ITALIAN_WORDS[UPGRADE] = "Miglioramento";
+		ITALIAN_WORDS[UPGRADES] = "Miglioramenti";
+		ITALIAN_WORDS[ACHIEVEMENT] = "Raggiungimento";
+		ITALIAN_WORDS[ACHIEVEMENTS] = "Raggiungimenti";
+		ITALIAN_WORDS[LOVE_SINCE_BEGINNING_GAME] = "Amore da quando ha iniziato questo gioco";
+		ITALIAN_WORDS[LOVE_SINCE_BEGINNING_TIMES] = "Amore dall’inizio dei tempi";
+		ITALIAN_WORDS[PRODUCTION_MULTIPLIER] = "Multiplicatore della produzione";
+		ITALIAN_WORDS[CURRENT_LOVE] = "Amore attuale";
+		ITALIAN_WORDS[LOVE_PER_CLICK] = "Amore per click";
+		ITALIAN_WORDS[CRITICAL_CLICK] = "Click critico";
+		ITALIAN_WORDS[CRITICAL_CLICK_CHANCE] = "Probabilità di click critico";
+		ITALIAN_WORDS[NUMBER_OF_CLICKS] = "Numero di clicks";
+		ITALIAN_WORDS[NUMBER_OF_MIRACLES] = "Numero di miracoli";
+		ITALIAN_WORDS[GAIN_BASE_LOVE] = "X guadagna +4 di amore base per secondo";
+		ITALIAN_WORDS[PRODUCE_TWICE_LOVE] = "X produce il doppio di amore";
+		
+		// SERVANT
+		ITALIAN_WORDS[SERVANT_NAME] = "Servitore";
+		ITALIAN_WORDS[SERVANT_DESCRIPTION] = "Un fedele servitore ti sussura cose belle";
+		ITALIAN_WORDS[SERVANT_UPGRADE_1] = "Non sei solo";
+		ITALIAN_WORDS[SERVANT_UPGRADE_1_JOKE] = "Io prenderò cura di te";
+		ITALIAN_WORDS[SERVANT_UPGRADE_2] = "Fare il musetto";
+		ITALIAN_WORDS[SERVANT_UPGRADE_2_JOKE] = "Adorabilmente insopportabile";
+		ITALIAN_WORDS[SERVANT_UPGRADE_3] = "Poliglotta";
+		ITALIAN_WORDS[SERVANT_UPGRADE_3_JOKE] = "Omnia uincit amor, et nos cedamus amori";
+		ITALIAN_WORDS[SERVANT_UPGRADE_4] = "Assicurazione dentale";
+		ITALIAN_WORDS[SERVANT_UPGRADE_4_JOKE] = "Lisa ha bisogno di un apparecchio";
+		ITALIAN_WORDS[SERVANT_UPGRADE_5] = "Balbuzie crónica";
+		ITALIAN_WORDS[SERVANT_UPGRADE_5_JOKE] = "Con così tante balbetti non mi sento pensare";
+		ITALIAN_WORDS[SERVANT_UPGRADE_6] = "Sussurri dispettosi";
+		ITALIAN_WORDS[SERVANT_UPGRADE_6_JOKE] = "Parlami sporco";
+		ITALIAN_WORDS[SERVANT_UPGRADE_7] = "Maledizione di Babilonia";
+		ITALIAN_WORDS[SERVANT_UPGRADE_7_JOKE] = "Ho insegnato loro lingue che non capisco per potere ignorarli";
+		ITALIAN_WORDS[SERVANT_UPGRADE_8] = "Amore, Dio e Rock and roll";
+		ITALIAN_WORDS[SERVANT_UPGRADE_8_JOKE] = "La Santissima Trinità";
+		ITALIAN_WORDS[SERVANT_UPGRADE_9] = "Voci nella testa";
+		ITALIAN_WORDS[SERVANT_UPGRADE_9_JOKE] = "Stai parlando con me?";
+		ITALIAN_WORDS[SERVANT_UPGRADE_10] = "Risveglio";
+		ITALIAN_WORDS[SERVANT_UPGRADE_10_JOKE] = "Svegliatevi, figli miei";
+		
+		// HUMAN
+		ITALIAN_WORDS[HUMAN_NAME] = "Umano";
+		ITALIAN_WORDS[HUMAN_DESCRIPTION] = "Un umano che non capisce bene la tua saggezza, ma ti prega comunque";
+		ITALIAN_WORDS[HUMAN_UPGRADE_1] = "Narcisista";
+		ITALIAN_WORDS[HUMAN_UPGRADE_1_JOKE] = "A tua immagine e somiglianza";
+		ITALIAN_WORDS[HUMAN_UPGRADE_2] = "Compagno di costola";
+		ITALIAN_WORDS[HUMAN_UPGRADE_2_JOKE] = "È più divertente giocare in due";
+		ITALIAN_WORDS[HUMAN_UPGRADE_3] = "Lingerie vegetale";
+		ITALIAN_WORDS[HUMAN_UPGRADE_3_JOKE] = "Sexy ed ecológica";
+		ITALIAN_WORDS[HUMAN_UPGRADE_4] = "Mela della conoscenza";
+		ITALIAN_WORDS[HUMAN_UPGRADE_4_JOKE] = "Ora conozco le tue fantasie";
+		ITALIAN_WORDS[HUMAN_UPGRADE_5] = "Piante afrodisiache";
+		ITALIAN_WORDS[HUMAN_UPGRADE_5_JOKE] = "Dove il físico non è suficiente, lascia fare alla chimica";
+		ITALIAN_WORDS[HUMAN_UPGRADE_6] = "Albero della vita eterna";
+		ITALIAN_WORDS[HUMAN_UPGRADE_6_JOKE] = "Chi vuole vivere per sempre?";
+		ITALIAN_WORDS[HUMAN_UPGRADE_7] = "Fanatico pro-vita";
+		ITALIAN_WORDS[HUMAN_UPGRADE_7_JOKE] = "Tutto il sperma è sacro";
+		ITALIAN_WORDS[HUMAN_UPGRADE_8] = "Sindicato di cicogne";
+		ITALIAN_WORDS[HUMAN_UPGRADE_8_JOKE] = "È stato necessario, a questo punto";
+		ITALIAN_WORDS[HUMAN_UPGRADE_9] = "Scimmione arroganti";
+		ITALIAN_WORDS[HUMAN_UPGRADE_9_JOKE] = "Ne dei ne rei, soltanto il uomo";
+		ITALIAN_WORDS[HUMAN_UPGRADE_10] = "Soylent Green";
+		ITALIAN_WORDS[HUMAN_UPGRADE_10_JOKE] = "100% riciclato";
+		
+		// SPECIAL HUMANS
+		ITALIAN_WORDS[SPECIAL_HUMAN_1] = "Fanatico";
+		ITALIAN_WORDS[SPECIAL_HUMAN_1_JOKE] = "Dio esiste perché così c’è scritto nel libro, e il libro è la parola di Dio";
+		ITALIAN_WORDS[SPECIAL_HUMAN_2] = "Crociato";
+		ITALIAN_WORDS[SPECIAL_HUMAN_2_JOKE] = "È soltanto un graffio, ho ancora un altro braccio";
+		ITALIAN_WORDS[SPECIAL_HUMAN_3] = "Schiavista";
+		ITALIAN_WORDS[SPECIAL_HUMAN_3_JOKE] = "Diamo loro un lavoro fisso ed a volte anche il cibo, non si possono lamentare";
+		ITALIAN_WORDS[SPECIAL_HUMAN_4] = "Bourgeois";
+		ITALIAN_WORDS[SPECIAL_HUMAN_4_JOKE] = "Ciò che è mio è mio e ciò che è tuo presto sarà mio";
+		ITALIAN_WORDS[SPECIAL_HUMAN_5] = "Scientifico pazzo";
+		ITALIAN_WORDS[SPECIAL_HUMAN_5_JOKE] = "Io lo chiamo il ‘L.A.S.E.R.”, Muahahaha";
+		ITALIAN_WORDS[SPECIAL_HUMAN_6] = "Telepredicatore";
+		ITALIAN_WORDS[SPECIAL_HUMAN_6_JOKE] = "Hallelujah, fratello, il tuo bonifico bancario non sarà sprecato";
+		ITALIAN_WORDS[SPECIAL_HUMAN_7] = "Cyborg";
+		ITALIAN_WORDS[SPECIAL_HUMAN_7_JOKE] = "Io… ho visto cose che voi umani non potresti immaginare";
+		
+		// PROPHET
+		ITALIAN_WORDS[PROPHET_NAME] = "Profeta";
+		ITALIAN_WORDS[PROPHET_DESCRIPTION] = "Un profeta è un umano che capisce ancora di meno,  ma pensa esattamente il contrario";
+		ITALIAN_WORDS[PROPHET_UPGRADE_1] = "Barba finta";
+		ITALIAN_WORDS[PROPHET_UPGRADE_1_JOKE] = "Essenziale per le lapidazioni";
+		ITALIAN_WORDS[PROPHET_UPGRADE_2] = "Oracolo pessimista";
+		ITALIAN_WORDS[PROPHET_UPGRADE_2_JOKE] = "Vi mancano due settimane";
+		ITALIAN_WORDS[PROPHET_UPGRADE_3] = "Profezia apocalittica";
+		ITALIAN_WORDS[PROPHET_UPGRADE_3_JOKE] = "E quando il settimo sigillo si aprirà , lei dirà : ...Dobbiamo parlare";
+		ITALIAN_WORDS[PROPHET_UPGRADE_4] = "Diluvio universale";
+		ITALIAN_WORDS[PROPHET_UPGRADE_4_JOKE] = "Salva due di ogni tipo: due more, due rosse e due bionde";
+		ITALIAN_WORDS[PROPHET_UPGRADE_5] = "Stella cadente";
+		ITALIAN_WORDS[PROPHET_UPGRADE_5_JOKE] = "Il momento si avvicina";
+		ITALIAN_WORDS[PROPHET_UPGRADE_6] = "Duplicazione miracolosa";
+		ITALIAN_WORDS[PROPHET_UPGRADE_6_JOKE] = "Questo va contro le leggi della termodin-STAI ZITTO!";
+		ITALIAN_WORDS[PROPHET_UPGRADE_7] = "Resurrezione";
+		ITALIAN_WORDS[PROPHET_UPGRADE_7_JOKE] = "Dovresti fare la doccia dopo tre giorni morto";
+		ITALIAN_WORDS[PROPHET_UPGRADE_8] = "Libro sacro dell’Amore";
+		ITALIAN_WORDS[PROPHET_UPGRADE_8_JOKE] = "Aspetta, a che servono tutte queste posizioni?";
+		ITALIAN_WORDS[PROPHET_UPGRADE_9] = "Amorologia";
+		ITALIAN_WORDS[PROPHET_UPGRADE_9_JOKE] = "Tutto quello che devi sapere per evitarlo";
+		ITALIAN_WORDS[PROPHET_UPGRADE_10] = "Concorrenza sleale";
+		ITALIAN_WORDS[PROPHET_UPGRADE_10_JOKE] = "Se il loro Dio fosse reale, non avrebbe salvato tutti?";
+		
+		// TRANSLATION CHECKPOINT
+		
+		// TEMPLE
+		ITALIAN_WORDS[TEMPLE_NAME] = "Temple";
+		ITALIAN_WORDS[TEMPLE_DESCRIPTION] = "A temple in the name of love, more or less";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_1] = "Love Sanctuary";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_1_JOKE] = "A place to give and receive";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_2] = "Generous almsgiving";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_2_JOKE] = "It never has been easier to earn a living";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_3] = "Divine visions";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_3_JOKE] = "No more cheap wine";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_4] = "Obedient altar boys";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_4_JOKE] = "These kids make more bearable the long and hard... masses at the monastery";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_5] = "Remorseful sinners";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_5_JOKE] = "Get on your knees and earn your absolution";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_6] = "Elder in a dress";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_6_JOKE] = "I am the voice of God on earth";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_7] = "Witch hunt";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_7_JOKE] = "These ladies need affection desperately";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_8] = "Punish heretics";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_8_JOKE] = "You have to spank them gently";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_9] = "Repulsive relic";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_9_JOKE] = "I hope that's a wrinkled thumb...";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_10] = "Violent pilgrimage";
+		ITALIAN_WORDS[TEMPLE_UPGRADE_10_JOKE] = "We’re going to the Land of Love and will kill whoever stands in our way";
+		
+		// SHIP
+		ITALIAN_WORDS[SHIP_NAME] = "Ship";
+		ITALIAN_WORDS[SHIP_DESCRIPTION] = "A ship to bring love across the seas";
+		ITALIAN_WORDS[SHIP_UPGRADE_1] = "Into the unknown";
+		ITALIAN_WORDS[SHIP_UPGRADE_1_JOKE] = "Honey, I’m going out for tobacco";
+		ITALIAN_WORDS[SHIP_UPGRADE_2] = "Obscene figurehead";
+		ITALIAN_WORDS[SHIP_UPGRADE_2_JOKE] = "The crew looks excited";
+		ITALIAN_WORDS[SHIP_UPGRADE_3] = "Intercultural exchange";
+		ITALIAN_WORDS[SHIP_UPGRADE_3_JOKE] = "Enjoy the Amazons' coconuts";
+		ITALIAN_WORDS[SHIP_UPGRADE_4] = "Contagious love flu";
+		ITALIAN_WORDS[SHIP_UPGRADE_4_JOKE] = "Love is in the air";
+		ITALIAN_WORDS[SHIP_UPGRADE_5] = "The chosen ones";
+		ITALIAN_WORDS[SHIP_UPGRADE_5_JOKE] = "One race to rule them all";
+		ITALIAN_WORDS[SHIP_UPGRADE_6] = "Convert infidels";
+		ITALIAN_WORDS[SHIP_UPGRADE_6_JOKE] = "Teach them how to love properly";
+		ITALIAN_WORDS[SHIP_UPGRADE_7] = "Pleasurable whiplashes";
+		ITALIAN_WORDS[SHIP_UPGRADE_7_JOKE] = "Now with heart-shaped bruises";
+		ITALIAN_WORDS[SHIP_UPGRADE_8] = "Pirates ahoy!";
+		ITALIAN_WORDS[SHIP_UPGRADE_8_JOKE] = "Arr! Stealing love is easier than earning it!";
+		ITALIAN_WORDS[SHIP_UPGRADE_9] = "Paradise map";
+		ITALIAN_WORDS[SHIP_UPGRADE_9_JOKE] = "Ideal to find the G spot,  I mean, to spot the X";
+		ITALIAN_WORDS[SHIP_UPGRADE_10] = "Invincible Fleet";
+		ITALIAN_WORDS[SHIP_UPGRADE_10_JOKE] = "Definitively invincible";
+		
+		// FACTORY
+		ITALIAN_WORDS[FACTORY_NAME] = "Factory";
+		ITALIAN_WORDS[FACTORY_DESCRIPTION] = "A factory to manufacture love";
+		ITALIAN_WORDS[FACTORY_UPGRADE_1] = "Teamwork";
+		ITALIAN_WORDS[FACTORY_UPGRADE_1_JOKE] = "You sweat and I supervise";
+		ITALIAN_WORDS[FACTORY_UPGRADE_2] = "Tiny hands";
+		ITALIAN_WORDS[FACTORY_UPGRADE_2_JOKE] = "Tiny workers to manage even the tiniest details";
+		ITALIAN_WORDS[FACTORY_UPGRADE_3] = "Lowered standards";
+		ITALIAN_WORDS[FACTORY_UPGRADE_3_JOKE] = "We will have to settle for this";
+		ITALIAN_WORDS[FACTORY_UPGRADE_4] = "Ignore nonsense";
+		ITALIAN_WORDS[FACTORY_UPGRADE_4_JOKE] = "Some workers demand sleep";
+		ITALIAN_WORDS[FACTORY_UPGRADE_5] = "Steam engines";
+		ITALIAN_WORDS[FACTORY_UPGRADE_5_JOKE] = "Increased production at the expense of a few accidents";
+		ITALIAN_WORDS[FACTORY_UPGRADE_6] = "Fair rights";
+		ITALIAN_WORDS[FACTORY_UPGRADE_6_JOKE] = "You have the right to shut up";
+		ITALIAN_WORDS[FACTORY_UPGRADE_7] = "Oversupply";
+		ITALIAN_WORDS[FACTORY_UPGRADE_7_JOKE] = "Don't stop me now";
+		ITALIAN_WORDS[FACTORY_UPGRADE_8] = "Toxic gas leaks";
+		ITALIAN_WORDS[FACTORY_UPGRADE_8_JOKE] = "Dead employees will be fired";
+		ITALIAN_WORDS[FACTORY_UPGRADE_9] = "Scab Monkeys";
+		ITALIAN_WORDS[FACTORY_UPGRADE_9_JOKE] = "They demand a lot of bananas, but do not demand any right";
+		ITALIAN_WORDS[FACTORY_UPGRADE_10] = "Acid Rivers";
+		ITALIAN_WORDS[FACTORY_UPGRADE_10_JOKE] = "Catching fish bare-hands it’s easy when they float face up";
+		
+		// LABORATORY
+		ITALIAN_WORDS[LABORATORY_NAME] = "Laboratory";
+		ITALIAN_WORDS[LABORATORY_DESCRIPTION] = "A laboratory to understand the nature of love";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_1] = "First patent";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_1_JOKE] = "A revolutionary device, but it needs a lot of lube";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_2] = "Brilliant minds";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_2_JOKE] = "We invented a lot of things, but now we have to figure what are they for";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_3] = "Robo-maid";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_3_JOKE] = "Scientists are very pleased";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_4] = "Cute explosion";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contains an enriched isotope love";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_5] = "General relativity";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes 'no' means 'yes'";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_6] = "Love fundamental particle";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_6_JOKE] = "The model is perfect, but reality doesn’t fit well in it";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_7] = "Quantum love";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_7_JOKE] = "Entangled hearts";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_8] = "Violation of physical laws";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_8_JOKE] = "Inside this lab nobody will hear you scream";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_9] = "Broken spatiotemporal fabric";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_9_JOKE] = "We are developing a spatiotemporal needle to patch it";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_10] = "LoveOS";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_10_JOKE] = "The answer to your question is 69";
+		
+		// SHOP
+		ITALIAN_WORDS[SHOP_NAME] = "Shop";
+		ITALIAN_WORDS[SHOP_DESCRIPTION] = "A shop where you can buy love at a reasonable price";
+		ITALIAN_WORDS[SHOP_UPGRADE_1] = "Selling affection";
+		ITALIAN_WORDS[SHOP_UPGRADE_1_JOKE] = "Now you can buy your happiness without commitments";
+		ITALIAN_WORDS[SHOP_UPGRADE_2] = "Crazy sales";
+		ITALIAN_WORDS[SHOP_UPGRADE_2_JOKE] = "For that price… gimme seven!";
+		ITALIAN_WORDS[SHOP_UPGRADE_3] = "Planned obsolescence";
+		ITALIAN_WORDS[SHOP_UPGRADE_3_JOKE] = "Our relationship has no future";
+		ITALIAN_WORDS[SHOP_UPGRADE_4] = "Disposable love";
+		ITALIAN_WORDS[SHOP_UPGRADE_4_JOKE] = "Piles of rubbish as far as the eye can see";
+		ITALIAN_WORDS[SHOP_UPGRADE_5] = "Product design";
+		ITALIAN_WORDS[SHOP_UPGRADE_5_JOKE] = "Awesome, now with 87% more packing!";
+		ITALIAN_WORDS[SHOP_UPGRADE_6] = "Invasive product placement";
+		ITALIAN_WORDS[SHOP_UPGRADE_6_JOKE] = "Enjoy incredible ads while you’re dreaming";
+		ITALIAN_WORDS[SHOP_UPGRADE_7] = "Imported love";
+		ITALIAN_WORDS[SHOP_UPGRADE_7_JOKE] = "Developed by the third world for our joy";
+		ITALIAN_WORDS[SHOP_UPGRADE_8] = "Make up new festivity";
+		ITALIAN_WORDS[SHOP_UPGRADE_8_JOKE] = "Consume more, you bastards";
+		ITALIAN_WORDS[SHOP_UPGRADE_9] = "Loveh*";
+		ITALIAN_WORDS[SHOP_UPGRADE_9_JOKE] = "Almost* like the original";
+		ITALIAN_WORDS[SHOP_UPGRADE_10] = "LoveCard®";
+		ITALIAN_WORDS[SHOP_UPGRADE_10_JOKE] = "There are things that love can’t buy, for everything else: LoveCard®";
+		
+		// SPACESHIP
+		ITALIAN_WORDS[SPACESHIP_NAME] = "Spaceship";
+		ITALIAN_WORDS[SPACESHIP_DESCRIPTION] = "A spaceship to spread love to other galaxies";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_1] = "Astronaut dog";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_1_JOKE] = "Ouch, we forgot to give him his space food";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_2] = "Fake moon landing";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_2_JOKE] = "Raising the audience is also a giant leap";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_3] = "Cosmic jet";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_3_JOKE] = "Shake before use";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_4] = "Space junk";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_4_JOKE] = "Although you can throw it far away it’s not gonna disappear";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_5] = "International Space Station";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "Zero gravity opens up new possibilities, we must update the Holy Book of Love";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_6] = "Pacifist colonies";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Full of leftover hippies";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_7] = "Open up pink hole";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Crossing it can cause a tear in the space-time";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_8] = "Close Encounters of the Third Kind";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_8_JOKE] = "They are a bit stupid, but we must learn to love them - Signed: The Aliens";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_9] = "Faster than light";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_9_JOKE] = "Hyperspatial jumping is awesome until the day you crash into a star";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_10] = "Galactic Empire";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "May the love be with you";
+		
+		// MORE MISCELLANEOUS
+		ITALIAN_WORDS[LANGUAGE_WORD] = "Language";
+		
 		
 		//END
 		System.out.println("Languages initialized");
