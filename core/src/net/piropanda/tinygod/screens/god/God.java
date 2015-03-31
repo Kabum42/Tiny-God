@@ -231,7 +231,8 @@ public class God extends Screen {
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
 		if(onYahvy) {
-			GameInfo.addLove(GameInfo.lovePerClick);
+			//GameInfo.addLove(GameInfo.lovePerClick);
+			GameInfo.addLove(GameInfo.love);
 			//addMouth();
 		}
 		

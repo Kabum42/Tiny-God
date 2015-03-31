@@ -25,7 +25,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 
-public class Producer extends Group {
+public class Producer  {
 	
 	public Creation creationParent;
 	
@@ -264,9 +264,9 @@ public class Producer extends Group {
 	
 	//public float getLps() { return ProducerInfo.getLps(id); }
 	
-	@Override
+	//@Override
 	public void act(float dt) {
-		super.act(dt);
+		//super.act(dt);
 
 		label.setText(Lang.getText(id));
 

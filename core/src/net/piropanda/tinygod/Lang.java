@@ -798,7 +798,7 @@ public class Lang {
 		SPANISH_WORDS[SPACESHIP_UPGRADE_5] = "Estación Espacial Internacional";
 		SPANISH_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "La gravedad cero abre nuevas posibilidades, hay que actualizar el Libro Sagrado del Amor";
 		SPANISH_WORDS[SPACESHIP_UPGRADE_6] = "Colonias pacifistas";
-		SPANISH_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "“Llenas de hippies que sobran";
+		SPANISH_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Llenas de hippies que sobran";
 		SPANISH_WORDS[SPACESHIP_UPGRADE_7] = "Abrir agujero rosa";
 		SPANISH_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Atravesarlo puede producir un desgarro en el espacio-tiempo";
 		SPANISH_WORDS[SPACESHIP_UPGRADE_8] = "Encuentros en la Tercera Fase";

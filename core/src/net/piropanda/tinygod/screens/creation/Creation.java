@@ -56,19 +56,9 @@ public class Creation extends Screen {
 		producers.add(new Producer(this, Lang.SHOP_NAME));
 		producers.add(new Producer(this, Lang.SPACESHIP_NAME));
 		
-		for (int i = 0; i < producers.size(); i++) {
-			this.addActor(producers.get(i));
-		}
-		
-		//addProducer(producers.get(0));
-
 	}
 	
-	public void addProducer(Producer producer) {
-		table.add(producer).pad(10);
-		producer.unlock();
-		table.row();
-	}
+
 	
 	@Override
 	public void act(float dt) {
@@ -115,8 +105,20 @@ public class Creation extends Screen {
 			}
 		}
 		
+		int producersDrawed = 0;
+		
 		for (int i = 0; i < producers.size(); i++) {
 			producers.get(i).act(dt);
+			if (producers.get(i).state != "unexistant") {
+				producersDrawed++;
+			}
+		}
+		
+		if (producersDrawed <= 5) {
+			customScrollMax = 0;
+		}
+		else {
+			customScrollMax = (producersDrawed - 6)*83 +45;
 		}
 
 		
