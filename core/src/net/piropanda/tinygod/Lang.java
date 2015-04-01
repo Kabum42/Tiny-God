@@ -13,6 +13,7 @@ public class Lang {
 	public static int SPANISH_VALUE = 1;
 	public static int CATALAN_VALUE = 2;
 	public static int ITALIAN_VALUE = 3;
+	public static int FRENCH_VALUE = 4;
 	
 	public static String[][]LANGUAGES = new String[10][];
 	
@@ -20,6 +21,7 @@ public class Lang {
 	public static String[]SPANISH_WORDS = new String[300];
 	public static String[]CATALAN_WORDS = new String[300];
 	public static String[]ITALIAN_WORDS = new String[300];
+	public static String[]FRENCH_WORDS = new String[300];
 	
 	// MISCELLANEOUS
 	public static int TRANSLATOR_MALE = 				0;
@@ -295,6 +297,7 @@ public class Lang {
 		LANGUAGES[SPANISH_VALUE] = SPANISH_WORDS;
 		LANGUAGES[CATALAN_VALUE] = CATALAN_WORDS;
 		LANGUAGES[ITALIAN_VALUE] = ITALIAN_WORDS;
+		LANGUAGES[FRENCH_VALUE] = FRENCH_WORDS;
 		
 		/**ENGLISH**/
 		
@@ -1334,6 +1337,268 @@ public class Lang {
 		
 		// MORE MISCELLANEOUS
 		ITALIAN_WORDS[LANGUAGE_WORD] = "Lingua";
+		
+		
+		/**FRENCH**/
+		
+		// MISCELLANEOUS
+		FRENCH_WORDS[TRANSLATOR_MALE] = "Traducteur";
+		FRENCH_WORDS[TRANSLATOR_FEMALE] = "Traductrice";
+		FRENCH_WORDS[TRANSLATORS] = "Traducteurs";
+		FRENCH_WORDS[BUILDING] = "Bâtiment";
+		FRENCH_WORDS[BUILDINGS] = "Bâtiments";
+		FRENCH_WORDS[UPGRADE] = "Amélioration";
+		FRENCH_WORDS[UPGRADES] = "Améliorations";
+		FRENCH_WORDS[ACHIEVEMENT] = "Succès";
+		FRENCH_WORDS[ACHIEVEMENTS] = "Succès";
+		FRENCH_WORDS[LOVE_SINCE_BEGINNING_GAME] = "Amour depuis que la partie a commencé";
+		FRENCH_WORDS[LOVE_SINCE_BEGINNING_TIMES] = "Amour depuis le commencement des temps";
+		FRENCH_WORDS[PRODUCTION_MULTIPLIER] = "Multiplicateur de production";
+		FRENCH_WORDS[CURRENT_LOVE] = "Amour actuel";
+		FRENCH_WORDS[LOVE_PER_CLICK] = "Amour par clic";
+		FRENCH_WORDS[CRITICAL_CLICK] = "Clic critique";
+		FRENCH_WORDS[CRITICAL_CLICK_CHANCE] = "Chance de clic critique";
+		FRENCH_WORDS[NUMBER_OF_CLICKS] = "Nombre de clic";
+		FRENCH_WORDS[NUMBER_OF_MIRACLES] = "Nombre de miracle";
+		FRENCH_WORDS[GAIN_BASE_LOVE] = "X gagne +Y d'amour de base par seconde";
+		FRENCH_WORDS[PRODUCE_TWICE_LOVE] = "X produit le double d'amour";
+		
+		// SERVANT
+		FRENCH_WORDS[SERVANT_NAME] = "Serviteur";
+		FRENCH_WORDS[SERVANT_DESCRIPTION] = "Un Serviteur loyal, te susurre de belles choses";
+		FRENCH_WORDS[SERVANT_UPGRADE_1] = "Tu n'es pas seul";
+		FRENCH_WORDS[SERVANT_UPGRADE_1_JOKE] = "Je prendrai soin de toi";
+		FRENCH_WORDS[SERVANT_UPGRADE_2] = "Duckface";
+		FRENCH_WORDS[SERVANT_UPGRADE_2_JOKE] = "Adorablement insupportable";
+		FRENCH_WORDS[SERVANT_UPGRADE_3] = "Le polyglotte";
+		FRENCH_WORDS[SERVANT_UPGRADE_3_JOKE] = "Omnia uincit amor, et nos cedamus amori";
+		FRENCH_WORDS[SERVANT_UPGRADE_4] = "Une assurance dentaire";
+		FRENCH_WORDS[SERVANT_UPGRADE_4_JOKE] = "Lisa a besoin d'un appareil dentaire";
+		FRENCH_WORDS[SERVANT_UPGRADE_5] = "Les bégaiements chronique";
+		FRENCH_WORDS[SERVANT_UPGRADE_5_JOKE] = "Avec tous ces bafouillages, je ne m’entends même plus penser";
+		FRENCH_WORDS[SERVANT_UPGRADE_6] = "Des chuchotements coquins";
+		FRENCH_WORDS[SERVANT_UPGRADE_6_JOKE] = "Dis-moi des choses coquines";
+		FRENCH_WORDS[SERVANT_UPGRADE_7] = "La malédiction Babylonienne";
+		FRENCH_WORDS[SERVANT_UPGRADE_7_JOKE] = "Je leur apprend une langue que je ne comprends pas, pour pouvoir les ignorer";
+		FRENCH_WORDS[SERVANT_UPGRADE_8] = "Amour, Dieu et Rock'n'Roll";
+		FRENCH_WORDS[SERVANT_UPGRADE_8_JOKE] = "La Sainte Trinité";
+		FRENCH_WORDS[SERVANT_UPGRADE_9] = "La voix dans la tête";
+		FRENCH_WORDS[SERVANT_UPGRADE_9_JOKE] = "Tu me parles?";
+		FRENCH_WORDS[SERVANT_UPGRADE_10] = "Le réveil";
+		FRENCH_WORDS[SERVANT_UPGRADE_10_JOKE] = "Réveillez-vous, mes fils";
+		
+		// HUMAN
+		FRENCH_WORDS[HUMAN_NAME] = "Humain";
+		FRENCH_WORDS[HUMAN_DESCRIPTION] = "Un humain qui ne comprend pas très bien ta sagesse, mais qui te prie quand même";
+		FRENCH_WORDS[HUMAN_UPGRADE_1] = "Le narcissique";
+		FRENCH_WORDS[HUMAN_UPGRADE_1_JOKE] = "À ton image et ressemblance";
+		FRENCH_WORDS[HUMAN_UPGRADE_2] = "Le compagnon de côte";
+		FRENCH_WORDS[HUMAN_UPGRADE_2_JOKE] = "C'est plus marrant de jouer avec quelqu'un d'autre";
+		FRENCH_WORDS[HUMAN_UPGRADE_3] = "La lingerie végétale";
+		FRENCH_WORDS[HUMAN_UPGRADE_3_JOKE] = "Sexy et écologique";
+		FRENCH_WORDS[HUMAN_UPGRADE_4] = "La pomme de la connaissance";
+		FRENCH_WORDS[HUMAN_UPGRADE_4_JOKE] = "Maintenant je connais tes fantasmes";
+		FRENCH_WORDS[HUMAN_UPGRADE_5] = "Les plantes aphrodisiaques";
+		FRENCH_WORDS[HUMAN_UPGRADE_5_JOKE] = "Là où la physique n'est pas suffisante, la chimie le sera";
+		FRENCH_WORDS[HUMAN_UPGRADE_6] = "L’arbre de la vie éternelle";
+		FRENCH_WORDS[HUMAN_UPGRADE_6_JOKE] = "Qui veut vivre pour toujours?";
+		FRENCH_WORDS[HUMAN_UPGRADE_7] = "Les fanatiques pro-vie";
+		FRENCH_WORDS[HUMAN_UPGRADE_7_JOKE] = "Chaque sperme est sacré";
+		FRENCH_WORDS[HUMAN_UPGRADE_8] = "Le syndicat des cigognes";
+		FRENCH_WORDS[HUMAN_UPGRADE_8_JOKE] = "En ces temps-là, c’était nécessaire";
+		FRENCH_WORDS[HUMAN_UPGRADE_9] = "Les singes arrogants";
+		FRENCH_WORDS[HUMAN_UPGRADE_9_JOKE] = "Ni dieux ni rois, juste l’Homme";
+		FRENCH_WORDS[HUMAN_UPGRADE_10] = "Soleil Vert";
+		FRENCH_WORDS[HUMAN_UPGRADE_10_JOKE] = "100% recyclé";
+		
+		// SPECIAL HUMANS
+		FRENCH_WORDS[SPECIAL_HUMAN_1] = "Le fanatique";
+		FRENCH_WORDS[SPECIAL_HUMAN_1_JOKE] = "Dieu existe parce que c'est écrit dans le livre sacré, et le livre est la parole de Dieu'";
+		FRENCH_WORDS[SPECIAL_HUMAN_2] = "Le croisé";
+		FRENCH_WORDS[SPECIAL_HUMAN_2_JOKE] = "C'est seulement une égratignure, il me reste encore un bras";
+		FRENCH_WORDS[SPECIAL_HUMAN_3] = "L’esclavagiste";
+		FRENCH_WORDS[SPECIAL_HUMAN_3_JOKE] = "On leur donne un emploi stable et parfois même de la nourriture, ils ne peuvent pas se plaindre!";
+		FRENCH_WORDS[SPECIAL_HUMAN_4] = "Le bourgeois";
+		FRENCH_WORDS[SPECIAL_HUMAN_4_JOKE] = "Ce qui est à moi est à moi, et ce qui est à toi sera bientôt à moi";
+		FRENCH_WORDS[SPECIAL_HUMAN_5] = "Le scientifique fou";
+		FRENCH_WORDS[SPECIAL_HUMAN_5_JOKE] = "Je l'appelle le 'L.A.S.E.R' Mouhahaha";
+		FRENCH_WORDS[SPECIAL_HUMAN_6] = "Le télévangéliste";
+		FRENCH_WORDS[SPECIAL_HUMAN_6_JOKE] = "Alléluia mon frère, ton transfert bancaire ne sera pas fait en vain";
+		FRENCH_WORDS[SPECIAL_HUMAN_7] = "Le cyborg";
+		FRENCH_WORDS[SPECIAL_HUMAN_7_JOKE] = "J'ai...J’ai vue des choses que vous ne croirez pas";
+		
+		// PROPHET
+		FRENCH_WORDS[PROPHET_NAME] = "Prophète";
+		FRENCH_WORDS[PROPHET_DESCRIPTION] = "Un prophète est un humain qui comprend encore moins ta sagesse, mais qui pense exactement le contraire";
+		FRENCH_WORDS[PROPHET_UPGRADE_1] = "La fausse barbe";
+		FRENCH_WORDS[PROPHET_UPGRADE_1_JOKE] = "Indispensable pour les lapidations";
+		FRENCH_WORDS[PROPHET_UPGRADE_2] = "L’oracle pessimiste";
+		FRENCH_WORDS[PROPHET_UPGRADE_2_JOKE] = "Je ne vous donne pas plus de deux semaines";
+		FRENCH_WORDS[PROPHET_UPGRADE_3] = "La prophétie apocalyptique";
+		FRENCH_WORDS[PROPHET_UPGRADE_3_JOKE] = "Et quand s'ouvriront les portes du septième ciel elle te dira : ...On doit parler";
+		FRENCH_WORDS[PROPHET_UPGRADE_4] = "Le Déluge";
+		FRENCH_WORDS[PROPHET_UPGRADE_4_JOKE] = "Sauve-en deux de chaque : deux brunes, deux rousses et deux blondes";
+		FRENCH_WORDS[PROPHET_UPGRADE_5] = "L’étoile filante";
+		FRENCH_WORDS[PROPHET_UPGRADE_5_JOKE] = "Le moment est proche";
+		FRENCH_WORDS[PROPHET_UPGRADE_6] = "La duplication miraculeuse";
+		FRENCH_WORDS[PROPHET_UPGRADE_6_JOKE] = "C'est contraire aux lois de la thermodynam...-TAIS TOI!";
+		FRENCH_WORDS[PROPHET_UPGRADE_7] = "La résurrection";
+		FRENCH_WORDS[PROPHET_UPGRADE_7_JOKE] = "Après avoir été mort pendant trois jours, tu devrais prendre une douche";
+		FRENCH_WORDS[PROPHET_UPGRADE_8] = "Le livre sacré de l'amour";
+		FRENCH_WORDS[PROPHET_UPGRADE_8_JOKE] = "Attend, à quoi servent toutes ces positions?";
+		FRENCH_WORDS[PROPHET_UPGRADE_9] = "L’amourlogie";
+		FRENCH_WORDS[PROPHET_UPGRADE_9_JOKE] = "Tout ce que tu dois savoir pour pouvoir l'éviter";
+		FRENCH_WORDS[PROPHET_UPGRADE_10] = "La compétition déloyale";
+		FRENCH_WORDS[PROPHET_UPGRADE_10_JOKE] = "Si leur Dieu était réel, ne les auraient-il pas sauvés?";
+		
+		// TEMPLE
+		FRENCH_WORDS[TEMPLE_NAME] = "Temple";
+		FRENCH_WORDS[TEMPLE_DESCRIPTION] = "Un temple au nom de l'amour, plus ou moins";
+		FRENCH_WORDS[TEMPLE_UPGRADE_1] = "Le sanctuaire de l'amour";
+		FRENCH_WORDS[TEMPLE_UPGRADE_1_JOKE] = "Un endroit pour donner et recevoir";
+		FRENCH_WORDS[TEMPLE_UPGRADE_2] = "Une généreuse offrande";
+		FRENCH_WORDS[TEMPLE_UPGRADE_2_JOKE] = "Ça n'a jamais été aussi facile de gagner de sa vie";
+		FRENCH_WORDS[TEMPLE_UPGRADE_3] = "Les visions divines";
+		FRENCH_WORDS[TEMPLE_UPGRADE_3_JOKE] = "Plus jamais de vinasse";
+		FRENCH_WORDS[TEMPLE_UPGRADE_4] = "Les obéissants enfants de chœur";
+		FRENCH_WORDS[TEMPLE_UPGRADE_4_JOKE] = "Ces enfants rendent plus supportables ces longues et dures... messes dans le monastère";
+		FRENCH_WORDS[TEMPLE_UPGRADE_5] = "Les pêcheurs repentants";
+		FRENCH_WORDS[TEMPLE_UPGRADE_5_JOKE] = "Agenouille-toi et gagne l’absolution de tes péchés";
+		FRENCH_WORDS[TEMPLE_UPGRADE_6] = "Le vieillard en robe";
+		FRENCH_WORDS[TEMPLE_UPGRADE_6_JOKE] = "Je suis la voix de Dieu sur Terre";
+		FRENCH_WORDS[TEMPLE_UPGRADE_7] = "La chasse aux sorcières";
+		FRENCH_WORDS[TEMPLE_UPGRADE_7_JOKE] = "Ces femmes ont désespérément besoin d’affection";
+		FRENCH_WORDS[TEMPLE_UPGRADE_8] = "Punir les hérétiques";
+		FRENCH_WORDS[TEMPLE_UPGRADE_8_JOKE] = "Tu dois les fouetter avec douceur";
+		FRENCH_WORDS[TEMPLE_UPGRADE_9] = "La relique répulsive";
+		FRENCH_WORDS[TEMPLE_UPGRADE_9_JOKE] = "J’espère que c’est un pouce tout ridé...";
+		FRENCH_WORDS[TEMPLE_UPGRADE_10] = "Le violent pèlerinage";
+		FRENCH_WORDS[TEMPLE_UPGRADE_10_JOKE] = "On va à la Terre de l'Amour, et on tuera quiconque se mettra en travers de notre chemin";
+		
+		// SHIP
+		FRENCH_WORDS[SHIP_NAME] = "Bateau";
+		FRENCH_WORDS[SHIP_DESCRIPTION] = "Un bateau pour apporter l'amour à travers toutes les mers";
+		FRENCH_WORDS[SHIP_UPGRADE_1] = "Jusqu'à l’inconnus";
+		FRENCH_WORDS[SHIP_UPGRADE_1_JOKE] = "Chérie, je vais acheter un paquet de tabac";
+		FRENCH_WORDS[SHIP_UPGRADE_2] = "Le masque obscène";
+		FRENCH_WORDS[SHIP_UPGRADE_2_JOKE] = "L’équipage à l’air excité";
+		FRENCH_WORDS[SHIP_UPGRADE_3] = "L’échange interculturel";
+		FRENCH_WORDS[SHIP_UPGRADE_3_JOKE] = "Profite des cocos  Amazones";
+		FRENCH_WORDS[SHIP_UPGRADE_4] = "La grippe de l'amour contagieux";
+		FRENCH_WORDS[SHIP_UPGRADE_4_JOKE] = "Il y a de l’amour dans l'air";
+		FRENCH_WORDS[SHIP_UPGRADE_5] = "Les élus";
+		FRENCH_WORDS[SHIP_UPGRADE_5_JOKE] = "Une race pour les gouverner tous";
+		FRENCH_WORDS[SHIP_UPGRADE_6] = "Convertir les infidèles";
+		FRENCH_WORDS[SHIP_UPGRADE_6_JOKE] = "Montre leur comment aimer comme il se doit";
+		FRENCH_WORDS[SHIP_UPGRADE_7] = "Les agréables coups de fouets";
+		FRENCH_WORDS[SHIP_UPGRADE_7_JOKE] = "Maintenant avec des bleus en forme de cœur";
+		FRENCH_WORDS[SHIP_UPGRADE_8] = "Pirates en vue!";
+		FRENCH_WORDS[SHIP_UPGRADE_8_JOKE] = "Arr! Voler l'amour est bien plus facile que de le gagner!";
+		FRENCH_WORDS[SHIP_UPGRADE_9] = "La carte du paradis";
+		FRENCH_WORDS[SHIP_UPGRADE_9_JOKE] = "Idéal pour trouver le point G…. Enfin je veux dire…euh…le point X ... celui du trésor";
+		FRENCH_WORDS[SHIP_UPGRADE_10] = "La flotte invincible";
+		FRENCH_WORDS[SHIP_UPGRADE_10_JOKE] = "Totalement invincible";
+		
+		// TRANSLATION CHECKPOINT
+		
+		// FACTORY
+		FRENCH_WORDS[FACTORY_NAME] = "Factory";
+		FRENCH_WORDS[FACTORY_DESCRIPTION] = "A factory to manufacture love";
+		FRENCH_WORDS[FACTORY_UPGRADE_1] = "Teamwork";
+		FRENCH_WORDS[FACTORY_UPGRADE_1_JOKE] = "You sweat and I supervise";
+		FRENCH_WORDS[FACTORY_UPGRADE_2] = "Tiny hands";
+		FRENCH_WORDS[FACTORY_UPGRADE_2_JOKE] = "Tiny workers to manage even the tiniest details";
+		FRENCH_WORDS[FACTORY_UPGRADE_3] = "Lowered standards";
+		FRENCH_WORDS[FACTORY_UPGRADE_3_JOKE] = "We will have to settle for this";
+		FRENCH_WORDS[FACTORY_UPGRADE_4] = "Ignore nonsense";
+		FRENCH_WORDS[FACTORY_UPGRADE_4_JOKE] = "Some workers demand sleep";
+		FRENCH_WORDS[FACTORY_UPGRADE_5] = "Steam engines";
+		FRENCH_WORDS[FACTORY_UPGRADE_5_JOKE] = "Increased production at the expense of a few accidents";
+		FRENCH_WORDS[FACTORY_UPGRADE_6] = "Fair rights";
+		FRENCH_WORDS[FACTORY_UPGRADE_6_JOKE] = "You have the right to shut up";
+		FRENCH_WORDS[FACTORY_UPGRADE_7] = "Oversupply";
+		FRENCH_WORDS[FACTORY_UPGRADE_7_JOKE] = "Don't stop me now";
+		FRENCH_WORDS[FACTORY_UPGRADE_8] = "Toxic gas leaks";
+		FRENCH_WORDS[FACTORY_UPGRADE_8_JOKE] = "Dead employees will be fired";
+		FRENCH_WORDS[FACTORY_UPGRADE_9] = "Scab Monkeys";
+		FRENCH_WORDS[FACTORY_UPGRADE_9_JOKE] = "They demand a lot of bananas, but do not demand any right";
+		FRENCH_WORDS[FACTORY_UPGRADE_10] = "Acid Rivers";
+		FRENCH_WORDS[FACTORY_UPGRADE_10_JOKE] = "Catching fish bare-hands it’s easy when they float face up";
+		
+		// LABORATORY
+		FRENCH_WORDS[LABORATORY_NAME] = "Laboratory";
+		FRENCH_WORDS[LABORATORY_DESCRIPTION] = "A laboratory to understand the nature of love";
+		FRENCH_WORDS[LABORATORY_UPGRADE_1] = "First patent";
+		FRENCH_WORDS[LABORATORY_UPGRADE_1_JOKE] = "A revolutionary device, but it needs a lot of lube";
+		FRENCH_WORDS[LABORATORY_UPGRADE_2] = "Brilliant minds";
+		FRENCH_WORDS[LABORATORY_UPGRADE_2_JOKE] = "We invented a lot of things, but now we have to figure what are they for";
+		FRENCH_WORDS[LABORATORY_UPGRADE_3] = "Robo-maid";
+		FRENCH_WORDS[LABORATORY_UPGRADE_3_JOKE] = "Scientists are very pleased";
+		FRENCH_WORDS[LABORATORY_UPGRADE_4] = "Cute explosion";
+		FRENCH_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contains an enriched isotope love";
+		FRENCH_WORDS[LABORATORY_UPGRADE_5] = "General relativity";
+		FRENCH_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes 'no' means 'yes'";
+		FRENCH_WORDS[LABORATORY_UPGRADE_6] = "Love fundamental particle";
+		FRENCH_WORDS[LABORATORY_UPGRADE_6_JOKE] = "The model is perfect, but reality doesn’t fit well in it";
+		FRENCH_WORDS[LABORATORY_UPGRADE_7] = "Quantum love";
+		FRENCH_WORDS[LABORATORY_UPGRADE_7_JOKE] = "Entangled hearts";
+		FRENCH_WORDS[LABORATORY_UPGRADE_8] = "Violation of physical laws";
+		FRENCH_WORDS[LABORATORY_UPGRADE_8_JOKE] = "Inside this lab nobody will hear you scream";
+		FRENCH_WORDS[LABORATORY_UPGRADE_9] = "Broken spatiotemporal fabric";
+		FRENCH_WORDS[LABORATORY_UPGRADE_9_JOKE] = "We are developing a spatiotemporal needle to patch it";
+		FRENCH_WORDS[LABORATORY_UPGRADE_10] = "LoveOS";
+		FRENCH_WORDS[LABORATORY_UPGRADE_10_JOKE] = "The answer to your question is 69";
+		
+		// SHOP
+		FRENCH_WORDS[SHOP_NAME] = "Shop";
+		FRENCH_WORDS[SHOP_DESCRIPTION] = "A shop where you can buy love at a reasonable price";
+		FRENCH_WORDS[SHOP_UPGRADE_1] = "Selling affection";
+		FRENCH_WORDS[SHOP_UPGRADE_1_JOKE] = "Now you can buy your happiness without commitments";
+		FRENCH_WORDS[SHOP_UPGRADE_2] = "Crazy sales";
+		FRENCH_WORDS[SHOP_UPGRADE_2_JOKE] = "For that price… gimme seven!";
+		FRENCH_WORDS[SHOP_UPGRADE_3] = "Planned obsolescence";
+		FRENCH_WORDS[SHOP_UPGRADE_3_JOKE] = "Our relationship has no future";
+		FRENCH_WORDS[SHOP_UPGRADE_4] = "Disposable love";
+		FRENCH_WORDS[SHOP_UPGRADE_4_JOKE] = "Piles of rubbish as far as the eye can see";
+		FRENCH_WORDS[SHOP_UPGRADE_5] = "Product design";
+		FRENCH_WORDS[SHOP_UPGRADE_5_JOKE] = "Awesome, now with 87% more packing!";
+		FRENCH_WORDS[SHOP_UPGRADE_6] = "Invasive product placement";
+		FRENCH_WORDS[SHOP_UPGRADE_6_JOKE] = "Enjoy incredible ads while you’re dreaming";
+		FRENCH_WORDS[SHOP_UPGRADE_7] = "Imported love";
+		FRENCH_WORDS[SHOP_UPGRADE_7_JOKE] = "Developed by the third world for our joy";
+		FRENCH_WORDS[SHOP_UPGRADE_8] = "Make up new festivity";
+		FRENCH_WORDS[SHOP_UPGRADE_8_JOKE] = "Consume more, you bastards";
+		FRENCH_WORDS[SHOP_UPGRADE_9] = "Loveh*";
+		FRENCH_WORDS[SHOP_UPGRADE_9_JOKE] = "Almost* like the original";
+		FRENCH_WORDS[SHOP_UPGRADE_10] = "LoveCard®";
+		FRENCH_WORDS[SHOP_UPGRADE_10_JOKE] = "There are things that love can’t buy, for everything else: LoveCard®";
+		
+		// SPACESHIP
+		FRENCH_WORDS[SPACESHIP_NAME] = "Spaceship";
+		FRENCH_WORDS[SPACESHIP_DESCRIPTION] = "A spaceship to spread love to other galaxies";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_1] = "Astronaut dog";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_1_JOKE] = "Ouch, we forgot to give him his space food";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_2] = "Fake moon landing";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_2_JOKE] = "Raising the audience is also a giant leap";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_3] = "Cosmic jet";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_3_JOKE] = "Shake before use";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_4] = "Space junk";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_4_JOKE] = "Although you can throw it far away it’s not gonna disappear";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_5] = "International Space Station";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "Zero gravity opens up new possibilities, we must update the Holy Book of Love";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_6] = "Pacifist colonies";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Full of leftover hippies";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_7] = "Open up pink hole";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Crossing it can cause a tear in the space-time";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_8] = "Close Encounters of the Third Kind";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_8_JOKE] = "They are a bit stupid, but we must learn to love them - Signed: The Aliens";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_9] = "Faster than light";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_9_JOKE] = "Hyperspatial jumping is awesome until the day you crash into a star";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_10] = "Galactic Empire";
+		FRENCH_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "May the love be with you";
+		
+		// MORE MISCELLANEOUS
+		FRENCH_WORDS[LANGUAGE_WORD] = "Language";
 		
 		
 		//END
