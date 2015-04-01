@@ -1260,82 +1260,80 @@ public class Lang {
 		ITALIAN_WORDS[FACTORY_UPGRADE_10] = "Fiumi acidi";
 		ITALIAN_WORDS[FACTORY_UPGRADE_10_JOKE] = "A cacica di pesce con le mani è facile quando il pesce galleggia";
 		
-		// TRANSLATION CHECKPOINT
-		
 		// LABORATORY
 		ITALIAN_WORDS[LABORATORY_NAME] = "Laboratorio";
 		ITALIAN_WORDS[LABORATORY_DESCRIPTION] = "Un laboratorio per capire la natura dell’amore";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_1] = "First patent";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_1_JOKE] = "A revolutionary device, but it needs a lot of lube";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_2] = "Brilliant minds";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_2_JOKE] = "We invented a lot of things, but now we have to figure what are they for";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_3] = "Robo-maid";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_3_JOKE] = "Scientists are very pleased";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_4] = "Cute explosion";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contains an enriched isotope love";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_5] = "General relativity";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes 'no' means 'yes'";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_6] = "Love fundamental particle";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_6_JOKE] = "The model is perfect, but reality doesn’t fit well in it";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_7] = "Quantum love";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_7_JOKE] = "Entangled hearts";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_8] = "Violation of physical laws";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_8_JOKE] = "Inside this lab nobody will hear you scream";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_9] = "Broken spatiotemporal fabric";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_9_JOKE] = "We are developing a spatiotemporal needle to patch it";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_1] = "Primo brevetto";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_1_JOKE] = "Un dispositivo rivoluzionario, ma ha bisogno di molto lubrificante";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_2] = "Menti brillanti";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_2_JOKE] = "Abbiamo inventanto un sacco di cose, ora dobbiamo scoprire a che servono";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_3] = "Robo-servitrice";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_3_JOKE] = "Gli scienziati sono contenti";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_4] = "Esplosione carina";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contiene un isotopo arricchito con amore";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_5] = "Relatività generale";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_5_JOKE] = "A volte 'no' vuole dire 'si'";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_6] = "Particella fondamentale dell'amore";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_6_JOKE] = "Il modello è perfetto, ma la realtà non si adatta a lui";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_7] = "Amore quantistico";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_7_JOKE] = "Cuori intrecciati";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_8] = "Violazione delle leggi fisiche";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_8_JOKE] = "Dentro questo laboratorio nessuno ti sentirà urlare";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_9] = "Tessuto spazio-temporale rotto";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_9_JOKE] = "Stiamo sviluppando un ago spazio-temporale per ripararlo";
 		ITALIAN_WORDS[LABORATORY_UPGRADE_10] = "LoveOS";
-		ITALIAN_WORDS[LABORATORY_UPGRADE_10_JOKE] = "The answer to your question is 69";
+		ITALIAN_WORDS[LABORATORY_UPGRADE_10_JOKE] = "La risposta alla tua domanda è 69";
 		
 		// SHOP
-		ITALIAN_WORDS[SHOP_NAME] = "Shop";
-		ITALIAN_WORDS[SHOP_DESCRIPTION] = "A shop where you can buy love at a reasonable price";
-		ITALIAN_WORDS[SHOP_UPGRADE_1] = "Selling affection";
-		ITALIAN_WORDS[SHOP_UPGRADE_1_JOKE] = "Now you can buy your happiness without commitments";
-		ITALIAN_WORDS[SHOP_UPGRADE_2] = "Crazy sales";
-		ITALIAN_WORDS[SHOP_UPGRADE_2_JOKE] = "For that price… gimme seven!";
-		ITALIAN_WORDS[SHOP_UPGRADE_3] = "Planned obsolescence";
-		ITALIAN_WORDS[SHOP_UPGRADE_3_JOKE] = "Our relationship has no future";
-		ITALIAN_WORDS[SHOP_UPGRADE_4] = "Disposable love";
-		ITALIAN_WORDS[SHOP_UPGRADE_4_JOKE] = "Piles of rubbish as far as the eye can see";
-		ITALIAN_WORDS[SHOP_UPGRADE_5] = "Product design";
-		ITALIAN_WORDS[SHOP_UPGRADE_5_JOKE] = "Awesome, now with 87% more packing!";
-		ITALIAN_WORDS[SHOP_UPGRADE_6] = "Invasive product placement";
-		ITALIAN_WORDS[SHOP_UPGRADE_6_JOKE] = "Enjoy incredible ads while you’re dreaming";
-		ITALIAN_WORDS[SHOP_UPGRADE_7] = "Imported love";
-		ITALIAN_WORDS[SHOP_UPGRADE_7_JOKE] = "Developed by the third world for our joy";
-		ITALIAN_WORDS[SHOP_UPGRADE_8] = "Make up new festivity";
-		ITALIAN_WORDS[SHOP_UPGRADE_8_JOKE] = "Consume more, you bastards";
-		ITALIAN_WORDS[SHOP_UPGRADE_9] = "Loveh*";
-		ITALIAN_WORDS[SHOP_UPGRADE_9_JOKE] = "Almost* like the original";
+		ITALIAN_WORDS[SHOP_NAME] = "Negozio";
+		ITALIAN_WORDS[SHOP_DESCRIPTION] = "Un negozio dove puoi comprare amore ad un prezzo ragionevole";
+		ITALIAN_WORDS[SHOP_UPGRADE_1] = "Vendendo affetto";
+		ITALIAN_WORDS[SHOP_UPGRADE_1_JOKE] = "Ora puoi comprare la tua felicità senza compromessi";
+		ITALIAN_WORDS[SHOP_UPGRADE_2] = "Saldi pazzeschi";
+		ITALIAN_WORDS[SHOP_UPGRADE_2_JOKE] = "Per quel prezzo… dammi sette";
+		ITALIAN_WORDS[SHOP_UPGRADE_3] = "Obsolencenza programmata";
+		ITALIAN_WORDS[SHOP_UPGRADE_3_JOKE] = "Il nostro rapporto non ha futuro";
+		ITALIAN_WORDS[SHOP_UPGRADE_4] = "Amore d’usa e getta";
+		ITALIAN_WORDS[SHOP_UPGRADE_4_JOKE] = "Montagne d’immondizia fin dove arriva lo sguardo";
+		ITALIAN_WORDS[SHOP_UPGRADE_5] = "Design di prodotto";
+		ITALIAN_WORDS[SHOP_UPGRADE_5_JOKE] = "Incredibile, ora con 87% più di imballaggio";
+		ITALIAN_WORDS[SHOP_UPGRADE_6] = "Annunci invadenti";
+		ITALIAN_WORDS[SHOP_UPGRADE_6_JOKE] = "Godati annunci incredibili mentre sogni";
+		ITALIAN_WORDS[SHOP_UPGRADE_7] = "Amore d’importazione";
+		ITALIAN_WORDS[SHOP_UPGRADE_7_JOKE] = "Fatto nel terzo mondo, per il nostro divertimento";
+		ITALIAN_WORDS[SHOP_UPGRADE_8] = "Inventare nuove festività";
+		ITALIAN_WORDS[SHOP_UPGRADE_8_JOKE] = "Consumate di più, bastardi";
+		ITALIAN_WORDS[SHOP_UPGRADE_9] = "Hamore*";
+		ITALIAN_WORDS[SHOP_UPGRADE_9_JOKE] = "Quasi* come il originale";
 		ITALIAN_WORDS[SHOP_UPGRADE_10] = "LoveCard®";
-		ITALIAN_WORDS[SHOP_UPGRADE_10_JOKE] = "There are things that love can’t buy, for everything else: LoveCard®";
+		ITALIAN_WORDS[SHOP_UPGRADE_10_JOKE] = "Ci sono cose che l’amore non può comprare, per tutto il resto: LoveCard®";
 		
 		// SPACESHIP
-		ITALIAN_WORDS[SPACESHIP_NAME] = "Spaceship";
-		ITALIAN_WORDS[SPACESHIP_DESCRIPTION] = "A spaceship to spread love to other galaxies";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_1] = "Astronaut dog";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_1_JOKE] = "Ouch, we forgot to give him his space food";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_2] = "Fake moon landing";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_2_JOKE] = "Raising the audience is also a giant leap";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_3] = "Cosmic jet";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_3_JOKE] = "Shake before use";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_4] = "Space junk";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_4_JOKE] = "Although you can throw it far away it’s not gonna disappear";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_5] = "International Space Station";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "Zero gravity opens up new possibilities, we must update the Holy Book of Love";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_6] = "Pacifist colonies";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Full of leftover hippies";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_7] = "Open up pink hole";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Crossing it can cause a tear in the space-time";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_8] = "Close Encounters of the Third Kind";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_8_JOKE] = "They are a bit stupid, but we must learn to love them - Signed: The Aliens";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_9] = "Faster than light";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_9_JOKE] = "Hyperspatial jumping is awesome until the day you crash into a star";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_10] = "Galactic Empire";
-		ITALIAN_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "May the love be with you";
+		ITALIAN_WORDS[SPACESHIP_NAME] = "Astronave";
+		ITALIAN_WORDS[SPACESHIP_DESCRIPTION] = "Un’astronave per espandere l’amore per altre galassie";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_1] = "Cane astronauta";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_1_JOKE] = "Ops, ci siamo dimenticati di inviargli cibo spaziale";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_2] = "Allunaggio finto";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_2_JOKE] = "Aumentare il pubblico può anche essere un grande passo";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_3] = "Getto cósmico";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_3_JOKE] = "Agitare prima dell’uso";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_4] = "Spazzatura spaziale";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_4_JOKE] = "Anche se la butti lontano, non scomparirà";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_5] = "Stazione Spaziale Internazionale";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "La gravità zero apre nuove possibilità, bisogna aggiornare il Libro Sacro dell’Amore";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_6] = "Colonie pacifiste";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Piene di hippies restanti";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_7] = "Aprire buco rosa";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Attravesarlo può causare uno strappo nello spazio-tempo";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_8] = "Incontri ravvicinati del terzo tipo";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_8_JOKE] = "Sono un po’ scemi, ma dovremo imparare a volergli bene – Firmato : Gli Alieni";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_9] = "Più veloce della luce";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_9_JOKE] = "Il salto iperspaziale è geniale finché un giorno ti schianti contro una stella";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_10] = "Impero Galattico";
+		ITALIAN_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "Che l’amore sia con te";
 		
 		// MORE MISCELLANEOUS
-		ITALIAN_WORDS[LANGUAGE_WORD] = "Language";
+		ITALIAN_WORDS[LANGUAGE_WORD] = "Lingua";
 		
 		
 		//END
