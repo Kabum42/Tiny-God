@@ -14,6 +14,7 @@ public class Lang {
 	public static int CATALAN_VALUE = 2;
 	public static int ITALIAN_VALUE = 3;
 	public static int FRENCH_VALUE = 4;
+	public static int ROMANIAN_VALUE = 5;
 	
 	public static String[][]LANGUAGES = new String[10][];
 	
@@ -22,6 +23,7 @@ public class Lang {
 	public static String[]CATALAN_WORDS = new String[300];
 	public static String[]ITALIAN_WORDS = new String[300];
 	public static String[]FRENCH_WORDS = new String[300];
+	public static String[]ROMANIAN_WORDS = new String[300];
 	
 	// MISCELLANEOUS
 	public static int TRANSLATOR_MALE = 				0;
@@ -298,6 +300,7 @@ public class Lang {
 		LANGUAGES[CATALAN_VALUE] = CATALAN_WORDS;
 		LANGUAGES[ITALIAN_VALUE] = ITALIAN_WORDS;
 		LANGUAGES[FRENCH_VALUE] = FRENCH_WORDS;
+		LANGUAGES[ROMANIAN_VALUE] = ROMANIAN_WORDS;
 		
 		/**ENGLISH**/
 		
@@ -1499,8 +1502,6 @@ public class Lang {
 		FRENCH_WORDS[SHIP_UPGRADE_10] = "La flotte invincible";
 		FRENCH_WORDS[SHIP_UPGRADE_10_JOKE] = "Totalement invincible";
 		
-		// TRANSLATION CHECKPOINT
-		
 		// FACTORY
 		FRENCH_WORDS[FACTORY_NAME] = "Usine";
 		FRENCH_WORDS[FACTORY_DESCRIPTION] = "Une usine pour produire de l’amour";
@@ -1599,6 +1600,268 @@ public class Lang {
 		
 		// MORE MISCELLANEOUS
 		FRENCH_WORDS[LANGUAGE_WORD] = "Language";
+		
+		
+		/**ROMANIAN**/
+		
+		// MISCELLANEOUS
+		ROMANIAN_WORDS[TRANSLATOR_MALE] = "Translator";
+		ROMANIAN_WORDS[TRANSLATOR_FEMALE] = "Translator";
+		ROMANIAN_WORDS[TRANSLATORS] = "Translatori";
+		ROMANIAN_WORDS[BUILDING] = "Clădire";
+		ROMANIAN_WORDS[BUILDINGS] = "Clădiri";
+		ROMANIAN_WORDS[UPGRADE] = "Îmbunătăţire";
+		ROMANIAN_WORDS[UPGRADES] = "Îmbunătăţiri";
+		ROMANIAN_WORDS[ACHIEVEMENT] = "Performanţă";
+		ROMANIAN_WORDS[ACHIEVEMENTS] = "Performanţe";
+		ROMANIAN_WORDS[LOVE_SINCE_BEGINNING_GAME] = "Dragostea de la începutul partidei";
+		ROMANIAN_WORDS[LOVE_SINCE_BEGINNING_TIMES] = "Dragostea de la începutul timpului";
+		ROMANIAN_WORDS[PRODUCTION_MULTIPLIER] = "Înmulţitorul producţiei";
+		ROMANIAN_WORDS[CURRENT_LOVE] = "Dragostea actualăe";
+		ROMANIAN_WORDS[LOVE_PER_CLICK] = "Dragoste pe click";
+		ROMANIAN_WORDS[CRITICAL_CLICK] = "Click critic";
+		ROMANIAN_WORDS[CRITICAL_CLICK_CHANCE] = "Probabilitate de click critic";
+		ROMANIAN_WORDS[NUMBER_OF_CLICKS] = "Număr de clicuri";
+		ROMANIAN_WORDS[NUMBER_OF_MIRACLES] = "Număr de miracole";
+		ROMANIAN_WORDS[GAIN_BASE_LOVE] = "X câştigă +Y de dragoste bază pe secundă";
+		ROMANIAN_WORDS[PRODUCE_TWICE_LOVE] = "X produce dublu de dragoste";
+		
+		// SERVANT
+		ROMANIAN_WORDS[SERVANT_NAME] = "Servitor";
+		ROMANIAN_WORDS[SERVANT_DESCRIPTION] = "Un servitor credincios/loial, îţi şopteşte lucruri frumoase";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_1] = "Nu eşti singur";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_1_JOKE] = "Eu voy avea grijă de tine";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_2] = "Duckface";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_2_JOKE] = "Adorabil de insuportabil";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_3] = "Lingvist";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_3_JOKE] = "Omnia uincit amor, et nos cedamus amori";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_4] = "Asigurare dentară";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_4_JOKE] = "Lisa are nevoie de un aparat dentar";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_5] = "Bâlbâială cronică";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_5_JOKE] = "Cu atâta bâlbâială nu ma aud gândind";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_6] = "Şoapte obraznice";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_6_JOKE] = "Spune-mi lucruri murdare";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_7] = "Blestem babilonic";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_7_JOKE] = "I-am învățat limbi pe care nu ințeleg pentru ai putea ignora";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_8] = "Dragoste, Zeu şi Rock&Roll";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_8_JOKE] = "Sfânta trinitate'";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_9] = "Voci în cap";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_9_JOKE] = "Îmi vorbești mie?";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_10] = "Trezirea";
+		ROMANIAN_WORDS[SERVANT_UPGRADE_10_JOKE] = "Treziţivă, fii mei'";
+		
+		// HUMAN
+		ROMANIAN_WORDS[HUMAN_NAME] = "Uman";
+		ROMANIAN_WORDS[HUMAN_DESCRIPTION] = "Un uman care nu ințelege foarte bine înțelepciunea ta, dar care se roaga ție oricum";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_1] = "Narcisist";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_1_JOKE] = "După chipul si asemănarea ta";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_2] = "Tovarăș de coastă";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_2_JOKE] = "E mai amuzant sa te joci însoțit";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_3] = "Lengerie vegetală";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_3_JOKE] = "Sexy și ecologică";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_4] = "Mărul cunoștinței";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_4_JOKE] = "Acum cunosc fanteziile tale";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_5] = "Plante afrodisiace";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_5_JOKE] = "Unde fizicul nu e suficient, lăsații chimiei";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_6] = "Pomul vieții eterne";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_6_JOKE] = "Cine vrea să trăiască pentru totdeauna?";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_7] = "Fanatici pro-viață";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_7_JOKE] = "Tot spermul este sacru";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_8] = "Sindicatul bărzilor";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_8_JOKE] = "Era necesar în acest moment";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_9] = "Maimuțe arogante";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_9_JOKE] = "Nici zei nici regi, doar omul";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_10] = "Soylent Green";
+		ROMANIAN_WORDS[HUMAN_UPGRADE_10_JOKE] = "100% reciclat";
+		
+		// SPECIAL HUMANS
+		ROMANIAN_WORDS[SPECIAL_HUMAN_1] = "Fanatic";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_1_JOKE] = "Dumnezeu exista pentru ca stă scris în carte, si cartea este cuvântul Domnului";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_2] = "Cruciat";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_2_JOKE] = "E doar o zgârietură, încă mai am un braț";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_3] = "Sclavagist";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_3_JOKE] = "O să le dăm un post de muncă fixă și câteodată până și mâncare, nu se pot plânge";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_4] = "Burghez";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_4_JOKE] = "Ce-i al meu este al meu, și ce-i al tău va fi al meu";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_5] = "Om de știință nebun";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_5_JOKE] = "Eu îi spun  L.A.S.E.R.’, Muajajajá";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_6] = "Televanghelist";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_6_JOKE] = "Aleluya, frate, transferența bancară nu va fi degeaba";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_7] = "Cyborg";
+		ROMANIAN_WORDS[SPECIAL_HUMAN_7_JOKE] = "Eu... am văzut lucruri care voi n-ați crede";
+		
+		// PROPHET
+		ROMANIAN_WORDS[PROPHET_NAME] = "Profet";
+		ROMANIAN_WORDS[PROPHET_DESCRIPTION] = "Un profet este un uman care ințelege și mai puțin, dar care gândește exact opus";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_1] = "Barba falsă";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_1_JOKE] = "Imprescindibil pentru lapidare";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_2] = "Oracol pesimist";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_2_JOKE] = "Vă dau afară în două săptămâni";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_3] = "Profeție apocaliptică";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_3_JOKE] = "Și când se va deschide al șaptelea sigiliu va spune … Trebuie să stăm de vorbă";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_4] = "Potop";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_4_JOKE] = "Salveaza două de fie care: două brunete, două roșcate și două blonde";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_5] = "Stea căzătoare";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_5_JOKE] = "Momentul se apropie";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_6] = "Duplicare miraculoasa";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_6_JOKE] = "Asta merge în contra legilor termidinami-TACI!";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_7] = "Învierea";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_7_JOKE] = "Ar trebui să-ți faci un duș după trei zile mort";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_8] = "Cartea Sacră a Dragostei";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_8_JOKE] = "Stai, pentru ce sunt toate aceste posturi?";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_9] = "Dragostologie";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_9_JOKE] = "Tot ce ai nevoie sa ști pentru al a evita";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_10] = "Competență neloiala";
+		ROMANIAN_WORDS[PROPHET_UPGRADE_10_JOKE] = "Daca dumnezeul lor ar fi real, nu iar fi salvat?";
+		
+		// TRANSLATION CHECKPOINT
+		
+		// TEMPLE
+		ROMANIAN_WORDS[TEMPLE_NAME] = "Temple";
+		ROMANIAN_WORDS[TEMPLE_DESCRIPTION] = "A temple in the name of love, more or less";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_1] = "Love Sanctuary";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_1_JOKE] = "A place to give and receive";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_2] = "Generous almsgiving";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_2_JOKE] = "It never has been easier to earn a living";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_3] = "Divine visions";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_3_JOKE] = "No more cheap wine";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_4] = "Obedient altar boys";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_4_JOKE] = "These kids make more bearable the long and hard... masses at the monastery";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_5] = "Remorseful sinners";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_5_JOKE] = "Get on your knees and earn your absolution";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_6] = "Elder in a dress";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_6_JOKE] = "I am the voice of God on earth";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_7] = "Witch hunt";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_7_JOKE] = "These ladies need affection desperately";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_8] = "Punish heretics";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_8_JOKE] = "You have to spank them gently";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_9] = "Repulsive relic";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_9_JOKE] = "I hope that's a wrinkled thumb...";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_10] = "Violent pilgrimage";
+		ROMANIAN_WORDS[TEMPLE_UPGRADE_10_JOKE] = "We’re going to the Land of Love and will kill whoever stands in our way";
+		
+		// SHIP
+		ROMANIAN_WORDS[SHIP_NAME] = "Ship";
+		ROMANIAN_WORDS[SHIP_DESCRIPTION] = "A ship to bring love across the seas";
+		ROMANIAN_WORDS[SHIP_UPGRADE_1] = "Into the unknown";
+		ROMANIAN_WORDS[SHIP_UPGRADE_1_JOKE] = "Honey, I’m going out for tobacco";
+		ROMANIAN_WORDS[SHIP_UPGRADE_2] = "Obscene figurehead";
+		ROMANIAN_WORDS[SHIP_UPGRADE_2_JOKE] = "The crew looks excited";
+		ROMANIAN_WORDS[SHIP_UPGRADE_3] = "Intercultural exchange";
+		ROMANIAN_WORDS[SHIP_UPGRADE_3_JOKE] = "Enjoy the Amazons' coconuts";
+		ROMANIAN_WORDS[SHIP_UPGRADE_4] = "Contagious love flu";
+		ROMANIAN_WORDS[SHIP_UPGRADE_4_JOKE] = "Love is in the air";
+		ROMANIAN_WORDS[SHIP_UPGRADE_5] = "The chosen ones";
+		ROMANIAN_WORDS[SHIP_UPGRADE_5_JOKE] = "One race to rule them all";
+		ROMANIAN_WORDS[SHIP_UPGRADE_6] = "Convert infidels";
+		ROMANIAN_WORDS[SHIP_UPGRADE_6_JOKE] = "Teach them how to love properly";
+		ROMANIAN_WORDS[SHIP_UPGRADE_7] = "Pleasurable whiplashes";
+		ROMANIAN_WORDS[SHIP_UPGRADE_7_JOKE] = "Now with heart-shaped bruises";
+		ROMANIAN_WORDS[SHIP_UPGRADE_8] = "Pirates ahoy!";
+		ROMANIAN_WORDS[SHIP_UPGRADE_8_JOKE] = "Arr! Stealing love is easier than earning it!";
+		ROMANIAN_WORDS[SHIP_UPGRADE_9] = "Paradise map";
+		ROMANIAN_WORDS[SHIP_UPGRADE_9_JOKE] = "Ideal to find the G spot,  I mean, to spot the X";
+		ROMANIAN_WORDS[SHIP_UPGRADE_10] = "Invincible Fleet";
+		ROMANIAN_WORDS[SHIP_UPGRADE_10_JOKE] = "Definitively invincible";
+		
+		// FACTORY
+		ROMANIAN_WORDS[FACTORY_NAME] = "Factory";
+		ROMANIAN_WORDS[FACTORY_DESCRIPTION] = "A factory to manufacture love";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_1] = "Teamwork";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_1_JOKE] = "You sweat and I supervise";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_2] = "Tiny hands";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_2_JOKE] = "Tiny workers to manage even the tiniest details";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_3] = "Lowered standards";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_3_JOKE] = "We will have to settle for this";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_4] = "Ignore nonsense";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_4_JOKE] = "Some workers demand sleep";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_5] = "Steam engines";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_5_JOKE] = "Increased production at the expense of a few accidents";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_6] = "Fair rights";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_6_JOKE] = "You have the right to shut up";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_7] = "Oversupply";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_7_JOKE] = "Don't stop me now";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_8] = "Toxic gas leaks";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_8_JOKE] = "Dead employees will be fired";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_9] = "Scab Monkeys";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_9_JOKE] = "They demand a lot of bananas, but do not demand any right";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_10] = "Acid Rivers";
+		ROMANIAN_WORDS[FACTORY_UPGRADE_10_JOKE] = "Catching fish bare-hands it’s easy when they float face up";
+		
+		// LABORATORY
+		ROMANIAN_WORDS[LABORATORY_NAME] = "Laboratory";
+		ROMANIAN_WORDS[LABORATORY_DESCRIPTION] = "A laboratory to understand the nature of love";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_1] = "First patent";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_1_JOKE] = "A revolutionary device, but it needs a lot of lube";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_2] = "Brilliant minds";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_2_JOKE] = "We invented a lot of things, but now we have to figure what are they for";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_3] = "Robo-maid";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_3_JOKE] = "Scientists are very pleased";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_4] = "Cute explosion";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contains an enriched isotope love";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_5] = "General relativity";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes 'no' means 'yes'";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_6] = "Love fundamental particle";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_6_JOKE] = "The model is perfect, but reality doesn’t fit well in it";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_7] = "Quantum love";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_7_JOKE] = "Entangled hearts";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_8] = "Violation of physical laws";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_8_JOKE] = "Inside this lab nobody will hear you scream";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_9] = "Broken spatiotemporal fabric";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_9_JOKE] = "We are developing a spatiotemporal needle to patch it";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_10] = "LoveOS";
+		ROMANIAN_WORDS[LABORATORY_UPGRADE_10_JOKE] = "The answer to your question is 69";
+		
+		// SHOP
+		ROMANIAN_WORDS[SHOP_NAME] = "Shop";
+		ROMANIAN_WORDS[SHOP_DESCRIPTION] = "A shop where you can buy love at a reasonable price";
+		ROMANIAN_WORDS[SHOP_UPGRADE_1] = "Selling affection";
+		ROMANIAN_WORDS[SHOP_UPGRADE_1_JOKE] = "Now you can buy your happiness without commitments";
+		ROMANIAN_WORDS[SHOP_UPGRADE_2] = "Crazy sales";
+		ROMANIAN_WORDS[SHOP_UPGRADE_2_JOKE] = "For that price… gimme seven!";
+		ROMANIAN_WORDS[SHOP_UPGRADE_3] = "Planned obsolescence";
+		ROMANIAN_WORDS[SHOP_UPGRADE_3_JOKE] = "Our relationship has no future";
+		ROMANIAN_WORDS[SHOP_UPGRADE_4] = "Disposable love";
+		ROMANIAN_WORDS[SHOP_UPGRADE_4_JOKE] = "Piles of rubbish as far as the eye can see";
+		ROMANIAN_WORDS[SHOP_UPGRADE_5] = "Product design";
+		ROMANIAN_WORDS[SHOP_UPGRADE_5_JOKE] = "Awesome, now with 87% more packing!";
+		ROMANIAN_WORDS[SHOP_UPGRADE_6] = "Invasive product placement";
+		ROMANIAN_WORDS[SHOP_UPGRADE_6_JOKE] = "Enjoy incredible ads while you’re dreaming";
+		ROMANIAN_WORDS[SHOP_UPGRADE_7] = "Imported love";
+		ROMANIAN_WORDS[SHOP_UPGRADE_7_JOKE] = "Developed by the third world for our joy";
+		ROMANIAN_WORDS[SHOP_UPGRADE_8] = "Make up new festivity";
+		ROMANIAN_WORDS[SHOP_UPGRADE_8_JOKE] = "Consume more, you bastards";
+		ROMANIAN_WORDS[SHOP_UPGRADE_9] = "Loveh*";
+		ROMANIAN_WORDS[SHOP_UPGRADE_9_JOKE] = "Almost* like the original";
+		ROMANIAN_WORDS[SHOP_UPGRADE_10] = "LoveCard®";
+		ROMANIAN_WORDS[SHOP_UPGRADE_10_JOKE] = "There are things that love can’t buy, for everything else: LoveCard®";
+		
+		// SPACESHIP
+		ROMANIAN_WORDS[SPACESHIP_NAME] = "Spaceship";
+		ROMANIAN_WORDS[SPACESHIP_DESCRIPTION] = "A spaceship to spread love to other galaxies";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_1] = "Astronaut dog";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_1_JOKE] = "Ouch, we forgot to give him his space food";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_2] = "Fake moon landing";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_2_JOKE] = "Raising the audience is also a giant leap";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_3] = "Cosmic jet";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_3_JOKE] = "Shake before use";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_4] = "Space junk";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_4_JOKE] = "Although you can throw it far away it’s not gonna disappear";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_5] = "International Space Station";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "Zero gravity opens up new possibilities, we must update the Holy Book of Love";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_6] = "Pacifist colonies";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Full of leftover hippies";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_7] = "Open up pink hole";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Crossing it can cause a tear in the space-time";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_8] = "Close Encounters of the Third Kind";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_8_JOKE] = "They are a bit stupid, but we must learn to love them - Signed: The Aliens";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_9] = "Faster than light";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_9_JOKE] = "Hyperspatial jumping is awesome until the day you crash into a star";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_10] = "Galactic Empire";
+		ROMANIAN_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "May the love be with you";
+		
+		// MORE MISCELLANEOUS
+		ROMANIAN_WORDS[LANGUAGE_WORD] = "Language";
 		
 		
 		//END
