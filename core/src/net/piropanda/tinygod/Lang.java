@@ -15,15 +15,19 @@ public class Lang {
 	public static int ITALIAN_VALUE = 3;
 	public static int FRENCH_VALUE = 4;
 	public static int ROMANIAN_VALUE = 5;
+	public static int GERMAN_VALUE = 6;
 	
 	public static String[][]LANGUAGES = new String[10][];
 	
-	public static String[]ENGLISH_WORDS = new String[300];
-	public static String[]SPANISH_WORDS = new String[300];
-	public static String[]CATALAN_WORDS = new String[300];
-	public static String[]ITALIAN_WORDS = new String[300];
-	public static String[]FRENCH_WORDS = new String[300];
-	public static String[]ROMANIAN_WORDS = new String[300];
+	public static int amount_words = 300;
+	
+	public static String[]ENGLISH_WORDS = new String[amount_words];
+	public static String[]SPANISH_WORDS = new String[amount_words];
+	public static String[]CATALAN_WORDS = new String[amount_words];
+	public static String[]ITALIAN_WORDS = new String[amount_words];
+	public static String[]FRENCH_WORDS = new String[amount_words];
+	public static String[]ROMANIAN_WORDS = new String[amount_words];
+	public static String[]GERMAN_WORDS = new String[amount_words];
 	
 	// MISCELLANEOUS
 	public static int TRANSLATOR_MALE = 				0;
@@ -93,7 +97,7 @@ public class Lang {
 	public static int HUMAN_UPGRADE_9 = 				60;
 	public static int HUMAN_UPGRADE_9_JOKE = 			61;
 	public static int HUMAN_UPGRADE_10 = 				62;
-	public static int HUMAN_UPGRADE_10_JOKE =  		63;
+	public static int HUMAN_UPGRADE_10_JOKE =  			63;
 	
 	// SPECIAL_HUMANS
 	public static int SPECIAL_HUMAN_1 = 				64;
@@ -301,6 +305,7 @@ public class Lang {
 		LANGUAGES[ITALIAN_VALUE] = ITALIAN_WORDS;
 		LANGUAGES[FRENCH_VALUE] = FRENCH_WORDS;
 		LANGUAGES[ROMANIAN_VALUE] = ROMANIAN_WORDS;
+		LANGUAGES[GERMAN_VALUE] = GERMAN_WORDS;
 		
 		/**ENGLISH**/
 		
@@ -388,7 +393,7 @@ public class Lang {
 		ENGLISH_WORDS[SPECIAL_HUMAN_6] = "Televangelist";
 		ENGLISH_WORDS[SPECIAL_HUMAN_6_JOKE] = "Hallelujah, brother, your bank transfer won’t be in vain";
 		ENGLISH_WORDS[SPECIAL_HUMAN_7] = "Cyborg";
-		ENGLISH_WORDS[SPECIAL_HUMAN_7_JOKE] = "I have… seen things you people wouldn't believe";
+		ENGLISH_WORDS[SPECIAL_HUMAN_7_JOKE] = "I have... seen things you people wouldn't believe";
 		
 		// PROPHET
 		ENGLISH_WORDS[PROPHET_NAME] = "Prophet";
@@ -1786,8 +1791,6 @@ public class Lang {
 		ROMANIAN_WORDS[FACTORY_UPGRADE_10] = "Râuri acide";
 		ROMANIAN_WORDS[FACTORY_UPGRADE_10_JOKE] = "A vâna pești cu mâinile e ușor când plutesc cu fața în sus";
 		
-		// TRANSLATION CHECKPOINT
-		
 		// LABORATORY
 		ROMANIAN_WORDS[LABORATORY_NAME] = "Laborator";
 		ROMANIAN_WORDS[LABORATORY_DESCRIPTION] = "Un laborator pentru a înțelege natura dragostei";
@@ -1862,6 +1865,268 @@ public class Lang {
 		
 		// MORE MISCELLANEOUS
 		ROMANIAN_WORDS[LANGUAGE_WORD] = "Language";
+		
+		
+		/**GERMAN**/
+		
+		// MISCELLANEOUS
+		GERMAN_WORDS[TRANSLATOR_MALE] = "Übersetzer";
+		GERMAN_WORDS[TRANSLATOR_FEMALE] = "Übersetzer";
+		GERMAN_WORDS[TRANSLATORS] = "Übersetzer";
+		GERMAN_WORDS[BUILDING] = "Gebäude";
+		GERMAN_WORDS[BUILDINGS] = "Gebäude";
+		GERMAN_WORDS[UPGRADE] = "Upgrade";
+		GERMAN_WORDS[UPGRADES] = "Upgrade";
+		GERMAN_WORDS[ACHIEVEMENT] = "Leistung";
+		GERMAN_WORDS[ACHIEVEMENTS] = "Leistungen";
+		GERMAN_WORDS[LOVE_SINCE_BEGINNING_GAME] = "Liebe seit dem beginn des spiels";
+		GERMAN_WORDS[LOVE_SINCE_BEGINNING_TIMES] = "Liebe seit dem beginn der zeit";
+		GERMAN_WORDS[PRODUCTION_MULTIPLIER] = "Produktionsmultiplikator";
+		GERMAN_WORDS[CURRENT_LOVE] = "Aktuelle liebe";
+		GERMAN_WORDS[LOVE_PER_CLICK] = "Liebe pro klick";
+		GERMAN_WORDS[CRITICAL_CLICK] = "Kritischer klick";
+		GERMAN_WORDS[CRITICAL_CLICK_CHANCE] = "Chance auf einen kritischen klick";
+		GERMAN_WORDS[NUMBER_OF_CLICKS] = "Anzahl der kritischen klicks";
+		GERMAN_WORDS[NUMBER_OF_MIRACLES] = "Anzahl der wunder";
+		GERMAN_WORDS[GAIN_BASE_LOVE] = "X Gewinn +Y basis-liebe pro sekunde";
+		GERMAN_WORDS[PRODUCE_TWICE_LOVE] = "X produziert das doppelte an liebe";
+		
+		// SERVANT
+		GERMAN_WORDS[SERVANT_NAME] = "Diener";
+		GERMAN_WORDS[SERVANT_DESCRIPTION] = "Ein loyaler diener flüstert dir schöne dinge";
+		GERMAN_WORDS[SERVANT_UPGRADE_1] = "Du bist nicht allein";
+		GERMAN_WORDS[SERVANT_UPGRADE_1_JOKE] = "Ich werde auf dich aufpassen";
+		GERMAN_WORDS[SERVANT_UPGRADE_2] = "Entengesicht";
+		GERMAN_WORDS[SERVANT_UPGRADE_2_JOKE] = "Liebenswürdig unausstehbar";
+		GERMAN_WORDS[SERVANT_UPGRADE_3] = "Polyglot";
+		GERMAN_WORDS[SERVANT_UPGRADE_3_JOKE] = "Omnia uincit amor, et nos cedamus amori";
+		GERMAN_WORDS[SERVANT_UPGRADE_4] = "Zahnversicherung";
+		GERMAN_WORDS[SERVANT_UPGRADE_4_JOKE] = "Lisa braucht eine Zahnspange";
+		GERMAN_WORDS[SERVANT_UPGRADE_5] = "Chronisches stottern";
+		GERMAN_WORDS[SERVANT_UPGRADE_5_JOKE] = "Mit dem ganzen gebabbel kann ich mich selbst nicht denken hören";
+		GERMAN_WORDS[SERVANT_UPGRADE_6] = "Schmutziges geflüster";
+		GERMAN_WORDS[SERVANT_UPGRADE_6_JOKE] = "Rede dreckig mit mir";
+		GERMAN_WORDS[SERVANT_UPGRADE_7] = "Fluch des Babylon";
+		GERMAN_WORDS[SERVANT_UPGRADE_7_JOKE] = "Ich habe ihnen sprachen beigebracht die ich nicht verstehe, sodass ich sie ignorieren kann";
+		GERMAN_WORDS[SERVANT_UPGRADE_8] = "Liebe, Gott & Rock n' roll";
+		GERMAN_WORDS[SERVANT_UPGRADE_8_JOKE] = "Die heilige Dreifaltigkeit";
+		GERMAN_WORDS[SERVANT_UPGRADE_9] = "Stimmen im kopf";
+		GERMAN_WORDS[SERVANT_UPGRADE_9_JOKE] = "Redest du mit mir?";
+		GERMAN_WORDS[SERVANT_UPGRADE_10] = "Erwachen";
+		GERMAN_WORDS[SERVANT_UPGRADE_10_JOKE] = "Wacht auf, meine kinder";
+		
+		// HUMAN
+		GERMAN_WORDS[HUMAN_NAME] = "Mensch";
+		GERMAN_WORDS[HUMAN_DESCRIPTION] = "Ein mensch, der deine weisheit nicht gut versteht, aber dich dennoch anbetet";
+		GERMAN_WORDS[HUMAN_UPGRADE_1] = "Narzist";
+		GERMAN_WORDS[HUMAN_UPGRADE_1_JOKE] = "Nach deinem eigenen bild und ähnlichkeit";
+		GERMAN_WORDS[HUMAN_UPGRADE_2] = "Rippenbegleitung";
+		GERMAN_WORDS[HUMAN_UPGRADE_2_JOKE] = "Es ist witziger mit jemand anderem zu spielen";
+		GERMAN_WORDS[HUMAN_UPGRADE_3] = "Vegetarische lingerie";
+		GERMAN_WORDS[HUMAN_UPGRADE_3_JOKE] = "Sexy und ökologisch";
+		GERMAN_WORDS[HUMAN_UPGRADE_4] = "Apfel des wissens";
+		GERMAN_WORDS[HUMAN_UPGRADE_4_JOKE] = "Jetzt kenne ich deine fantasien";
+		GERMAN_WORDS[HUMAN_UPGRADE_5] = "Aphrodisiakische pflanzen";
+		GERMAN_WORDS[HUMAN_UPGRADE_5_JOKE] = "Wo physik nicht genug ist, muss chemie aushelfen";
+		GERMAN_WORDS[HUMAN_UPGRADE_6] = "Baum des ewigen lebens";
+		GERMAN_WORDS[HUMAN_UPGRADE_6_JOKE] = "Wer möchte für immer leben?";
+		GERMAN_WORDS[HUMAN_UPGRADE_7] = "Pro-leben fanatiker";
+		GERMAN_WORDS[HUMAN_UPGRADE_7_JOKE] = "Jedes sperma ist heilig";
+		GERMAN_WORDS[HUMAN_UPGRADE_8] = "Klapperstorchvereinigung";
+		GERMAN_WORDS[HUMAN_UPGRADE_8_JOKE] = "Es war nötig zu der zeit";
+		GERMAN_WORDS[HUMAN_UPGRADE_9] = "Arrogante affen";
+		GERMAN_WORDS[HUMAN_UPGRADE_9_JOKE] = "Keine götter oder könige, nur der mann";
+		GERMAN_WORDS[HUMAN_UPGRADE_10] = "Soylent Green";
+		GERMAN_WORDS[HUMAN_UPGRADE_10_JOKE] = "100% recycled";
+		
+		// SPECIAL HUMANS
+		GERMAN_WORDS[SPECIAL_HUMAN_1] = "Eiferer";
+		GERMAN_WORDS[SPECIAL_HUMAN_1_JOKE] = "Gott existiert weil es in dem buch steht und das buch ist Gottes wort";
+		GERMAN_WORDS[SPECIAL_HUMAN_2] = "Kreuzritter";
+		GERMAN_WORDS[SPECIAL_HUMAN_2_JOKE] = "Das ist nur ein kratzer, ich habe noch einen anderen arm";
+		GERMAN_WORDS[SPECIAL_HUMAN_3] = "Sklavenführer";
+		GERMAN_WORDS[SPECIAL_HUMAN_3_JOKE] = "Wir geben ihnen einen festen job und manchmal sogar essen, sie können sich nicht beschweren";
+		GERMAN_WORDS[SPECIAL_HUMAN_4] = "Bourgeois";
+		GERMAN_WORDS[SPECIAL_HUMAN_4_JOKE] = "Was meins ist, ist meins und was dir gehört wird sehr bald meins";
+		GERMAN_WORDS[SPECIAL_HUMAN_5] = "Verrücker wissenschaftler";
+		GERMAN_WORDS[SPECIAL_HUMAN_5_JOKE] = "Ich nenne es den 'L.A.S.E.R'";
+		GERMAN_WORDS[SPECIAL_HUMAN_6] = "Teleprediger";
+		GERMAN_WORDS[SPECIAL_HUMAN_6_JOKE] = "Hallelujah, bruder, deine banküberweisung wird nicht vergeblich sein";
+		GERMAN_WORDS[SPECIAL_HUMAN_7] = "Cyborg";
+		GERMAN_WORDS[SPECIAL_HUMAN_7_JOKE] = "Ich habe... Dinge gesehen, die ihr nicht glauben werdet";
+		
+		// PROPHET
+		GERMAN_WORDS[PROPHET_NAME] = "Prophet";
+		GERMAN_WORDS[PROPHET_DESCRIPTION] = "Ein prophet ist ein mensch, welcher noch weniger versteht aber genau das gegenteil denkt";
+		GERMAN_WORDS[PROPHET_UPGRADE_1] = "Falscher bart";
+		GERMAN_WORDS[PROPHET_UPGRADE_1_JOKE] = "Essentiell für das steinigen";
+		GERMAN_WORDS[PROPHET_UPGRADE_2] = "Pessimistisches orakel";
+		GERMAN_WORDS[PROPHET_UPGRADE_2_JOKE] = "Ich denke ihr bleibt für zwei wochen bestehen";
+		GERMAN_WORDS[PROPHET_UPGRADE_3] = "Apokalyptische prophezeiung";
+		GERMAN_WORDS[PROPHET_UPGRADE_3_JOKE] = "Und wenn sich das siebte siegel öffnet wird sie sagen: ...wir müssen reden";
+		GERMAN_WORDS[PROPHET_UPGRADE_4] = "Die sintflut";
+		GERMAN_WORDS[PROPHET_UPGRADE_4_JOKE] = "Rette zwei jeder art: zwei brünetten, zwei rothaarige und zwei blondinen";
+		GERMAN_WORDS[PROPHET_UPGRADE_5] = "Sternschnuppe";
+		GERMAN_WORDS[PROPHET_UPGRADE_5_JOKE] = "Der moment naht";
+		GERMAN_WORDS[PROPHET_UPGRADE_6] = "Wunderbare duplikation";
+		GERMAN_WORDS[PROPHET_UPGRADE_6_JOKE] = "Dies ist gegen die gesetze der thermodynamik–HALT DIE KLAPPE!";
+		GERMAN_WORDS[PROPHET_UPGRADE_7] = "Wiederauferstehung";
+		GERMAN_WORDS[PROPHET_UPGRADE_7_JOKE] = "Du solltest dich nach drei tagen als toter mal duschen";
+		GERMAN_WORDS[PROPHET_UPGRADE_8] = "Heiliges buch der liebe";
+		GERMAN_WORDS[PROPHET_UPGRADE_8_JOKE] = "Halt, wofür sind all diese positionen?";
+		GERMAN_WORDS[PROPHET_UPGRADE_9] = "Liebeslogie";
+		GERMAN_WORDS[PROPHET_UPGRADE_9_JOKE] = "Alles was du brauchst, um es zu vermeiden!";
+		GERMAN_WORDS[PROPHET_UPGRADE_10] = "Unfairer wettkampf";
+		GERMAN_WORDS[PROPHET_UPGRADE_10_JOKE] = "Wenn ihr Gott real wäre, warum hat er sie nicht gerettet?";
+		
+		// TRANSLATION CHECKPOINT
+		
+		// TEMPLE
+		GERMAN_WORDS[TEMPLE_NAME] = "Temple";
+		GERMAN_WORDS[TEMPLE_DESCRIPTION] = "A temple in the name of love, more or less";
+		GERMAN_WORDS[TEMPLE_UPGRADE_1] = "Love Sanctuary";
+		GERMAN_WORDS[TEMPLE_UPGRADE_1_JOKE] = "A place to give and receive";
+		GERMAN_WORDS[TEMPLE_UPGRADE_2] = "Generous almsgiving";
+		GERMAN_WORDS[TEMPLE_UPGRADE_2_JOKE] = "It never has been easier to earn a living";
+		GERMAN_WORDS[TEMPLE_UPGRADE_3] = "Divine visions";
+		GERMAN_WORDS[TEMPLE_UPGRADE_3_JOKE] = "No more cheap wine";
+		GERMAN_WORDS[TEMPLE_UPGRADE_4] = "Obedient altar boys";
+		GERMAN_WORDS[TEMPLE_UPGRADE_4_JOKE] = "These kids make more bearable the long and hard... masses at the monastery";
+		GERMAN_WORDS[TEMPLE_UPGRADE_5] = "Remorseful sinners";
+		GERMAN_WORDS[TEMPLE_UPGRADE_5_JOKE] = "Get on your knees and earn your absolution";
+		GERMAN_WORDS[TEMPLE_UPGRADE_6] = "Elder in a dress";
+		GERMAN_WORDS[TEMPLE_UPGRADE_6_JOKE] = "I am the voice of God on earth";
+		GERMAN_WORDS[TEMPLE_UPGRADE_7] = "Witch hunt";
+		GERMAN_WORDS[TEMPLE_UPGRADE_7_JOKE] = "These ladies need affection desperately";
+		GERMAN_WORDS[TEMPLE_UPGRADE_8] = "Punish heretics";
+		GERMAN_WORDS[TEMPLE_UPGRADE_8_JOKE] = "You have to spank them gently";
+		GERMAN_WORDS[TEMPLE_UPGRADE_9] = "Repulsive relic";
+		GERMAN_WORDS[TEMPLE_UPGRADE_9_JOKE] = "I hope that's a wrinkled thumb...";
+		GERMAN_WORDS[TEMPLE_UPGRADE_10] = "Violent pilgrimage";
+		GERMAN_WORDS[TEMPLE_UPGRADE_10_JOKE] = "We’re going to the Land of Love and will kill whoever stands in our way";
+		
+		// SHIP
+		GERMAN_WORDS[SHIP_NAME] = "Ship";
+		GERMAN_WORDS[SHIP_DESCRIPTION] = "A ship to bring love across the seas";
+		GERMAN_WORDS[SHIP_UPGRADE_1] = "Into the unknown";
+		GERMAN_WORDS[SHIP_UPGRADE_1_JOKE] = "Honey, I’m going out for tobacco";
+		GERMAN_WORDS[SHIP_UPGRADE_2] = "Obscene figurehead";
+		GERMAN_WORDS[SHIP_UPGRADE_2_JOKE] = "The crew looks excited";
+		GERMAN_WORDS[SHIP_UPGRADE_3] = "Intercultural exchange";
+		GERMAN_WORDS[SHIP_UPGRADE_3_JOKE] = "Enjoy the Amazons' coconuts";
+		GERMAN_WORDS[SHIP_UPGRADE_4] = "Contagious love flu";
+		GERMAN_WORDS[SHIP_UPGRADE_4_JOKE] = "Love is in the air";
+		GERMAN_WORDS[SHIP_UPGRADE_5] = "The chosen ones";
+		GERMAN_WORDS[SHIP_UPGRADE_5_JOKE] = "One race to rule them all";
+		GERMAN_WORDS[SHIP_UPGRADE_6] = "Convert infidels";
+		GERMAN_WORDS[SHIP_UPGRADE_6_JOKE] = "Teach them how to love properly";
+		GERMAN_WORDS[SHIP_UPGRADE_7] = "Pleasurable whiplashes";
+		GERMAN_WORDS[SHIP_UPGRADE_7_JOKE] = "Now with heart-shaped bruises";
+		GERMAN_WORDS[SHIP_UPGRADE_8] = "Pirates ahoy!";
+		GERMAN_WORDS[SHIP_UPGRADE_8_JOKE] = "Arr! Stealing love is easier than earning it!";
+		GERMAN_WORDS[SHIP_UPGRADE_9] = "Paradise map";
+		GERMAN_WORDS[SHIP_UPGRADE_9_JOKE] = "Ideal to find the G spot,  I mean, to spot the X";
+		GERMAN_WORDS[SHIP_UPGRADE_10] = "Invincible Fleet";
+		GERMAN_WORDS[SHIP_UPGRADE_10_JOKE] = "Definitively invincible";
+		
+		// FACTORY
+		GERMAN_WORDS[FACTORY_NAME] = "Factory";
+		GERMAN_WORDS[FACTORY_DESCRIPTION] = "A factory to manufacture love";
+		GERMAN_WORDS[FACTORY_UPGRADE_1] = "Teamwork";
+		GERMAN_WORDS[FACTORY_UPGRADE_1_JOKE] = "You sweat and I supervise";
+		GERMAN_WORDS[FACTORY_UPGRADE_2] = "Tiny hands";
+		GERMAN_WORDS[FACTORY_UPGRADE_2_JOKE] = "Tiny workers to manage even the tiniest details";
+		GERMAN_WORDS[FACTORY_UPGRADE_3] = "Lowered standards";
+		GERMAN_WORDS[FACTORY_UPGRADE_3_JOKE] = "We will have to settle for this";
+		GERMAN_WORDS[FACTORY_UPGRADE_4] = "Ignore nonsense";
+		GERMAN_WORDS[FACTORY_UPGRADE_4_JOKE] = "Some workers demand sleep";
+		GERMAN_WORDS[FACTORY_UPGRADE_5] = "Steam engines";
+		GERMAN_WORDS[FACTORY_UPGRADE_5_JOKE] = "Increased production at the expense of a few accidents";
+		GERMAN_WORDS[FACTORY_UPGRADE_6] = "Fair rights";
+		GERMAN_WORDS[FACTORY_UPGRADE_6_JOKE] = "You have the right to shut up";
+		GERMAN_WORDS[FACTORY_UPGRADE_7] = "Oversupply";
+		GERMAN_WORDS[FACTORY_UPGRADE_7_JOKE] = "Don't stop me now";
+		GERMAN_WORDS[FACTORY_UPGRADE_8] = "Toxic gas leaks";
+		GERMAN_WORDS[FACTORY_UPGRADE_8_JOKE] = "Dead employees will be fired";
+		GERMAN_WORDS[FACTORY_UPGRADE_9] = "Scab Monkeys";
+		GERMAN_WORDS[FACTORY_UPGRADE_9_JOKE] = "They demand a lot of bananas, but do not demand any right";
+		GERMAN_WORDS[FACTORY_UPGRADE_10] = "Acid Rivers";
+		GERMAN_WORDS[FACTORY_UPGRADE_10_JOKE] = "Catching fish bare-hands it’s easy when they float face up";
+		
+		// LABORATORY
+		GERMAN_WORDS[LABORATORY_NAME] = "Laboratory";
+		GERMAN_WORDS[LABORATORY_DESCRIPTION] = "A laboratory to understand the nature of love";
+		GERMAN_WORDS[LABORATORY_UPGRADE_1] = "First patent";
+		GERMAN_WORDS[LABORATORY_UPGRADE_1_JOKE] = "A revolutionary device, but it needs a lot of lube";
+		GERMAN_WORDS[LABORATORY_UPGRADE_2] = "Brilliant minds";
+		GERMAN_WORDS[LABORATORY_UPGRADE_2_JOKE] = "We invented a lot of things, but now we have to figure what are they for";
+		GERMAN_WORDS[LABORATORY_UPGRADE_3] = "Robo-maid";
+		GERMAN_WORDS[LABORATORY_UPGRADE_3_JOKE] = "Scientists are very pleased";
+		GERMAN_WORDS[LABORATORY_UPGRADE_4] = "Cute explosion";
+		GERMAN_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contains an enriched isotope love";
+		GERMAN_WORDS[LABORATORY_UPGRADE_5] = "General relativity";
+		GERMAN_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes 'no' means 'yes'";
+		GERMAN_WORDS[LABORATORY_UPGRADE_6] = "Love fundamental particle";
+		GERMAN_WORDS[LABORATORY_UPGRADE_6_JOKE] = "The model is perfect, but reality doesn’t fit well in it";
+		GERMAN_WORDS[LABORATORY_UPGRADE_7] = "Quantum love";
+		GERMAN_WORDS[LABORATORY_UPGRADE_7_JOKE] = "Entangled hearts";
+		GERMAN_WORDS[LABORATORY_UPGRADE_8] = "Violation of physical laws";
+		GERMAN_WORDS[LABORATORY_UPGRADE_8_JOKE] = "Inside this lab nobody will hear you scream";
+		GERMAN_WORDS[LABORATORY_UPGRADE_9] = "Broken spatiotemporal fabric";
+		GERMAN_WORDS[LABORATORY_UPGRADE_9_JOKE] = "We are developing a spatiotemporal needle to patch it";
+		GERMAN_WORDS[LABORATORY_UPGRADE_10] = "LoveOS";
+		GERMAN_WORDS[LABORATORY_UPGRADE_10_JOKE] = "The answer to your question is 69";
+		
+		// SHOP
+		GERMAN_WORDS[SHOP_NAME] = "Shop";
+		GERMAN_WORDS[SHOP_DESCRIPTION] = "A shop where you can buy love at a reasonable price";
+		GERMAN_WORDS[SHOP_UPGRADE_1] = "Selling affection";
+		GERMAN_WORDS[SHOP_UPGRADE_1_JOKE] = "Now you can buy your happiness without commitments";
+		GERMAN_WORDS[SHOP_UPGRADE_2] = "Crazy sales";
+		GERMAN_WORDS[SHOP_UPGRADE_2_JOKE] = "For that price… gimme seven!";
+		GERMAN_WORDS[SHOP_UPGRADE_3] = "Planned obsolescence";
+		GERMAN_WORDS[SHOP_UPGRADE_3_JOKE] = "Our relationship has no future";
+		GERMAN_WORDS[SHOP_UPGRADE_4] = "Disposable love";
+		GERMAN_WORDS[SHOP_UPGRADE_4_JOKE] = "Piles of rubbish as far as the eye can see";
+		GERMAN_WORDS[SHOP_UPGRADE_5] = "Product design";
+		GERMAN_WORDS[SHOP_UPGRADE_5_JOKE] = "Awesome, now with 87% more packing!";
+		GERMAN_WORDS[SHOP_UPGRADE_6] = "Invasive product placement";
+		GERMAN_WORDS[SHOP_UPGRADE_6_JOKE] = "Enjoy incredible ads while you’re dreaming";
+		GERMAN_WORDS[SHOP_UPGRADE_7] = "Imported love";
+		GERMAN_WORDS[SHOP_UPGRADE_7_JOKE] = "Developed by the third world for our joy";
+		GERMAN_WORDS[SHOP_UPGRADE_8] = "Make up new festivity";
+		GERMAN_WORDS[SHOP_UPGRADE_8_JOKE] = "Consume more, you bastards";
+		GERMAN_WORDS[SHOP_UPGRADE_9] = "Loveh*";
+		GERMAN_WORDS[SHOP_UPGRADE_9_JOKE] = "Almost* like the original";
+		GERMAN_WORDS[SHOP_UPGRADE_10] = "LoveCard®";
+		GERMAN_WORDS[SHOP_UPGRADE_10_JOKE] = "There are things that love can’t buy, for everything else: LoveCard®";
+		
+		// SPACESHIP
+		GERMAN_WORDS[SPACESHIP_NAME] = "Spaceship";
+		GERMAN_WORDS[SPACESHIP_DESCRIPTION] = "A spaceship to spread love to other galaxies";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_1] = "Astronaut dog";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_1_JOKE] = "Ouch, we forgot to give him his space food";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_2] = "Fake moon landing";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_2_JOKE] = "Raising the audience is also a giant leap";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_3] = "Cosmic jet";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_3_JOKE] = "Shake before use";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_4] = "Space junk";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_4_JOKE] = "Although you can throw it far away it’s not gonna disappear";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_5] = "International Space Station";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "Zero gravity opens up new possibilities, we must update the Holy Book of Love";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_6] = "Pacifist colonies";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Full of leftover hippies";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_7] = "Open up pink hole";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Crossing it can cause a tear in the space-time";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_8] = "Close Encounters of the Third Kind";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_8_JOKE] = "They are a bit stupid, but we must learn to love them - Signed: The Aliens";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_9] = "Faster than light";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_9_JOKE] = "Hyperspatial jumping is awesome until the day you crash into a star";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_10] = "Galactic Empire";
+		GERMAN_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "May the love be with you";
+		
+		// MORE MISCELLANEOUS
+		GERMAN_WORDS[LANGUAGE_WORD] = "Language";
 		
 		
 		//END
