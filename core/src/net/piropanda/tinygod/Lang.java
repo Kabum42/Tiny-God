@@ -16,6 +16,7 @@ public class Lang {
 	public static int FRENCH_VALUE = 4;
 	public static int ROMANIAN_VALUE = 5;
 	public static int GERMAN_VALUE = 6;
+	public static int RUSSIAN_VALUE = 7;
 	
 	public static String[][]LANGUAGES = new String[10][];
 	
@@ -28,6 +29,7 @@ public class Lang {
 	public static String[]FRENCH_WORDS = new String[amount_words];
 	public static String[]ROMANIAN_WORDS = new String[amount_words];
 	public static String[]GERMAN_WORDS = new String[amount_words];
+	public static String[]RUSSIAN_WORDS = new String[amount_words];
 	
 	// MISCELLANEOUS
 	public static int TRANSLATOR_MALE = 				0;
@@ -306,6 +308,7 @@ public class Lang {
 		LANGUAGES[FRENCH_VALUE] = FRENCH_WORDS;
 		LANGUAGES[ROMANIAN_VALUE] = ROMANIAN_WORDS;
 		LANGUAGES[GERMAN_VALUE] = GERMAN_WORDS;
+		LANGUAGES[RUSSIAN_VALUE] = RUSSIAN_WORDS;
 		
 		/**ENGLISH**/
 		
@@ -2051,8 +2054,6 @@ public class Lang {
 		GERMAN_WORDS[FACTORY_UPGRADE_10] = "Ätzende flüsse";
 		GERMAN_WORDS[FACTORY_UPGRADE_10_JOKE] = "Fische mit bloßen händen zu fangen ist einfach, wenn sie mit dem gesicht nach oben fließen";
 		
-		// TRANSLATION CHECKPOINT
-		
 		// LABORATORY
 		GERMAN_WORDS[LABORATORY_NAME] = "Labor";
 		GERMAN_WORDS[LABORATORY_DESCRIPTION] = "Ein labor um die Natur der Liebe zu verstehen";
@@ -2127,6 +2128,268 @@ public class Lang {
 		
 		// MORE MISCELLANEOUS
 		GERMAN_WORDS[LANGUAGE_WORD] = "Sprache";
+		
+		
+		/**RUSSIAN**/
+		
+		// MISCELLANEOUS
+		RUSSIAN_WORDS[TRANSLATOR_MALE] = "Переводчик";
+		RUSSIAN_WORDS[TRANSLATOR_FEMALE] = "Переводчика";
+		RUSSIAN_WORDS[TRANSLATORS] = "Переводчики";
+		RUSSIAN_WORDS[BUILDING] = "Сдание";
+		RUSSIAN_WORDS[BUILDINGS] = "Сдания";
+		RUSSIAN_WORDS[UPGRADE] = "Улучшение";
+		RUSSIAN_WORDS[UPGRADES] = "Улучшение";
+		RUSSIAN_WORDS[ACHIEVEMENT] = "Достижение";
+		RUSSIAN_WORDS[ACHIEVEMENTS] = "Достижения";
+		RUSSIAN_WORDS[LOVE_SINCE_BEGINNING_GAME] = "Любовь с начала этой игры";
+		RUSSIAN_WORDS[LOVE_SINCE_BEGINNING_TIMES] = "Любовь с начала веков";
+		RUSSIAN_WORDS[PRODUCTION_MULTIPLIER] = "Множител производство";
+		RUSSIAN_WORDS[CURRENT_LOVE] = "Актуальная любовь";
+		RUSSIAN_WORDS[LOVE_PER_CLICK] = "Любовь по клиу";
+		RUSSIAN_WORDS[CRITICAL_CLICK] = "Критический клик";
+		RUSSIAN_WORDS[CRITICAL_CLICK_CHANCE] = "Вероятность критического клика";
+		RUSSIAN_WORDS[NUMBER_OF_CLICKS] = "Количество кликов";
+		RUSSIAN_WORDS[NUMBER_OF_MIRACLES] = "Количество чудес";
+		RUSSIAN_WORDS[GAIN_BASE_LOVE] = "Х выигрывает +Y любовь база в секунду";
+		RUSSIAN_WORDS[PRODUCE_TWICE_LOVE] = "X дает в два раза любовь";
+		
+		// SERVANT
+		RUSSIAN_WORDS[SERVANT_NAME] = "Слуга";
+		RUSSIAN_WORDS[SERVANT_DESCRIPTION] = "Верный слуга шепчет тебе красивые слова";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_1] = "Ты не одиноки";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_1_JOKE] = "Я буду за тобой ухаживать";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_2] = "Дукфеис";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_2_JOKE] = "Неудержимо привлекательный";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_3] = "Полиглот";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_3_JOKE] = "Omnia uincit amor, et nos cedamus amori";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_4] = "Стоматологическое страхование";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_4_JOKE] = "Лиза нужно скобки";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_5] = "Хроническое заикани";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_5_JOKE] = "С этой лепетом я не могу думать";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_6] = "Непослушный шепот";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_6_JOKE] = "Скажи мне непристойности";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_7] = "Бабилонское проклятие";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_7_JOKE] = "Я учил их языки я не понимаю, так что я могу игнорировать их";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_8] = "Любовь, Бог и Рок-н-ролл";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_8_JOKE] = "Святая Троица";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_9] = "Голоса в голове";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_9_JOKE] = "Вы говорите со мной?";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_10] = "Пробуждение";
+		RUSSIAN_WORDS[SERVANT_UPGRADE_10_JOKE] = "Пробудитесь, сыновья мои";
+		
+		// HUMAN
+		RUSSIAN_WORDS[HUMAN_NAME] = "Человек";
+		RUSSIAN_WORDS[HUMAN_DESCRIPTION] = "Человек который не совсем понимает вашу мудрость, но молится вам все равно";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_1] = "Нарцисс";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_1_JOKE] = "По твой образ и подобие";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_2] = "Ребро компаньон";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_2_JOKE] = "Это более всело играть в компании";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_3] = "Растительное белье";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_3_JOKE] = "Секси и экологическое";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_4] = "Яблоко знаний";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_4_JOKE] = "Сейчас я знаю ваши фантазии";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_5] = "Растения афродизиак";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_5_JOKE] = "Где физика недостаточно, остаб её на химиё";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_6] = "Дерево вечной жизни";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_6_JOKE] = "Кто хочет жить вечно?";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_7] = "Pro-Life фанатики";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_7_JOKE] = "Все сперма святая";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_8] = "Аистов союз";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_8_JOKE] = "Это необходимо!";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_9] = "Высокомерный шимпанзе";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_9_JOKE] = "Ни богов или королей, только человек";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_10] = "Зеленый сойлент";
+		RUSSIAN_WORDS[HUMAN_UPGRADE_10_JOKE] = "100% рециркулируют";
+		
+		// SPECIAL HUMANS
+		RUSSIAN_WORDS[SPECIAL_HUMAN_1] = "Фанатик";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_1_JOKE] = "Бог существует, потому что написано в книге, и книга Слово Божие";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_2] = "Крестоносец";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_2_JOKE] = "Это просто царапина, но у меня есть другая рука";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_3] = "Рабовладельца";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_3_JOKE] = "Мы даем им постоянною работу и иногда кушат, они не могут жаловатсья";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_4] = "Буржуы";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_4_JOKE] = "Что мое это мое, а что твое скоро будет мое";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_5] = "Сумасшедший ученый";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_5_JOKE] = "Я называю его 'Л.А.З.Е.Р' Муахахаха";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_6] = "Телеевангелист";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_6_JOKE] = "Аллилуйя, брат, ваш банковский перевод не будет напрасним";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_7] = "Киборг";
+		RUSSIAN_WORDS[SPECIAL_HUMAN_7_JOKE] = "Я ... Я видел явления, которые вы не поверите";
+		
+		// PROPHET
+		RUSSIAN_WORDS[PROPHET_NAME] = "Пророк";
+		RUSSIAN_WORDS[PROPHET_DESCRIPTION] = "Пророк это глупый человек, который думает что он понимает, но он ничего не понимает";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_1] = "Фальшивую бороду";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_1_JOKE] = "Необходимо за забрасывание камнями";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_2] = "Пессимистический оракул";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_2_JOKE] = "У вас есть две недели";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_3] = "Апокалиптическое пророчество";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_3_JOKE] = "И когда седьмая печать откроетьса, она скажет: ... Нам нужно поговорить";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_4] = "Всемирный потор";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_4_JOKE] = "Спасите пару от каждого вида: две брюнетки, две рыжие и две блондинки";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_5] = "Падающая звезда";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_5_JOKE] = "Наступает момент";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_6] = "Чудесное дублирование";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_6_JOKE] = "Это против законов термодин-ЗАМАЛЧАТЬ!";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_7] = "Воскресение";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_7_JOKE] = "Вы можете принять душ после трех дней были мертвы";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_8] = "Святая книга любви";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_8_JOKE] = "Подожди, почему все эти пози?";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_9] = "Любология";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_9_JOKE] = "Все, что вам нужно знать, чтобы избежать";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_10] = "Недобросовестная конкуренция";
+		RUSSIAN_WORDS[PROPHET_UPGRADE_10_JOKE] = "Если ваш Бог был настоящий, он не спас бы вас?";
+		
+		// TRANSLATION CHECKPOINT
+		
+		// TEMPLE
+		RUSSIAN_WORDS[TEMPLE_NAME] = "Temple";
+		RUSSIAN_WORDS[TEMPLE_DESCRIPTION] = "A temple in the name of love, more or less";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_1] = "Love Sanctuary";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_1_JOKE] = "A place to give and receive";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_2] = "Generous almsgiving";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_2_JOKE] = "It never has been easier to earn a living";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_3] = "Divine visions";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_3_JOKE] = "No more cheap wine";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_4] = "Obedient altar boys";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_4_JOKE] = "These kids make more bearable the long and hard... masses at the monastery";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_5] = "Remorseful sinners";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_5_JOKE] = "Get on your knees and earn your absolution";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_6] = "Elder in a dress";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_6_JOKE] = "I am the voice of God on earth";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_7] = "Witch hunt";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_7_JOKE] = "These ladies need affection desperately";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_8] = "Punish heretics";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_8_JOKE] = "You have to spank them gently";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_9] = "Repulsive relic";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_9_JOKE] = "I hope that's a wrinkled thumb...";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_10] = "Violent pilgrimage";
+		RUSSIAN_WORDS[TEMPLE_UPGRADE_10_JOKE] = "We’re going to the Land of Love and will kill whoever stands in our way";
+		
+		// SHIP
+		RUSSIAN_WORDS[SHIP_NAME] = "Ship";
+		RUSSIAN_WORDS[SHIP_DESCRIPTION] = "A ship to bring love across the seas";
+		RUSSIAN_WORDS[SHIP_UPGRADE_1] = "Into the unknown";
+		RUSSIAN_WORDS[SHIP_UPGRADE_1_JOKE] = "Honey, I’m going out for tobacco";
+		RUSSIAN_WORDS[SHIP_UPGRADE_2] = "Obscene figurehead";
+		RUSSIAN_WORDS[SHIP_UPGRADE_2_JOKE] = "The crew looks excited";
+		RUSSIAN_WORDS[SHIP_UPGRADE_3] = "Intercultural exchange";
+		RUSSIAN_WORDS[SHIP_UPGRADE_3_JOKE] = "Enjoy the Amazons' coconuts";
+		RUSSIAN_WORDS[SHIP_UPGRADE_4] = "Contagious love flu";
+		RUSSIAN_WORDS[SHIP_UPGRADE_4_JOKE] = "Love is in the air";
+		RUSSIAN_WORDS[SHIP_UPGRADE_5] = "The chosen ones";
+		RUSSIAN_WORDS[SHIP_UPGRADE_5_JOKE] = "One race to rule them all";
+		RUSSIAN_WORDS[SHIP_UPGRADE_6] = "Convert infidels";
+		RUSSIAN_WORDS[SHIP_UPGRADE_6_JOKE] = "Teach them how to love properly";
+		RUSSIAN_WORDS[SHIP_UPGRADE_7] = "Pleasurable whiplashes";
+		RUSSIAN_WORDS[SHIP_UPGRADE_7_JOKE] = "Now with heart-shaped bruises";
+		RUSSIAN_WORDS[SHIP_UPGRADE_8] = "Pirates ahoy!";
+		RUSSIAN_WORDS[SHIP_UPGRADE_8_JOKE] = "Arr! Stealing love is easier than earning it!";
+		RUSSIAN_WORDS[SHIP_UPGRADE_9] = "Paradise map";
+		RUSSIAN_WORDS[SHIP_UPGRADE_9_JOKE] = "Ideal to find the G spot,  I mean, to spot the X";
+		RUSSIAN_WORDS[SHIP_UPGRADE_10] = "Invincible Fleet";
+		RUSSIAN_WORDS[SHIP_UPGRADE_10_JOKE] = "Definitively invincible";
+		
+		// FACTORY
+		RUSSIAN_WORDS[FACTORY_NAME] = "Factory";
+		RUSSIAN_WORDS[FACTORY_DESCRIPTION] = "A factory to manufacture love";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_1] = "Teamwork";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_1_JOKE] = "You sweat and I supervise";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_2] = "Tiny hands";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_2_JOKE] = "Tiny workers to manage even the tiniest details";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_3] = "Lowered standards";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_3_JOKE] = "We will have to settle for this";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_4] = "Ignore nonsense";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_4_JOKE] = "Some workers demand sleep";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_5] = "Steam engines";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_5_JOKE] = "Increased production at the expense of a few accidents";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_6] = "Fair rights";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_6_JOKE] = "You have the right to shut up";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_7] = "Oversupply";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_7_JOKE] = "Don't stop me now";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_8] = "Toxic gas leaks";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_8_JOKE] = "Dead employees will be fired";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_9] = "Scab Monkeys";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_9_JOKE] = "They demand a lot of bananas, but do not demand any right";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_10] = "Acid Rivers";
+		RUSSIAN_WORDS[FACTORY_UPGRADE_10_JOKE] = "Catching fish bare-hands it’s easy when they float face up";
+		
+		// LABORATORY
+		RUSSIAN_WORDS[LABORATORY_NAME] = "Laboratory";
+		RUSSIAN_WORDS[LABORATORY_DESCRIPTION] = "A laboratory to understand the nature of love";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_1] = "First patent";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_1_JOKE] = "A revolutionary device, but it needs a lot of lube";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_2] = "Brilliant minds";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_2_JOKE] = "We invented a lot of things, but now we have to figure what are they for";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_3] = "Robo-maid";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_3_JOKE] = "Scientists are very pleased";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_4] = "Cute explosion";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_4_JOKE] = "Contains an enriched isotope love";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_5] = "General relativity";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_5_JOKE] = "Sometimes 'no' means 'yes'";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_6] = "Love fundamental particle";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_6_JOKE] = "The model is perfect, but reality doesn’t fit well in it";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_7] = "Quantum love";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_7_JOKE] = "Entangled hearts";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_8] = "Violation of physical laws";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_8_JOKE] = "Inside this lab nobody will hear you scream";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_9] = "Broken spatiotemporal fabric";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_9_JOKE] = "We are developing a spatiotemporal needle to patch it";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_10] = "LoveOS";
+		RUSSIAN_WORDS[LABORATORY_UPGRADE_10_JOKE] = "The answer to your question is 69";
+		
+		// SHOP
+		RUSSIAN_WORDS[SHOP_NAME] = "Shop";
+		RUSSIAN_WORDS[SHOP_DESCRIPTION] = "A shop where you can buy love at a reasonable price";
+		RUSSIAN_WORDS[SHOP_UPGRADE_1] = "Selling affection";
+		RUSSIAN_WORDS[SHOP_UPGRADE_1_JOKE] = "Now you can buy your happiness without commitments";
+		RUSSIAN_WORDS[SHOP_UPGRADE_2] = "Crazy sales";
+		RUSSIAN_WORDS[SHOP_UPGRADE_2_JOKE] = "For that price… gimme seven!";
+		RUSSIAN_WORDS[SHOP_UPGRADE_3] = "Planned obsolescence";
+		RUSSIAN_WORDS[SHOP_UPGRADE_3_JOKE] = "Our relationship has no future";
+		RUSSIAN_WORDS[SHOP_UPGRADE_4] = "Disposable love";
+		RUSSIAN_WORDS[SHOP_UPGRADE_4_JOKE] = "Piles of rubbish as far as the eye can see";
+		RUSSIAN_WORDS[SHOP_UPGRADE_5] = "Product design";
+		RUSSIAN_WORDS[SHOP_UPGRADE_5_JOKE] = "Awesome, now with 87% more packing!";
+		RUSSIAN_WORDS[SHOP_UPGRADE_6] = "Invasive product placement";
+		RUSSIAN_WORDS[SHOP_UPGRADE_6_JOKE] = "Enjoy incredible ads while you’re dreaming";
+		RUSSIAN_WORDS[SHOP_UPGRADE_7] = "Imported love";
+		RUSSIAN_WORDS[SHOP_UPGRADE_7_JOKE] = "Developed by the third world for our joy";
+		RUSSIAN_WORDS[SHOP_UPGRADE_8] = "Make up new festivity";
+		RUSSIAN_WORDS[SHOP_UPGRADE_8_JOKE] = "Consume more, you bastards";
+		RUSSIAN_WORDS[SHOP_UPGRADE_9] = "Loveh*";
+		RUSSIAN_WORDS[SHOP_UPGRADE_9_JOKE] = "Almost* like the original";
+		RUSSIAN_WORDS[SHOP_UPGRADE_10] = "LoveCard®";
+		RUSSIAN_WORDS[SHOP_UPGRADE_10_JOKE] = "There are things that love can’t buy, for everything else: LoveCard®";
+		
+		// SPACESHIP
+		RUSSIAN_WORDS[SPACESHIP_NAME] = "Spaceship";
+		RUSSIAN_WORDS[SPACESHIP_DESCRIPTION] = "A spaceship to spread love to other galaxies";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_1] = "Astronaut dog";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_1_JOKE] = "Ouch, we forgot to give him his space food";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_2] = "Fake moon landing";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_2_JOKE] = "Raising the audience is also a giant leap";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_3] = "Cosmic jet";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_3_JOKE] = "Shake before use";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_4] = "Space junk";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_4_JOKE] = "Although you can throw it far away it’s not gonna disappear";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_5] = "International Space Station";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_5_JOKE] = "Zero gravity opens up new possibilities, we must update the Holy Book of Love";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_6] = "Pacifist colonies";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_6_JOKE] = "Full of leftover hippies";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_7] = "Open up pink hole";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_7_JOKE] = "Crossing it can cause a tear in the space-time";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_8] = "Close Encounters of the Third Kind";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_8_JOKE] = "They are a bit stupid, but we must learn to love them - Signed: The Aliens";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_9] = "Faster than light";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_9_JOKE] = "Hyperspatial jumping is awesome until the day you crash into a star";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_10] = "Galactic Empire";
+		RUSSIAN_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "May the love be with you";
+		
+		// MORE MISCELLANEOUS
+		RUSSIAN_WORDS[LANGUAGE_WORD] = "Language";
 		
 		
 		//END
