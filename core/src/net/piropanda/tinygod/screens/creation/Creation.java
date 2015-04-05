@@ -261,7 +261,7 @@ public class Creation extends Screen {
 		}
 		
 
-		super.draw(batch, parentAlpha);
+		//super.draw(batch, parentAlpha);
 
 		
 		
@@ -287,13 +287,6 @@ public class Creation extends Screen {
 				soundTap.play(1f);
 			}
 		}
-		
-//		if (Lang.getLanguage() == Lang.ENGLISH_VALUE) {
-//			Lang.setLanguage(Lang.SPANISH_VALUE);
-//		}
-//		else if (Lang.getLanguage() == Lang.SPANISH_VALUE) {
-//			Lang.setLanguage(Lang.ENGLISH_VALUE);
-//		}
 		
 		return false;
 	}
