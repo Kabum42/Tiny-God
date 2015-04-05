@@ -295,9 +295,14 @@ public class Providence extends Screen {
 				Upgrade t = lastUpgradeSelected;
 				
 				if (t.state != "unexistant") {
+					
+					t.background2.draw(batch, transition3);
+					t.info.draw(batch, transition3);
 					t.buy.draw(batch, transition3);
 					
 					t.mini_bg.draw(batch, 1f /* *t.background_alpha*/);
+					t.background.draw(batch, transition3);
+					t.label.draw(batch, transition3);
 					t.icon.draw(batch, 1f /* *t.icon_alpha*/);
 
 				}
@@ -394,11 +399,17 @@ public class Providence extends Screen {
 				Upgrade t = upgradeSelected;
 				
 				if (t.state != "unexistant") {
-
-					t.buy.draw(batch, transition3);
 					
+					t.background2.draw(batch, transition3);
+					t.info.draw(batch, transition3);
+					t.buy.draw(batch, transition3);
+
 					t.mini_bg.draw(batch, 1f /* *t.background_alpha*/);
+					t.background.draw(batch, transition3);
+					t.label.draw(batch, transition3);
 					t.icon.draw(batch, 1f /* *t.icon_alpha*/);
+					
+					
 					
 				}
 				
@@ -421,7 +432,7 @@ public class Providence extends Screen {
 		}
 		else if (upgradeSelected != null && transition3 == 1f) {
 			upgradeSelected.tap(x,  y, count, button);
-			if (isOnSprite(upgradeSelected.mini_bg, x, y)) {
+			if (isOnSprite(upgradeSelected.background, x, y)) {
 				lastUpgradeSelected = upgradeSelected;
 				upgradeSelected = null;
 				soundTap.play(1f);
