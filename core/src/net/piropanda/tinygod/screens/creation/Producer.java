@@ -11,6 +11,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -233,12 +234,14 @@ public class Producer  {
 		
 
 		info = new Label("LOL", TG.Graphics.font1);
+		info.setFontScale(0.9f);
 		info.setWrap(true);
 		info.setWidth(300);
 		info.setX(TG.Display.WIDTH*3.5f -info.getWidth()/2);
 		info.setY(300);
 		
 		info_outline = new Label("LOL", TG.Graphics.font1);
+		info_outline.setFontScale(0.9f);
 		info_outline.setWrap(true);
 		info_outline.setWidth(300);
 		info_outline.setX(info.getX() -1f);
@@ -249,8 +252,6 @@ public class Producer  {
 		buy.setScale(1f/2.75f, 1f/2.75f);
 		buy.setX(background.getX() +background.getWidth()/2 -buy.getWidth()/2);
 		buy.setY(0f -buy.getHeight()/2 +100f);
-
-		
 
 		//System.out.println(GameInfo.producers.get(id+""));	
 		System.out.println("Cost: "+ (ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))));

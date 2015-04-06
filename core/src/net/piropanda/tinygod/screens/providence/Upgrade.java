@@ -63,8 +63,9 @@ public class Upgrade {
 		
 		label = new Label(Lang.getText(id), TG.Graphics.font1);
 		label.setColor(Color.WHITE);
-		label.setX(TG.Display.WIDTH*1.5f -label.getWidth()/2 +icon.getWidth()/2*icon.getScaleX());
+		label.setX(TG.Display.WIDTH*1.5f -label.getWidth()/2 +icon.getWidth()/2*icon.getScaleX() +5f);
 		label.setY(background.getY() +background.getHeight()/2 -label.getHeight()/2);
+		label.setAlignment(0);
 		
 		background2 = new Sprite(TG.assets.get("producers/bg2.png", Texture.class));
 		background2.setScale(1f/2.75f, 1f/2.75f);
@@ -77,6 +78,7 @@ public class Upgrade {
 		buy.setY(0f -buy.getHeight()/2 +100f);
 		
 		info = new Label("LOL", TG.Graphics.font1);
+		info.setFontScale(0.9f);
 		info.setWrap(true);
 		info.setWidth(300);
 		info.setX(TG.Display.WIDTH*1.5f -info.getWidth()/2);
@@ -88,6 +90,12 @@ public class Upgrade {
 	public void act (float dt) {
 		
 		label.setText(Lang.getText(id));
+		
+		label.setFontScale(1f);
+		while (label.getTextBounds().width >= 265) {
+			label.setFontScale(label.getFontScaleX()*0.99f);
+		}
+		//System.out.println(label.getTextBounds().width);
 		
 		icon.setX(mini_bg.getX() +mini_bg.getWidth()/2 -icon.getWidth()/2);
 		icon.setY(mini_bg.getY() +mini_bg.getHeight()/2 -icon.getHeight()/2);

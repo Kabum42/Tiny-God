@@ -3,6 +3,8 @@ package net.piropanda.tinygod;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 
+import com.badlogic.gdx.graphics.Texture.TextureFilter;
+
 public class Lang {
 	
 	public static boolean initialized = false;
@@ -2394,6 +2396,10 @@ public class Lang {
 		
 		//END
 		System.out.println("Languages initialized");
+		
+		TG.Graphics.font1.font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		TG.Graphics.font2.font.getRegion().getTexture().setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		System.out.println("Fonts scale changed to Linear");
 	}
 	
 	public static void setLanguage(int i) {

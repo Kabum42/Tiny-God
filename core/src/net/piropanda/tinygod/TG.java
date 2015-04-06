@@ -26,7 +26,8 @@ public class TG {
 	
 	public static class Graphics {
         public static Skin skin = new Skin(Gdx.files.internal("uiskin/uiskin.json"));
-        public static LabelStyle font1 = new LabelStyle(new BitmapFont(Gdx.files.internal("fonts/font1.fnt")), Color.WHITE);
+        public static LabelStyle font1 = new LabelStyle(new BitmapFont(Gdx.files.internal("fonts/font_Comfortaa.fnt")), Color.WHITE);
+        public static LabelStyle font2 = new LabelStyle(new BitmapFont(Gdx.files.internal("fonts/font_Arial.fnt")), Color.WHITE);
 	}
 
 	
