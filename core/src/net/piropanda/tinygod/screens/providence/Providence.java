@@ -162,28 +162,17 @@ public class Providence extends Screen {
 		upgrades.add(new Upgrade(this, Lang.SPACESHIP_UPGRADE_9));
 		upgrades.add(new Upgrade(this, Lang.SPACESHIP_UPGRADE_10));
 		
-		int aux_x = -1;
+		int aux_x = 0;
 		int aux_y = 0;
 		float availableWidth = 260;
-		
-		for (int i = 0; i < upgrades.size(); i++) {
-			aux_x ++;
-			if (aux_x == upgradesPerRow) {
-				aux_x = 0;
-				aux_y++;
-			}
+
+		float aux_x2 = ((float)aux_x - ((float)upgradesPerRow-1f)/2f)/(((float)upgradesPerRow-1f)/2f);
+
+		default_x = 1.5f*TG.Display.WIDTH +aux_x2*availableWidth/2f;
+		default_y = TG.Display.HEIGHT/2  +120 -aux_y*100f;
+
 			
-			float aux_x2 = ((float)aux_x - ((float)upgradesPerRow-1f)/2f)/(((float)upgradesPerRow-1f)/2f);
-			
-			upgrades.get(i).origin_x = 1.5f*TG.Display.WIDTH +aux_x2*availableWidth/2f;
-			upgrades.get(i).origin_y = TG.Display.HEIGHT/2  +120 -aux_y*100f +customScroll;
-			
-			if (i == 0) {
-				default_x = upgrades.get(i).origin_x;
-				default_y = upgrades.get(i).origin_y;
-			}
-			
-		}
+
 		
 	}
 	
@@ -266,24 +255,35 @@ public class Providence extends Screen {
 		int aux_y = 0;
 		
 		for (int i = 0; i < upgrades.size(); i++) {
-			aux_x ++;
-			if (aux_x == upgradesPerRow) {
-				aux_x = 0;
-				aux_y++;
+			
+			if (upgrades.get(i).state != "unexistant") {
+				aux_x ++;
+				
+				if (aux_x == upgradesPerRow) {
+					aux_x = 0;
+					aux_y++;
+				}
+				
 			}
+			
 			
 			float aux_x2 = ((float)aux_x - ((float)upgradesPerRow-1f)/2f)/(((float)upgradesPerRow-1f)/2f);
 			
 			if (upgradeSelected != upgrades.get(i) && lastUpgradeSelected != upgrades.get(i)) {
 				upgrades.get(i).mini_bg.setX(1.5f*TG.Display.WIDTH -upgrades.get(i).mini_bg.getWidth()/2 +aux_x2*availableWidth/2f);
 				upgrades.get(i).mini_bg.setY(TG.Display.HEIGHT/2 -upgrades.get(i).mini_bg.getHeight()/2 +120 -aux_y*100f +customScroll);
+				
+				upgrades.get(i).origin_x = upgrades.get(i).mini_bg.getX() +upgrades.get(i).mini_bg.getWidth()/2;
+				upgrades.get(i).origin_y = upgrades.get(i).mini_bg.getY() +upgrades.get(i).mini_bg.getHeight()/2 -customScroll;
 			}
 			
 			
-//			upgrades.get(i).mini_bg.draw(batch, 1f);
-//			upgrades.get(i).icon.draw(batch, 1f);
-			
 		}
+		
+		if (aux_y <= 4) { customScrollMax = 0; }
+		else { customScrollMax = 0 +(aux_y -4)*100f; }
+		
+		
 		
 		
 		
@@ -296,14 +296,14 @@ public class Providence extends Screen {
 				
 				if (t.state != "unexistant") {
 					
-					t.background2.draw(batch, transition3);
-					t.info.draw(batch, transition3);
-					t.buy.draw(batch, transition3);
+					t.background2.draw(batch, transition3 *t.custom_alpha);
+					t.info.draw(batch, transition3 *t.custom_alpha);
+					t.buy.draw(batch, transition3 *t.custom_alpha);
 					
-					t.mini_bg.draw(batch, 1f /* *t.background_alpha*/);
-					t.background.draw(batch, transition3);
-					t.label.draw(batch, transition3);
-					t.icon.draw(batch, 1f /* *t.icon_alpha*/);
+					t.mini_bg.draw(batch, 1f *t.custom_alpha);
+					t.background.draw(batch, transition3 *t.custom_alpha);
+					t.label.draw(batch, transition3 *t.custom_alpha);
+					t.icon.draw(batch, 1f *t.custom_alpha);
 
 				}
 				
@@ -314,8 +314,8 @@ public class Providence extends Screen {
 				
 				if (t.state != "unexistant") {
 					
-					t.mini_bg.draw(batch, 1f /* *t.background_alpha*/);
-					t.icon.draw(batch, 1f /* *t.icon_alpha*/);
+					t.mini_bg.draw(batch, 1f *t.custom_alpha);
+					t.icon.draw(batch, 1f *t.custom_alpha);
 
 				}
 				
@@ -328,8 +328,8 @@ public class Providence extends Screen {
 						
 						if (t.state != "unexistant") {
 							
-							t.mini_bg.draw(batch, 1f /* *t.background_alpha*/);
-							t.icon.draw(batch, 1f /* *t.icon_alpha*/);
+							t.mini_bg.draw(batch, 1f *t.custom_alpha);
+							t.icon.draw(batch, 1f *t.custom_alpha);
 							
 						}
 						
@@ -341,8 +341,8 @@ public class Providence extends Screen {
 						
 						if (t.state != "unexistant") {
 							
-							t.mini_bg.draw(batch, (1f - transition1) /* *t.background_alpha*/);
-							t.icon.draw(batch, (1f - transition1) /* *t.icon_alpha*/);
+							t.mini_bg.draw(batch, (1f - transition1) *t.custom_alpha);
+							t.icon.draw(batch, (1f - transition1) *t.custom_alpha);
 
 						}
 						
@@ -361,8 +361,8 @@ public class Providence extends Screen {
 						
 						if (t.state != "unexistant") {
 							
-							t.mini_bg.draw(batch, 1f /* *t.background_alpha*/);
-							t.icon.draw(batch, 1f /* *t.icon_alpha*/);
+							t.mini_bg.draw(batch, 1f *t.custom_alpha);
+							t.icon.draw(batch, 1f *t.custom_alpha);
 							
 						}
 						
@@ -373,8 +373,8 @@ public class Providence extends Screen {
 						
 						if (t.state != "unexistant") {
 							
-							t.mini_bg.draw(batch, (1f - transition1) /* *t.background_alpha*/);
-							t.icon.draw(batch, (1f - transition1) /* *t.icon_alpha*/);
+							t.mini_bg.draw(batch, (1f - transition1) *t.custom_alpha);
+							t.icon.draw(batch, (1f - transition1) *t.custom_alpha);
 							
 						}
 						
@@ -388,8 +388,8 @@ public class Providence extends Screen {
 				
 				if (t.state != "unexistant") {
 					
-					t.mini_bg.draw(batch, 1f /* *t.background_alpha*/);
-					t.icon.draw(batch, 1f /* *t.icon_alpha*/);
+					t.mini_bg.draw(batch, 1f *t.custom_alpha);
+					t.icon.draw(batch, 1f *t.custom_alpha);
 					
 				}
 				
@@ -400,14 +400,14 @@ public class Providence extends Screen {
 				
 				if (t.state != "unexistant") {
 					
-					t.background2.draw(batch, transition3);
-					t.info.draw(batch, transition3);
-					t.buy.draw(batch, transition3);
+					t.background2.draw(batch, transition3 *t.custom_alpha);
+					t.info.draw(batch, transition3 *t.custom_alpha);
+					t.buy.draw(batch, transition3 *t.custom_alpha);
 
-					t.mini_bg.draw(batch, 1f /* *t.background_alpha*/);
-					t.background.draw(batch, transition3);
-					t.label.draw(batch, transition3);
-					t.icon.draw(batch, 1f /* *t.icon_alpha*/);
+					t.mini_bg.draw(batch, 1f *t.custom_alpha);
+					t.background.draw(batch, transition3 *t.custom_alpha);
+					t.label.draw(batch, transition3 *t.custom_alpha);
+					t.icon.draw(batch, 1f *t.custom_alpha);
 					
 					
 					

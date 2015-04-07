@@ -2153,7 +2153,7 @@ public class Lang {
 		RUSSIAN_WORDS[CRITICAL_CLICK_CHANCE] = "Вероятность критического клика";
 		RUSSIAN_WORDS[NUMBER_OF_CLICKS] = "Количество кликов";
 		RUSSIAN_WORDS[NUMBER_OF_MIRACLES] = "Количество чудес";
-		RUSSIAN_WORDS[GAIN_BASE_LOVE] = "Х выигрывает +Y любовь база в секунду";
+		RUSSIAN_WORDS[GAIN_BASE_LOVE] = "X выигрывает +Y любовь база в секунду";
 		RUSSIAN_WORDS[PRODUCE_TWICE_LOVE] = "X дает в два раза любовь";
 		
 		// SERVANT

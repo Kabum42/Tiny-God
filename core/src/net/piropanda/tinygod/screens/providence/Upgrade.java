@@ -30,8 +30,14 @@ public class Upgrade {
 	public Sound buy2;
 	public Sound buy3;
 	
-	public String state = "discovered";
+	public float custom_alpha = 1f;
+	
+	public String state = "unexistant";
 	public int position = 0;
+	
+	public int type_required = 0;
+	public int amount_required = 0;
+	public int type_bonus = 0;
 	
 	public double cost = 0f;
 	
@@ -89,48 +95,115 @@ public class Upgrade {
 		
 		if (id <= Lang.SERVANT_UPGRADE_10) {
 			int aux_position = (id - Lang.SERVANT_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.SERVANT_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.SERVANT_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		else if (id <= Lang.HUMAN_UPGRADE_10) {
 			int aux_position = (id - Lang.HUMAN_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.HUMAN_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.HUMAN_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		else if (id <= Lang.SPECIAL_HUMAN_10) {
 			int aux_position = (id - Lang.SPECIAL_HUMAN_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.HUMAN_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.HUMAN_NAME;
+			type_bonus = Lang.HUMAN_NAME;
+			amount_required = 5;
 		}
 		else if (id <= Lang.PROPHET_UPGRADE_10) {
 			int aux_position = (id - Lang.PROPHET_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.PROPHET_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.PROPHET_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		else if (id <= Lang.TEMPLE_UPGRADE_10) {
 			int aux_position = (id - Lang.TEMPLE_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.TEMPLE_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.TEMPLE_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		else if (id <= Lang.SHIP_UPGRADE_10) {
 			int aux_position = (id - Lang.SHIP_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.SHIP_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.SHIP_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		else if (id <= Lang.FACTORY_UPGRADE_10) {
 			int aux_position = (id - Lang.FACTORY_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.FACTORY_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.FACTORY_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		else if (id <= Lang.LABORATORY_UPGRADE_10) {
 			int aux_position = (id - Lang.LABORATORY_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.LABORATORY_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.LABORATORY_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		else if (id <= Lang.SHOP_UPGRADE_10) {
 			int aux_position = (id - Lang.SHOP_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.SHOP_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.SHOP_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		else if (id <= Lang.SPACESHIP_UPGRADE_10) {
 			int aux_position = (id - Lang.SPACESHIP_UPGRADE_1)/2;
-			cost = aux_position;
+			cost = Math.floor(ProducerInfo.getBaseCost(Lang.SPACESHIP_NAME)*Math.pow(10f, aux_position));
+			type_required = Lang.SPACESHIP_NAME;
+			type_bonus = type_required;
+			if (aux_position == 0) { amount_required = 1; }
+			else if (aux_position == 1) { amount_required = 10; }
+			else { amount_required = (aux_position-1)*25; }
 		}
 		
 	}
 	
 	public void act (float dt) {
+		
+		if (state == "unexistant" && GameInfo.producers.get(Lang.ENGLISH_WORDS[type_required]) >= amount_required) {
+			state = "discovered";
+			custom_alpha = 0.7f;
+			icon.setColor(0.6f, 0.6f, 0.6f, 1f);
+		}
+		
+		if (state == "discovered" && GameInfo.love >= cost) {
+			state = "buyable";
+			custom_alpha = 1f;
+			icon.setColor(1f, 1f, 1f, 1f);
+		}
+		else if (state == "buyable" && GameInfo.love < cost) {
+			state = "discovered";
+			custom_alpha = 0.7f;
+			icon.setColor(0.6f, 0.6f, 0.6f, 1f);
+		}
+		
+		
 		
 		label.setText(Lang.getText(id));
 		
@@ -147,7 +220,11 @@ public class Upgrade {
 		icon.setY(mini_bg.getY() +mini_bg.getHeight()/2 -icon.getHeight()/2);
 		
 
+		String info_change = Lang.getText(Lang.PRODUCE_TWICE_LOVE);
+		info_change = Lang.getText(type_bonus) + info_change.substring(1, info_change.length());
+		
 		info.setText(Lang.getText(id+1) +"\n \n"
+ 				+ info_change +"\n \n"
 				+ "Cost: " +cost);
 		
 		//buy.setX(mini_bg.getX() +mini_bg.getWidth()/2 - buy.getWidth()/2 +100f);
