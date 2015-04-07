@@ -33,6 +33,8 @@ public class Upgrade {
 	public String state = "discovered";
 	public int position = 0;
 	
+	public double cost = 0f;
+	
 	public float origin_x = 0;
 	public float origin_y = 0;
 	
@@ -85,6 +87,47 @@ public class Upgrade {
 		info.setY(300);
 		
 		
+		if (id <= Lang.SERVANT_UPGRADE_10) {
+			int aux_position = (id - Lang.SERVANT_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.HUMAN_UPGRADE_10) {
+			int aux_position = (id - Lang.HUMAN_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.SPECIAL_HUMAN_10) {
+			int aux_position = (id - Lang.SPECIAL_HUMAN_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.PROPHET_UPGRADE_10) {
+			int aux_position = (id - Lang.PROPHET_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.TEMPLE_UPGRADE_10) {
+			int aux_position = (id - Lang.TEMPLE_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.SHIP_UPGRADE_10) {
+			int aux_position = (id - Lang.SHIP_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.FACTORY_UPGRADE_10) {
+			int aux_position = (id - Lang.FACTORY_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.LABORATORY_UPGRADE_10) {
+			int aux_position = (id - Lang.LABORATORY_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.SHOP_UPGRADE_10) {
+			int aux_position = (id - Lang.SHOP_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		else if (id <= Lang.SPACESHIP_UPGRADE_10) {
+			int aux_position = (id - Lang.SPACESHIP_UPGRADE_1)/2;
+			cost = aux_position;
+		}
+		
 	}
 	
 	public void act (float dt) {
@@ -92,15 +135,20 @@ public class Upgrade {
 		label.setText(Lang.getText(id));
 		
 		label.setFontScale(1f);
-		while (label.getTextBounds().width >= 265) {
-			label.setFontScale(label.getFontScaleX()*0.99f);
+		
+		if (label.getTextBounds().width >= 265) {
+			label.setFontScale(265f/(float)label.getTextBounds().width);
 		}
+		
+		
 		//System.out.println(label.getTextBounds().width);
 		
 		icon.setX(mini_bg.getX() +mini_bg.getWidth()/2 -icon.getWidth()/2);
 		icon.setY(mini_bg.getY() +mini_bg.getHeight()/2 -icon.getHeight()/2);
 		
-		info.setText(Lang.getText(id+1));
+
+		info.setText(Lang.getText(id+1) +"\n \n"
+				+ "Cost: " +cost);
 		
 		//buy.setX(mini_bg.getX() +mini_bg.getWidth()/2 - buy.getWidth()/2 +100f);
 		//buy.setY(mini_bg.getY() +mini_bg.getHeight()/2 -buy.getHeight()/2 +100f);

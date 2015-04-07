@@ -223,12 +223,113 @@ public class GameInfo {
 
 	private static void resetUpgrades() {
 		upgrades.clear();
-
-		upgrades.put(ID_UPG_SERVANT_1_NAME, false);
-		upgrades.put(ID_UPG_SERVANT_25_NAME, false);
-		upgrades.put(ID_UPG_SERVANT_50_NAME, false);
-		upgrades.put(ID_UPG_SERVANT_100_NAME, false);
-		upgrades.put(ID_UPG_SERVANT_200_NAME, false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_10], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_10], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_7], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_10], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_10], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_10], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_10], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_10], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_10], false);
+		
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_1], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_2], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_3], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_4], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_5], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_6], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_7], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_8], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_9], false);
+		upgrades.put(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_10], false);
 	}
 
 	private static void resetAchievements() {
