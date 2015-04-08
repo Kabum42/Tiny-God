@@ -22,6 +22,9 @@ public class Upgrade {
 	public Sprite icon;
 	public Label label;
 	
+	public Sprite ribbon;
+	public float variation_color = 0f;
+	
 	public Sprite background2;
 	public Sprite buy;
 	public Label info;
@@ -69,6 +72,11 @@ public class Upgrade {
 		icon = new Sprite(TG.assets.get("producers/grandma.png", Texture.class));
 		icon.setScale(1f/2.75f, 1f/2.75f);
 		
+		ribbon = new Sprite(TG.assets.get("producers/ribbon.png", Texture.class));
+		ribbon.setScale(1f/2.75f, 1f/2.75f);
+		ribbon.setAlpha(0f);
+		variation_color = (float) (-1f + Math.random()*2f);
+		
 		label = new Label(Lang.getText(id), TG.Graphics.font1);
 		label.setColor(Color.WHITE);
 		label.setX(TG.Display.WIDTH*1.5f -label.getWidth()/2 +icon.getWidth()/2*icon.getScaleX() +5f);
@@ -113,8 +121,34 @@ public class Upgrade {
 		}
 		else if (id <= Lang.SPECIAL_HUMAN_10) {
 			int aux_position = (id - Lang.SPECIAL_HUMAN_1)/2;
-			cost = Math.floor(ProducerInfo.getBaseCost(Lang.HUMAN_NAME)*Math.pow(10f, aux_position));
-			type_required = Lang.HUMAN_NAME;
+			if (aux_position == 0) {
+				type_required = Lang.PROPHET_NAME;
+				cost = Math.floor(ProducerInfo.getBaseCost(Lang.PROPHET_NAME));
+			}
+			else if (aux_position == 1) {
+				type_required = Lang.TEMPLE_NAME;
+				cost = Math.floor(ProducerInfo.getBaseCost(Lang.TEMPLE_NAME));
+			}
+			else if (aux_position == 2) {
+				type_required = Lang.SHIP_NAME;
+				cost = Math.floor(ProducerInfo.getBaseCost(Lang.SHIP_NAME));
+			}
+			else if (aux_position == 3) {
+				type_required = Lang.FACTORY_NAME;
+				cost = Math.floor(ProducerInfo.getBaseCost(Lang.FACTORY_NAME));
+			}
+			else if (aux_position == 4) {
+				type_required = Lang.LABORATORY_NAME;
+				cost = Math.floor(ProducerInfo.getBaseCost(Lang.LABORATORY_NAME));
+			}
+			else if (aux_position == 5) {
+				type_required = Lang.SHOP_NAME;
+				cost = Math.floor(ProducerInfo.getBaseCost(Lang.SHOP_NAME));
+			}
+			else if (aux_position == 6) {
+				type_required = Lang.SPACESHIP_NAME;
+				cost = Math.floor(ProducerInfo.getBaseCost(Lang.SPACESHIP_NAME));
+			}
 			type_bonus = Lang.HUMAN_NAME;
 			amount_required = 5;
 		}
@@ -203,6 +237,13 @@ public class Upgrade {
 			icon.setColor(0.6f, 0.6f, 0.6f, 1f);
 		}
 		
+		if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[id])) {
+			state = "bought";
+			custom_alpha = 1f;
+			icon.setColor(1f, 1f, 1f, 1f);
+			ribbon.setAlpha(1f);
+		}
+		
 		
 		
 		label.setText(Lang.getText(id));
@@ -218,6 +259,9 @@ public class Upgrade {
 		
 		icon.setX(mini_bg.getX() +mini_bg.getWidth()/2 -icon.getWidth()/2);
 		icon.setY(mini_bg.getY() +mini_bg.getHeight()/2 -icon.getHeight()/2);
+		
+		ribbon.setX(mini_bg.getX() +mini_bg.getWidth()/2 -ribbon.getWidth()/2 +mini_bg.getWidth()/2*mini_bg.getScaleX() -10f);
+		ribbon.setY(mini_bg.getY() +mini_bg.getHeight()/2 -ribbon.getHeight()/2 -mini_bg.getHeight()/2*mini_bg.getScaleY());
 		
 
 		String info_change = Lang.getText(Lang.PRODUCE_TWICE_LOVE);
@@ -237,27 +281,22 @@ public class Upgrade {
 		if (isOnSprite(buy, x, y)) {
 			// QUIERE COMPRAR
 			
-//			double cost = Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id])));
-//			if (Math.floor(GameInfo.love) >= cost) {
-//				GameInfo.love -= cost;
-//				GameInfo.producers.put(Lang.ENGLISH_WORDS[id], GameInfo.producers.get(Lang.ENGLISH_WORDS[id]) +1);
-//				
-//				if (id == Lang.SERVANT_NAME) {
-//					providenceParent.gameParent.god.addMouth();
-//				}
-//				
-//				float random = (float) (Math.random()*100f);
-//				if (random >= 66.6f) {
-//					buy1.play(0.25f);
-//				}
-//				else if (random >= 33.3f) {
-//					buy2.play(0.25f);
-//				}
-//				else {
-//					buy3.play(0.25f);
-//				}
-//				
-//			}	
+			if (Math.floor(GameInfo.love) >= cost && !GameInfo.upgrades.get(Lang.ENGLISH_WORDS[id])) {
+				GameInfo.love -= cost;
+				GameInfo.upgrades.put(Lang.ENGLISH_WORDS[id], true);
+				
+				float random = (float) (Math.random()*100f);
+				if (random >= 66.6f) {
+					buy1.play(0.25f);
+				}
+				else if (random >= 33.3f) {
+					buy2.play(0.25f);
+				}
+				else {
+					buy3.play(0.25f);
+				}
+				
+			}	
 			
 		}
 		

@@ -3,12 +3,14 @@ package net.piropanda.tinygod.screens.providence;
 import java.util.ArrayList;
 
 import net.piropanda.tinygod.Lang;
+import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.gamestates.Game;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.creation.Producer;
 
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -30,6 +32,9 @@ public class Providence extends Screen {
 	private float default_y = 0;
 	
 	private float inertia = 0f;
+	
+	private Label label_available;
+	private Label label_bought;
 	
 	public Sound soundTap;
 	
@@ -171,7 +176,11 @@ public class Providence extends Screen {
 		default_x = 1.5f*TG.Display.WIDTH +aux_x2*availableWidth/2f;
 		default_y = TG.Display.HEIGHT/2  +120 -aux_y*100f;
 
-			
+		label_available = new Label("Available", TG.Graphics.font1);
+		label_available.setColor(Color.WHITE);
+		
+		label_bought = new Label("Bought", TG.Graphics.font1);
+		label_bought.setColor(Color.WHITE);
 
 		
 	}
@@ -249,6 +258,14 @@ public class Providence extends Screen {
 	public void draw(Batch batch, float parentAlpha) {
 		bgTab.draw(batch);
 		
+		float occupied_y = 0;
+		
+		label_available.setX(TG.Display.WIDTH*1.5f -label_available.getWidth()/2);
+		label_available.setY(500f +customScroll);
+		label_available.draw(batch, 1f-transition1);
+		
+		occupied_y += label_available.getHeight() +20f;
+		
 		float availableWidth = 260;
 		
 		int aux_x = -1;
@@ -256,7 +273,7 @@ public class Providence extends Screen {
 		
 		for (int i = 0; i < upgrades.size(); i++) {
 			
-			if (upgrades.get(i).state != "unexistant") {
+			if (upgrades.get(i).state == "discovered" || upgrades.get(i).state == "buyable") {
 				aux_x ++;
 				
 				if (aux_x == upgradesPerRow) {
@@ -271,7 +288,7 @@ public class Providence extends Screen {
 			
 			if (upgradeSelected != upgrades.get(i) && lastUpgradeSelected != upgrades.get(i)) {
 				upgrades.get(i).mini_bg.setX(1.5f*TG.Display.WIDTH -upgrades.get(i).mini_bg.getWidth()/2 +aux_x2*availableWidth/2f);
-				upgrades.get(i).mini_bg.setY(TG.Display.HEIGHT/2 -upgrades.get(i).mini_bg.getHeight()/2 +120 -aux_y*100f +customScroll);
+				upgrades.get(i).mini_bg.setY(-occupied_y + TG.Display.HEIGHT/2 -upgrades.get(i).mini_bg.getHeight()/2 +120 -aux_y*100f +customScroll);
 				
 				upgrades.get(i).origin_x = upgrades.get(i).mini_bg.getX() +upgrades.get(i).mini_bg.getWidth()/2;
 				upgrades.get(i).origin_y = upgrades.get(i).mini_bg.getY() +upgrades.get(i).mini_bg.getHeight()/2 -customScroll;
@@ -280,12 +297,47 @@ public class Providence extends Screen {
 			
 		}
 		
-		if (aux_y <= 4) { customScrollMax = 0; }
-		else { customScrollMax = 0 +(aux_y -4)*100f; }
+		occupied_y += 20 +(aux_y +1)*100f;
 		
 		
 		
+		label_bought.setX(TG.Display.WIDTH*1.5f -label_bought.getWidth()/2);
+		label_bought.setY(500f -occupied_y +customScroll);
+		label_bought.draw(batch, 1f-transition1);
 		
+		occupied_y += 20;
+		
+		aux_x = -1;
+		aux_y = 0;
+		
+		for (int i = 0; i < upgrades.size(); i++) {
+			
+			if (upgrades.get(i).state == "bought") {
+				aux_x ++;
+				
+				if (aux_x == upgradesPerRow) {
+					aux_x = 0;
+					aux_y++;
+				}
+				
+				float aux_x2 = ((float)aux_x - ((float)upgradesPerRow-1f)/2f)/(((float)upgradesPerRow-1f)/2f);
+				
+				if (upgradeSelected != upgrades.get(i) && lastUpgradeSelected != upgrades.get(i)) {
+					upgrades.get(i).mini_bg.setX(1.5f*TG.Display.WIDTH -upgrades.get(i).mini_bg.getWidth()/2 +aux_x2*availableWidth/2f);
+					upgrades.get(i).mini_bg.setY(-occupied_y + TG.Display.HEIGHT/2 -upgrades.get(i).mini_bg.getHeight()/2 +100 -aux_y*100f +customScroll);
+					
+					upgrades.get(i).origin_x = upgrades.get(i).mini_bg.getX() +upgrades.get(i).mini_bg.getWidth()/2;
+					upgrades.get(i).origin_y =  upgrades.get(i).mini_bg.getY() +upgrades.get(i).mini_bg.getHeight()/2 -customScroll;
+				}
+				
+			}
+			
+		}
+		
+		occupied_y += 20 +(aux_y +1)*100f;
+		
+		customScrollMax = occupied_y -500f;
+		if (customScrollMax < 0) { customScrollMax = 0; }
 		
 		
 		if (upgradeSelected == null) {
@@ -304,6 +356,11 @@ public class Providence extends Screen {
 					t.background.draw(batch, transition3 *t.custom_alpha);
 					t.label.draw(batch, transition3 *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
+					
+					batch.setShader(Shaders.instance.hueShader);
+					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+					batch.setShader(null);
 
 				}
 				
@@ -316,6 +373,11 @@ public class Providence extends Screen {
 					
 					t.mini_bg.draw(batch, 1f *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
+
+					batch.setShader(Shaders.instance.hueShader);
+					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					t.ribbon.draw(batch, t.ribbon.getColor().a);
+					batch.setShader(null);
 
 				}
 				
@@ -331,6 +393,11 @@ public class Providence extends Screen {
 							t.mini_bg.draw(batch, 1f *t.custom_alpha);
 							t.icon.draw(batch, 1f *t.custom_alpha);
 							
+							batch.setShader(Shaders.instance.hueShader);
+							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							t.ribbon.draw(batch, t.ribbon.getColor().a);
+							batch.setShader(null);
+							
 						}
 						
 						
@@ -343,6 +410,11 @@ public class Providence extends Screen {
 							
 							t.mini_bg.draw(batch, (1f - transition1) *t.custom_alpha);
 							t.icon.draw(batch, (1f - transition1) *t.custom_alpha);
+							
+							batch.setShader(Shaders.instance.hueShader);
+							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							t.ribbon.draw(batch, t.ribbon.getColor().a);
+							batch.setShader(null);
 
 						}
 						
@@ -364,6 +436,11 @@ public class Providence extends Screen {
 							t.mini_bg.draw(batch, 1f *t.custom_alpha);
 							t.icon.draw(batch, 1f *t.custom_alpha);
 							
+							batch.setShader(Shaders.instance.hueShader);
+							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							t.ribbon.draw(batch, t.ribbon.getColor().a);
+							batch.setShader(null);
+							
 						}
 						
 					}
@@ -375,6 +452,11 @@ public class Providence extends Screen {
 							
 							t.mini_bg.draw(batch, (1f - transition1) *t.custom_alpha);
 							t.icon.draw(batch, (1f - transition1) *t.custom_alpha);
+							
+							batch.setShader(Shaders.instance.hueShader);
+							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							t.ribbon.draw(batch, t.ribbon.getColor().a);
+							batch.setShader(null);
 							
 						}
 						
@@ -390,6 +472,11 @@ public class Providence extends Screen {
 					
 					t.mini_bg.draw(batch, 1f *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
+
+					batch.setShader(Shaders.instance.hueShader);
+					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					t.ribbon.draw(batch, t.ribbon.getColor().a);
+					batch.setShader(null);
 					
 				}
 				
@@ -409,7 +496,10 @@ public class Providence extends Screen {
 					t.label.draw(batch, transition3 *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 					
-					
+					batch.setShader(Shaders.instance.hueShader);
+					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+					batch.setShader(null);
 					
 				}
 				
@@ -424,7 +514,7 @@ public class Providence extends Screen {
 
 		if (upgradeSelected == null && transition1 == 0f) {
 			for (int i = 0; i < upgrades.size(); i++) {
-				if (isOnSprite(upgrades.get(i).mini_bg, x, y) && (upgrades.get(i).state == "discovered" || upgrades.get(i).state == "buyable") ) {
+				if (isOnSprite(upgrades.get(i).mini_bg, x, y) && (upgrades.get(i).state != "unexistant") ) {
 					upgradeSelected = upgrades.get(i);
 					soundTap.play(1f);
 				}

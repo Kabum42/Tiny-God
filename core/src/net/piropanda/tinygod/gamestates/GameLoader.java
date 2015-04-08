@@ -69,6 +69,7 @@ public class GameLoader extends Group {
 		TG.assets.load("producers/bg2.png", Texture.class);
 		TG.assets.load("producers/buy.png", Texture.class);
 		TG.assets.load("producers/grandma.png", Texture.class);
+		TG.assets.load("producers/ribbon.png", Texture.class);
 		
 		TG.assets.load("producers/buy1.mp3", Sound.class);
 		TG.assets.load("producers/buy2.mp3", Sound.class);
