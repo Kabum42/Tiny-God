@@ -89,7 +89,7 @@ public class Game extends Group implements GestureListener {
 		// screens
 		screens = new Screen[5];
 		
-		screens[0] = codex = new Codex();
+		screens[0] = codex = new Codex(this);
 		screens[1] = providence = new Providence(this);
 		screens[2] = god = new God();
 		screens[3] = creation = new Creation(this);

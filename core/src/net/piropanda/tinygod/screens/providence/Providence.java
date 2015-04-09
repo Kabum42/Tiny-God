@@ -213,9 +213,6 @@ public class Providence extends Screen {
 				customScroll += inertia;
 				if (customScroll > customScrollMax) { customScroll = customScrollMax; }
 				else if (customScroll < 0 ) { customScroll = 0; }
-//				for (int i = 0; i < producers.size(); i++) {
-//					producers.get(i).background.setY(producers.get(i).origin_y -producers.get(i).background.getHeight()/2 +customScroll);
-//				}
 			}
 		}
 		else {
