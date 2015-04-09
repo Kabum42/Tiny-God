@@ -48,7 +48,7 @@ public class Yahvy {
 		loader.load(handle.file());
 		player = new Player(data.getEntity(0));
 		
-		player.setAnimation(1);
+		player.setAnimation(0);
 		
 		player.setScale(1f/2.75f);
 		player.setPosition(TG.Display.WIDTH*2.5f, 300);

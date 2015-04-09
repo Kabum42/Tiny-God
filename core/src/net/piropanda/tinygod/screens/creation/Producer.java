@@ -42,10 +42,7 @@ public class Producer  {
 	public Label amount;
 	public Sprite buy;
 	
-	public float background_alpha = 1f;
-	public float icon_alpha = 1f;
-	public float label_alpha = 1f;
-	public float amount_alpha = 1f;
+	public float custom_alpha = 1f;
 	
 	public Sprite background2;
 	
@@ -315,10 +312,7 @@ public class Producer  {
 			}
 			else {
 				// SIGUE BLOQUEADO
-				background_alpha = 0.7f;
-				icon_alpha = 0.7f;
-				label_alpha = 0.7f;
-				amount_alpha = 0.7f;
+				custom_alpha = 0.7f;
 				icon.setColor(0, 0, 0, 1f);
 				label.setText("???");
 			}
@@ -333,10 +327,7 @@ public class Producer  {
 			}
 			else {
 				// NO PUEDE COMPRARLO
-				background_alpha = 0.7f;
-				icon_alpha = 0.7f;
-				label_alpha = 0.7f;
-				amount_alpha = 0.7f;
+				custom_alpha = 0.7f;
 				icon.setColor(0.6f, 0.6f, 0.6f, 1f);
 			}
 			
@@ -345,10 +336,7 @@ public class Producer  {
 			
 			if (GameInfo.love >= Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id])))) {
 				// PUEDE COMPRARLO
-				background_alpha = 1f;
-				icon_alpha = 1f;
-				label_alpha = 1f;
-				amount_alpha = 1f;
+				custom_alpha = 1f;
 				icon.setColor(1f, 1f, 1f, 1f);
 			}
 			else {

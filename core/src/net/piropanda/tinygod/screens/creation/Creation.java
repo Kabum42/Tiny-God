@@ -141,16 +141,15 @@ public class Creation extends Screen {
 				Producer t = lastProducerSelected;
 				
 				if (t.state != "unexistant") {
-					t.background2.setAlpha(transition3);
-					t.background2.draw(batch);
-					t.buy.draw(batch, transition3);
-					t.info_outline.draw(batch, transition3);
-					t.info.draw(batch, transition3);
+					t.background2.draw(batch, transition3*t.custom_alpha);
+					t.buy.draw(batch, transition3*t.custom_alpha);
+					t.info_outline.draw(batch, transition3*t.custom_alpha);
+					t.info.draw(batch, transition3*t.custom_alpha);
 					
-					t.background.draw(batch, 1f*t.background_alpha);
-					t.icon.draw(batch, 1f*t.icon_alpha);
-					t.label.draw(batch, 1f);
-					t.amount.draw(batch, 1f);
+					t.background.draw(batch, 1f*t.custom_alpha);
+					t.icon.draw(batch, 1f*t.custom_alpha);
+					t.label.draw(batch, 1f*t.custom_alpha);
+					t.amount.draw(batch, 1f*t.custom_alpha);
 				}
 				
 			}
@@ -159,10 +158,10 @@ public class Creation extends Screen {
 				Producer t = lastProducerSelected;
 				
 				if (t.state != "unexistant") {
-					t.background.draw(batch, 1f*t.background_alpha);
-					t.icon.draw(batch, 1f*t.icon_alpha);
-					t.label.draw(batch, 1f*t.label_alpha);
-					t.amount.draw(batch, 1f*t.amount_alpha);
+					t.background.draw(batch, 1f*t.custom_alpha);
+					t.icon.draw(batch, 1f*t.custom_alpha);
+					t.label.draw(batch, 1f*t.custom_alpha);
+					t.amount.draw(batch, 1f*t.custom_alpha);
 				}
 				
 			}
@@ -173,10 +172,10 @@ public class Creation extends Screen {
 						Producer t = producers.get(i);
 						
 						if (t.state != "unexistant") {
-							t.background.draw(batch, 1f*t.background_alpha);
-							t.icon.draw(batch, 1f*t.icon_alpha);
-							t.label.draw(batch, 1f*t.label_alpha);
-							t.amount.draw(batch, 1f*t.amount_alpha);
+							t.background.draw(batch, 1f*t.custom_alpha);
+							t.icon.draw(batch, 1f*t.custom_alpha);
+							t.label.draw(batch, 1f*t.custom_alpha);
+							t.amount.draw(batch, 1f*t.custom_alpha);
 						}
 						
 						
@@ -186,10 +185,10 @@ public class Creation extends Screen {
 						Producer t = producers.get(i);
 						
 						if (t.state != "unexistant") {
-							t.background.draw(batch, (1f - transition1)*t.background_alpha);
-							t.icon.draw(batch, (1f - transition1)*t.icon_alpha);
-							t.label.draw(batch, (1f - transition1)*t.label_alpha);
-							t.amount.draw(batch, (1f - transition1)*t.amount_alpha);
+							t.background.draw(batch, (1f - transition1)*t.custom_alpha);
+							t.icon.draw(batch, (1f - transition1)*t.custom_alpha);
+							t.label.draw(batch, (1f - transition1)*t.custom_alpha);
+							t.amount.draw(batch, (1f - transition1)*t.custom_alpha);
 						}
 						
 					}
@@ -206,10 +205,10 @@ public class Creation extends Screen {
 						Producer t = producers.get(i);
 						
 						if (t.state != "unexistant") {
-							t.background.draw(batch, 1f*t.background_alpha);
-							t.icon.draw(batch, 1f*t.icon_alpha);
-							t.label.draw(batch, 1f*t.label_alpha);
-							t.amount.draw(batch, 1f*t.amount_alpha);
+							t.background.draw(batch, 1f*t.custom_alpha);
+							t.icon.draw(batch, 1f*t.custom_alpha);
+							t.label.draw(batch, 1f*t.custom_alpha);
+							t.amount.draw(batch, 1f*t.custom_alpha);
 						}
 						
 					}
@@ -218,10 +217,10 @@ public class Creation extends Screen {
 						Producer t = producers.get(i);
 						
 						if (t.state != "unexistant") {
-							t.background.draw(batch, (1f - transition1)*t.background_alpha);
-							t.icon.draw(batch, (1f - transition1)*t.icon_alpha);
-							t.label.draw(batch, (1f - transition1)*t.label_alpha);
-							t.amount.draw(batch, (1f - transition1)*t.amount_alpha);
+							t.background.draw(batch, (1f - transition1)*t.custom_alpha);
+							t.icon.draw(batch, (1f - transition1)*t.custom_alpha);
+							t.label.draw(batch, (1f - transition1)*t.custom_alpha);
+							t.amount.draw(batch, (1f - transition1)*t.custom_alpha);
 						}
 						
 					}
@@ -233,10 +232,10 @@ public class Creation extends Screen {
 				Producer t = producerSelected;
 				
 				if (t.state != "unexistant") {
-					t.background.draw(batch, 1f*t.background_alpha);
-					t.icon.draw(batch, 1f*t.icon_alpha);
-					t.label.draw(batch, 1f*t.label_alpha);
-					t.amount.draw(batch, 1f*t.amount_alpha);
+					t.background.draw(batch, 1f*t.custom_alpha);
+					t.icon.draw(batch, 1f*t.custom_alpha);
+					t.label.draw(batch, 1f*t.custom_alpha);
+					t.amount.draw(batch, 1f*t.custom_alpha);
 				}
 				
 			}
@@ -245,16 +244,15 @@ public class Creation extends Screen {
 				Producer t = producerSelected;
 				
 				if (t.state != "unexistant") {
-					t.background2.setAlpha(transition3);
-					t.background2.draw(batch);
-					t.buy.draw(batch, transition3);
-					t.info_outline.draw(batch, transition3);
-					t.info.draw(batch, transition3);
+					t.background2.draw(batch, transition3*t.custom_alpha);
+					t.buy.draw(batch, transition3*t.custom_alpha);
+					t.info_outline.draw(batch, transition3*t.custom_alpha);
+					t.info.draw(batch, transition3*t.custom_alpha);
 					
-					t.background.draw(batch, 1f*t.background_alpha);
-					t.icon.draw(batch, 1f*t.icon_alpha);
-					t.label.draw(batch, 1f);
-					t.amount.draw(batch, 1f);
+					t.background.draw(batch, 1f*t.custom_alpha);
+					t.icon.draw(batch, 1f*t.custom_alpha);
+					t.label.draw(batch, 1f*t.custom_alpha);
+					t.amount.draw(batch, 1f*t.custom_alpha);
 				}
 				
 			}
