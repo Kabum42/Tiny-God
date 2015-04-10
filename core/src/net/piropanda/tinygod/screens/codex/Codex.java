@@ -2,6 +2,7 @@ package net.piropanda.tinygod.screens.codex;
 
 import java.util.ArrayList;
 
+import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.Lang;
 import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
@@ -40,12 +41,25 @@ public class Codex extends Screen {
 	
 	private Sprite stats_background;
 	private Label stats_label;
+	private Sprite stats_background2;
+	private Label stats_info;
 	
 	private Sprite language_background;
 	private Label language_label;
+	private Sprite language_background2;
+	private Sprite language_english_background;
+	private Sprite language_spanish_background;
+	private Sprite language_russian_background;
+	private Sprite language_german_background;
+	private Sprite language_french_background;
+	private Sprite language_italian_background;
+	private Sprite language_romanian_background;
+	private Sprite language_catalan_background;
 	
 	private Sprite credits_background;
 	private Label credits_label;
+	private Sprite credits_background2;
+	private Label credits_info;
 	
 	public Sprite lastSpriteSelected = null;
 	public Sprite spriteSelected = null;
@@ -81,21 +95,83 @@ public class Codex extends Screen {
 		save_label = new Label("Save", TG.Graphics.font1);
 		save_label.setColor(Color.WHITE);
 		
+		language_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_background.setScale(1f/2.75f, 1f/2.75f);
+		language_background.setX(0.5f*TG.Display.WIDTH -language_background.getWidth()/2);
+		language_background.setY((start_y + (end_y - start_y)*(1f - 2f/number_options)) -language_background.getHeight()/2);
+
+		language_label = new Label("Language", TG.Graphics.font1);
+		language_label.setColor(Color.WHITE);
+		
+		language_background2 = new Sprite(TG.assets.get("producers/bg2.png", Texture.class));
+		language_background2.setScale(1f/2.75f, 1f/2.75f);
+		language_background2.setX(TG.Display.WIDTH*0.5f -language_background2.getWidth()/2);
+		language_background2.setY(260f -language_background2.getHeight()/2);
+		
+		float start_y2 = 60;
+		float end_y2 = 500;
+		float number_options2 = 8;
+		
+		language_english_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_english_background.setScale(1f/2.75f, 1f/2.75f);
+		language_english_background.setX(0.5f*TG.Display.WIDTH -language_english_background.getWidth()/2);
+		language_english_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 1f/number_options2)) -language_english_background.getHeight()/2);
+		
+		language_spanish_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_spanish_background.setScale(1f/2.75f, 1f/2.75f);
+		language_spanish_background.setX(0.5f*TG.Display.WIDTH -language_spanish_background.getWidth()/2);
+		language_spanish_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 2f/number_options2)) -language_spanish_background.getHeight()/2);
+		
+		language_russian_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_russian_background.setScale(1f/2.75f, 1f/2.75f);
+		language_russian_background.setX(0.5f*TG.Display.WIDTH -language_russian_background.getWidth()/2);
+		language_russian_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 3f/number_options2)) -language_russian_background.getHeight()/2);
+		
+		language_german_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_german_background.setScale(1f/2.75f, 1f/2.75f);
+		language_german_background.setX(0.5f*TG.Display.WIDTH -language_german_background.getWidth()/2);
+		language_german_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 4f/number_options2)) -language_german_background.getHeight()/2);
+		
+		language_french_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_french_background.setScale(1f/2.75f, 1f/2.75f);
+		language_french_background.setX(0.5f*TG.Display.WIDTH -language_french_background.getWidth()/2);
+		language_french_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 5f/number_options2)) -language_french_background.getHeight()/2);
+		
+		language_italian_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_italian_background.setScale(1f/2.75f, 1f/2.75f);
+		language_italian_background.setX(0.5f*TG.Display.WIDTH -language_italian_background.getWidth()/2);
+		language_italian_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 6f/number_options2)) -language_italian_background.getHeight()/2);
+		
+		language_romanian_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_romanian_background.setScale(1f/2.75f, 1f/2.75f);
+		language_romanian_background.setX(0.5f*TG.Display.WIDTH -language_romanian_background.getWidth()/2);
+		language_romanian_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 7f/number_options2)) -language_romanian_background.getHeight()/2);
+		
+		language_catalan_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		language_catalan_background.setScale(1f/2.75f, 1f/2.75f);
+		language_catalan_background.setX(0.5f*TG.Display.WIDTH -language_catalan_background.getWidth()/2);
+		language_catalan_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 8f/number_options2)) -language_catalan_background.getHeight()/2);
+		
 		stats_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
 		stats_background.setScale(1f/2.75f, 1f/2.75f);
 		stats_background.setX(0.5f*TG.Display.WIDTH -stats_background.getWidth()/2);
-		stats_background.setY((start_y + (end_y - start_y)*(1f - 2f/number_options)) -stats_background.getHeight()/2);
+		stats_background.setY((start_y + (end_y - start_y)*(1f - 3f/number_options)) -stats_background.getHeight()/2);
 
 		stats_label = new Label("Statistics", TG.Graphics.font1);
 		stats_label.setColor(Color.WHITE);
 		
-		language_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_background.setScale(1f/2.75f, 1f/2.75f);
-		language_background.setX(0.5f*TG.Display.WIDTH -language_background.getWidth()/2);
-		language_background.setY((start_y + (end_y - start_y)*(1f - 3f/number_options)) -language_background.getHeight()/2);
-
-		language_label = new Label("Language", TG.Graphics.font1);
-		language_label.setColor(Color.WHITE);
+		stats_background2 = new Sprite(TG.assets.get("producers/bg2.png", Texture.class));
+		stats_background2.setScale(1f/2.75f, 1f/2.75f);
+		stats_background2.setX(TG.Display.WIDTH*0.5f -stats_background2.getWidth()/2);
+		stats_background2.setY(260f -stats_background2.getHeight()/2);
+		
+		stats_info = new Label("WUT", TG.Graphics.font1);
+		stats_info.setColor(Color.WHITE);
+		stats_info.setFontScale(0.9f);
+		stats_info.setWrap(true);
+		stats_info.setWidth(300);
+		stats_info.setX(TG.Display.WIDTH*0.5f -stats_info.getWidth()/2);
+		stats_info.setY(250);
 		
 		credits_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
 		credits_background.setScale(1f/2.75f, 1f/2.75f);
@@ -105,6 +181,18 @@ public class Codex extends Screen {
 		credits_label = new Label("Credits", TG.Graphics.font1);
 		credits_label.setColor(Color.WHITE);
 
+		credits_background2 = new Sprite(TG.assets.get("producers/bg2.png", Texture.class));
+		credits_background2.setScale(1f/2.75f, 1f/2.75f);
+		credits_background2.setX(TG.Display.WIDTH*0.5f -credits_background2.getWidth()/2);
+		credits_background2.setY(260f -credits_background2.getHeight()/2);
+		
+		credits_info = new Label("WUT", TG.Graphics.font1);
+		credits_info.setColor(Color.WHITE);
+		credits_info.setFontScale(0.9f);
+		credits_info.setWrap(true);
+		credits_info.setWidth(300);
+		credits_info.setX(TG.Display.WIDTH*0.5f -credits_info.getWidth()/2);
+		credits_info.setY(250);
 		
 	}
 	
@@ -174,6 +262,17 @@ public class Codex extends Screen {
 		stats_label.setX(stats_background.getX() +stats_background.getWidth()/2 - stats_label.getWidth()/2);
 		stats_label.setY(stats_background.getY() +stats_background.getHeight()/2 - stats_label.getHeight()/2);
 		
+		stats_info.setText(
+				"Love: "+ GameInfo.love +"\n"
+ 				+ Lang.getText(Lang.LOVE_SINCE_BEGINNING_TIMES) +": "+ GameInfo.totalLove +"\n"
+				+ "Love per second: " + GameInfo.lps +"\n"
+ 				+ "Clicks: " + GameInfo.clicks +"\n"
+ 				+ "Love per click: " + GameInfo.lovePerClick +"\n"
+ 				+ Lang.getText(Lang.CRITICAL_CLICK_CHANCE)+ ": " + GameInfo.criticalClickChance +"\n"
+ 				+ "Critical click multiplier: " + GameInfo.criticalClickMultiplier
+ 				);
+		
+		language_label.setText(Lang.getText(Lang.LANGUAGE_WORD));
 		language_label.pack();
 		language_label.setX(language_background.getX() +language_background.getWidth()/2 - language_label.getWidth()/2);
 		language_label.setY(language_background.getY() +language_background.getHeight()/2 - language_label.getHeight()/2);
@@ -182,6 +281,16 @@ public class Codex extends Screen {
 		credits_label.setX(credits_background.getX() +credits_background.getWidth()/2 - credits_label.getWidth()/2);
 		credits_label.setY(credits_background.getY() +credits_background.getHeight()/2 - credits_label.getHeight()/2);
 		
+		credits_info.setText(
+				"Translators" +"\n \n"
+				+ "Thibault Cotcha (French)" +"\n"
+ 				+ "Rachid Bouchequif (German)" +"\n"
+				+ "Lucia del Burgo Martínez (Italian)" +"\n"
+ 				+ "Anastasia Dimitrova (Russian)" +"\n"
+ 				+ "Jordi Iraultza (Catalan)" +"\n"
+ 				+ "Grigore Roman (Romanian)"
+ 				);
+		
 	}
 	
 	
@@ -189,17 +298,88 @@ public class Codex extends Screen {
 	public void draw(Batch batch, float parentAlpha) {
 		bgTab.draw(batch);
 		
-		save_background.draw(batch, 1f);
-		save_label.draw(batch, 1f);
 		
-		stats_background.draw(batch, 1f);
-		stats_label.draw(batch, 1f);
+		if (spriteSelected == null) {
+			
+			save_background.setAlpha(1f-transition1);
+			stats_background.setAlpha(1f-transition1);
+			language_background.setAlpha(1f-transition1);
+			credits_background.setAlpha(1f-transition1);
+			
+			if (lastSpriteSelected != null) {
+				lastSpriteSelected.setAlpha(1f);
+			}
+			
+			stats_background2.setAlpha(0f);
+			language_background2.setAlpha(0f);
+			credits_background2.setAlpha(0f);
+			
+			if (lastSpriteSelected == stats_background) {
+				stats_background2.setAlpha(transition3);
+			}
+			else if (lastSpriteSelected == language_background) {
+				language_background2.setAlpha(transition3);
+			}
+			else if (lastSpriteSelected == credits_background) {
+				credits_background2.setAlpha(transition3);
+			}
+			
+			
+		}
+		else {
+			if (transition1 < 1f) {
+				
+				save_background.setAlpha(1f-transition1);
+				stats_background.setAlpha(1f-transition1);
+				language_background.setAlpha(1f-transition1);
+				credits_background.setAlpha(1f-transition1);
+				
+				spriteSelected.setAlpha(1f);
+
+			}
+			else if (transition2 < 1f) {
+				
+				spriteSelected.setAlpha(1f);
+				
+			}
+			else {
+				
+				spriteSelected.setAlpha(1f);
+				
+				stats_background2.setAlpha(0f);
+				language_background2.setAlpha(0f);
+				credits_background2.setAlpha(0f);
+				
+				if (spriteSelected == stats_background) {
+					stats_background2.setAlpha(transition3);
+				}
+				else if (spriteSelected == language_background) {
+					language_background2.setAlpha(transition3);
+				}
+				else if (spriteSelected == credits_background) {
+					credits_background2.setAlpha(transition3);
+				}
+				
+				
+			}
+		}
 		
-		language_background.draw(batch, 1f);
-		language_label.draw(batch, 1f);
+		save_background.draw(batch, save_background.getColor().a);
+		save_label.draw(batch, save_background.getColor().a);
 		
-		credits_background.draw(batch, 1f);
-		credits_label.draw(batch, 1f);
+		stats_background2.draw(batch, stats_background2.getColor().a);
+		stats_info.draw(batch, stats_background2.getColor().a);
+		stats_background.draw(batch, stats_background.getColor().a);
+		stats_label.draw(batch, stats_background.getColor().a);
+		
+		language_background2.draw(batch, language_background2.getColor().a);
+		language_background.draw(batch, language_background.getColor().a);
+		language_label.draw(batch, language_background.getColor().a);
+		
+		credits_background2.draw(batch, credits_background2.getColor().a);
+		credits_info.draw(batch, credits_background2.getColor().a);
+		credits_background.draw(batch, credits_background.getColor().a);
+		credits_label.draw(batch, credits_background.getColor().a);
 		
 		//super.draw(batch, parentAlpha);
 	}
