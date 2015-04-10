@@ -55,6 +55,14 @@ public class Codex extends Screen {
 	private Sprite language_italian_background;
 	private Sprite language_romanian_background;
 	private Sprite language_catalan_background;
+	private Label language_english_label;
+	private Label language_spanish_label;
+	private Label language_russian_label;
+	private Label language_german_label;
+	private Label language_french_label;
+	private Label language_italian_label;
+	private Label language_romanian_label;
+	private Label language_catalan_label;
 	
 	private Sprite credits_background;
 	private Label credits_label;
@@ -108,49 +116,89 @@ public class Codex extends Screen {
 		language_background2.setX(TG.Display.WIDTH*0.5f -language_background2.getWidth()/2);
 		language_background2.setY(260f -language_background2.getHeight()/2);
 		
-		float start_y2 = 60;
-		float end_y2 = 500;
+		float start_y2 = 100;
+		float end_y2 = 460;
 		float number_options2 = 8;
 		
 		language_english_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_english_background.setScale(1f/2.75f, 1f/2.75f);
+		language_english_background.setScale((1f/2.75f)*0.60f, (1f/2.75f)*0.60f);
 		language_english_background.setX(0.5f*TG.Display.WIDTH -language_english_background.getWidth()/2);
 		language_english_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 1f/number_options2)) -language_english_background.getHeight()/2);
 		
+		language_english_label = new Label("ENGLISH", TG.Graphics.font1);
+		language_english_label.setColor(Color.WHITE);
+		language_english_label.setX(language_english_background.getX() +language_english_background.getWidth()/2 -language_english_label.getWidth()/2);
+		language_english_label.setY(language_english_background.getY() +language_english_background.getHeight()/2 -language_english_label.getHeight()/2);
+		
 		language_spanish_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_spanish_background.setScale(1f/2.75f, 1f/2.75f);
+		language_spanish_background.setScale((1f/2.75f)*0.60f, (1f/2.75f)*0.60f);
 		language_spanish_background.setX(0.5f*TG.Display.WIDTH -language_spanish_background.getWidth()/2);
 		language_spanish_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 2f/number_options2)) -language_spanish_background.getHeight()/2);
 		
+		language_spanish_label = new Label("ESPAÑOL", TG.Graphics.font1);
+		language_spanish_label.setColor(Color.WHITE);
+		language_spanish_label.setX(language_spanish_background.getX() +language_spanish_background.getWidth()/2 -language_spanish_label.getWidth()/2);
+		language_spanish_label.setY(language_spanish_background.getY() +language_spanish_background.getHeight()/2 -language_spanish_label.getHeight()/2);
+		
 		language_russian_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_russian_background.setScale(1f/2.75f, 1f/2.75f);
+		language_russian_background.setScale((1f/2.75f)*0.60f, (1f/2.75f)*0.60f);
 		language_russian_background.setX(0.5f*TG.Display.WIDTH -language_russian_background.getWidth()/2);
 		language_russian_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 3f/number_options2)) -language_russian_background.getHeight()/2);
 		
+		language_russian_label = new Label("РОССИЯ", TG.Graphics.font1);
+		language_russian_label.setColor(Color.WHITE);
+		language_russian_label.setX(language_russian_background.getX() +language_russian_background.getWidth()/2 -language_russian_label.getWidth()/2);
+		language_russian_label.setY(language_russian_background.getY() +language_russian_background.getHeight()/2 -language_russian_label.getHeight()/2);
+		
 		language_german_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_german_background.setScale(1f/2.75f, 1f/2.75f);
+		language_german_background.setScale((1f/2.75f)*0.60f, (1f/2.75f)*0.60f);
 		language_german_background.setX(0.5f*TG.Display.WIDTH -language_german_background.getWidth()/2);
 		language_german_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 4f/number_options2)) -language_german_background.getHeight()/2);
 		
+		language_german_label = new Label("DEUTSCHE", TG.Graphics.font1);
+		language_german_label.setColor(Color.WHITE);
+		language_german_label.setX(language_german_background.getX() +language_german_background.getWidth()/2 -language_german_label.getWidth()/2);
+		language_german_label.setY(language_german_background.getY() +language_german_background.getHeight()/2 -language_german_label.getHeight()/2);
+		
 		language_french_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_french_background.setScale(1f/2.75f, 1f/2.75f);
+		language_french_background.setScale((1f/2.75f)*0.60f, (1f/2.75f)*0.60f);
 		language_french_background.setX(0.5f*TG.Display.WIDTH -language_french_background.getWidth()/2);
 		language_french_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 5f/number_options2)) -language_french_background.getHeight()/2);
 		
+		language_french_label = new Label("FRANÇAIS", TG.Graphics.font1);
+		language_french_label.setColor(Color.WHITE);
+		language_french_label.setX(language_french_background.getX() +language_french_background.getWidth()/2 -language_french_label.getWidth()/2);
+		language_french_label.setY(language_french_background.getY() +language_french_background.getHeight()/2 -language_french_label.getHeight()/2);
+		
 		language_italian_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_italian_background.setScale(1f/2.75f, 1f/2.75f);
+		language_italian_background.setScale((1f/2.75f)*0.60f, (1f/2.75f)*0.60f);
 		language_italian_background.setX(0.5f*TG.Display.WIDTH -language_italian_background.getWidth()/2);
 		language_italian_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 6f/number_options2)) -language_italian_background.getHeight()/2);
 		
+		language_italian_label = new Label("ITALIANO", TG.Graphics.font1);
+		language_italian_label.setColor(Color.WHITE);
+		language_italian_label.setX(language_italian_background.getX() +language_italian_background.getWidth()/2 -language_italian_label.getWidth()/2);
+		language_italian_label.setY(language_italian_background.getY() +language_italian_background.getHeight()/2 -language_italian_label.getHeight()/2);
+		
 		language_romanian_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_romanian_background.setScale(1f/2.75f, 1f/2.75f);
+		language_romanian_background.setScale((1f/2.75f)*0.60f, (1f/2.75f)*0.60f);
 		language_romanian_background.setX(0.5f*TG.Display.WIDTH -language_romanian_background.getWidth()/2);
 		language_romanian_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 7f/number_options2)) -language_romanian_background.getHeight()/2);
 		
+		language_romanian_label = new Label("ROMÂNĂ", TG.Graphics.font1);
+		language_romanian_label.setColor(Color.WHITE);
+		language_romanian_label.setX(language_romanian_background.getX() +language_romanian_background.getWidth()/2 -language_romanian_label.getWidth()/2);
+		language_romanian_label.setY(language_romanian_background.getY() +language_romanian_background.getHeight()/2 -language_romanian_label.getHeight()/2);
+		
 		language_catalan_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		language_catalan_background.setScale(1f/2.75f, 1f/2.75f);
+		language_catalan_background.setScale((1f/2.75f)*0.60f, (1f/2.75f)*0.60f);
 		language_catalan_background.setX(0.5f*TG.Display.WIDTH -language_catalan_background.getWidth()/2);
 		language_catalan_background.setY((start_y2 + (end_y2 - start_y2)*(1f - 8f/number_options2)) -language_catalan_background.getHeight()/2);
+		
+		language_catalan_label = new Label("CATALÀ", TG.Graphics.font1);
+		language_catalan_label.setColor(Color.WHITE);
+		language_catalan_label.setX(language_catalan_background.getX() +language_catalan_background.getWidth()/2 -language_catalan_label.getWidth()/2);
+		language_catalan_label.setY(language_catalan_background.getY() +language_catalan_background.getHeight()/2 -language_catalan_label.getHeight()/2);
 		
 		stats_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
 		stats_background.setScale(1f/2.75f, 1f/2.75f);
@@ -285,11 +333,29 @@ public class Codex extends Screen {
 				"Translators" +"\n \n"
 				+ "Thibault Cotcha (French)" +"\n"
  				+ "Rachid Bouchequif (German)" +"\n"
-				+ "Lucia del Burgo Mart�nez (Italian)" +"\n"
+				+ "Lucia del Burgo Martínez (Italian)" +"\n"
  				+ "Anastasia Dimitrova (Russian)" +"\n"
  				+ "Jordi Iraultza (Catalan)" +"\n"
- 				+ "Grigore Roman (Romanian)"
+ 				+ "Grig Master (Romanian)"
  				);
+		
+		language_english_background.setColor(1f, 1f, 1f, 1f);
+		language_spanish_background.setColor(1f, 1f, 1f, 1f);
+		language_russian_background.setColor(1f, 1f, 1f, 1f);
+		language_german_background.setColor(1f, 1f, 1f, 1f);
+		language_french_background.setColor(1f, 1f, 1f, 1f);
+		language_italian_background.setColor(1f, 1f, 1f, 1f);
+		language_romanian_background.setColor(1f, 1f, 1f, 1f);
+		language_catalan_background.setColor(1f, 1f, 1f, 1f);
+		
+		if (Lang.CURRENT_VALUE == Lang.ENGLISH_VALUE) { language_english_background.setColor(0f, 0f, 0f, 0.7f); }
+		if (Lang.CURRENT_VALUE == Lang.SPANISH_VALUE) { language_spanish_background.setColor(0f, 0f, 0f, 0.7f); }
+		if (Lang.CURRENT_VALUE == Lang.RUSSIAN_VALUE) { language_russian_background.setColor(0f, 0f, 0f, 0.7f); }
+		if (Lang.CURRENT_VALUE == Lang.GERMAN_VALUE) { language_german_background.setColor(0f, 0f, 0f, 0.7f); }
+		if (Lang.CURRENT_VALUE == Lang.FRENCH_VALUE) { language_french_background.setColor(0f, 0f, 0f, 0.7f); }
+		if (Lang.CURRENT_VALUE == Lang.ITALIAN_VALUE) { language_italian_background.setColor(0f, 0f, 0f, 0.7f); }
+		if (Lang.CURRENT_VALUE == Lang.ROMANIAN_VALUE) { language_romanian_background.setColor(0f, 0f, 0f, 0.7f); }
+		if (Lang.CURRENT_VALUE == Lang.CATALAN_VALUE) { language_catalan_background.setColor(0f, 0f, 0f, 0.7f); }
 		
 	}
 	
@@ -373,6 +439,22 @@ public class Codex extends Screen {
 		stats_label.draw(batch, stats_background.getColor().a);
 		
 		language_background2.draw(batch, language_background2.getColor().a);
+		language_english_background.draw(batch, language_background2.getColor().a);
+		language_english_label.draw(batch, language_background2.getColor().a);
+		language_spanish_background.draw(batch, language_background2.getColor().a);
+		language_spanish_label.draw(batch, language_background2.getColor().a);
+		language_russian_background.draw(batch, language_background2.getColor().a);
+		language_russian_label.draw(batch, language_background2.getColor().a);
+		language_german_background.draw(batch, language_background2.getColor().a);
+		language_german_label.draw(batch, language_background2.getColor().a);
+		language_french_background.draw(batch, language_background2.getColor().a);
+		language_french_label.draw(batch, language_background2.getColor().a);
+		language_italian_background.draw(batch, language_background2.getColor().a);
+		language_italian_label.draw(batch, language_background2.getColor().a);
+		language_romanian_background.draw(batch, language_background2.getColor().a);
+		language_romanian_label.draw(batch, language_background2.getColor().a);
+		language_catalan_background.draw(batch, language_background2.getColor().a);
+		language_catalan_label.draw(batch, language_background2.getColor().a);
 		language_background.draw(batch, language_background.getColor().a);
 		language_label.draw(batch, language_background.getColor().a);
 		
@@ -410,6 +492,41 @@ public class Codex extends Screen {
 				lastSpriteSelected = spriteSelected;
 				spriteSelected = null;
 				soundTap.play(1f);
+			}
+			
+			if (spriteSelected == language_background) {
+				if (isOnSprite(language_english_background, x, y)) {
+					Lang.setLanguage(Lang.ENGLISH_VALUE);
+					soundTap.play(1f);
+				}
+				else if (isOnSprite(language_spanish_background, x, y)) {
+					Lang.setLanguage(Lang.SPANISH_VALUE);
+					soundTap.play(1f);
+				}
+				else if (isOnSprite(language_russian_background, x, y)) {
+					Lang.setLanguage(Lang.RUSSIAN_VALUE);
+					soundTap.play(1f);
+				}
+				else if (isOnSprite(language_german_background, x, y)) {
+					Lang.setLanguage(Lang.GERMAN_VALUE);
+					soundTap.play(1f);
+				}
+				else if (isOnSprite(language_french_background, x, y)) {
+					Lang.setLanguage(Lang.FRENCH_VALUE);
+					soundTap.play(1f);
+				}
+				else if (isOnSprite(language_italian_background, x, y)) {
+					Lang.setLanguage(Lang.ITALIAN_VALUE);
+					soundTap.play(1f);
+				}
+				else if (isOnSprite(language_romanian_background, x, y)) {
+					Lang.setLanguage(Lang.ROMANIAN_VALUE);
+					soundTap.play(1f);
+				}
+				else if (isOnSprite(language_catalan_background, x, y)) {
+					Lang.setLanguage(Lang.CATALAN_VALUE);
+					soundTap.play(1f);
+				}
 			}
 			
 		}

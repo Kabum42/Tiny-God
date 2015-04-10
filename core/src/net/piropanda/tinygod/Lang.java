@@ -1609,7 +1609,7 @@ public class Lang {
 		FRENCH_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "Que l'amour t'accompagne";
 		
 		// MORE MISCELLANEOUS
-		FRENCH_WORDS[LANGUAGE_WORD] = "Language";
+		FRENCH_WORDS[LANGUAGE_WORD] = "La langue";
 		
 		
 		/**ROMANIAN**/
@@ -1869,7 +1869,7 @@ public class Lang {
 		ROMANIAN_WORDS[SPACESHIP_UPGRADE_10_JOKE] = "Dragostea sa fie cu tine";
 		
 		// MORE MISCELLANEOUS
-		ROMANIAN_WORDS[LANGUAGE_WORD] = "Language";
+		ROMANIAN_WORDS[LANGUAGE_WORD] = "Limbă";
 		
 		
 		/**GERMAN**/
@@ -2010,7 +2010,7 @@ public class Lang {
 		
 		// SHIP
 		GERMAN_WORDS[SHIP_NAME] = "Schiff";
-		GERMAN_WORDS[SHIP_DESCRIPTION] = "Ein Schiff um Liebe über die Meere zu bringen";
+		GERMAN_WORDS[SHIP_DESCRIPTION] = "Ein schiff um liebe über die meere zu bringen";
 		GERMAN_WORDS[SHIP_UPGRADE_1] = "Ins unbekannte";
 		GERMAN_WORDS[SHIP_UPGRADE_1_JOKE] = "Schatz, ich gehe kurz raus um tabak zu holen";
 		GERMAN_WORDS[SHIP_UPGRADE_2] = "Obszöne galionsfigur";
