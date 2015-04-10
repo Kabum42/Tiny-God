@@ -3,6 +3,7 @@ package net.piropanda.tinygod.helpers;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.Lang;
 import net.piropanda.tinygod.screens.creation.Producer;
 
@@ -80,8 +81,130 @@ public class ProducerInfo {
     	return 0f;
     }
     
-    public static float getLps(int id) {
-    	if(lps.containsKey(id)) return lps.get(id);
+    public static double getLps(int id) {
+    	if(lps.containsKey(id)) {
+    		
+    		double lps_final = lps.get(id);
+    		
+    		if (id == Lang.SERVANT_NAME) {
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_1])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_2])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_3])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_4])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_5])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_6])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_7])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_8])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_9])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_10])) { lps_final *= 2; }
+    		}
+    		else if (id == Lang.HUMAN_NAME) {
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_1])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_2])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_3])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_4])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_5])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_6])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_7])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_8])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_9])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_10])) { lps_final *= 2; }
+    			
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_1])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_2])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_3])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_4])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_5])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_6])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_7])) { lps_final *= 2; }
+    		}
+    		else if (id == Lang.PROPHET_NAME) {
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_1])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_2])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_3])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_4])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_5])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_6])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_7])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_8])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_9])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_10])) { lps_final *= 2; }
+    		}
+    		else if (id == Lang.TEMPLE_NAME) {
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_1])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_2])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_3])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_4])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_5])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_6])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_7])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_8])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_9])) { lps_final *= 2; }
+    			if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_10])) { lps_final *= 2; }
+    		}
+			else if (id == Lang.SHIP_NAME) {
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_1])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_2])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_3])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_4])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_5])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_6])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_7])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_8])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_9])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_10])) { lps_final *= 2; }
+			}
+			else if (id == Lang.FACTORY_NAME) {
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_1])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_2])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_3])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_4])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_5])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_6])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_7])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_8])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_9])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_10])) { lps_final *= 2; }
+			}
+			else if (id == Lang.LABORATORY_NAME) {
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_1])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_2])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_3])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_4])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_5])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_6])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_7])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_8])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_9])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_10])) { lps_final *= 2; }
+			}
+			else if (id == Lang.SHOP_NAME) {
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_1])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_2])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_3])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_4])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_5])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_6])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_7])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_8])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_9])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_10])) { lps_final *= 2; }
+			}
+			else if (id == Lang.SPACESHIP_NAME) {
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_1])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_2])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_3])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_4])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_5])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_6])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_7])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_8])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_9])) { lps_final *= 2; }
+				if (GameInfo.upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_10])) { lps_final *= 2; }
+			}
+    		
+    		return lps_final;
+    	}
     	return 0f;
     }
     

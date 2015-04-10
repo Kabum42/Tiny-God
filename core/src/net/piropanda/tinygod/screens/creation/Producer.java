@@ -278,8 +278,10 @@ public class Producer  {
 		
 		background2.setY(background.getY() +background.getHeight()/2 -background2.getHeight()/2 -background2.getHeight()/2*background2.getScaleY() -30f);
 		
-		info.setText(Lang.getText(id+1) 
-				+"\n \n" + "Cost: "+ Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))));
+		info.setText(
+		Lang.getText(id+1) +"\n \n" 
+		+ "Cost: "+ Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))) +"\n \n" 
+		+ "It produces: " + ProducerInfo.getLps(id) + " love per second");
 
 		//info.setText("дфц ‘no’ means 'yes' caçar où â ë construieşti * LoveCard® ");
 		

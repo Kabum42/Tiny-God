@@ -356,130 +356,15 @@ public class GameInfo {
 		criticalClickMultiplier = 10.0;
 		
 		double lps_servant = producers.get(Lang.ENGLISH_WORDS[Lang.SERVANT_NAME]) 		* ProducerInfo.getLps(Lang.SERVANT_NAME);
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_1])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_2])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_3])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_4])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_5])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_6])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_7])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_8])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_9])) { lps_servant *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SERVANT_UPGRADE_10])) { lps_servant *= 2; }
-
 		double lps_human = producers.get(Lang.ENGLISH_WORDS[Lang.HUMAN_NAME]) 		* ProducerInfo.getLps(Lang.HUMAN_NAME);
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_1])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_2])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_3])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_4])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_5])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_6])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_7])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_8])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_9])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.HUMAN_UPGRADE_10])) { lps_human *= 2; }
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_1])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_2])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_3])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_4])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_5])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_6])) { lps_human *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPECIAL_HUMAN_7])) { lps_human *= 2; }
-		
 		double lps_prophet = producers.get(Lang.ENGLISH_WORDS[Lang.PROPHET_NAME]) 		* ProducerInfo.getLps(Lang.PROPHET_NAME);
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_1])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_2])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_3])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_4])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_5])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_6])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_7])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_8])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_9])) { lps_prophet *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.PROPHET_UPGRADE_10])) { lps_prophet *= 2; }
-		
-		double lps_temple = producers.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_NAME]) 		* ProducerInfo.getLps(Lang.TEMPLE_NAME);
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_1])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_2])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_3])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_4])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_5])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_6])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_7])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_8])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_9])) { lps_temple *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_UPGRADE_10])) { lps_temple *= 2; }
-		
+		double lps_temple = producers.get(Lang.ENGLISH_WORDS[Lang.TEMPLE_NAME]) 		* ProducerInfo.getLps(Lang.TEMPLE_NAME);	
 		double lps_ship = producers.get(Lang.ENGLISH_WORDS[Lang.SHIP_NAME]) 			* ProducerInfo.getLps(Lang.SHIP_NAME);
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_1])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_2])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_3])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_4])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_5])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_6])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_7])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_8])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_9])) { lps_ship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHIP_UPGRADE_10])) { lps_ship *= 2; }
-		
 		double lps_factory = producers.get(Lang.ENGLISH_WORDS[Lang.FACTORY_NAME]) 		* ProducerInfo.getLps(Lang.FACTORY_NAME);
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_1])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_2])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_3])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_4])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_5])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_6])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_7])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_8])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_9])) { lps_factory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.FACTORY_UPGRADE_10])) { lps_factory *= 2; }
-		
 		double lps_laboratory = producers.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_NAME]) 	* ProducerInfo.getLps(Lang.LABORATORY_NAME);
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_1])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_2])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_3])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_4])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_5])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_6])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_7])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_8])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_9])) { lps_laboratory *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.LABORATORY_UPGRADE_10])) { lps_laboratory *= 2; }
-		
 		double lps_shop = producers.get(Lang.ENGLISH_WORDS[Lang.SHOP_NAME]) 	* ProducerInfo.getLps(Lang.SHOP_NAME);
-		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_1])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_2])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_3])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_4])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_5])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_6])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_7])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_8])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_9])) { lps_shop *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SHOP_UPGRADE_10])) { lps_shop *= 2; }
-		
 		double lps_spaceship = producers.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_NAME]) 			* ProducerInfo.getLps(Lang.SPACESHIP_NAME);
 		
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_1])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_2])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_3])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_4])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_5])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_6])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_7])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_8])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_9])) { lps_spaceship *= 2; }
-		if (upgrades.get(Lang.ENGLISH_WORDS[Lang.SPACESHIP_UPGRADE_10])) { lps_spaceship *= 2; }
-
 		lps += lps_servant;
 		lps += lps_human;
 		lps += lps_prophet;
