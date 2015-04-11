@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.Lang;
+import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.earth.Earth;
@@ -40,6 +41,15 @@ public class God extends Screen {
 	public float mouth_rotation2 = 0f;
 	public float mouth_rotation3 = 0f;
 	public float mouth_rotation4 = 0f;
+	
+	public float timer = 0f;
+	private Sprite base_timer;
+	private Sprite fill_timer;
+	private float rainbow_timer = 0f;
+	private Sprite go_timer;
+	private float go_timer_alpha = 0f;
+	private float sinus_timer = 0f;
+	private float scale_timer = 0f;
 	
 	public float spinning = 1f;
 	public boolean clockwise = true;
@@ -125,12 +135,22 @@ public class God extends Screen {
 		table.row();
 		
 		earth = new Earth(this);
-//		table.add(earth).size(TG.Display.WIDTH);
 		table.add().padBottom(TG.Display.WIDTH);
 		
 //		for (int i = 0; i < 300; i++) {
 //			addMouth();
 //		}
+		
+		base_timer = new Sprite(TG.assets.get("god/base_timer.png", Texture.class));
+		base_timer.setScale(1f/2.75f);
+		base_timer.setX(TG.Display.WIDTH*2.5f -base_timer.getWidth()/2);
+		
+		fill_timer = new Sprite(TG.assets.get("god/fill_timer.png", Texture.class));
+		fill_timer.setScale(1f/2.75f);
+		
+		go_timer = new Sprite(TG.assets.get("god/go_timer.png", Texture.class));
+		go_timer.setScale(1f/2.75f);
+		go_timer.setX(TG.Display.WIDTH*2.5f -go_timer.getWidth()/2);
 		
 	}
 	
@@ -186,8 +206,38 @@ public class God extends Screen {
 			earth.light(earth.earth);
 		}
 		
+		base_timer.setY(TG.Display.HEIGHT*0.69f -base_timer.getHeight()/2 +getScrollPane().getVisualScrollY());
 		
+		if (timer < 100f) { 
+			timer += dt*10f;
+			go_timer_alpha = 0f;
+			if (timer >= 100f) {
+				timer = 100f;
+				rainbow_timer = 0f;
+			}
+		}
+		else {
+			rainbow_timer += dt;
+			if (rainbow_timer > 1f) {
+				rainbow_timer -= 2f;
+			}
+			
+			if (go_timer_alpha < 0.8f) { go_timer_alpha += dt; }
+		}
+		//if (timer >= 100f) { timer -= 100f; }
+		fill_timer.setScale(timer*9.45f*(1f/2.75f), fill_timer.getScaleY());
+		fill_timer.setY(base_timer.getY() +base_timer.getHeight()/2 -fill_timer.getHeight()/2);
+		fill_timer.setX(-172f +base_timer.getX() +base_timer.getWidth()/2 -fill_timer.getWidth()/2 +fill_timer.getWidth()/2*fill_timer.getScaleX());
 		
+		sinus_timer += dt*100f;
+		if (sinus_timer > 360) { sinus_timer -= 360f; }
+		
+		scale_timer += dt*66;
+		if (scale_timer > 360) { scale_timer -= 360f; }
+		
+		go_timer.setScale((float) ((1f/2.75f)*(1 +Math.sin(Math.toRadians(scale_timer))*0.1f)));
+		go_timer.setY((float) (base_timer.getY() +base_timer.getHeight()/2 -go_timer.getHeight()/2 +Math.sin(Math.toRadians(sinus_timer))*5f));
+		go_timer.setAlpha(go_timer_alpha);
 	}
 	
 	@Override
@@ -212,7 +262,20 @@ public class God extends Screen {
 //			for (int i = 0; i < mouths.size(); i++) {
 //				mouths.get(i).draw(batch, parentAlpha);
 //			}
+			
+			base_timer.draw(batch, parentAlpha);
+			
+			if (timer < 100f) { fill_timer.draw(batch, parentAlpha); }
+			else {
+				batch.setShader(Shaders.instance.hueShader);
+				Shaders.instance.hueShader.setUniformf("hue", rainbow_timer);
+				fill_timer.draw(batch, parentAlpha);
+				batch.setShader(null);
+			}
+			go_timer.draw(batch, parentAlpha);
+			
 			yahvy.draw(batch, parentAlpha);
+			
 		}
 		else {
 			earth.draw(batch, parentAlpha);
