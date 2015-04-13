@@ -3,6 +3,7 @@ package net.piropanda.tinygod.minigames.trexadam;
 import java.util.ArrayList;
 
 import net.piropanda.tinygod.TG;
+import net.piropanda.tinygod.gamestates.MiniGames;
 import net.piropanda.tinygod.minigames.MiniGame;
 
 import com.badlogic.gdx.Gdx;
@@ -107,6 +108,9 @@ public class TRexAdam extends MiniGame {
 	    	obstacles.get(i).update();
 	    }
 	    
+	    if (adam.getX() >= 1000f) {
+	    	MiniGames.instance.unload();
+	    }
 	}
 	
 	@Override

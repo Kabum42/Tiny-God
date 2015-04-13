@@ -6,6 +6,7 @@ import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.Lang;
 import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
+import net.piropanda.tinygod.gamestates.MiniGames;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.earth.Earth;
 import net.piropanda.tinygod.screens.earth.Physical;
@@ -217,7 +218,7 @@ public class God extends Screen {
 			}
 		}
 		else {
-			rainbow_timer += dt;
+			rainbow_timer += dt*2.5f;
 			if (rainbow_timer > 1f) {
 				rainbow_timer -= 2f;
 			}
@@ -294,6 +295,12 @@ public class God extends Screen {
 	@Override
 	public boolean tap(float x, float y, int count, int button) {
 		if(onYahvy) {
+			
+			if (timer >= 100f && isOnSprite(go_timer, x, y)) {
+				timer = 0f;
+				MiniGames.instance.load(MiniGames.tRexAdam);
+			}
+			
 			//GameInfo.addLove(GameInfo.lovePerClick);
 			GameInfo.addLove(GameInfo.love);
 			//addMouth();
@@ -309,6 +316,25 @@ public class God extends Screen {
 		if (mouths.size() < 100) {
 			mouths.add(new Mouth(this, mouths.size(), TG.Display.WIDTH*2.5f, 250));
 		}
+	}
+	
+	private boolean isOnSprite(Sprite s, float x, float y) {
+		
+		float first_x = s.getX() + s.getWidth()/2 -s.getWidth()/2*s.getScaleX();
+		float second_x = s.getX() + s.getWidth()/2 +s.getWidth()/2*s.getScaleX();
+		
+		float first_y = s.getY() + s.getHeight()/2 +s.getHeight()/2*s.getScaleY();
+		float second_y = s.getY() + s.getHeight()/2 -s.getHeight()/2*s.getScaleY();
+		
+		float modified_x = (x - TG.Display.whiteSpaceX)*(1f/TG.Display.scale) +TG.Display.WIDTH*POSITION;
+		float modified_y = -((y -TG.Display.whiteSpaceY)*(1f/TG.Display.scale) -TG.Display.HEIGHT);
+		
+		if (modified_x >= first_x && modified_x <= second_x &&
+				modified_y <= first_y && modified_y >= second_y) {
+			return true;
+		}
+		
+		return false;
 	}
 	
 }
