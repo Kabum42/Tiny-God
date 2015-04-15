@@ -362,7 +362,7 @@ public class Codex extends Screen {
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		bgTab.draw(batch);
+		//bgTab.draw(batch);
 		
 		
 		if (spriteSelected == null) {

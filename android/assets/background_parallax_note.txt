@@ -1,0 +1,9 @@
+La altura de 1980 cuando la divides entre 2.75 da la altura
+por defecto : 720.
+
+La anchura de 1782 cuando la divides entre 2.75 da la anchura
+por defecto : 432 + 216, lo que significa que puede hacer 
+parallax 108 a la izquierda y 108 a la derecha, como puede
+desplazarse tres veces a la izquierda y a la derecha en
+cada desplazamiento se mueve 36 px.
+

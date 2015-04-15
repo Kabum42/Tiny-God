@@ -166,7 +166,7 @@ public class Store extends Screen {
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		bgTab.draw(batch);
+		//bgTab.draw(batch);
 		
 		float occupied_y = 0;
 		

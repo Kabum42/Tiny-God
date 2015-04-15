@@ -47,6 +47,7 @@ public class GameLoader extends Group {
 		TG.assets.load("screen-background_02.png", Texture.class);
 		TG.assets.load("god-bg.png", Texture.class);
 		TG.assets.load("top.png", Texture.class);
+		TG.assets.load("background_parallax.png", Texture.class);
 		TG.assets.load("god/base_timer.png", Texture.class);
 		TG.assets.load("god/fill_timer.png", Texture.class);
 		TG.assets.load("god/go_timer.png", Texture.class);

@@ -132,7 +132,7 @@ public class Creation extends Screen {
 //	}
 	
 	public void draw(Batch batch, float parentAlpha) {
-		bgTab.draw(batch);
+		//bgTab.draw(batch);
 		
 		if (producerSelected == null) {
 			

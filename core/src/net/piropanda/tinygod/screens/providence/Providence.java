@@ -253,7 +253,9 @@ public class Providence extends Screen {
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
-		bgTab.draw(batch);
+		//bgTab.draw(batch);
+		
+		System.out.println("LOL");
 		
 		float occupied_y = 0;
 		

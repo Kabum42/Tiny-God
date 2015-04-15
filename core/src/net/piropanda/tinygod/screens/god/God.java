@@ -6,6 +6,7 @@ import net.piropanda.tinygod.GameInfo;
 import net.piropanda.tinygod.Lang;
 import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
+import net.piropanda.tinygod.gamestates.Game;
 import net.piropanda.tinygod.gamestates.MiniGames;
 import net.piropanda.tinygod.screens.Screen;
 import net.piropanda.tinygod.screens.earth.Earth;
@@ -28,6 +29,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
 public class God extends Screen {
 
 	public static final int POSITION = 2;
+	
+	public Game gameParent;
 	
 	private Earth earth;
 	private boolean onYahvy = true;
@@ -55,25 +58,27 @@ public class God extends Screen {
 	public float spinning = 1f;
 	public boolean clockwise = true;
 	
-	public God() {
+	public God(Game g) {
 		super();
+		
+		gameParent = g;
 		
 		soundTap = TG.assets.get("common/tap.mp3", Sound.class);
 		
 		this.bgTab = new Sprite(TG.assets.get("pixel.png", Texture.class));
 		//this.bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
-		this.bgTab.setScale(1025f/2.75f +2f, 1405f/2.75f +2f);
+		this.bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
 		this.bgTab.setX(TG.Display.WIDTH*2.5f - this.bgTab.getWidth()/2);
 		//this.bgTab.setY(0 - this.bgTab.getHeight()/2 +this.bgTab.getHeight()/2*this.bgTab.getScaleY());
-		this.bgTab.setY(81f/2.75f - this.bgTab.getHeight()/2 +this.bgTab.getHeight()/2*this.bgTab.getScaleY());
+		this.bgTab.setY(TG.Display.HEIGHT*0.5f - this.bgTab.getHeight()/2);
 		this.bgTab.setColor(100f/255f, 130f/255f, 210f/255f, 1f);
 		
 		this.bgTab2 = new Sprite(TG.assets.get("pixel.png", Texture.class));
 		//this.bgTab2.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
-		this.bgTab2.setScale(1025f/2.75f +2f, 1405f/2.75f +2f);
-		this.bgTab2.setX(TG.Display.WIDTH*2.5f - this.bgTab.getWidth()/2);
+		this.bgTab2.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
+		this.bgTab2.setX(TG.Display.WIDTH*2.5f - this.bgTab2.getWidth()/2);
 		//this.bgTab2.setY(0 - this.bgTab2.getHeight()/2 +this.bgTab2.getHeight()/2*this.bgTab2.getScaleY());
-		this.bgTab2.setY(81f/2.75f - this.bgTab2.getHeight()/2 +this.bgTab2.getHeight()/2*this.bgTab2.getScaleY());
+		this.bgTab2.setY(TG.Display.HEIGHT*0.5f - this.bgTab2.getHeight()/2);
 		this.bgTab2.setColor(255f/255f, 0f/255f, 0f/255f, 1f);
 		
 		table.pad(0);
@@ -168,7 +173,7 @@ public class God extends Screen {
 		float alpha_1 = 1f -((float)this.getScrollPane().getVisualScrollY()/max_scroll);
 		float alpha_2 = (float)this.getScrollPane().getVisualScrollY()/max_scroll;
 		
-		bgTab.setAlpha(alpha_1);
+		gameParent.background_parallax.setAlpha(alpha_1);
 		bgTab2.setAlpha(alpha_2);
 
 		this.yahvy.origin_y = 300 +this.getScrollPane().getVisualScrollY();
@@ -247,9 +252,6 @@ public class God extends Screen {
 		
 		if (bgTab2.getColor().a > 0) {
 			bgTab2.draw(batch);
-		}
-		if (bgTab.getColor().a > 0) {
-			bgTab.draw(batch);
 		}
 		
 

@@ -38,6 +38,8 @@ public class Game extends Group implements GestureListener {
 	public Creation creation;
 	public Store store;
 	
+	public Sprite background_parallax;
+	
 	private boolean init;
 	
 	private float easingPosition;
@@ -70,6 +72,12 @@ public class Game extends Group implements GestureListener {
 		soundSlide = TG.assets.get("common/slide.mp3", Sound.class);
 		
 		// background
+		
+		background_parallax = new Sprite(TG.assets.get("background_parallax.png", Texture.class));
+		background_parallax.setScale(1f/2.75f, 1f/2.75f);
+		background_parallax.setX(2.5f*TG.Display.WIDTH -background_parallax.getWidth()/2);
+		background_parallax.setY(0.5f*TG.Display.HEIGHT -background_parallax.getHeight()/2);
+		
 		bg = new Image(TG.assets.get("screen-background_01.png", Texture.class));
 		bg.setTouchable(Touchable.disabled);
 		
@@ -91,7 +99,7 @@ public class Game extends Group implements GestureListener {
 		
 		screens[0] = codex = new Codex(this);
 		screens[1] = providence = new Providence(this);
-		screens[2] = god = new God();
+		screens[2] = god = new God(this);
 		screens[3] = creation = new Creation(this);
 		screens[4] = store = new Store(this);
 		
@@ -142,10 +150,23 @@ public class Game extends Group implements GestureListener {
 		
 		top.setX(this.getStage().getCamera().position.x -top.getWidth()/2);
 		label.setX(top.getX() +top.getWidth()/2 -50);
+		
+		
+		
+		// limite es 1296 en ambos sentidos
+		float margin_x = ((background_parallax.getWidth()*background_parallax.getScaleX() -TG.Display.WIDTH)/2f);
+		float displacement_x = this.getStage().getCamera().position.x - 1080f;
+		if (displacement_x > 1296) { displacement_x = 1296f; }
+		else if (displacement_x < -1296) { displacement_x = -1296f; }
+		displacement_x = -(displacement_x / 1296f)*margin_x;
+		
+		background_parallax.setX(this.getStage().getCamera().position.x -background_parallax.getWidth()/2 +displacement_x);
 	}
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
+		
+		background_parallax.draw(batch, parentAlpha);
 		
 		if (Math.abs(this.getStage().getCamera().position.x - (currentScreen*TG.Display.WIDTH + TG.Display.WIDTH/2)) > 5) {
 			for (int i = 0; i < screens.length; i++) {
@@ -165,9 +186,9 @@ public class Game extends Group implements GestureListener {
 		}
 		
 		
-		bg.draw(batch, parentAlpha);
-		godBackground.draw(batch, parentAlpha);
-		bg2.draw(batch, parentAlpha);
+//		bg.draw(batch, parentAlpha);
+//		godBackground.draw(batch, parentAlpha);
+//		bg2.draw(batch, parentAlpha);
 		top.draw(batch, parentAlpha);
 		label.draw(batch, parentAlpha);
 	}
