@@ -1,6 +1,7 @@
 package net.piropanda.tinygod.gamestates;
 
 import net.piropanda.tinygod.GameInfo;
+import net.piropanda.tinygod.Shaders;
 import net.piropanda.tinygod.TG;
 import net.piropanda.tinygod.helpers.ProducerInfo;
 import net.piropanda.tinygod.screens.Screen;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.input.GestureDetector.GestureListener;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
@@ -26,6 +28,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 public class Game extends Group implements GestureListener {
 
 	public static final String NAME = "Game";
+	public int mode = 0;
+	
+	// 0 = Normal
+	// 1 = Sepia
+	
+	public ShaderProgram defaultShader = null;
+	
+	
 	
 	private static final int SCREEN_SWAP_THRESHOLD = 100;
 	
@@ -165,6 +175,15 @@ public class Game extends Group implements GestureListener {
 	
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
+		
+		if (mode == 0) {
+			defaultShader = null;
+		}
+		else if (mode == 1) {
+			defaultShader = Shaders.instance.vignetteShader;
+		}
+		
+		batch.setShader(defaultShader);
 		
 		background_parallax.draw(batch, parentAlpha);
 		

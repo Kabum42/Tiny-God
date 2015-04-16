@@ -267,10 +267,12 @@ public class Store extends Screen {
 					t.label.draw(batch, transition3 *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 					
-					batch.setShader(Shaders.instance.hueShader);
-					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					if (gameParent.mode != 1) {
+						batch.setShader(Shaders.instance.hueShader);
+						Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					}
 					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
-					batch.setShader(null);
+					batch.setShader(gameParent.defaultShader);
 
 				}
 				
@@ -284,10 +286,12 @@ public class Store extends Screen {
 					t.mini_bg.draw(batch, 1f *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 
-					batch.setShader(Shaders.instance.hueShader);
-					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-					t.ribbon.draw(batch, t.ribbon.getColor().a);
-					batch.setShader(null);
+					if (gameParent.mode != 1) {
+						batch.setShader(Shaders.instance.hueShader);
+						Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					}
+					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+					batch.setShader(gameParent.defaultShader);
 
 				}
 				
@@ -303,10 +307,12 @@ public class Store extends Screen {
 							t.mini_bg.draw(batch, 1f *t.custom_alpha);
 							t.icon.draw(batch, 1f *t.custom_alpha);
 							
-							batch.setShader(Shaders.instance.hueShader);
-							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-							t.ribbon.draw(batch, t.ribbon.getColor().a);
-							batch.setShader(null);
+							if (gameParent.mode != 1) {
+								batch.setShader(Shaders.instance.hueShader);
+								Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							}
+							t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+							batch.setShader(gameParent.defaultShader);
 							
 						}
 						
@@ -321,10 +327,12 @@ public class Store extends Screen {
 							t.mini_bg.draw(batch, (1f - transition1) *t.custom_alpha);
 							t.icon.draw(batch, (1f - transition1) *t.custom_alpha);
 							
-							batch.setShader(Shaders.instance.hueShader);
-							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-							t.ribbon.draw(batch, t.ribbon.getColor().a);
-							batch.setShader(null);
+							if (gameParent.mode != 1) {
+								batch.setShader(Shaders.instance.hueShader);
+								Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							}
+							t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+							batch.setShader(gameParent.defaultShader);
 
 						}
 						
@@ -346,10 +354,12 @@ public class Store extends Screen {
 							t.mini_bg.draw(batch, 1f *t.custom_alpha);
 							t.icon.draw(batch, 1f *t.custom_alpha);
 							
-							batch.setShader(Shaders.instance.hueShader);
-							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-							t.ribbon.draw(batch, t.ribbon.getColor().a);
-							batch.setShader(null);
+							if (gameParent.mode != 1) {
+								batch.setShader(Shaders.instance.hueShader);
+								Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							}
+							t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+							batch.setShader(gameParent.defaultShader);
 							
 						}
 						
@@ -363,10 +373,12 @@ public class Store extends Screen {
 							t.mini_bg.draw(batch, (1f - transition1) *t.custom_alpha);
 							t.icon.draw(batch, (1f - transition1) *t.custom_alpha);
 							
-							batch.setShader(Shaders.instance.hueShader);
-							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-							t.ribbon.draw(batch, t.ribbon.getColor().a);
-							batch.setShader(null);
+							if (gameParent.mode != 1) {
+								batch.setShader(Shaders.instance.hueShader);
+								Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							}
+							t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+							batch.setShader(gameParent.defaultShader);
 							
 						}
 						
@@ -383,10 +395,12 @@ public class Store extends Screen {
 					t.mini_bg.draw(batch, 1f *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 
-					batch.setShader(Shaders.instance.hueShader);
-					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-					t.ribbon.draw(batch, t.ribbon.getColor().a);
-					batch.setShader(null);
+					if (gameParent.mode != 1) {
+						batch.setShader(Shaders.instance.hueShader);
+						Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					}
+					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+					batch.setShader(gameParent.defaultShader);
 					
 				}
 				
@@ -406,10 +420,12 @@ public class Store extends Screen {
 					t.label.draw(batch, transition3 *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 					
-					batch.setShader(Shaders.instance.hueShader);
-					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					if (gameParent.mode != 1) {
+						batch.setShader(Shaders.instance.hueShader);
+						Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					}
 					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
-					batch.setShader(null);
+					batch.setShader(gameParent.defaultShader);
 					
 				}
 				

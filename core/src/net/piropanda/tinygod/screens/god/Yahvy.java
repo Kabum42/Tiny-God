@@ -141,7 +141,7 @@ public class Yahvy {
 						body.setY(sprite.getY());
 						body.draw(batch);
 						//sprite.draw(batch);
-						batch.setShader(null);
+						batch.setShader(screen.gameParent.defaultShader);
 					}
 					else {
 						sprite.draw(batch, object.alpha);

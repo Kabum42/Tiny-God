@@ -255,8 +255,6 @@ public class Providence extends Screen {
 	public void draw(Batch batch, float parentAlpha) {
 		//bgTab.draw(batch);
 		
-		System.out.println("LOL");
-		
 		float occupied_y = 0;
 		
 		label_available.setX(TG.Display.WIDTH*1.5f -label_available.getWidth()/2);
@@ -356,10 +354,12 @@ public class Providence extends Screen {
 					t.label.draw(batch, transition3 *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 					
-					batch.setShader(Shaders.instance.hueShader);
-					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					if (gameParent.mode != 1) {
+						batch.setShader(Shaders.instance.hueShader);
+						Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					}
 					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
-					batch.setShader(null);
+					batch.setShader(gameParent.defaultShader);
 
 				}
 				
@@ -373,10 +373,12 @@ public class Providence extends Screen {
 					t.mini_bg.draw(batch, 1f *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 
-					batch.setShader(Shaders.instance.hueShader);
-					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-					t.ribbon.draw(batch, t.ribbon.getColor().a);
-					batch.setShader(null);
+					if (gameParent.mode != 1) {
+						batch.setShader(Shaders.instance.hueShader);
+						Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					}
+					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+					batch.setShader(gameParent.defaultShader);
 
 				}
 				
@@ -392,10 +394,12 @@ public class Providence extends Screen {
 							t.mini_bg.draw(batch, 1f *t.custom_alpha);
 							t.icon.draw(batch, 1f *t.custom_alpha);
 							
-							batch.setShader(Shaders.instance.hueShader);
-							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-							t.ribbon.draw(batch, t.ribbon.getColor().a);
-							batch.setShader(null);
+							if (gameParent.mode != 1) {
+								batch.setShader(Shaders.instance.hueShader);
+								Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							}
+							t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+							batch.setShader(gameParent.defaultShader);
 							
 						}
 						
@@ -410,10 +414,12 @@ public class Providence extends Screen {
 							t.mini_bg.draw(batch, (1f - transition1) *t.custom_alpha);
 							t.icon.draw(batch, (1f - transition1) *t.custom_alpha);
 							
-							batch.setShader(Shaders.instance.hueShader);
-							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-							t.ribbon.draw(batch, t.ribbon.getColor().a);
-							batch.setShader(null);
+							if (gameParent.mode != 1) {
+								batch.setShader(Shaders.instance.hueShader);
+								Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							}
+							t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+							batch.setShader(gameParent.defaultShader);
 
 						}
 						
@@ -435,10 +441,12 @@ public class Providence extends Screen {
 							t.mini_bg.draw(batch, 1f *t.custom_alpha);
 							t.icon.draw(batch, 1f *t.custom_alpha);
 							
-							batch.setShader(Shaders.instance.hueShader);
-							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-							t.ribbon.draw(batch, t.ribbon.getColor().a);
-							batch.setShader(null);
+							if (gameParent.mode != 1) {
+								batch.setShader(Shaders.instance.hueShader);
+								Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							}
+							t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+							batch.setShader(gameParent.defaultShader);
 							
 						}
 						
@@ -452,10 +460,12 @@ public class Providence extends Screen {
 							t.mini_bg.draw(batch, (1f - transition1) *t.custom_alpha);
 							t.icon.draw(batch, (1f - transition1) *t.custom_alpha);
 							
-							batch.setShader(Shaders.instance.hueShader);
-							Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-							t.ribbon.draw(batch, t.ribbon.getColor().a);
-							batch.setShader(null);
+							if (gameParent.mode != 1) {
+								batch.setShader(Shaders.instance.hueShader);
+								Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+							}
+							t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+							batch.setShader(gameParent.defaultShader);
 							
 						}
 						
@@ -472,10 +482,12 @@ public class Providence extends Screen {
 					t.mini_bg.draw(batch, 1f *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 
-					batch.setShader(Shaders.instance.hueShader);
-					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
-					t.ribbon.draw(batch, t.ribbon.getColor().a);
-					batch.setShader(null);
+					if (gameParent.mode != 1) {
+						batch.setShader(Shaders.instance.hueShader);
+						Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					}
+					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
+					batch.setShader(gameParent.defaultShader);
 					
 				}
 				
@@ -495,10 +507,12 @@ public class Providence extends Screen {
 					t.label.draw(batch, transition3 *t.custom_alpha);
 					t.icon.draw(batch, 1f *t.custom_alpha);
 					
-					batch.setShader(Shaders.instance.hueShader);
-					Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					if (gameParent.mode != 1) {
+						batch.setShader(Shaders.instance.hueShader);
+						Shaders.instance.hueShader.setUniformf("hue", t.variation_color);
+					}
 					t.ribbon.draw(batch, t.ribbon.getColor().a *transition3);
-					batch.setShader(null);
+					batch.setShader(gameParent.defaultShader);
 					
 				}
 				

@@ -9,6 +9,8 @@ public class Shaders {
 	
 	public ShaderProgram hueShader;
 	public ShaderProgram maskShader;
+	public ShaderProgram vignetteShader;
+	public ShaderProgram redShader;
 	
 	public Shaders() {
 		
@@ -20,6 +22,12 @@ public class Shaders {
 		maskShader.setUniformi("u_texture1", 1);
 		maskShader.setUniformi("u_mask", 2);
 		maskShader.end();
+		
+		vignetteShader = new ShaderProgram(Gdx.files.internal("shaders/vignette.vsh"), Gdx.files.internal("shaders/vignette.fsh"));
+		vignetteShader.pedantic = false;
+		
+		redShader = new ShaderProgram(Gdx.files.internal("shaders/aux2.vsh"), Gdx.files.internal("shaders/aux2.fsh"));
+		redShader.pedantic = false;
 		
 	}
 
