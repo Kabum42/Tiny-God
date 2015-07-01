@@ -188,6 +188,11 @@ public class Providence extends Screen {
 	@Override
 	public void act(float dt) {
 		
+		label_available.setText(Lang.getText(Lang.AVAILABLE_WORD));
+		label_available.pack();
+		
+		label_bought.setText(Lang.getText(Lang.BOUGHT_WORD));
+		label_bought.pack();
 		
 		if (upgradeSelected == null) {
 			if (transition3 > 0f) {

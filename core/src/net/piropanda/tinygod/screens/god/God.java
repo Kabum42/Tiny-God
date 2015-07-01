@@ -106,6 +106,9 @@ public class God extends Screen {
 		//table.add(label).row();
 		
 		// "To Earth" button
+		
+		/*
+		
 		TextButton button = new TextButton("To Earth", TG.Graphics.skin);
 		button.addListener(new ChangeListener() {
 			@Override
@@ -143,6 +146,8 @@ public class God extends Screen {
 		earth = new Earth(this);
 		table.add().padBottom(TG.Display.WIDTH);
 		
+		*/
+		
 //		for (int i = 0; i < 300; i++) {
 //			addMouth();
 //		}
@@ -177,7 +182,7 @@ public class God extends Screen {
 		bgTab2.setAlpha(alpha_2);
 
 		this.yahvy.origin_y = 300 +this.getScrollPane().getVisualScrollY();
-		earth.act(dt);
+		//earth.act(dt);
 		
 		if (onYahvy) {
 			yahvy.act(dt);
@@ -291,7 +296,7 @@ public class God extends Screen {
 	
 	@Override
 	public void pan(float x, float y, float deltaX, float deltaY) {
-		earth.pan(x, y, deltaX, deltaY);
+		//earth.pan(x, y, deltaX, deltaY);
 	}
 	
 	@Override
