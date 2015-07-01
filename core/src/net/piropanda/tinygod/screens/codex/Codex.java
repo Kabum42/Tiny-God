@@ -247,6 +247,15 @@ public class Codex extends Screen {
 	@Override
 	public void act(float dt) {
 		
+		save_label.setText(Lang.getText(Lang.SAVE_WORD));
+		save_label.pack();
+		
+		stats_label.setText(Lang.getText(Lang.STATISTICS_WORD));
+		stats_label.pack();
+		
+		credits_label.setText(Lang.getText(Lang.CREDITS_WORD));
+		credits_label.pack();
+		
 		if (spriteSelected == null) {
 			if (transition3 > 0f) {
 				transition3 -= dt*10f;
@@ -311,13 +320,13 @@ public class Codex extends Screen {
 		stats_label.setY(stats_background.getY() +stats_background.getHeight()/2 - stats_label.getHeight()/2);
 		
 		stats_info.setText(
-				"Love: "+ GameInfo.love +"\n"
+				Lang.getText(Lang.LOVE_WORD)+": "+ GameInfo.love +"\n"
  				+ Lang.getText(Lang.LOVE_SINCE_BEGINNING_TIMES) +": "+ GameInfo.totalLove +"\n"
-				+ "Love per second: " + GameInfo.lps +"\n"
- 				+ "Clicks: " + GameInfo.clicks +"\n"
- 				+ "Love per click: " + GameInfo.lovePerClick +"\n"
+				+ Lang.getText(Lang.LOVE_PER_SECOND_WORD)+": " + GameInfo.lps +"\n"
+ 				+ Lang.getText(Lang.CLICKS_WORD)+": " + GameInfo.clicks +"\n"
+ 				+ Lang.getText(Lang.LOVE_PER_CLICK_WORD)+": " + GameInfo.lovePerClick +"\n"
  				+ Lang.getText(Lang.CRITICAL_CLICK_CHANCE)+ ": " + GameInfo.criticalClickChance +"\n"
- 				+ "Critical click multiplier: " + GameInfo.criticalClickMultiplier
+ 				+ Lang.getText(Lang.CRITICAL_CLICK_MULTIPLIER_WORD)+": " + GameInfo.criticalClickMultiplier
  				);
 		
 		language_label.setText(Lang.getText(Lang.LANGUAGE_WORD));
@@ -330,13 +339,13 @@ public class Codex extends Screen {
 		credits_label.setY(credits_background.getY() +credits_background.getHeight()/2 - credits_label.getHeight()/2);
 		
 		credits_info.setText(
-				"Translators" +"\n \n"
-				+ "Thibault Cotcha (French)" +"\n"
- 				+ "Rachid Bouchequif (German)" +"\n"
-				+ "Lucia del Burgo Martínez (Italian)" +"\n"
- 				+ "Anastasia Dimitrova (Russian)" +"\n"
- 				+ "Jordi Iraultza (Catalan)" +"\n"
- 				+ "Grig Master (Romanian)"
+				Lang.getText(Lang.TRANSLATORS_WORD) +"\n \n"
+				+ Lang.getText(Lang.FRENCH_TRANSLATOR_WORD) +"\n"
+ 				+ Lang.getText(Lang.GERMAN_TRANSLATOR_WORD) +"\n"
+				+ Lang.getText(Lang.ITALIAN_TRANSLATOR_WORD) +"\n"
+ 				+ Lang.getText(Lang.RUSSIAN_TRANSLATOR_WORD) +"\n"
+ 				+ Lang.getText(Lang.CATALAN_TRANSLATOR_WORD) +"\n"
+ 				+ Lang.getText(Lang.ROMANIAN_TRANSLATOR_WORD)
  				);
 		
 		language_english_background.setColor(1f, 1f, 1f, 1f);

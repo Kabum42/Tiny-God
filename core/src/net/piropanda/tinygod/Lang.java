@@ -304,7 +304,7 @@ public class Lang {
 	public static int LOVE_PER_SECOND_WORD =  			245;
 	public static int CLICKS_WORD =  					246;
 	public static int LOVE_PER_CLICK_WORD =  			247;
-	public static int CITICAL_CLICK_MULTIPLIER_WORD =  	248;
+	public static int CRITICAL_CLICK_MULTIPLIER_WORD =  	248;
 	public static int TRANSLATORS_WORD =  				249;
 	public static int FRENCH_TRANSLATOR_WORD =  		250;
 	public static int GERMAN_TRANSLATOR_WORD =  		251;
@@ -595,7 +595,7 @@ public class Lang {
 		ENGLISH_WORDS[LOVE_PER_SECOND_WORD] = "Love per second";
 		ENGLISH_WORDS[CLICKS_WORD] = "Clicks";
 		ENGLISH_WORDS[LOVE_PER_CLICK_WORD] = "Love per click";
-		ENGLISH_WORDS[CITICAL_CLICK_MULTIPLIER_WORD] = "Critical click multiplier";
+		ENGLISH_WORDS[CRITICAL_CLICK_MULTIPLIER_WORD] = "Critical click multiplier";
 		ENGLISH_WORDS[TRANSLATORS_WORD] = "Translators";
 		ENGLISH_WORDS[FRENCH_TRANSLATOR_WORD] = "Thibault Cotcha (French)";
 		ENGLISH_WORDS[GERMAN_TRANSLATOR_WORD] = "Rachid Bouchequif (German)";
@@ -872,7 +872,7 @@ public class Lang {
 		SPANISH_WORDS[LOVE_PER_SECOND_WORD] = "Amor por segundo";
 		SPANISH_WORDS[CLICKS_WORD] = "Clicks";
 		SPANISH_WORDS[LOVE_PER_CLICK_WORD] = "Amor por click";
-		SPANISH_WORDS[CITICAL_CLICK_MULTIPLIER_WORD] = "Multiplicador de click crítico";
+		SPANISH_WORDS[CRITICAL_CLICK_MULTIPLIER_WORD] = "Multiplicador de click crítico";
 		SPANISH_WORDS[TRANSLATORS_WORD] = "Traductores";
 		SPANISH_WORDS[FRENCH_TRANSLATOR_WORD] = "Thibault Cotcha (Francés)";
 		SPANISH_WORDS[GERMAN_TRANSLATOR_WORD] = "Rachid Bouchequif (Alemán)";
@@ -1149,7 +1149,7 @@ public class Lang {
 		CATALAN_WORDS[LOVE_PER_SECOND_WORD] = "Amor per segon";
 		CATALAN_WORDS[CLICKS_WORD] = "Tocs";
 		CATALAN_WORDS[LOVE_PER_CLICK_WORD] = "Amor per toc";
-		CATALAN_WORDS[CITICAL_CLICK_MULTIPLIER_WORD] = "Multiplicador de toc crític";
+		CATALAN_WORDS[CRITICAL_CLICK_MULTIPLIER_WORD] = "Multiplicador de toc crític";
 		CATALAN_WORDS[TRANSLATORS_WORD] = "Traductors";
 		CATALAN_WORDS[FRENCH_TRANSLATOR_WORD] = "Thibault Cotcha (Francès)";
 		CATALAN_WORDS[GERMAN_TRANSLATOR_WORD] = "Rachid Bouchequif (Alemany)";
@@ -1426,13 +1426,13 @@ public class Lang {
 		ITALIAN_WORDS[LOVE_PER_SECOND_WORD] = "Amore per secondo";
 		ITALIAN_WORDS[CLICKS_WORD] = "Clicks";
 		ITALIAN_WORDS[LOVE_PER_CLICK_WORD] = "Amore per click";
-		ITALIAN_WORDS[CITICAL_CLICK_MULTIPLIER_WORD] = "Moltiplicatore di click critico";
+		ITALIAN_WORDS[CRITICAL_CLICK_MULTIPLIER_WORD] = "Moltiplicatore di click critico";
 		ITALIAN_WORDS[TRANSLATORS_WORD] = "Traduttori";
 		ITALIAN_WORDS[FRENCH_TRANSLATOR_WORD] = "Thibault Cotcha (Francese)";
 		ITALIAN_WORDS[GERMAN_TRANSLATOR_WORD] = "Rachid Bouchequif (Tedesco)";
 		ITALIAN_WORDS[ITALIAN_TRANSLATOR_WORD] = "Lucia del Burgo Martínez (Italiano)";
 		ITALIAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Russo)";
-		ITALIAN_WORDS[ITALIAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalano)";
+		ITALIAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalano)";
 		ITALIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Rumeno)";
 		
 		/**FRENCH**/
@@ -1702,13 +1702,13 @@ public class Lang {
 		FRENCH_WORDS[LOVE_PER_SECOND_WORD] = "Amour par seconde";
 		FRENCH_WORDS[CLICKS_WORD] = "Clics";
 		FRENCH_WORDS[LOVE_PER_CLICK_WORD] = "Amour par clic";
-		FRENCH_WORDS[CITICAL_CLICK_MULTIPLIER_WORD] = "Critique clic multiplicateur";
+		FRENCH_WORDS[CRITICAL_CLICK_MULTIPLIER_WORD] = "Critique clic multiplicateur";
 		FRENCH_WORDS[TRANSLATORS_WORD] = "Traducteurs";
 		FRENCH_WORDS[FRENCH_TRANSLATOR_WORD] = "Thibault Cotcha (Français)";
 		FRENCH_WORDS[GERMAN_TRANSLATOR_WORD] = "Rachid Bouchequif (Allemand)";
 		FRENCH_WORDS[ITALIAN_TRANSLATOR_WORD] = "Lucia del Burgo Martínez (Italien)";
 		FRENCH_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Russe)";
-		FRENCH_WORDS[FRENCH_TRANSLATOR_WORD] = "Jordi Iraultza (Catalan)";
+		FRENCH_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalan)";
 		FRENCH_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Roumain)";
 		
 		
@@ -1979,13 +1979,13 @@ public class Lang {
 		ROMANIAN_WORDS[LOVE_PER_SECOND_WORD] = "Dragoste pe secundă";
 		ROMANIAN_WORDS[CLICKS_WORD] = "Clicuri";
 		ROMANIAN_WORDS[LOVE_PER_CLICK_WORD] = "Dragoste pe click";
-		ROMANIAN_WORDS[CITICAL_CLICK_MULTIPLIER_WORD] = "Multiplicator click critică";
+		ROMANIAN_WORDS[CRITICAL_CLICK_MULTIPLIER_WORD] = "Multiplicator click critică";
 		ROMANIAN_WORDS[TRANSLATORS_WORD] = "Traducători";
 		ROMANIAN_WORDS[FRENCH_TRANSLATOR_WORD] = "Thibault Cotcha (Franceză)";
 		ROMANIAN_WORDS[GERMAN_TRANSLATOR_WORD] = "Rachid Bouchequif (Germană)";
 		ROMANIAN_WORDS[ITALIAN_TRANSLATOR_WORD] = "Lucia del Burgo Martínez (Italiană)";
 		ROMANIAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Rusă)";
-		ROMANIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalană)";
+		ROMANIAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalană)";
 		ROMANIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Român)";
 		
 		
@@ -2256,13 +2256,13 @@ public class Lang {
 		GERMAN_WORDS[LOVE_PER_SECOND_WORD] = "Liebe pro sekunde";
 		GERMAN_WORDS[CLICKS_WORD] = "Klicks";
 		GERMAN_WORDS[LOVE_PER_CLICK_WORD] = "Liebe pro klick";
-		GERMAN_WORDS[CITICAL_CLICK_MULTIPLIER_WORD] = "Kritische Multiplikator pro klick";
+		GERMAN_WORDS[CRITICAL_CLICK_MULTIPLIER_WORD] = "Kritische Multiplikator pro klick";
 		GERMAN_WORDS[TRANSLATORS_WORD] = "Übersetzer";
 		GERMAN_WORDS[FRENCH_TRANSLATOR_WORD] = "Thibault Cotcha (Französisch)";
 		GERMAN_WORDS[GERMAN_TRANSLATOR_WORD] = "Rachid Bouchequif (Deutsch)";
 		GERMAN_WORDS[ITALIAN_TRANSLATOR_WORD] = "Lucia del Burgo Martínez (Italienisch)";
 		GERMAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Russisch)";
-		GERMAN_WORDS[GERMAN_TRANSLATOR_WORD] = "Jordi Iraultza (Katalanisch)";
+		GERMAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Katalanisch)";
 		GERMAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Rumänisch)";
 		
 		/**RUSSIAN**/
@@ -2527,7 +2527,21 @@ public class Lang {
 		RUSSIAN_WORDS[LANGUAGE_WORD] = "Язык";
 		RUSSIAN_WORDS[AVAILABLE_WORD] = "Доступный";
 		RUSSIAN_WORDS[BOUGHT_WORD] = "Купил";
-		
+		RUSSIAN_WORDS[SAVE_WORD] = "Спасти";	
+		RUSSIAN_WORDS[STATISTICS_WORD] = "Статистика";
+		RUSSIAN_WORDS[CREDITS_WORD] = "Кредиты";
+		RUSSIAN_WORDS[LOVE_WORD] = "Любовь";
+		RUSSIAN_WORDS[LOVE_PER_SECOND_WORD] = "Любовь в секунду";
+		RUSSIAN_WORDS[CLICKS_WORD] = "Щелчки";
+		RUSSIAN_WORDS[LOVE_PER_CLICK_WORD] = "Любовь в нажмитеk";
+		RUSSIAN_WORDS[CRITICAL_CLICK_MULTIPLIER_WORD] = "Критическая множитель нажмите";
+		RUSSIAN_WORDS[TRANSLATORS_WORD] = "Переводчики";
+		RUSSIAN_WORDS[FRENCH_TRANSLATOR_WORD] = "Thibault Cotcha (Французский)";
+		RUSSIAN_WORDS[GERMAN_TRANSLATOR_WORD] = "Rachid Bouchequif (Немецкий)";
+		RUSSIAN_WORDS[ITALIAN_TRANSLATOR_WORD] = "Lucia del Burgo Martínez (Итальянский)";
+		RUSSIAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Русский)";
+		RUSSIAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Каталонский)";
+		RUSSIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Румынский)";
 		
 		//END
 		System.out.println("Languages initialized");
