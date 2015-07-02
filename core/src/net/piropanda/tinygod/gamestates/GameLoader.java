@@ -126,6 +126,10 @@ public class GameLoader extends Group {
 				this.setVisible(false);
 			}
 		}
+		else {
+			label.setText(""+TG.assets.getProgress());
+		}
+		
 	}
 	
 }

@@ -304,7 +304,7 @@ public class Lang {
 	public static int LOVE_PER_SECOND_WORD =  			245;
 	public static int CLICKS_WORD =  					246;
 	public static int LOVE_PER_CLICK_WORD =  			247;
-	public static int CRITICAL_CLICK_MULTIPLIER_WORD =  	248;
+	public static int CRITICAL_CLICK_MULTIPLIER_WORD =  248;
 	public static int TRANSLATORS_WORD =  				249;
 	public static int FRENCH_TRANSLATOR_WORD =  		250;
 	public static int GERMAN_TRANSLATOR_WORD =  		251;
@@ -312,6 +312,8 @@ public class Lang {
 	public static int RUSSIAN_TRANSLATOR_WORD =  		253;
 	public static int CATALAN_TRANSLATOR_WORD =  		254;
 	public static int ROMANIAN_TRANSLATOR_WORD =  		255;
+	public static int COST_WORD =  						256;
+	public static int IT_PRODUCES_WORD =  				257;
 	
 	//private static HashMap<String, Integer> languages = new HashMap<String, Integer>();
 
@@ -603,6 +605,8 @@ public class Lang {
 		ENGLISH_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Russian)";
 		ENGLISH_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalan)";
 		ENGLISH_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Romanian)";
+		ENGLISH_WORDS[COST_WORD] = "Cost";
+		ENGLISH_WORDS[IT_PRODUCES_WORD] = "It produces";
 		
 		
 		/** SPANISH **/
@@ -880,6 +884,8 @@ public class Lang {
 		SPANISH_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Ruso)";
 		SPANISH_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalán)";
 		SPANISH_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Rumano)";
+		SPANISH_WORDS[COST_WORD] = "Coste";
+		SPANISH_WORDS[IT_PRODUCES_WORD] = "Produce";
 		
 		
 		/**CATALAN**/
@@ -1157,6 +1163,8 @@ public class Lang {
 		CATALAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Rus)";
 		CATALAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Català)";
 		CATALAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Romanès)";
+		CATALAN_WORDS[COST_WORD] = "Cost";
+		CATALAN_WORDS[IT_PRODUCES_WORD] = "Produeix";
 		
 		
 		/**ITALIAN**/
@@ -1434,6 +1442,8 @@ public class Lang {
 		ITALIAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Russo)";
 		ITALIAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalano)";
 		ITALIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Rumeno)";
+		ITALIAN_WORDS[COST_WORD] = "Costo";
+		ITALIAN_WORDS[IT_PRODUCES_WORD] = "Produce";
 		
 		/**FRENCH**/
 		
@@ -1710,6 +1720,8 @@ public class Lang {
 		FRENCH_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Russe)";
 		FRENCH_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalan)";
 		FRENCH_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Roumain)";
+		FRENCH_WORDS[COST_WORD] = "Coût";
+		FRENCH_WORDS[IT_PRODUCES_WORD] = "Il produit";
 		
 		
 		/**ROMANIAN**/
@@ -1987,6 +1999,8 @@ public class Lang {
 		ROMANIAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Rusă)";
 		ROMANIAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Catalană)";
 		ROMANIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Român)";
+		ROMANIAN_WORDS[COST_WORD] = "Cost";
+		ROMANIAN_WORDS[IT_PRODUCES_WORD] = "Se produce";
 		
 		
 		/**GERMAN**/
@@ -2264,6 +2278,8 @@ public class Lang {
 		GERMAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Russisch)";
 		GERMAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Katalanisch)";
 		GERMAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Rumänisch)";
+		GERMAN_WORDS[COST_WORD] = "Kosten";
+		GERMAN_WORDS[IT_PRODUCES_WORD] = "Es produziert";
 		
 		/**RUSSIAN**/
 		
@@ -2542,6 +2558,8 @@ public class Lang {
 		RUSSIAN_WORDS[RUSSIAN_TRANSLATOR_WORD] = "Anastasia Dimitrova (Русский)";
 		RUSSIAN_WORDS[CATALAN_TRANSLATOR_WORD] = "Jordi Iraultza (Каталонский)";
 		RUSSIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Румынский)";
+		RUSSIAN_WORDS[COST_WORD] = "Стоимость";
+		RUSSIAN_WORDS[IT_PRODUCES_WORD] = "Она производит";
 		
 		//END
 		System.out.println("Languages initialized");

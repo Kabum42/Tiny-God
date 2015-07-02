@@ -320,11 +320,11 @@ public class Codex extends Screen {
 		stats_label.setY(stats_background.getY() +stats_background.getHeight()/2 - stats_label.getHeight()/2);
 		
 		stats_info.setText(
-				Lang.getText(Lang.LOVE_WORD)+": "+ GameInfo.love +"\n"
- 				+ Lang.getText(Lang.LOVE_SINCE_BEGINNING_TIMES) +": "+ GameInfo.totalLove +"\n"
-				+ Lang.getText(Lang.LOVE_PER_SECOND_WORD)+": " + GameInfo.lps +"\n"
+				Lang.getText(Lang.LOVE_WORD)+": "+ TG.formattedNumber(GameInfo.love) +"\n"
+ 				+ Lang.getText(Lang.LOVE_SINCE_BEGINNING_TIMES) +": "+ TG.formattedNumber(GameInfo.totalLove) +"\n"
+				+ Lang.getText(Lang.LOVE_PER_SECOND_WORD)+": " + TG.formattedNumber(GameInfo.lps) +"\n"
  				+ Lang.getText(Lang.CLICKS_WORD)+": " + GameInfo.clicks +"\n"
- 				+ Lang.getText(Lang.LOVE_PER_CLICK_WORD)+": " + GameInfo.lovePerClick +"\n"
+ 				+ Lang.getText(Lang.LOVE_PER_CLICK_WORD)+": " + TG.formattedNumber(GameInfo.lovePerClick) +"\n"
  				+ Lang.getText(Lang.CRITICAL_CLICK_CHANCE)+ ": " + GameInfo.criticalClickChance +"\n"
  				+ Lang.getText(Lang.CRITICAL_CLICK_MULTIPLIER_WORD)+": " + GameInfo.criticalClickMultiplier
  				);
