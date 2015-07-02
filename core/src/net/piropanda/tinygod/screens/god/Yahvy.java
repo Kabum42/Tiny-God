@@ -129,6 +129,7 @@ public class Yahvy {
 					
 					
 					if (object.ref.file == 0) {
+					//if (sprite == body) {
 						
 						TextureRegion current = maskAnimation.getKeyFrame(maskAnimationTime);
 						current.getTexture().bind(2);
@@ -136,12 +137,16 @@ public class Yahvy {
 						Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
 						
 						batch.setShader(Shaders.instance.maskShader);
+						
+						
 						body.setScale(player.getScale());
 						body.setX(sprite.getX());
-						body.setY(sprite.getY());
+						body.setY(sprite.getY() +10);
 						body.draw(batch);
 						//sprite.draw(batch);
 						batch.setShader(screen.gameParent.defaultShader);
+						
+						
 					}
 					else {
 						sprite.draw(batch, object.alpha);
