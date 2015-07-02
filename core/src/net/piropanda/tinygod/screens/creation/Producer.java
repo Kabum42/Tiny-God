@@ -280,8 +280,8 @@ public class Producer  {
 		
 		info.setText(
 		Lang.getText(id+1) +"\n \n" 
-		+ "Cost: "+ Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id]))) +"\n \n" 
-		+ "It produces: " + ProducerInfo.getLps(id) + " love per second");
+		+ "Cost: "+ TG.formattedNumber(Math.floor(ProducerInfo.getBaseCost(id) * Math.pow(1.1f, GameInfo.producers.get(Lang.ENGLISH_WORDS[id])))) +"\n \n" 
+		+ "It produces: " + TG.formattedNumber(ProducerInfo.getLps(id)) + " love per second");
 
 		//info.setText("дфц ‘no’ means 'yes' caçar où â ë construieşti * LoveCard® ");
 		

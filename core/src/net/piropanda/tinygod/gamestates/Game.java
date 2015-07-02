@@ -150,7 +150,9 @@ public class Game extends Group implements GestureListener {
 		
 		GameInfo.update();
 		
-		label.setText("Love: " + Math.floor(GameInfo.love));
+		//label.setText("Love: " + Math.floor(GameInfo.love));
+		label.setText(TG.formattedNumber(GameInfo.love));
+		label.pack();
 		
 		// ease camera to current screen position
 		if(!movingX) {
@@ -159,7 +161,7 @@ public class Game extends Group implements GestureListener {
 		}
 		
 		top.setX(this.getStage().getCamera().position.x -top.getWidth()/2);
-		label.setX(top.getX() +top.getWidth()/2 -50);
+		label.setX(top.getX() +top.getWidth()/2 -label.getWidth()/2);
 		
 		
 		

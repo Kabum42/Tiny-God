@@ -269,7 +269,7 @@ public class Upgrade {
 		
 		info.setText(Lang.getText(id+1) +"\n \n"
  				+ info_change +"\n \n"
-				+ "Cost: " +cost);
+				+ "Cost: " +TG.formattedNumber(cost));
 		
 		//buy.setX(mini_bg.getX() +mini_bg.getWidth()/2 - buy.getWidth()/2 +100f);
 		//buy.setY(mini_bg.getY() +mini_bg.getHeight()/2 -buy.getHeight()/2 +100f);
