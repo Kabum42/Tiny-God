@@ -14,6 +14,7 @@ import net.piropanda.tinygod.screens.earth.Physical;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -35,6 +36,14 @@ public class God extends Screen {
 	private Earth earth;
 	private boolean onYahvy = true;
 	public float earth_distant = 8000f;
+	
+	private Sprite message_background;
+	private Label label_message;
+	
+	private int current_message = 0;
+	private float message_frequency = 2f;
+	private float message_duration = 2f;
+	private float message_cooldown = message_frequency;
 	
 	public Sound soundTap;
 	private Sprite aura;
@@ -84,7 +93,6 @@ public class God extends Screen {
 		table.pad(0);
 		scroll.removeListener(scroll.getListeners().get(0)); // removes the CaptureListener that enables it to scroll manually
 		
-		
 //		aura = new Sprite(TG.Graphics.assets.get("yahvy.png", Texture.class));
 //		aura.setScale(1f/2.75f);
 //		aura.setX(TG.Display.WIDTH*2.5f);
@@ -93,10 +101,7 @@ public class God extends Screen {
 		// Yahvy image
 		yahvy = new Yahvy(this, TG.Display.WIDTH*2.5f, 0);
 		table.add().padTop(480);
-		
-		
-		
-		
+
 		
 		// new row
 		table.row();
@@ -152,6 +157,12 @@ public class God extends Screen {
 //			addMouth();
 //		}
 		
+		message_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		message_background.setScale(1f/2.75f, (1f/2.75f)*0.5f);
+		
+		label_message = new Label("Available", TG.Graphics.font1);
+		label_message.setColor(Color.WHITE);
+		
 		base_timer = new Sprite(TG.assets.get("god/base_timer.png", Texture.class));
 		base_timer.setScale(1f/2.75f);
 		base_timer.setX(TG.Display.WIDTH*2.5f -base_timer.getWidth()/2);
@@ -183,6 +194,14 @@ public class God extends Screen {
 
 		this.yahvy.origin_y = 300 +this.getScrollPane().getVisualScrollY();
 		//earth.act(dt);
+		
+		message_cooldown -= dt;
+		if (message_cooldown <= -message_frequency) {
+			message_cooldown = message_duration;
+			current_message = (int) (Math.random()*(float)Lang.MESSAGE_AMOUNT);
+			
+			System.out.println(Lang.getText(Lang.MESSAGES[current_message]));
+		}
 		
 		if (onYahvy) {
 			yahvy.act(dt);
@@ -217,7 +236,7 @@ public class God extends Screen {
 			earth.light(earth.earth);
 		}
 		
-		base_timer.setY(TG.Display.HEIGHT*0.69f -base_timer.getHeight()/2 +getScrollPane().getVisualScrollY());
+		base_timer.setY(TG.Display.HEIGHT*0.10f -base_timer.getHeight()/2 +getScrollPane().getVisualScrollY());
 		
 		if (timer < 100f) { 
 			timer += dt*10f;
@@ -259,7 +278,14 @@ public class God extends Screen {
 			bgTab2.draw(batch);
 		}
 		
-
+		message_background.draw(batch, 1f);
+		message_background.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -message_background.getWidth()/2);
+		message_background.setY(500f -message_background.getHeight()/2);
+		
+		label_message.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -label_message.getWidth()/2);
+		label_message.setY(500f -label_message.getHeight()/2);
+		label_message.draw(batch, 1f);
+		
 		
 		if (onYahvy) {
 			

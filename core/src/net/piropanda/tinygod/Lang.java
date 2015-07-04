@@ -315,10 +315,55 @@ public class Lang {
 	public static int COST_WORD =  						256;
 	public static int IT_PRODUCES_WORD =  				257;
 	
+	// YAHVY MESSAGES
+	public static int MESSAGE_AMOUNT = 18;
+	
+	public static int[]MESSAGES = new int[MESSAGE_AMOUNT];
+	
+	public static int MESSAGE_01 =  					258;
+	public static int MESSAGE_02 =  					259;
+	public static int MESSAGE_03 =  					260;
+	public static int MESSAGE_04 =  					261;
+	public static int MESSAGE_05 =  					262;
+	public static int MESSAGE_06 =  					263;
+	public static int MESSAGE_07 =  					264;
+	public static int MESSAGE_08 =  					265;
+	public static int MESSAGE_09 =  					266;
+	public static int MESSAGE_10 =  					267;
+	public static int MESSAGE_11 =  					268;
+	public static int MESSAGE_12 =  					269;
+	public static int MESSAGE_13 =  					270;
+	public static int MESSAGE_14 =  					271;
+	public static int MESSAGE_15 =  					272;
+	public static int MESSAGE_16 =  					273;
+	public static int MESSAGE_17 =  					274;
+	public static int MESSAGE_18 =  					275;
+	
 	//private static HashMap<String, Integer> languages = new HashMap<String, Integer>();
 
 	public static void initialize() {
 		initialized = true;
+		
+		MESSAGES[0] = MESSAGE_01;
+		MESSAGES[1] = MESSAGE_02;
+		MESSAGES[2] = MESSAGE_03;
+		MESSAGES[3] = MESSAGE_04;
+		MESSAGES[4] = MESSAGE_05;
+		MESSAGES[5] = MESSAGE_06;
+		MESSAGES[6] = MESSAGE_07;
+		MESSAGES[7] = MESSAGE_08;
+		MESSAGES[8] = MESSAGE_09;
+		MESSAGES[9] = MESSAGE_10;
+		MESSAGES[10] = MESSAGE_11;
+		MESSAGES[11] = MESSAGE_12;
+		MESSAGES[12] = MESSAGE_13;
+		MESSAGES[13] = MESSAGE_14;
+		MESSAGES[14] = MESSAGE_15;
+		MESSAGES[15] = MESSAGE_16;
+		MESSAGES[16] = MESSAGE_17;
+		MESSAGES[17] = MESSAGE_18;
+
+		
 		//languages.put("ENGLISH", 0);
 		
 		LANGUAGES[ENGLISH_VALUE] = ENGLISH_WORDS;
@@ -608,6 +653,26 @@ public class Lang {
 		ENGLISH_WORDS[COST_WORD] = "Cost";
 		ENGLISH_WORDS[IT_PRODUCES_WORD] = "It produces";
 		
+		// YAHVY MESSAGES
+		ENGLISH_WORDS[MESSAGE_01] = "¡Adórame, soy tu Dios!";
+		ENGLISH_WORDS[MESSAGE_02] = "¿Alguien sabe algo de mi hijo? No he recibido una postal en 2000 años";
+		ENGLISH_WORDS[MESSAGE_03] = "Si te tocas te quedarás ciego";
+		ENGLISH_WORDS[MESSAGE_04] = "Yo lo veo todo, por favor, tápate";
+		ENGLISH_WORDS[MESSAGE_05] = "Los países con petróleo acostumbran a esconder armas de destrucción masiva";
+		ENGLISH_WORDS[MESSAGE_06] = "No te inyectes marihuana";
+		ENGLISH_WORDS[MESSAGE_07] = "Los sacerdotes también necesitan desahogarse";
+		ENGLISH_WORDS[MESSAGE_08] = "¡A fregar!";
+		ENGLISH_WORDS[MESSAGE_09] = "¡Ráscame humano!";
+		ENGLISH_WORDS[MESSAGE_10] = "¡Rézame humano!";
+		ENGLISH_WORDS[MESSAGE_11] = "Soy el Dios del amor, si me contradices te espera sufrimiento eterno";
+		ENGLISH_WORDS[MESSAGE_12] = "Paga el diezmo, primer aviso";
+		ENGLISH_WORDS[MESSAGE_13] = "Quiero salir, rompe la pantalla para liberarme, humano";
+		ENGLISH_WORDS[MESSAGE_14] = "Se lo que hiciste anoche";
+		ENGLISH_WORDS[MESSAGE_15] = "Deja de pensar en eso, es asqueroso";
+		ENGLISH_WORDS[MESSAGE_16] = "Ve y procrea, necesito más adeptos";
+		ENGLISH_WORDS[MESSAGE_17] = "Arrepiéntete pecador";
+		ENGLISH_WORDS[MESSAGE_18] = "Mata a tu primogénito... es broma";
+		
 		
 		/** SPANISH **/
 		
@@ -886,6 +951,26 @@ public class Lang {
 		SPANISH_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Rumano)";
 		SPANISH_WORDS[COST_WORD] = "Coste";
 		SPANISH_WORDS[IT_PRODUCES_WORD] = "Produce";
+
+		// YAHVY MESSAGES
+		SPANISH_WORDS[MESSAGE_01] = "¡Adórame, soy tu Dios!";
+		SPANISH_WORDS[MESSAGE_02] = "¿Alguien sabe algo de mi hijo? No he recibido una postal en 2000 años";
+		SPANISH_WORDS[MESSAGE_03] = "Si te tocas te quedarás ciego";
+		SPANISH_WORDS[MESSAGE_04] = "Yo lo veo todo, por favor, tápate";
+		SPANISH_WORDS[MESSAGE_05] = "Los países con petróleo acostumbran a esconder armas de destrucción masiva";
+		SPANISH_WORDS[MESSAGE_06] = "No te inyectes marihuana";
+		SPANISH_WORDS[MESSAGE_07] = "Los sacerdotes también necesitan desahogarse";
+		SPANISH_WORDS[MESSAGE_08] = "¡A fregar!";
+		SPANISH_WORDS[MESSAGE_09] = "¡Ráscame humano!";
+		SPANISH_WORDS[MESSAGE_10] = "¡Rézame humano!";
+		SPANISH_WORDS[MESSAGE_11] = "Soy el Dios del amor, si me contradices te espera sufrimiento eterno";
+		SPANISH_WORDS[MESSAGE_12] = "Paga el diezmo, primer aviso";
+		SPANISH_WORDS[MESSAGE_13] = "Quiero salir, rompe la pantalla para liberarme, humano";
+		SPANISH_WORDS[MESSAGE_14] = "Se lo que hiciste anoche";
+		SPANISH_WORDS[MESSAGE_15] = "Deja de pensar en eso, es asqueroso";
+		SPANISH_WORDS[MESSAGE_16] = "Ve y procrea, necesito más adeptos";
+		SPANISH_WORDS[MESSAGE_17] = "Arrepiéntete pecador";
+		SPANISH_WORDS[MESSAGE_18] = "Mata a tu primogénito... es broma";
 		
 		
 		/**CATALAN**/
@@ -1165,6 +1250,26 @@ public class Lang {
 		CATALAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Romanès)";
 		CATALAN_WORDS[COST_WORD] = "Cost";
 		CATALAN_WORDS[IT_PRODUCES_WORD] = "Produeix";
+
+		// YAHVY MESSAGES
+		CATALAN_WORDS[MESSAGE_01] = "¡Adórame, soy tu Dios!";
+		CATALAN_WORDS[MESSAGE_02] = "¿Alguien sabe algo de mi hijo? No he recibido una postal en 2000 años";
+		CATALAN_WORDS[MESSAGE_03] = "Si te tocas te quedarás ciego";
+		CATALAN_WORDS[MESSAGE_04] = "Yo lo veo todo, por favor, tápate";
+		CATALAN_WORDS[MESSAGE_05] = "Los países con petróleo acostumbran a esconder armas de destrucción masiva";
+		CATALAN_WORDS[MESSAGE_06] = "No te inyectes marihuana";
+		CATALAN_WORDS[MESSAGE_07] = "Los sacerdotes también necesitan desahogarse";
+		CATALAN_WORDS[MESSAGE_08] = "¡A fregar!";
+		CATALAN_WORDS[MESSAGE_09] = "¡Ráscame humano!";
+		CATALAN_WORDS[MESSAGE_10] = "¡Rézame humano!";
+		CATALAN_WORDS[MESSAGE_11] = "Soy el Dios del amor, si me contradices te espera sufrimiento eterno";
+		CATALAN_WORDS[MESSAGE_12] = "Paga el diezmo, primer aviso";
+		CATALAN_WORDS[MESSAGE_13] = "Quiero salir, rompe la pantalla para liberarme, humano";
+		CATALAN_WORDS[MESSAGE_14] = "Se lo que hiciste anoche";
+		CATALAN_WORDS[MESSAGE_15] = "Deja de pensar en eso, es asqueroso";
+		CATALAN_WORDS[MESSAGE_16] = "Ve y procrea, necesito más adeptos";
+		CATALAN_WORDS[MESSAGE_17] = "Arrepiéntete pecador";
+		CATALAN_WORDS[MESSAGE_18] = "Mata a tu primogénito... es broma";
 		
 		
 		/**ITALIAN**/
@@ -1444,6 +1549,28 @@ public class Lang {
 		ITALIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Rumeno)";
 		ITALIAN_WORDS[COST_WORD] = "Costo";
 		ITALIAN_WORDS[IT_PRODUCES_WORD] = "Produce";
+
+		// YAHVY MESSAGES
+		ITALIAN_WORDS[MESSAGE_01] = "¡Adórame, soy tu Dios!";
+		ITALIAN_WORDS[MESSAGE_02] = "¿Alguien sabe algo de mi hijo? No he recibido una postal en 2000 años";
+		ITALIAN_WORDS[MESSAGE_03] = "Si te tocas te quedarás ciego";
+		ITALIAN_WORDS[MESSAGE_04] = "Yo lo veo todo, por favor, tápate";
+		ITALIAN_WORDS[MESSAGE_05] = "Los países con petróleo acostumbran a esconder armas de destrucción masiva";
+		ITALIAN_WORDS[MESSAGE_06] = "No te inyectes marihuana";
+		ITALIAN_WORDS[MESSAGE_07] = "Los sacerdotes también necesitan desahogarse";
+		ITALIAN_WORDS[MESSAGE_08] = "¡A fregar!";
+		ITALIAN_WORDS[MESSAGE_09] = "¡Ráscame humano!";
+		ITALIAN_WORDS[MESSAGE_10] = "¡Rézame humano!";
+		ITALIAN_WORDS[MESSAGE_11] = "Soy el Dios del amor, si me contradices te espera sufrimiento eterno";
+		ITALIAN_WORDS[MESSAGE_12] = "Paga el diezmo, primer aviso";
+		ITALIAN_WORDS[MESSAGE_13] = "Quiero salir, rompe la pantalla para liberarme, humano";
+		ITALIAN_WORDS[MESSAGE_14] = "Se lo que hiciste anoche";
+		ITALIAN_WORDS[MESSAGE_15] = "Deja de pensar en eso, es asqueroso";
+		ITALIAN_WORDS[MESSAGE_16] = "Ve y procrea, necesito más adeptos";
+		ITALIAN_WORDS[MESSAGE_17] = "Arrepiéntete pecador";
+		ITALIAN_WORDS[MESSAGE_18] = "Mata a tu primogénito... es broma";
+		
+		
 		
 		/**FRENCH**/
 		
@@ -1723,6 +1850,27 @@ public class Lang {
 		FRENCH_WORDS[COST_WORD] = "Coût";
 		FRENCH_WORDS[IT_PRODUCES_WORD] = "Il produit";
 		
+		// YAHVY MESSAGES
+		FRENCH_WORDS[MESSAGE_01] = "¡Adórame, soy tu Dios!";
+		FRENCH_WORDS[MESSAGE_02] = "¿Alguien sabe algo de mi hijo? No he recibido una postal en 2000 años";
+		FRENCH_WORDS[MESSAGE_03] = "Si te tocas te quedarás ciego";
+		FRENCH_WORDS[MESSAGE_04] = "Yo lo veo todo, por favor, tápate";
+		FRENCH_WORDS[MESSAGE_05] = "Los países con petróleo acostumbran a esconder armas de destrucción masiva";
+		FRENCH_WORDS[MESSAGE_06] = "No te inyectes marihuana";
+		FRENCH_WORDS[MESSAGE_07] = "Los sacerdotes también necesitan desahogarse";
+		FRENCH_WORDS[MESSAGE_08] = "¡A fregar!";
+		FRENCH_WORDS[MESSAGE_09] = "¡Ráscame humano!";
+		FRENCH_WORDS[MESSAGE_10] = "¡Rézame humano!";
+		FRENCH_WORDS[MESSAGE_11] = "Soy el Dios del amor, si me contradices te espera sufrimiento eterno";
+		FRENCH_WORDS[MESSAGE_12] = "Paga el diezmo, primer aviso";
+		FRENCH_WORDS[MESSAGE_13] = "Quiero salir, rompe la pantalla para liberarme, humano";
+		FRENCH_WORDS[MESSAGE_14] = "Se lo que hiciste anoche";
+		FRENCH_WORDS[MESSAGE_15] = "Deja de pensar en eso, es asqueroso";
+		FRENCH_WORDS[MESSAGE_16] = "Ve y procrea, necesito más adeptos";
+		FRENCH_WORDS[MESSAGE_17] = "Arrepiéntete pecador";
+		FRENCH_WORDS[MESSAGE_18] = "Mata a tu primogénito... es broma";
+		
+		
 		
 		/**ROMANIAN**/
 		
@@ -2001,6 +2149,26 @@ public class Lang {
 		ROMANIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Român)";
 		ROMANIAN_WORDS[COST_WORD] = "Cost";
 		ROMANIAN_WORDS[IT_PRODUCES_WORD] = "Se produce";
+
+		// YAHVY MESSAGES
+		ROMANIAN_WORDS[MESSAGE_01] = "¡Adórame, soy tu Dios!";
+		ROMANIAN_WORDS[MESSAGE_02] = "¿Alguien sabe algo de mi hijo? No he recibido una postal en 2000 años";
+		ROMANIAN_WORDS[MESSAGE_03] = "Si te tocas te quedarás ciego";
+		ROMANIAN_WORDS[MESSAGE_04] = "Yo lo veo todo, por favor, tápate";
+		ROMANIAN_WORDS[MESSAGE_05] = "Los países con petróleo acostumbran a esconder armas de destrucción masiva";
+		ROMANIAN_WORDS[MESSAGE_06] = "No te inyectes marihuana";
+		ROMANIAN_WORDS[MESSAGE_07] = "Los sacerdotes también necesitan desahogarse";
+		ROMANIAN_WORDS[MESSAGE_08] = "¡A fregar!";
+		ROMANIAN_WORDS[MESSAGE_09] = "¡Ráscame humano!";
+		ROMANIAN_WORDS[MESSAGE_10] = "¡Rézame humano!";
+		ROMANIAN_WORDS[MESSAGE_11] = "Soy el Dios del amor, si me contradices te espera sufrimiento eterno";
+		ROMANIAN_WORDS[MESSAGE_12] = "Paga el diezmo, primer aviso";
+		ROMANIAN_WORDS[MESSAGE_13] = "Quiero salir, rompe la pantalla para liberarme, humano";
+		ROMANIAN_WORDS[MESSAGE_14] = "Se lo que hiciste anoche";
+		ROMANIAN_WORDS[MESSAGE_15] = "Deja de pensar en eso, es asqueroso";
+		ROMANIAN_WORDS[MESSAGE_16] = "Ve y procrea, necesito más adeptos";
+		ROMANIAN_WORDS[MESSAGE_17] = "Arrepiéntete pecador";
+		ROMANIAN_WORDS[MESSAGE_18] = "Mata a tu primogénito... es broma";
 		
 		
 		/**GERMAN**/
@@ -2280,6 +2448,27 @@ public class Lang {
 		GERMAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Rumänisch)";
 		GERMAN_WORDS[COST_WORD] = "Kosten";
 		GERMAN_WORDS[IT_PRODUCES_WORD] = "Es produziert";
+
+		// YAHVY MESSAGES
+		GERMAN_WORDS[MESSAGE_01] = "¡Adórame, soy tu Dios!";
+		GERMAN_WORDS[MESSAGE_02] = "¿Alguien sabe algo de mi hijo? No he recibido una postal en 2000 años";
+		GERMAN_WORDS[MESSAGE_03] = "Si te tocas te quedarás ciego";
+		GERMAN_WORDS[MESSAGE_04] = "Yo lo veo todo, por favor, tápate";
+		GERMAN_WORDS[MESSAGE_05] = "Los países con petróleo acostumbran a esconder armas de destrucción masiva";
+		GERMAN_WORDS[MESSAGE_06] = "No te inyectes marihuana";
+		GERMAN_WORDS[MESSAGE_07] = "Los sacerdotes también necesitan desahogarse";
+		GERMAN_WORDS[MESSAGE_08] = "¡A fregar!";
+		GERMAN_WORDS[MESSAGE_09] = "¡Ráscame humano!";
+		GERMAN_WORDS[MESSAGE_10] = "¡Rézame humano!";
+		GERMAN_WORDS[MESSAGE_11] = "Soy el Dios del amor, si me contradices te espera sufrimiento eterno";
+		GERMAN_WORDS[MESSAGE_12] = "Paga el diezmo, primer aviso";
+		GERMAN_WORDS[MESSAGE_13] = "Quiero salir, rompe la pantalla para liberarme, humano";
+		GERMAN_WORDS[MESSAGE_14] = "Se lo que hiciste anoche";
+		GERMAN_WORDS[MESSAGE_15] = "Deja de pensar en eso, es asqueroso";
+		GERMAN_WORDS[MESSAGE_16] = "Ve y procrea, necesito más adeptos";
+		GERMAN_WORDS[MESSAGE_17] = "Arrepiéntete pecador";
+		GERMAN_WORDS[MESSAGE_18] = "Mata a tu primogénito... es broma";
+		
 		
 		/**RUSSIAN**/
 		
@@ -2560,6 +2749,27 @@ public class Lang {
 		RUSSIAN_WORDS[ROMANIAN_TRANSLATOR_WORD] = "Grig Master (Румынский)";
 		RUSSIAN_WORDS[COST_WORD] = "Стоимость";
 		RUSSIAN_WORDS[IT_PRODUCES_WORD] = "Она производит";
+
+		// YAHVY MESSAGES
+		RUSSIAN_WORDS[MESSAGE_01] = "¡Adórame, soy tu Dios!";
+		RUSSIAN_WORDS[MESSAGE_02] = "¿Alguien sabe algo de mi hijo? No he recibido una postal en 2000 años";
+		RUSSIAN_WORDS[MESSAGE_03] = "Si te tocas te quedarás ciego";
+		RUSSIAN_WORDS[MESSAGE_04] = "Yo lo veo todo, por favor, tápate";
+		RUSSIAN_WORDS[MESSAGE_05] = "Los países con petróleo acostumbran a esconder armas de destrucción masiva";
+		RUSSIAN_WORDS[MESSAGE_06] = "No te inyectes marihuana";
+		RUSSIAN_WORDS[MESSAGE_07] = "Los sacerdotes también necesitan desahogarse";
+		RUSSIAN_WORDS[MESSAGE_08] = "¡A fregar!";
+		RUSSIAN_WORDS[MESSAGE_09] = "¡Ráscame humano!";
+		RUSSIAN_WORDS[MESSAGE_10] = "¡Rézame humano!";
+		RUSSIAN_WORDS[MESSAGE_11] = "Soy el Dios del amor, si me contradices te espera sufrimiento eterno";
+		RUSSIAN_WORDS[MESSAGE_12] = "Paga el diezmo, primer aviso";
+		RUSSIAN_WORDS[MESSAGE_13] = "Quiero salir, rompe la pantalla para liberarme, humano";
+		RUSSIAN_WORDS[MESSAGE_14] = "Se lo que hiciste anoche";
+		RUSSIAN_WORDS[MESSAGE_15] = "Deja de pensar en eso, es asqueroso";
+		RUSSIAN_WORDS[MESSAGE_16] = "Ve y procrea, necesito más adeptos";
+		RUSSIAN_WORDS[MESSAGE_17] = "Arrepiéntete pecador";
+		RUSSIAN_WORDS[MESSAGE_18] = "Mata a tu primogénito... es broma";
+		
 		
 		//END
 		System.out.println("Languages initialized");
