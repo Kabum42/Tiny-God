@@ -10,6 +10,7 @@ import net.piropanda.tinygod.screens.Screen;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -31,7 +32,10 @@ public class Store extends Screen {
 	
 	private float inertia = 0f;
 	
+	private Sprite available_background;
 	private Label label_available;
+	
+	private Sprite bought_background;
 	private Label label_bought;
 	
 	public Sound soundTap;
@@ -89,8 +93,14 @@ public class Store extends Screen {
 		default_x = ((float)POSITION+0.5f)*TG.Display.WIDTH +aux_x2*availableWidth/2f;
 		default_y = TG.Display.HEIGHT/2  +120 -aux_y*100f;
 
+		available_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		available_background.setScale(1f/2.75f, (1f/2.75f)*0.5f);
+		
 		label_available = new Label("Available", TG.Graphics.font1);
 		label_available.setColor(Color.WHITE);
+		
+		bought_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
+		bought_background.setScale(1f/2.75f, (1f/2.75f)*0.5f);
 		
 		label_bought = new Label("Bought", TG.Graphics.font1);
 		label_bought.setColor(Color.WHITE);
@@ -175,8 +185,12 @@ public class Store extends Screen {
 		
 		float occupied_y = 0;
 		
+		available_background.draw(batch, 1f - transition1);
+		available_background.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -available_background.getWidth()/2);
+		available_background.setY(500f +customScroll -available_background.getHeight()/2);
+		
 		label_available.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -label_available.getWidth()/2);
-		label_available.setY(500f +customScroll);
+		label_available.setY(500f +customScroll -label_available.getHeight()/2);
 		label_available.draw(batch, 1f-transition1);
 		
 		occupied_y += label_available.getHeight() +20f;
@@ -215,9 +229,12 @@ public class Store extends Screen {
 		occupied_y += 20 +(aux_y +1)*100f;
 		
 		
+		bought_background.draw(batch, 1f - transition1);
+		bought_background.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -bought_background.getWidth()/2);
+		bought_background.setY(500f -occupied_y +customScroll -bought_background.getHeight()/2);
 		
 		label_bought.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -label_bought.getWidth()/2);
-		label_bought.setY(500f -occupied_y +customScroll);
+		label_bought.setY(500f -occupied_y +customScroll -label_bought.getHeight()/2);
 		label_bought.draw(batch, 1f-transition1);
 		
 		occupied_y += 20;
