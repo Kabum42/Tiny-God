@@ -158,10 +158,12 @@ public class God extends Screen {
 //		}
 		
 		message_background = new Sprite(TG.assets.get("producers/bg.png", Texture.class));
-		message_background.setScale(1f/2.75f, (1f/2.75f)*0.5f);
+		message_background.setScale(1f/2.75f, (1f/2.75f)*1.5f);
 		
-		label_message = new Label("Available", TG.Graphics.font1);
+		label_message = new Label("Message", TG.Graphics.font1);
 		label_message.setColor(Color.WHITE);
+		label_message.setWrap(true);
+		label_message.setWidth(300);
 		
 		base_timer = new Sprite(TG.assets.get("god/base_timer.png", Texture.class));
 		base_timer.setScale(1f/2.75f);
@@ -199,9 +201,10 @@ public class God extends Screen {
 		if (message_cooldown <= -message_frequency) {
 			message_cooldown = message_duration;
 			current_message = (int) (Math.random()*(float)Lang.MESSAGE_AMOUNT);
-			
-			System.out.println(Lang.getText(Lang.MESSAGES[current_message]));
 		}
+		
+		label_message.setText("\""+Lang.getText(Lang.MESSAGES[current_message]) + "\"");
+		//label_message.pack();
 		
 		if (onYahvy) {
 			yahvy.act(dt);
@@ -280,10 +283,10 @@ public class God extends Screen {
 		
 		message_background.draw(batch, 1f);
 		message_background.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -message_background.getWidth()/2);
-		message_background.setY(500f -message_background.getHeight()/2);
+		message_background.setY(490f -message_background.getHeight()/2);
 		
 		label_message.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -label_message.getWidth()/2);
-		label_message.setY(500f -label_message.getHeight()/2);
+		label_message.setY(490f -label_message.getHeight()/2);
 		label_message.draw(batch, 1f);
 		
 		
