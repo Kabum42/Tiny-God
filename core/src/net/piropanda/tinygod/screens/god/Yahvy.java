@@ -69,6 +69,7 @@ public class Yahvy {
 		frames[12] = new TextureRegion(TG.assets.get("shaders/masks/mask002.png", Texture.class));
 		frames[13] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
 		frames[14] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
+		
 
 		maskAnimation = new Animation(1f, frames);
 		

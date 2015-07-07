@@ -18,7 +18,7 @@ vec4 texColor1 = texture2D(u_texture1, vTexCoord);
 
 //get the mask; we will only use the alpha channel
 // ORIGINAL ES : 
-float mask = texture2D(u_mask, vTexCoord);
+float mask = texture2D(u_mask, vTexCoord).a;
 //float mask = texture2D(u_mask, vTexCoord).a;
 //float mask = texture2D(u_mask, vTexCoord*2.44f).a;
 
