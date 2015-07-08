@@ -101,6 +101,9 @@ public class GameLoader extends Group {
 		//bodies
 		TG.assets.load("spriter/Yahvy/Yahvy_Body.png", Texture.class);
 		//masks
+		TG.assets.load("Secuencias/Mask_0/mask_0_0001.png", Texture.class);
+		
+		/*
 		TG.assets.load("shaders/masks/mask001.png", Texture.class);
 		TG.assets.load("shaders/masks/mask002.png", Texture.class);
 		TG.assets.load("shaders/masks/mask003.png", Texture.class);
@@ -108,7 +111,7 @@ public class GameLoader extends Group {
 		TG.assets.load("shaders/masks/mask005.png", Texture.class);
 		TG.assets.load("shaders/masks/mask006.png", Texture.class);
 		TG.assets.load("shaders/masks/mask007.png", Texture.class);
-		
+		*/
 	}
 	
 	@Override
