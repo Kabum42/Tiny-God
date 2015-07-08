@@ -1,5 +1,6 @@
 package net.piropanda.tinygod.screens.god;
 
+import java.text.DecimalFormat;
 import java.util.Iterator;
 
 import net.piropanda.tinygod.Shaders;
@@ -53,8 +54,13 @@ public class Yahvy {
 		player.setScale(1f/2.75f);
 		player.setPosition(TG.Display.WIDTH*2.5f, 300);
 		
-		TextureRegion[] frames = new TextureRegion[1];
-		frames[0] = new TextureRegion(TG.assets.get("Secuencias/Mask_0/mask_0_0001.png", Texture.class));
+		DecimalFormat df = new DecimalFormat("00"); 
+		
+		TextureRegion[] frames = new TextureRegion[18];
+		
+		for (int i = 1; i <= 18; i++) {
+			frames[i-1] = new TextureRegion(TG.assets.get("Secuencias/Mask_0/mask_0_00" + df.format(i) + ".png", Texture.class));
+		}
 		
 		/*
 		frames[1] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));

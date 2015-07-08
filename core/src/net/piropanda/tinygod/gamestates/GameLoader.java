@@ -1,5 +1,9 @@
 package net.piropanda.tinygod.gamestates;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 import net.piropanda.tinygod.TG;
 
 import com.badlogic.gdx.Gdx;
@@ -101,17 +105,14 @@ public class GameLoader extends Group {
 		//bodies
 		TG.assets.load("spriter/Yahvy/Yahvy_Body.png", Texture.class);
 		//masks
-		TG.assets.load("Secuencias/Mask_0/mask_0_0001.png", Texture.class);
+		int counter = 0;
 		
-		/*
-		TG.assets.load("shaders/masks/mask001.png", Texture.class);
-		TG.assets.load("shaders/masks/mask002.png", Texture.class);
-		TG.assets.load("shaders/masks/mask003.png", Texture.class);
-		TG.assets.load("shaders/masks/mask004.png", Texture.class);
-		TG.assets.load("shaders/masks/mask005.png", Texture.class);
-		TG.assets.load("shaders/masks/mask006.png", Texture.class);
-		TG.assets.load("shaders/masks/mask007.png", Texture.class);
-		*/
+		DecimalFormat df = new DecimalFormat("00"); 
+		
+		for (counter = 1; counter <= 18; counter++) {
+			TG.assets.load("Secuencias/Mask_0/mask_0_00" + df.format(counter) + ".png", Texture.class);
+		}
+
 	}
 	
 	@Override
