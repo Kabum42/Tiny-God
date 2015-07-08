@@ -35,6 +35,20 @@ public class Yahvy {
 	public Player player;
 	private LibGdxLoader loader;
 	
+	public static int IdleBlink = 0;
+	public static int TapEye = 1;
+	public static int TapBody = 2;
+	public static int TapScreen = 3;
+	public static int Annoyed = 4;
+	public static int EnterToSleepy = 5;
+	public static int SleepyLoop = 6;
+	public static int SleepyBlink = 7;
+	public static int EnterToSleep = 8;
+	public static int SleepLoop = 9;
+	public static int TapCritical = 10;
+	public static int IdleLoop = 11;
+	public static int SadLoop = 12;
+	
 	public Yahvy(God aux_screen, float aux_origin_x, float aux_origin_y) {
 		
 		screen = aux_screen;
