@@ -56,7 +56,7 @@ public class Store extends Screen {
 		
 		soundTap = TG.assets.get("common/tap.mp3", Sound.class);
 		
-		this.bgTab.setX(TG.Display.WIDTH*POSITION);
+		//this.bgTab.setX(TG.Display.WIDTH*POSITION);
 		
 		// TODOS LOS UPGRADES SE ALMACENAN EN EL MISMO ARRAY, LA FORMA DE DIFERENCIAR LOS QUE
 		// HAN SIDO DESBLOQUEADOS, ESTAN DISPONIBLES O COMPRADOS ES SU state

@@ -88,17 +88,17 @@ public class Game extends Group implements GestureListener {
 		background_parallax.setX(2.5f*TG.Display.WIDTH -background_parallax.getWidth()/2);
 		background_parallax.setY(0.5f*TG.Display.HEIGHT -background_parallax.getHeight()/2);
 		
-		bg = new Image(TG.assets.get("screen-background_01.png", Texture.class));
-		bg.setTouchable(Touchable.disabled);
+		//bg = new Image(TG.assets.get("screen-background_01.png", Texture.class));
+		//bg.setTouchable(Touchable.disabled);
 		
-		godBackground = new Sprite(TG.assets.get("god-bg.png", Texture.class));
-		godBackground.setScale(1f/2.75f);
-		godBackground.setX((TG.Display.WIDTH*2f -godBackground.getWidth()/2 +godBackground.getWidth()/2*godBackground.getScaleX()));
-		godBackground.setY(0 -godBackground.getHeight()/2 +godBackground.getHeight()/2*godBackground.getScaleY());
+		//godBackground = new Sprite(TG.assets.get("god-bg.png", Texture.class));
+		//godBackground.setScale(1f/2.75f);
+		//godBackground.setX((TG.Display.WIDTH*2f -godBackground.getWidth()/2 +godBackground.getWidth()/2*godBackground.getScaleX()));
+		//godBackground.setY(0 -godBackground.getHeight()/2 +godBackground.getHeight()/2*godBackground.getScaleY());
 		
-		bg2 = new Image(TG.assets.get("screen-background_02.png", Texture.class));
-		bg2.setX(TG.Display.WIDTH*3);
-		bg2.setTouchable(Touchable.disabled);
+		//bg2 = new Image(TG.assets.get("screen-background_02.png", Texture.class));
+		//bg2.setX(TG.Display.WIDTH*3);
+		//bg2.setTouchable(Touchable.disabled);
 		
 		top = new Sprite(TG.assets.get("top.png", Texture.class));
 		top.setScale(1f/2.75f);
@@ -125,8 +125,8 @@ public class Game extends Group implements GestureListener {
 		this.addActor(creation);
 		this.addActor(store);
 		
-		this.addActor(bg);
-		this.addActor(bg2);
+		//this.addActor(bg);
+		//this.addActor(bg2);
 		
 		label = new Label("Love: ", TG.Graphics.skin); 
 		//label.setFontScale(2f);

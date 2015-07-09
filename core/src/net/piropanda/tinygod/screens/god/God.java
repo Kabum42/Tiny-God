@@ -74,6 +74,7 @@ public class God extends Screen {
 		
 		soundTap = TG.assets.get("common/tap.mp3", Sound.class);
 		
+		/*
 		this.bgTab = new Sprite(TG.assets.get("pixel.png", Texture.class));
 		//this.bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
 		this.bgTab.setScale(TG.Display.WIDTH, TG.Display.HEIGHT);
@@ -89,6 +90,7 @@ public class God extends Screen {
 		//this.bgTab2.setY(0 - this.bgTab2.getHeight()/2 +this.bgTab2.getHeight()/2*this.bgTab2.getScaleY());
 		this.bgTab2.setY(TG.Display.HEIGHT*0.5f - this.bgTab2.getHeight()/2);
 		this.bgTab2.setColor(255f/255f, 0f/255f, 0f/255f, 1f);
+		*/
 		
 		table.pad(0);
 		scroll.removeListener(scroll.getListeners().get(0)); // removes the CaptureListener that enables it to scroll manually
@@ -192,7 +194,7 @@ public class God extends Screen {
 		float alpha_2 = (float)this.getScrollPane().getVisualScrollY()/max_scroll;
 		
 		gameParent.background_parallax.setAlpha(alpha_1);
-		bgTab2.setAlpha(alpha_2);
+		//bgTab2.setAlpha(alpha_2);
 
 		this.yahvy.origin_y = 300 +this.getScrollPane().getVisualScrollY();
 		//earth.act(dt);
@@ -276,10 +278,11 @@ public class God extends Screen {
 	@Override
 	public void draw(Batch batch, float parentAlpha) {
 		
-		
+		/*
 		if (bgTab2.getColor().a > 0) {
 			bgTab2.draw(batch);
 		}
+		*/
 		
 		message_background.draw(batch, 1f);
 		message_background.setX(TG.Display.WIDTH*((float)POSITION+0.5f) -message_background.getWidth()/2);

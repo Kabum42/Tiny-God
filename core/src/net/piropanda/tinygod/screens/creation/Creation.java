@@ -43,7 +43,7 @@ public class Creation extends Screen {
 		
 		soundTap = TG.assets.get("common/tap.mp3", Sound.class);
 		
-		this.bgTab.setX(TG.Display.WIDTH*POSITION);
+		//this.bgTab.setX(TG.Display.WIDTH*POSITION);
 		
 		producers = new ArrayList<Producer>();
 		producers.add(new Producer(this, Lang.SERVANT_NAME));

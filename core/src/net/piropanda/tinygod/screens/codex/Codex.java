@@ -85,7 +85,7 @@ public class Codex extends Screen {
 		
 		soundTap = TG.assets.get("common/tap.mp3", Sound.class);
 		
-		this.bgTab.setX(TG.Display.WIDTH*POSITION);
+		//this.bgTab.setX(TG.Display.WIDTH*POSITION);
 		
 		default_x = 0.5f*TG.Display.WIDTH;
 		default_y = TG.Display.HEIGHT/2  +120;
