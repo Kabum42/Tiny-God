@@ -193,7 +193,7 @@ public class God extends Screen {
 		float alpha_1 = 1f -((float)this.getScrollPane().getVisualScrollY()/max_scroll);
 		float alpha_2 = (float)this.getScrollPane().getVisualScrollY()/max_scroll;
 		
-		gameParent.background_parallax.setAlpha(alpha_1);
+		//gameParent.background_parallax.setAlpha(alpha_1);
 		//bgTab2.setAlpha(alpha_2);
 
 		this.yahvy.origin_y = 300 +this.getScrollPane().getVisualScrollY();
@@ -322,7 +322,7 @@ public class God extends Screen {
 		}
 		
 		
-		super.draw(batch, parentAlpha);
+		//super.draw(batch, parentAlpha);
 		
 	}
 	

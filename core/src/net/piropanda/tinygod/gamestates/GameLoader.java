@@ -10,6 +10,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -107,9 +108,73 @@ public class GameLoader extends Group {
 		
 		DecimalFormat df = new DecimalFormat("00"); 
 		
+		/*
+		// 0. IDLE BLINK 
 		for (counter = 1; counter <= 18; counter++) {
 			TG.assets.load("Secuencias/Mask_0/mask_0_00" + df.format(counter) + ".png", Texture.class);
 		}
+		
+		// 1. TAP EYE 
+		for (counter = 1; counter <= 24; counter++) {
+			TG.assets.load("Secuencias/Mask_1/mask_1_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 2. TAP BODY 
+		for (counter = 1; counter <= 20; counter++) {
+			TG.assets.load("Secuencias/Mask_2/mask_2_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 3. TAP SCREEN 
+		for (counter = 1; counter <= 20; counter++) {
+			TG.assets.load("Secuencias/Mask_3/mask_3_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 4. ANNOYED 
+		for (counter = 1; counter <= 32; counter++) {
+			TG.assets.load("Secuencias/Mask_4/mask_4_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 5. ENTER TO SLEEPY 
+		for (counter = 1; counter <= 5; counter++) {
+			TG.assets.load("Secuencias/Mask_5/mask_5_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 6. SLEEPY LOOP 
+		for (counter = 1; counter <= 23; counter++) {
+			TG.assets.load("Secuencias/Mask_6/mask_6_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 7. SLEEPY BLINK 
+		for (counter = 1; counter <= 23; counter++) {
+			TG.assets.load("Secuencias/Mask_7/mask_7_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 8. ENTER TO SLEEP 
+		for (counter = 1; counter <= 26; counter++) {
+			TG.assets.load("Secuencias/Mask_8/mask_8_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 9. SLEEP LOOP 
+		for (counter = 1; counter <= 35; counter++) {
+			TG.assets.load("Secuencias/Mask_9/mask_9_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 10. SLEEP LOOP 
+		for (counter = 1; counter <= 19; counter++) {
+			TG.assets.load("Secuencias/Mask_10/mask_10_00" + df.format(counter) + ".png", Texture.class);
+		}
+		*/
+		// 11. IDLE LOOP 
+		for (counter = 1; counter <= 43; counter++) {
+			TG.assets.load("Secuencias/Mask_11/mask_11_00" + df.format(counter) + ".png", Texture.class);
+		}
+		
+		// 12. SAD LOOP
+		/*
+		for (counter = 1; counter <= 30; counter++) {
+			TG.assets.load("Secuencias/Mask_12/mask_12_00" + df.format(counter) + ".png", Texture.class);
+		}
+		*/
 
 	}
 	

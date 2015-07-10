@@ -88,18 +88,6 @@ public class Game extends Group implements GestureListener {
 		background_parallax.setX(2.5f*TG.Display.WIDTH -background_parallax.getWidth()/2);
 		background_parallax.setY(0.5f*TG.Display.HEIGHT -background_parallax.getHeight()/2);
 		
-		//bg = new Image(TG.assets.get("screen-background_01.png", Texture.class));
-		//bg.setTouchable(Touchable.disabled);
-		
-		//godBackground = new Sprite(TG.assets.get("god-bg.png", Texture.class));
-		//godBackground.setScale(1f/2.75f);
-		//godBackground.setX((TG.Display.WIDTH*2f -godBackground.getWidth()/2 +godBackground.getWidth()/2*godBackground.getScaleX()));
-		//godBackground.setY(0 -godBackground.getHeight()/2 +godBackground.getHeight()/2*godBackground.getScaleY());
-		
-		//bg2 = new Image(TG.assets.get("screen-background_02.png", Texture.class));
-		//bg2.setX(TG.Display.WIDTH*3);
-		//bg2.setTouchable(Touchable.disabled);
-		
 		top = new Sprite(TG.assets.get("top.png", Texture.class));
 		top.setScale(1f/2.75f);
 		top.setY(TG.Display.HEIGHT -top.getHeight()/2 -top.getHeight()/2*top.getScaleY());
@@ -118,6 +106,7 @@ public class Game extends Group implements GestureListener {
 		god.setX(TG.Display.WIDTH 			* God.POSITION);
 		creation.setX(TG.Display.WIDTH 		* Creation.POSITION);
 		store.setX(TG.Display.WIDTH 		* Store.POSITION);
+		
 		
 		this.addActor(codex);
 		this.addActor(providence);
@@ -166,6 +155,7 @@ public class Game extends Group implements GestureListener {
 		
 		
 		// limite es 1296 en ambos sentidos
+		
 		float margin_x = ((background_parallax.getWidth()*background_parallax.getScaleX() -TG.Display.WIDTH)/2f);
 		float displacement_x = this.getStage().getCamera().position.x - 1080f;
 		if (displacement_x > 1296) { displacement_x = 1296f; }
@@ -173,6 +163,7 @@ public class Game extends Group implements GestureListener {
 		displacement_x = -(displacement_x / 1296f)*margin_x;
 		
 		background_parallax.setX(this.getStage().getCamera().position.x -background_parallax.getWidth()/2 +displacement_x);
+		
 	}
 	
 	@Override

@@ -27,14 +27,6 @@ public class Yahvy {
 	public float origin_x;
 	public float origin_y;
 	
-	private Animation maskAnimation;
-	private float maskAnimationTime = 0; 
-	
-	private Texture tex1;
-	private Sprite body;
-	public Player player;
-	private LibGdxLoader loader;
-	
 	public static int IdleBlink = 0;
 	public static int TapEye = 1;
 	public static int TapBody = 2;
@@ -48,6 +40,16 @@ public class Yahvy {
 	public static int TapCritical = 10;
 	public static int IdleLoop = 11;
 	public static int SadLoop = 12;
+	
+	private float maskAnimationTime = 0; 
+	
+	private int currentAnimation = IdleBlink;
+	private Animation[]maskAnimations = new Animation[13];
+	
+	private Texture tex1;
+	private Sprite body;
+	public Player player;
+	private LibGdxLoader loader;
 	
 	public Yahvy(God aux_screen, float aux_origin_x, float aux_origin_y) {
 		
@@ -63,37 +65,34 @@ public class Yahvy {
 		loader.load(handle.file());
 		player = new Player(data.getEntity(0));
 		
-		player.setAnimation(IdleBlink);
+		changeAnimation(IdleLoop);
 		
 		player.setScale(1f/2.75f);
 		player.setPosition(TG.Display.WIDTH*2.5f, 300);
 		
 		DecimalFormat df = new DecimalFormat("00"); 
+		TextureRegion[] frames;
 		
-		TextureRegion[] frames = new TextureRegion[18];
+		// 0. IDLE BLINK 
+		/*
+		frames = new TextureRegion[18];
 		
 		for (int i = 1; i <= 18; i++) {
 			frames[i-1] = new TextureRegion(TG.assets.get("Secuencias/Mask_0/mask_0_00" + df.format(i) + ".png", Texture.class));
 		}
 		
-		/*
-		frames[1] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
-		frames[2] = new TextureRegion(TG.assets.get("shaders/masks/mask002.png", Texture.class));
-		frames[3] = new TextureRegion(TG.assets.get("shaders/masks/mask003.png", Texture.class));
-		frames[4] = new TextureRegion(TG.assets.get("shaders/masks/mask004.png", Texture.class));
-		frames[5] = new TextureRegion(TG.assets.get("shaders/masks/mask005.png", Texture.class));
-		frames[6] = new TextureRegion(TG.assets.get("shaders/masks/mask006.png", Texture.class));
-		frames[7] = new TextureRegion(TG.assets.get("shaders/masks/mask007.png", Texture.class));
-		frames[8] = new TextureRegion(TG.assets.get("shaders/masks/mask006.png", Texture.class));
-		frames[9] = new TextureRegion(TG.assets.get("shaders/masks/mask005.png", Texture.class));
-		frames[10] = new TextureRegion(TG.assets.get("shaders/masks/mask004.png", Texture.class));
-		frames[11] = new TextureRegion(TG.assets.get("shaders/masks/mask003.png", Texture.class));
-		frames[12] = new TextureRegion(TG.assets.get("shaders/masks/mask002.png", Texture.class));
-		frames[13] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
-		frames[14] = new TextureRegion(TG.assets.get("shaders/masks/mask001.png", Texture.class));
+		maskAnimations[IdleBlink] = new Animation(1f, frames);
 		*/
+		// 11. IDLE LOOP 
+		frames = new TextureRegion[43];
+		
+		for (int i = 1; i <= 43; i++) {
+			frames[i-1] = new TextureRegion(TG.assets.get("Secuencias/Mask_11/mask_11_00" + df.format(i) + ".png", Texture.class));
+		}
+		
+		maskAnimations[IdleLoop] = new Animation(1f, frames);
+		
 
-		maskAnimation = new Animation(1f, frames);
 		
 		body = new Sprite(new Texture(Gdx.files.internal("spriter/Yahvy/Yahvy_Body.png")));
 
@@ -111,7 +110,7 @@ public class Yahvy {
 		player.setTime((player.getTime() + Gdx.graphics.getDeltaTime()*1000));
 		player.update();
 		
-		maskAnimationTime = (player.getTime()/800f)*maskAnimation.getAnimationDuration();
+		maskAnimationTime = (player.getTime()/800f)*maskAnimations[currentAnimation].getAnimationDuration();
 
 	}
 	
@@ -154,7 +153,7 @@ public class Yahvy {
 					if (object.ref.file == 0) {
 					//if (sprite == body) {
 						
-						TextureRegion current = maskAnimation.getKeyFrame(maskAnimationTime);
+						TextureRegion current = maskAnimations[currentAnimation].getKeyFrame(maskAnimationTime);
 						current.getTexture().bind(2);
 	
 						Gdx.gl.glActiveTexture(GL20.GL_TEXTURE0);
@@ -181,5 +180,14 @@ public class Yahvy {
 			}
 			
 		}
+	
+	
+	public void changeAnimation (int numAnimation) {
+		
+		maskAnimationTime = 0;
+		currentAnimation = numAnimation;
+		player.setAnimation(numAnimation);
+	
+	}
 
 }
